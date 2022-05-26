@@ -63,10 +63,10 @@
                                                 </td>
                                                 <td>
                                                     <div class="row">
-                                                        @if (!$parent)
+                                                        {{-- @if (!$parent) --}}
                                                             <a class="btn btn-primary mr-1"
                                                                 href="{{ route('admin.categories.index', ['parent' => $category->id]) }}">Sub-Categories</a>
-                                                        @endif
+                                                        {{-- @endif --}}
 
                                                         @if (!$parent)
                                                             <a class="btn btn-success mr-1"

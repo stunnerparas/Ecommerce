@@ -56,7 +56,15 @@ class CategoryController extends Controller
         $input = $request->except('image', 'banner');
         $input['image'] = $this->fileUpload($request, 'image');
         $input['banner'] = $this->fileUpload($request, 'banner');
-        $input['slug'] = Str::slug($request->name);
+
+        // for unique slug
+        $slug = $request->name;
+        if ($request->parent_id) {
+            $parentId = $this->getParentCategoryId($request->parent_id);
+            $parentCategory = Category::where('id', $parentId)->first();
+            $slug = $parentCategory->name . '-' . $request->name;
+        }
+        $input['slug'] = Str::slug($slug);
         Category::create($input);
 
         if ($request->parent_id) {
@@ -107,7 +115,15 @@ class CategoryController extends Controller
             $this->removeFile($category->banner);
             $input['banner'] = $banner;
         }
-        $input['slug'] = Str::slug($request->name);
+
+        // for unique slug
+        $slug = $request->name;
+        if ($request->parent_id) {
+            $parentId = $this->getParentCategoryId($request->parent_id);
+            $parentCategory = Category::where('id', $parentId)->first();
+            $slug = $parentCategory->name . '-' . $request->name;
+        }
+        $input['slug'] = Str::slug($slug);
         $category->update($input);
 
         if ($request->parent_id) {
@@ -147,5 +163,16 @@ class CategoryController extends Controller
         if (File::exists($path)) {
             File::delete($path);
         }
+    }
+
+    public function getParentCategoryId($parent_id)
+    {
+        $category = Category::where('id', $parent_id)->first();
+
+        if ($category->parent_id != 0) {
+            return $this->getParentCategoryId($category->parent_id);
+        }
+
+        return $category->id;
     }
 }
