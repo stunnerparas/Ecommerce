@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreFaqRequest;
-use App\Models\Faq;
+use App\Http\Requests\StoreTypeRequest;
+use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
-class FaqController extends Controller
+class TypeController extends Controller
 {
     public function __construct()
     {
@@ -21,8 +22,8 @@ class FaqController extends Controller
      */
     public function index()
     {
-        $faqs = Faq::latest()->paginate(10);
-        return view('admin.faq.index', compact('faqs'));
+        $types = Type::latest()->paginate(10);
+        return view('admin.type.index', compact('types'));
     }
 
     /**
@@ -32,7 +33,7 @@ class FaqController extends Controller
      */
     public function create()
     {
-        return view('admin.faq.create');
+        return view('admin.type.create');
     }
 
     /**
@@ -41,12 +42,12 @@ class FaqController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFaqRequest $request)
+    public function store(StoreTypeRequest $request)
     {
         $input = $request->all();
-        Faq::create($input);
-
-        return redirect()->route('admin.faqs.index')->with('success', 'New Faq Created');
+        $input['slug'] = Str::slug($request->type);
+        Type::create($input);
+        return redirect()->route('admin.types.index')->with('success', 'New Type Created');
     }
 
     /**
@@ -66,9 +67,9 @@ class FaqController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Faq $faq)
+    public function edit(Type $type)
     {
-        return view('admin.faq.edit', compact('faq'));
+        return view('admin.type.edit', compact('type'));
     }
 
     /**
@@ -78,12 +79,12 @@ class FaqController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreFaqRequest $request, Faq $faq)
+    public function update(StoreTypeRequest $request, Type $type)
     {
         $input = $request->all();
-        $faq->update($input);
-
-        return redirect()->route('admin.faqs.index')->with('success', 'Faq Updated');
+        $input['slug'] = Str::slug($request->type);
+        $type->update($input);
+        return redirect()->route('admin.types.index')->with('success', 'Type Updated');
     }
 
     /**
@@ -92,9 +93,9 @@ class FaqController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Faq $faq)
+    public function destroy(Type $type)
     {
-        $faq->delete();
-        return redirect()->route('admin.faqs.index')->with('success', 'Faq Deleted');
+        $type->delete();
+        return redirect()->route('admin.types.index')->with('success', 'Type Deleted');
     }
 }

@@ -10,12 +10,19 @@ use App\Models\Product;
 use App\Models\ProductAttribute;
 use App\Models\ProductCategory;
 use App\Models\ProductGallery;
+use App\Models\ProductType;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use File;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -71,10 +78,12 @@ class ProductController extends Controller
         $categories = Category::where('parent_id', 0)->get();
         $attributes = Attribute::where('parent_id', 0)->where('show', 'Yes')->get();
         $gallery = ProductGallery::where('product_id', $product->id)->get();
+        $types = Type::latest()->get();
 
         $productCategories = ProductCategory::where('product_id', $product->id)->pluck('category_id')->toArray();
         $productAttributes = ProductAttribute::where('product_id', $product->id)->pluck('attribute_id')->toArray();
-        return view('admin.product.edit', compact('product', 'categories', 'attributes', 'productCategories', 'productAttributes', 'gallery'));
+        $productTypes = ProductType::where('product_id', $product->id)->pluck('type_id')->toArray();
+        return view('admin.product.edit', compact('product', 'categories', 'attributes', 'productCategories', 'productAttributes', 'gallery', 'types', 'productTypes'));
     }
 
     /**
@@ -94,6 +103,8 @@ class ProductController extends Controller
         $product->categories()->attach($request->category);
         $product->attributes()->detach();
         $product->attributes()->attach($request->attribute);
+        $product->types()->detach();
+        $product->types()->attach($request->types);
 
         return redirect()->back()->with('success', 'Product Updated');
     }

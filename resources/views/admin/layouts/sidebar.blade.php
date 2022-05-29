@@ -40,6 +40,8 @@
                     {{-- <li><a class="nav-link" href="layout-top-navigation.html">Orders</a></li> --}}
                     <li class="{{ Request::segment(2) == 'attributes' ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.attributes.index') }}">Attributes</a></li>
+                    <li class="{{ Request::segment(2) == 'types' ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.types.index') }}">Types</a></li>
                 </ul>
             </li>
 

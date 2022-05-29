@@ -9,6 +9,11 @@ use File;
 
 class CompanyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $company = Company::latest()->first();

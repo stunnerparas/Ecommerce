@@ -43,4 +43,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Attribute::class, 'product_attributes');
     }
+
+    public function types()
+    {
+        return $this->belongsToMany(Type::class, 'product_types');
+    }
 }

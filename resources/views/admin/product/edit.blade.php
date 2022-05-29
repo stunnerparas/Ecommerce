@@ -42,7 +42,7 @@
 
                                             <div class="form-group">
                                                 <label>Price</label>
-                                                <input type="number" value="{{ old('price', $product->price) }}"
+                                                <input type="text" value="{{ old('price', $product->price) }}"
                                                     name="price" class="form-control" required="">
                                                 <div class="invalid-feedback">
                                                     Price is required
@@ -61,14 +61,11 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Type</label><br>
-                                                @foreach (App\Models\Product::type as $key => $item)
+                                                <label>Types</label><br>
+                                                @foreach ($types as $key => $type)
                                                     <span class="mr-3">
-                                                        <input
-                                                            @if ($product->type) @if (in_array($key, json_decode($product->type))) {{ 'checked' }} @endif
-                                                            @endif
-                                                        type="checkbox" name="type[]" value="{{ $key }}">
-                                                        {{ $item }}
+                                                        <input @if (in_array($type->id, $productTypes)) {{ 'checked' }} @endif type="checkbox" name="types[]" value="{{ $type->id }}">
+                                                        {{ $type->type }}
                                                     </span>
                                                 @endforeach
                                             </div>

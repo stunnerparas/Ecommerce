@@ -9,18 +9,20 @@ use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/checklogin', [AuthController::class, 'checkLogin'])->name('checklogin');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/change-password', [AuthController::class, 'changePassword'])->name('change.password');
-Route::post('/change-password', [AuthController::class, 'changePasswordStore'])->name('change.password.store');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('admin');
+Route::get('/change-password', [AuthController::class, 'changePassword'])->name('change.password')->middleware('admin');
+Route::post('/change-password', [AuthController::class, 'changePasswordStore'])->name('change.password.store')->middleware('admin');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::resource('sliders', SliderController::class);
+Route::resource('types', TypeController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('attributes', AttributeController::class);
 Route::resource('products', ProductController::class);
