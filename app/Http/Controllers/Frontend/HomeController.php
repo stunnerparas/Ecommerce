@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -19,7 +20,21 @@ class HomeController extends Controller
         $menCollections = $this->getProductsFromCategory('men', 3);
         $womenCollections = $this->getProductsFromCategory('women', 3);
 
-        return view('frontend.index', compact('signatureCollections', 'classicCollections', 'superfineCollections', 'accessoriesCollections', 'menCollections', 'womenCollections'));
+        // banners
+        $mainBanner = $this->banner('main-banner');
+        $signatureBanner = $this->banner('signature');
+        $classicBanner = $this->banner('classic');
+        $accessoriesBanner = $this->banner('accessories');
+        $menBanner = $this->banner('men');
+        $womenBanner = $this->banner('women');
+        $superfineBanner = $this->banner('superfine');
+
+        $footerTop = $this->banner('footer-top-image');
+        $footerLeft = $this->banner('footer-left-image');
+        $footerCenter = $this->banner('footer-center-image');
+        $footerRight = $this->banner('footer-right-image');
+
+        return view('frontend.index', compact('mainBanner', 'footerTop', 'footerLeft', 'footerCenter', 'footerRight', 'signatureBanner', 'classicBanner', 'accessoriesBanner', 'menBanner', 'womenBanner', 'superfineBanner', 'signatureCollections', 'classicCollections', 'superfineCollections', 'accessoriesCollections', 'menCollections', 'womenCollections'));
     }
 
     public function getProductsFromType($type, $limit)
@@ -32,9 +47,11 @@ class HomeController extends Controller
     public function getProductsFromCategory($category, $limit)
     {
         $category_ids = $this->getChildCategories($category);
-        return Product::select('products.*')->join('product_categories', 'product_categories.product_id', '=', 'products.id')
+        return Product::select('products.*')->distinct()->join('product_categories', 'product_categories.product_id', '=', 'products.id')
             ->join('categories', 'categories.id', '=', 'product_categories.category_id')
             ->whereIn('product_categories.category_id', $category_ids)->limit($limit)->latest()->get();
+
+
     }
 
     public function getChildCategories($slug)
@@ -55,5 +72,10 @@ class HomeController extends Controller
             }
         }
         return $emp[$parent_id];
+    }
+
+    public function banner($category)
+    {
+        return Slider::where('category', $category)->latest()->first();
     }
 }

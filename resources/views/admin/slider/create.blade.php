@@ -22,19 +22,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Heading</label>
-                                                <input type="text" value="{{ old('heading') }}" name="heading"
-                                                    class="form-control" required="">
-                                                <div class="invalid-feedback">
-                                                    Heading is required
-                                                </div>
-                                                @error('heading')
-                                                    <div class="invalid-feedback" style="display: block;">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
+
 
                                             <div class="form-group">
                                                 <label>Title</label>
@@ -52,8 +40,8 @@
 
                                             <div class="form-group">
                                                 <label>Button Text</label>
-                                                <input type="text" value="{{ old('btn_text') }}" name="btn_text"
-                                                    class="form-control" required="">
+                                                <input type="text" value="{{ old('btn_text', 'Shop Now') }}"
+                                                    name="btn_text" class="form-control" required="">
                                                 <div class="invalid-feedback">
                                                     Button Text is required
                                                 </div>
@@ -66,7 +54,7 @@
 
                                             <div class="form-group">
                                                 <label>Button Link</label>
-                                                <input type="text" value="{{ old('btn_link') }}" name="btn_link"
+                                                <input type="text" value="{{ old('btn_link', '#') }}" name="btn_link"
                                                     class="form-control" required="">
                                                 <div class="invalid-feedback">
                                                     Button Link is required
@@ -92,6 +80,25 @@
                                                 <br>
                                                 <img src="" style="height:130px" class="preview-image-src" id="view-image"
                                                     alt="">
+                                            </div>
+                                            @error('image')
+                                                <div class="invalid-feedback" style="display: block;">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+
+                                            <div class="form-group">
+                                                <label>Position</label>
+                                                <input type="text" value="{{ old('category') }}" name="category"
+                                                    class="form-control" required="">
+                                                <div class="invalid-feedback">
+                                                    Category is required
+                                                </div>
+                                                @error('category')
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>

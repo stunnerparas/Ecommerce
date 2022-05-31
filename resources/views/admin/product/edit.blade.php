@@ -71,6 +71,17 @@
                                             </div>
 
                                             <div class="form-group">
+                                                <label>Tag</label>
+                                                <select name="tag" id="" class="form-control">
+                                                    @foreach (App\Models\Product::tags as $key => $item)
+                                                        <option
+                                                            {{ old('tag', $product->tag) == $key ? 'selected' : '' }}
+                                                            value="{{ $key }}">{{ $item }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
                                                 <label>Visibility Status</label>
                                                 <select name="visibility_status" id="" class="form-control">
                                                     @foreach (App\Models\Product::visibility_status as $key => $item)

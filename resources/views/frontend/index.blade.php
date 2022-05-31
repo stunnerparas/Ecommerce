@@ -2,27 +2,31 @@
 
 @section('content')
     <!-- Hero Section Started -->
-    <section class="hero">
-        <div class="hero-menu banner">
-            <img src="{{ asset('frontend/assets/images/Hero/hero2.png') }}" class="w-100 h-100" alt="" />
-            <div class="content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 hero-container">
-                            <div class="hero__text">
-                                <h2>Fall 2022 Collection</h2>
-                                <p>
-                                    A specialist label creating luxury essentials. Ethically crafted with an unwavering
-                                    commitment to exceptional quality.
-                                </p>
-                                <a href="#" class="primary-btn">Shop now <i class="fas fa-arrow-right"></i></a>
+    @if ($mainBanner)
+        <section class="hero">
+            <div class="hero-menu banner">
+                <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100" alt="" />
+                <div class="content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 hero-container">
+                                <div class="hero__text">
+                                    <h2>{{ $mainBanner->title ?? '' }}</h2>
+                                    <p>
+                                        {!! $mainBanner->description ?? '' !!}
+                                    </p>
+                                    <a href="{{ $mainBanner->btn_link ?? '' }}"
+                                        class="primary-btn">{{ $mainBanner->btn_text ?? '' }} <i
+                                            class="fas fa-arrow-right"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
+
     <!-- Hero Section End -->
     <!-- Product Section Started -->
     <section class="product spad my-2">
@@ -218,21 +222,25 @@
     <!-- Catagories Section End -->
     <!-- Signature Collection Section -->
     <section class="signature-collection my-3">
-        <div class="signature-collection-banner banner">
-            <img src="{{ asset('frontend/assets/images/signature-collection/signature-banner.png') }}" alt="" />
-            <div class="row signature-banner-container">
-                <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
-                    <div class="signature-collection-text px-4 py-2">
-                        <h2>Signature Collection</h2>
-                        <p>
-                            A specialist label creating luxury essentials. Ethically crafted with an unwavering commitment
-                            to exceptional quality.
-                        </p>
-                        <a href="#" class="primary-btn">Shop now <i class="fas fa-arrow-right"></i></a>
+        @if ($signatureBanner)
+            <div class="signature-collection-banner banner">
+                <img src="{{ asset('images/' . ($signatureBanner->image ?? '')) }}" alt="" />
+                <div class="row signature-banner-container">
+                    <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
+                        <div class="signature-collection-text px-4 py-2">
+                            <h2>{{ $signatureBanner->title ?? '' }}</h2>
+                            <p>
+                                {!! $signatureBanner->description ?? '' !!}
+                            </p>
+                            <a href="{{ $signatureBanner->btn_link ?? '' }}"
+                                class="primary-btn">{{ $signatureBanner->btn_text ?? '' }} <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
+
         <div class="signature-collection-product py-3">
             <div class="container-fluid">
                 <div class="row product_filter">
@@ -293,21 +301,25 @@
     <!-- Signature Collection End -->
     <!--  Classic Collection Section -->
     <section class="classic-collection my-2">
-        <div class="classic-collection-banner banner">
-            <img src="{{ asset('frontend/assets/images/classic-collection/classic-banner.png') }}" alt="" />
-            <div class="row classic-banner-container">
-                <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
-                    <div class="classic-collection-text px-4 py-2">
-                        <h2>Classic Collection</h2>
-                        <p>
-                            A specialist label creating luxury essentials. Ethically crafted with an unwavering commitment
-                            to exceptional quality.
-                        </p>
-                        <a href="#" class="primary-btn">Shop now <i class="fas fa-arrow-right"></i></a>
+        @if ($classicBanner)
+            <div class="classic-collection-banner banner">
+                <img src="{{ asset('images/' . ($classicBanner->image ?? '')) }}" alt="" />
+                <div class="row classic-banner-container">
+                    <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
+                        <div class="classic-collection-text px-4 py-2">
+                            <h2>{{ $classicBanner->title ?? '' }}</h2>
+                            <p>
+                                {!! $classicBanner->description ?? '' !!}
+                            </p>
+                            <a href="{{ $classicBanner->btn_link ?? '' }}"
+                                class="primary-btn">{{ $classicBanner->btn_text ?? '' }} <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
+
         <div class="classic-collection-product py-4">
             <div class="container-fluid">
                 <div class="row product_filter">
@@ -409,21 +421,25 @@
     <!-- Deal of week End -->
     <!-- Accessories Collection Started -->
     <section class="accessories-collection my-2">
-        <div class="accessories-collection-banner banner">
-            <img src="{{ asset('frontend/assets/images/accessories-collection/accessories-banner.png') }}" alt="" />
-            <div class="row accessories-banner-container">
-                <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
-                    <div class="accessories-collection-text px-4 py-2">
-                        <h2>Accessories Collection</h2>
-                        <p>
-                            A specialist label creating luxury essentials. Ethically crafted with an unwavering commitment
-                            to exceptional quality.
-                        </p>
-                        <a href="#" class="primary-btn">Shop now <i class="fas fa-arrow-right"></i></a>
+        @if ($accessoriesBanner)
+            <div class="accessories-collection-banner banner">
+                <img src="{{ asset('images/' . ($accessoriesBanner->image ?? '')) }}" alt="" />
+                <div class="row accessories-banner-container">
+                    <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
+                        <div class="accessories-collection-text px-4 py-2">
+                            <h2>{{ $accessoriesBanner->title ?? '' }}</h2>
+                            <p>
+                                {!! $accessoriesBanner->description ?? '' !!}
+                            </p>
+                            <a href="{{ $accessoriesBanner->btn_link ?? '' }}"
+                                class="primary-btn">{{ $accessoriesBanner->btn_text ?? '' }} <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
+
         <div class="accessories-collection-product py-4">
             <div class="container-fluid">
                 <div class="row product_filter">
@@ -436,7 +452,7 @@
                             <div class="product__item">
                                 <div class="product__item__pic">
                                     <span class="label">New</span>
-                                    <img src="{{ asset('frontend/assets/images/accessories-collection/DSC04306.jpg') }}"
+                                    <img src="{{ asset('images/' . $accessories->featured_image) }}"
                                         class="w-100 h-100" alt="" />
                                 </div>
                                 <div class="product__item__text">
@@ -484,21 +500,25 @@
     <!-- Accessories Collection End -->
     <!-- Men Collection Started -->
     <section class="men-collection my-2">
-        <div class="men-collection-banner banner">
-            <img src="{{ asset('frontend/assets/images/men-collection/men-banner.png') }}" alt="" />
-            <div class="row men-banner-container">
-                <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
-                    <div class="men-collection-text px-4 py-2">
-                        <h2>Men Collection</h2>
-                        <p>
-                            A specialist label creating luxury essentials. Ethically crafted with an unwavering commitment
-                            to exceptional quality.
-                        </p>
-                        <a href="#" class="primary-btn">Shop now <i class="fas fa-arrow-right"></i></a>
+        @if ($menBanner)
+            <div class="men-collection-banner banner">
+                <img src="{{ asset('images/' . ($menBanner->image ?? '')) }}" alt="" />
+                <div class="row men-banner-container">
+                    <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
+                        <div class="men-collection-text px-4 py-2">
+                            <h2>{{ $menBanner->title ?? '' }}</h2>
+                            <p>
+                                {!! $menBanner->description ?? '' !!}
+                            </p>
+                            <a href="{{ $menBanner->btn_link ?? '' }}"
+                                class="primary-btn">{{ $menBanner->btn_text ?? '' }} <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
+
         <div class="men-collection-product py-4">
             <div class="container-fluid">
                 <div class="row product_filter">
@@ -558,21 +578,25 @@
     <!-- Men Collection End -->
     <!-- Women Collection Started -->
     <section class="women-collection my-2">
-        <div class="women-collection-banner banner">
-            <img src="{{ asset('frontend/assets/images/women-collection/women-banner.png') }}" alt="" />
-            <div class="row women-banner-container">
-                <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
-                    <div class="women-collection-text px-4 py-2">
-                        <h2>Women Collection</h2>
-                        <p>
-                            A specialist label creating luxury essentials. Ethically crafted with an unwavering commitment
-                            to exceptional quality.
-                        </p>
-                        <a href="#" class="primary-btn">Shop now <i class="fas fa-arrow-right"></i></a>
+        @if ($womenBanner)
+            <div class="women-collection-banner banner">
+                <img src="{{ asset('images/' . ($womenBanner->image ?? '')) }}" alt="" />
+                <div class="row women-banner-container">
+                    <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
+                        <div class="women-collection-text px-4 py-2">
+                            <h2>{{ $womenBanner->title ?? '' }}</h2>
+                            <p>
+                                {!! $womenBanner->description ?? '' !!}
+                            </p>
+                            <a href="{{ $womenBanner->btn_link ?? '' }}"
+                                class="primary-btn">{{ $womenBanner->btn_text ?? '' }} <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
+
         <div class="women-collection-product py-4">
             <div class="container-fluid">
                 <div class="row product_filter">
@@ -583,9 +607,9 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic">
-                                    <span class="label">New</span>
-                                    <img src="{{ asset('frontend/assets/images/women-collection/DSC03185.jpg') }}"
-                                        class="w-100 h-100" alt="" />
+                                    <span class="label">{{ $women->tag }}</span>
+                                    <img src="{{ asset('images/' . $women->featured_image) }}" class="w-100 h-100"
+                                        alt="" />
                                 </div>
                                 <div class="product__item__text">
                                     <h6>{{ $women->name }}</h6>
@@ -690,56 +714,72 @@
                 </div>
             </div>
         </div>
-        <div class="superfine-collection-banner banner">
-            <img src="{{ asset('frontend/assets/images/classic-collection/classic-banner.png') }}" alt="" />
-            <div class="row superfine-banner-container">
-                <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
-                    <div class="superfine-collection-text px-4 py-2">
-                        <h2>Superfine Collection</h2>
-                        <p>
-                            A specialist label creating luxury essentials. Ethically crafted with an unwavering commitment
-                            to exceptional quality.
-                        </p>
-                        <a href="#" class="primary-btn">Shop now <i class="fas fa-arrow-right"></i></a>
+
+        @if ($superfineBanner)
+            <div class="superfine-collection-banner banner">
+                <img src="{{ asset('images/' . ($superfineBanner->image ?? '')) }}" alt="" />
+                <div class="row superfine-banner-container">
+                    <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
+                        <div class="superfine-collection-text px-4 py-2">
+                            <h2>{{ $superfineBanner->title ?? '' }}</h2>
+                            <p>
+                                {!! $superfineBanner->description ?? '' !!}
+                            </p>
+                            <a href="{{ $superfineBanner->btn_link ?? '' }}"
+                                class="primary-btn">{{ $superfineBanner->btn_text ?? '' }} <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
+
     </section>
     <!-- Women Collection End -->
 
     <!-- Detail Section Start -->
     <section class="detail">
         <div class="container-fluid">
-            <div class="detail-banner">
-                <img src="{{ asset('frontend/assets/images/details/detail-banner.jpg') }}" class="w-100 h-100"
-                    alt="" />
-                <div class="detail-content text-center">
-                    <h2 class="section-heading">Cashmere</h2>
-                    <h3 class="section-heading">Precious and noble fiber</h3>
+            @if ($footerTop)
+                <div class="detail-banner">
+                    <img src="{{ asset('images/' . ($footerTop->image ?? '')) }}" class="w-100 h-100" alt="" />
+                    <div class="detail-content text-center">
+                        <h2 class="section-heading">{{ $footerTop->title ?? '' }}</h2>
+                        <h3 class="section-heading">{!! strip_tags($footerTop->description ?? '') !!}</h3>
+                    </div>
                 </div>
-            </div>
+            @endif
+
             <div class="detail-images">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-12 px-2">
-                            <div class="image my-2">
-                                <img src="{{ asset('frontend/assets/images/details/detail1.jpg') }}"
-                                    class="w-100 h-100" alt="" />
+                        @if ($footerLeft)
+                            <div class="col-lg-4 col-md-6 col-sm-12 px-2">
+                                <div class="image my-2">
+                                    <img src="{{ asset('images/' . $footerLeft->image) }}" class="w-100 h-100"
+                                        alt="" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 px-2">
-                            <div class="image my-2">
-                                <img src="{{ asset('frontend/assets/images/details/detail2.jpg') }}"
-                                    class="w-100 h-100" alt="" />
+                        @endif
+
+                        @if ($footerCenter)
+                            <div class="col-lg-4 col-md-6 col-sm-12 px-2">
+                                <div class="image my-2">
+                                    <img src="{{ asset('images/' . ($footerCenter->image ?? '')) }}"
+                                        class="w-100 h-100" alt="" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 px-2">
-                            <div class="image my-2">
-                                <img src="{{ asset('frontend/assets/images/details/detail3.jpg') }}"
-                                    class="w-100 h-100" alt="" />
+                        @endif
+
+                        @if ($footerRight)
+                            <div class="col-lg-4 col-md-6 col-sm-12 px-2">
+                                <div class="image my-2">
+                                    <img src="{{ asset('images/' . ($footerRight->image ?? '')) }}"
+                                        class="w-100 h-100" alt="" />
+                                </div>
                             </div>
-                        </div>
+                        @endif
+
                     </div>
                 </div>
             </div>

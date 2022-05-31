@@ -18,7 +18,7 @@
                     <span>Settings</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ Request::segment(2) == 'sliders' ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.sliders.index') }}">Sliders</a></li>
+                            href="{{ route('admin.sliders.index') }}">Banners</a></li>
                     <li class="{{ Request::segment(2) == 'company' ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.company.index') }}">Company Details</a></li>
                     <li class="{{ Request::segment(2) == 'pages' ? 'active' : '' }}"><a class="nav-link"

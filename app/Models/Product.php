@@ -19,7 +19,9 @@ class Product extends Model
         'featured_image',
         'visibility_status',
         'slug',
-        'type'
+        'type',
+        'tag',
+        'rating',
     ];
 
     public const visibility_status = [
@@ -32,6 +34,12 @@ class Product extends Model
         'Signature' => 'Signature',
         'Classic' => 'Classic',
         'Accessories' => 'Accessories',
+    ];
+
+    public const tags = [
+        '' => 'None',
+        'New' => 'New',
+        'Sale' => 'Sale',
     ];
 
     public function categories()

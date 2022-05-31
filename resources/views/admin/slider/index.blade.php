@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Sliders</h1>
+            <h1>Homepage Banners</h1>
             <div class="section-header-breadcrumb">
                 <a class="btn btn-primary" href="{{ route('admin.sliders.create') }}"><i class="fas fa-plus"></i>
                     Create</a>
@@ -22,8 +22,10 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Image</th>
-                                            <th scope="col">Heading</th>
+                                            {{-- <th scope="col">Heading</th> --}}
                                             <th scope="col">Title</th>
+                                            <th scope="col">Link</th>
+                                            <th scope="col">Position</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -37,8 +39,10 @@
                                                             alt="{{ $slider->title }}" style="height: 50px">
                                                     </a>
                                                 </td>
-                                                <td>{{ $slider->heading }}</td>
+                                                {{-- <td>{{ $slider->heading }}</td> --}}
                                                 <td>{{ $slider->title }}</td>
+                                                <td>{{ $slider->btn_link }}</td>
+                                                <td>{{ $slider->category }}</td>
 
                                                 <td>
                                                     <div class="row">

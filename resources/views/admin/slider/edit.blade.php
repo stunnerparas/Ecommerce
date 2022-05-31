@@ -23,19 +23,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Heading</label>
-                                                <input type="text" value="{{ old('heading', $slider->heading) }}"
-                                                    name="heading" class="form-control" required="">
-                                                <div class="invalid-feedback">
-                                                    Heading is required
-                                                </div>
-                                                @error('heading')
-                                                    <div class="invalid-feedback" style="display: block;">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
+
 
                                             <div class="form-group">
                                                 <label>Title</label>
@@ -94,6 +82,25 @@
                                                 <br>
                                                 <img src="{{ asset('images/' . $slider->image) }}" style="height:130px"
                                                     class="preview-image-src" id="view-image" alt="">
+                                            </div>
+                                            @error('image')
+                                                <div class="invalid-feedback" style="display: block;">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+
+                                            <div class="form-group">
+                                                <label>Position</label>
+                                                <input type="text" value="{{ old('category', $slider->category) }}"
+                                                    name="category" class="form-control" required="">
+                                                <div class="invalid-feedback">
+                                                    Category is required
+                                                </div>
+                                                @error('category')
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
