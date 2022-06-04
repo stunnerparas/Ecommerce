@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +21,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
+
+Route::get('/product/{product:slug}', [ProductController::class, 'product'])->name('product');
+Route::resource('cart', CartController::class);
+

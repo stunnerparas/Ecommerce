@@ -15,7 +15,7 @@
                 </div>
             </div>
             <a href="#"><i class="fas fa-heart fa-2x"></i></a>
-            <a href="#"><i class="fas fa-shopping-cart fa-2x"></i></a>
+            <a href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart fa-2x"></i></a>
         </div>
         <div class="offcanvas__links">
             <a href="#">Login</a>
@@ -367,7 +367,8 @@
         <div class="row">
             <div class="col-lg-2 col-md-6 col-sm-6 col-10">
                 <div class="header__logo">
-                    <a href="./index.html"><img src="{{ asset('frontend/assets/images/logo/logo.png') }}" class="w-100 h-100" alt="" /></a>
+                    <a href="./index.html"><img src="{{ asset('frontend/assets/images/logo/logo.png') }}"
+                            class="w-100 h-100" alt="" /></a>
                 </div>
             </div>
             <div class="col-lg-8 col-md-8 header_nav">
@@ -411,7 +412,7 @@
                     </div>
                 </div>
                 <a href="#"><i class="fas fa-heart fa-2x"></i></a>
-                <a href="#"><i class="fas fa-shopping-cart fa-2x"></i></a>
+                <a href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart fa-2x"></i></a>
             </div>
         </div>
         <!-- Sub menu Section Started -->
@@ -645,13 +646,15 @@
                     </div>
 
                     <div class="col-lg-2 pane-image-column">
-                        <img src="{{ asset('frontend/assets/images/sub-menu/women.jpg') }}" class="w-100 h-100" alt="">
+                        <img src="{{ asset('frontend/assets/images/sub-menu/women.jpg') }}" class="w-100 h-100"
+                            alt="">
                         <div class="column-content text-center">
                             <a class="heading">Shop Signature</a>
                         </div>
                     </div>
                     <div class="col-lg-2 pane-image-column">
-                        <img src="{{ asset('frontend/assets/images/sub-menu/women(2).jpg') }}" class="w-100 h-100" alt="">
+                        <img src="{{ asset('frontend/assets/images/sub-menu/women(2).jpg') }}" class="w-100 h-100"
+                            alt="">
                         <div class="column-content text-center">
                             <a class="heading">Shop All Women</a>
                         </div>
@@ -909,21 +912,24 @@
                         </ul>
                     </div>
                     <div class="col-lg-3 pane-image-column">
-                        <img src="{{ asset('frontend/assets/images/sub-menu/small-pillow.jpg') }}" class="w-100 h-100" alt="" />
+                        <img src="{{ asset('frontend/assets/images/sub-menu/small-pillow.jpg') }}"
+                            class="w-100 h-100" alt="" />
                         <div class="column-content text-center">
                             <a class="heading">Show Pillow</a>
                         </div>
                     </div>
 
                     <div class="col-lg-2 pane-image-column">
-                        <img src="{{ asset('frontend/assets/images/sub-menu/black-blanket.jpg') }}" class="w-100 h-100" alt="" />
+                        <img src="{{ asset('frontend/assets/images/sub-menu/black-blanket.jpg') }}"
+                            class="w-100 h-100" alt="" />
                         <div class="column-content text-center">
                             <a class="heading">Shop Blanket</a>
                         </div>
                     </div>
 
                     <div class="col-lg-3 pane-image-column">
-                        <img src="{{ asset('frontend/assets/images/sub-menu/candles.jpg') }}" class="w-100 h-100" alt="" />
+                        <img src="{{ asset('frontend/assets/images/sub-menu/candles.jpg') }}" class="w-100 h-100"
+                            alt="" />
                         <div class="column-content text-center">
                             <a class="heading">Shop All Home</a>
                         </div>
@@ -937,8 +943,10 @@
                 <div class="row">
                     <div class="col-lg-6 px-2">
                         <div class="lookbook-images d-flex">
-                            <img src="{{ asset('frontend/assets/images/sub-menu/lookbook-women.jpg') }}" class="w-50 h-100" alt="" />
-                            <img src="{{ asset('frontend/assets/images/sub-menu/lookbook-women1.jpg') }}" class="w-50 h-100" alt="" />
+                            <img src="{{ asset('frontend/assets/images/sub-menu/lookbook-women.jpg') }}"
+                                class="w-50 h-100" alt="" />
+                            <img src="{{ asset('frontend/assets/images/sub-menu/lookbook-women1.jpg') }}"
+                                class="w-50 h-100" alt="" />
                         </div>
                         <div class="lookbook-content py-2">
                             <h4 class="text-center">Women</h4>
@@ -946,8 +954,10 @@
                     </div>
                     <div class="col-lg-6 px-2">
                         <div class="lookbook-images d-flex">
-                            <img src="{{ asset('frontend/assets/images/sub-menu/lookbook-men.jpg') }}" class="w-50 h-100" alt="" />
-                            <img src="{{ asset('frontend/assets/images/sub-menu/lookbook-men1.jpg') }}" class="w-50 h-100" alt="" />
+                            <img src="{{ asset('frontend/assets/images/sub-menu/lookbook-men.jpg') }}"
+                                class="w-50 h-100" alt="" />
+                            <img src="{{ asset('frontend/assets/images/sub-menu/lookbook-men1.jpg') }}"
+                                class="w-50 h-100" alt="" />
                         </div>
                         <div class="lookbook-content py-2">
                             <h4 class="text-center">Men</h4>
@@ -962,7 +972,8 @@
                 <div class="row d-flex justify-content-between">
                     <div class="col-lg-6 px-2 world-pane-column">
                         <div class="our-world-image">
-                            <img src="{{ asset('frontend/assets/images/sub-menu/WORLD.jpg') }}" class="w-100 h-100" alt="" />
+                            <img src="{{ asset('frontend/assets/images/sub-menu/WORLD.jpg') }}"
+                                class="w-100 h-100" alt="" />
                         </div>
                         <div class="our-world-content py-2">
                             <h4 class="text-center">Cashmere: The Origin</h4>
@@ -970,7 +981,8 @@
                     </div>
                     <div class="col-lg-6 px-2 world-pane-column">
                         <div class="our-world-image">
-                            <img src="{{ asset('frontend/assets/images/sub-menu/WORLD2.jpg') }}" class="w-100 h-100" alt="" />
+                            <img src="{{ asset('frontend/assets/images/sub-menu/WORLD2.jpg') }}"
+                                class="w-100 h-100" alt="" />
                         </div>
                         <div class="our-world-content py-2">
                             <h4 class="text-center">Our Excellence</h4>

@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\WeeklyDealsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -22,6 +23,7 @@ Route::post('/change-password', [AuthController::class, 'changePasswordStore'])-
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::resource('sliders', SliderController::class);
+Route::resource('deals', WeeklyDealsController::class);
 Route::resource('types', TypeController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('attributes', AttributeController::class);

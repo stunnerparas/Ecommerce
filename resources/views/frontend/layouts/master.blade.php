@@ -13,6 +13,7 @@
     <script src="https://kit.fontawesome.com/178da8e8d6.js" crossorigin="anonymous"></script>
     <!-- Linking custom css -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css') }}" />
 
 </head>
 

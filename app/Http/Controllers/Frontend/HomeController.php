@@ -6,19 +6,21 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Slider;
+use App\Models\WeeklyDeal;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $signatureCollections = $this->getProductsFromType('signature', 3);
-        $classicCollections = $this->getProductsFromType('classic', 3);
-        $accessoriesCollections = $this->getProductsFromType('accessories', 3);
-        $superfineCollections = $this->getProductsFromType('superfine', 3);
+        $signatureCollections = getProductsFromType('signature', 3);
+        $classicCollections = getProductsFromType('classic', 3);
+        $accessoriesCollections = getProductsFromType('accessories', 3);
+        $superfineCollections = getProductsFromType('superfine', 3);
+        $luxuryCollections = getProductsFromType('luxury', 8);
 
-        $menCollections = $this->getProductsFromCategory('men', 3);
-        $womenCollections = $this->getProductsFromCategory('women', 3);
+        $menCollections = getProductsFromCategory('men', 3);
+        $womenCollections = getProductsFromCategory('women', 3);
 
         // banners
         $mainBanner = $this->banner('main-banner');
@@ -29,49 +31,25 @@ class HomeController extends Controller
         $womenBanner = $this->banner('women');
         $superfineBanner = $this->banner('superfine');
 
+        // footer banners
         $footerTop = $this->banner('footer-top-image');
         $footerLeft = $this->banner('footer-left-image');
         $footerCenter = $this->banner('footer-center-image');
         $footerRight = $this->banner('footer-right-image');
 
-        return view('frontend.index', compact('mainBanner', 'footerTop', 'footerLeft', 'footerCenter', 'footerRight', 'signatureBanner', 'classicBanner', 'accessoriesBanner', 'menBanner', 'womenBanner', 'superfineBanner', 'signatureCollections', 'classicCollections', 'superfineCollections', 'accessoriesCollections', 'menCollections', 'womenCollections'));
-    }
+        // top banners
+        $topLeft = $this->banner('top-left-image');
+        $topAbove = $this->banner('top-above-image');
+        $topCenter = $this->banner('top-center-image');
+        $topBelow = $this->banner('top-below-image');
 
-    public function getProductsFromType($type, $limit)
-    {
-        return Product::select('products.*')->join('product_types', 'product_types.product_id', '=', 'products.id')
-            ->join('types', 'types.id', '=', 'product_types.type_id')
-            ->where('types.slug', $type)->limit($limit)->latest()->get();
-    }
+        // luxury top
+        $luxuryLeft = $this->banner('luxury-cashmere-left-image');
+        $luxuryRight = $this->banner('luxury-cashmere-right-image');
 
-    public function getProductsFromCategory($category, $limit)
-    {
-        $category_ids = $this->getChildCategories($category);
-        return Product::select('products.*')->distinct()->join('product_categories', 'product_categories.product_id', '=', 'products.id')
-            ->join('categories', 'categories.id', '=', 'product_categories.category_id')
-            ->whereIn('product_categories.category_id', $category_ids)->limit($limit)->latest()->get();
+        $dealOfTheWeek = WeeklyDeal::latest()->first();
 
-
-    }
-
-    public function getChildCategories($slug)
-    {
-        $mainCategory = Category::where('slug', $slug)->first();
-        $parent_id = $mainCategory->id;
-        $main = Category::where('parent_id', $parent_id)->get();
-        $emp = [];
-        foreach ($main as $m1) {
-            $emp[$parent_id][] = $m1->id;
-
-            if ($m1) {
-                $main1 = Category::where('parent_id', $m1->id)->get();
-
-                foreach ($main1 as $m) {
-                    $emp[$parent_id][] = $m->id;
-                }
-            }
-        }
-        return $emp[$parent_id];
+        return view('frontend.index', compact('dealOfTheWeek', 'luxuryLeft', 'luxuryRight', 'topLeft', 'topAbove', 'topCenter', 'topBelow', 'luxuryCollections', 'mainBanner', 'footerTop', 'footerLeft', 'footerCenter', 'footerRight', 'signatureBanner', 'classicBanner', 'accessoriesBanner', 'menBanner', 'womenBanner', 'superfineBanner', 'signatureCollections', 'classicCollections', 'superfineCollections', 'accessoriesCollections', 'menCollections', 'womenCollections'));
     }
 
     public function banner($category)
