@@ -67,127 +67,7 @@
             <div class="row product__filter my-3">
                 @foreach ($luxuryCollections as $luxury)
                     @include('frontend.component.product', ['product' => $luxury])
-
-                    {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix women">
-                        <div class="product__item">
-                            <div class="product__item__pic">
-                                @if ($luxury->tag ?? '')
-                                    <span class="label">{{ $luxury->tag ?? '' }}</span>
-                                @endif
-                                <img src="{{ asset('images/' . ($luxury->featured_image ?? '')) }}" class="w-100 h-100"
-                                    alt="" />
-                            </div>
-                            <div class="product__item__text">
-                                <h6>{{ $luxury->title ?? '' }}</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                <h5>${{ $luxury->price ?? '' }}</h5>
-                            </div>
-                        </div>
-                    </div> --}}
                 @endforeach
-
-                {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix women">
-                    <div class="product__item">
-                        <div class="product__item__pic">
-                            <img src="{{ asset('frontend/assets/images/product-tab/1861.1.jpg') }}"
-                                class="w-100 h-100" alt="" />
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Piqué Biker Jacket</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-
-                            <h5>$67.24</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix men">
-                    <div class="product__item sale">
-                        <div class="product__item__pic">
-                            <span class="label">Sale</span>
-                            <img src="{{ asset('frontend/assets/images/product-tab/1896.1.jpg') }}"
-                                class="w-100 h-100" alt="" />
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Multi-pocket Chest Bag</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-
-                            <h5>$43.48</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix men">
-                    <div class="product__item">
-                        <div class="product__item__pic">
-                            <img src="{{ asset('frontend/assets/images/product-tab/20191214 13_32_19.jpg') }}"
-                                class="w-100 h-100" alt="" />
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Diagonal Textured Cap</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-
-                            <h5>$60.9</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix women">
-                    <div class="product__item">
-                        <div class="product__item__pic">
-                            <img src="{{ asset('frontend/assets/images/product-tab/20200202-142506.jpg') }}"
-                                class="w-100 h-100" alt="" />
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Lether Backpack</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-
-                            <h5>$31.37</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix men">
-                    <div class="product__item sale">
-                        <div class="product__item__pic">
-                            <span class="label">Sale</span>
-                            <img src="{{ asset('frontend/assets/images/product-tab/ACC.jpg') }}" class="w-100 h-100"
-                                alt="" />
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Ankle Boots</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-
-                            <h5>$98.49</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix men">
-                    <div class="product__item">
-                        <div class="product__item__pic">
-                            <img src="{{ asset('frontend/assets/images/product-tab/DSC03392.jpg') }}"
-                                class="w-100 h-100" alt="" />
-                        </div>
-                        <div class="product__item__text">
-                            <h6>T-shirt Contrast Pocket</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-
-                            <h5>$49.66</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix women">
-                    <div class="product__item">
-                        <div class="product__item__pic">
-                            <img src="{{ asset('frontend/assets/images/product-tab/DSC03611.jpg') }}"
-                                class="w-100 h-100" alt="" />
-                        </div>
-                        <div class="product__item__text">
-                            <h6>Basic Flowing Scarf</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-
-                            <h5>$26.28</h5>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </section>
@@ -271,55 +151,7 @@
 
                     @foreach ($signatureCollections as $signature)
                         @include('frontend.component.product', ['product' => $signature])
-                        {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic">
-                                    <a href="{{ route('product', $signature->slug) }}">
-                                        @if ($signature->tag ?? '')
-                                            <span class="label">{{ $signature->tag ?? '' }}</span>
-                                        @endif
-                                        <img src="{{ asset('images/' . $signature->featured_image) }}"
-                                            class="w-100 h-100" alt="" />
-                                    </a>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6>{{ $signature->name }}</h6>
-                                    <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                    <h5>${{ $signature->price }}</h5>
-                                </div>
-                            </div>
-                        </div> --}}
                     @endforeach
-                    {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix women">
-                        <div class="product__item">
-                            <div class="product__item__pic">
-                                <img src="{{ asset('frontend/assets/images/signature-collection/20200202-143034.jpg') }}"
-                                    class="w-100 h-100" alt="" />
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Piqué Biker Jacket</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                <h5>$67.24</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix men">
-                        <div class="product__item sale">
-                            <div class="product__item__pic">
-                                <span class="label">Sale</span>
-                                <img src="{{ asset('frontend/assets/images/signature-collection/20200202-143920.jpg') }}"
-                                    class="w-100 h-100" alt="" />
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Multi-pocket Chest Bag</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                <h5>$43.48</h5>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>
@@ -351,53 +183,7 @@
                 <div class="row product_filter">
                     @foreach ($classicCollections as $classic)
                         @include('frontend.component.product', ['product' => $classic])
-                        {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic">
-                                    @if ($classic->tag ?? '')
-                                        <span class="label">{{ $classic->tag ?? '' }}</span>
-                                    @endif
-                                    <img src="{{ asset('images/' . $classic->featured_image) }}" class="w-100 h-100"
-                                        alt="" />
-                                </div>
-                                <div class="product__item__text">
-                                    <h6>{{ $classic->name }}</h6>
-                                    <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                    <h5>${{ $classic->price }}</h5>
-                                </div>
-                            </div>
-                        </div> --}}
                     @endforeach
-                    {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix women">
-                        <div class="product__item">
-                            <div class="product__item__pic">
-                                <img src="{{ asset('frontend/assets/images/classic-collection/DSC03392.jpg') }}"
-                                    class="w-100 h-100" alt="" />
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Piqué Biker Jacket</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                <h5>$67.24</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix men">
-                        <div class="product__item sale">
-                            <div class="product__item__pic">
-                                <span class="label">Sale</span>
-                                <img src="{{ asset('frontend/assets/images/classic-collection/DSC03699.jpg') }}"
-                                    class="w-100 h-100" alt="" />
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Multi-pocket Chest Bag</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                <h5>$43.48</h5>
-                            </div>
-                        </div>
-                    </div> --}}
                     <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 classic-link-container">
                         <a href="#" class="my-5 classic-link">← The Classic Collection</a>
                     </div>
@@ -483,54 +269,7 @@
                     </div>
                     @foreach ($accessoriesCollections as $accessories)
                         @include('frontend.component.product', ['product' => $accessories])
-
-                        {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic">
-                                    @if ($accessories->tag ?? '')
-                                        <span class="label">{{ $accessories->tag ?? '' }}</span>
-                                    @endif
-                                    <img src="{{ asset('images/' . $accessories->featured_image) }}"
-                                        class="w-100 h-100" alt="" />
-                                </div>
-                                <div class="product__item__text">
-                                    <h6>{{ $accessories->name }}</h6>
-                                    <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                    <h5>${{ $accessories->price }}</h5>
-                                </div>
-                            </div>
-                        </div> --}}
                     @endforeach
-                    {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix women">
-                        <div class="product__item">
-                            <div class="product__item__pic">
-                                <img src="{{ asset('frontend/assets/images/accessories-collection/DSC04352.jpg') }}"
-                                    class="w-100 h-100" alt="" />
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Piqué Biker Jacket</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                <h5>$67.24</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix accessories">
-                        <div class="product__item sale">
-                            <div class="product__item__pic">
-                                <span class="label">Sale</span>
-                                <img src="{{ asset('frontend/assets/images/accessories-collection/DSC04357.jpg') }}"
-                                    class="w-100 h-100" alt="" />
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Multi-pocket Chest Bag</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                <h5>$43.48</h5>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>
@@ -562,54 +301,7 @@
                 <div class="row product_filter">
                     @foreach ($menCollections as $men)
                         @include('frontend.component.product', ['product' => $men])
-
-                        {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic">
-                                    @if ($men->tag ?? '')
-                                        <span class="label">{{ $men->tag ?? '' }}</span>
-                                    @endif
-                                    <img src="{{ asset('images/' . $men->featured_image) }}" class="w-100 h-100"
-                                        alt="" />
-                                </div>
-                                <div class="product__item__text">
-                                    <h6>{{ $men->name }}</h6>
-                                    <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                    <h5>${{ $men->price }}</h5>
-                                </div>
-                            </div>
-                        </div> --}}
                     @endforeach
-                    {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix women">
-                        <div class="product__item">
-                            <div class="product__item__pic">
-                                <img src="{{ asset('frontend/assets/images/men-collection/DSC04410.jpg') }}"
-                                    class="w-100 h-100" alt="" />
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Piqué Biker Jacket</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                <h5>$67.24</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix men">
-                        <div class="product__item sale">
-                            <div class="product__item__pic">
-                                <span class="label">Sale</span>
-                                <img src="{{ asset('frontend/assets/images/men-collection/DSC04415.jpg') }}"
-                                    class="w-100 h-100" alt="" />
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Multi-pocket Chest Bag</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                <h5>$43.48</h5>
-                            </div>
-                        </div>
-                    </div> --}}
                     <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 men-link-container">
                         <a href="#" class="my-5 men-link">← The Men Collection</a>
                     </div>
@@ -647,54 +339,7 @@
                     </div>
                     @foreach ($womenCollections as $women)
                         @include('frontend.component.product', ['product' => $women])
-
-                        {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic">
-                                    @if ($women->tag ?? '')
-                                        <span class="label">{{ $women->tag ?? '' }}</span>
-                                    @endif
-                                    <img src="{{ asset('images/' . $women->featured_image) }}" class="w-100 h-100"
-                                        alt="" />
-                                </div>
-                                <div class="product__item__text">
-                                    <h6>{{ $women->name }}</h6>
-                                    <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                    <h5>${{ $women->price }}</h5>
-                                </div>
-                            </div>
-                        </div> --}}
                     @endforeach
-                    {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix women">
-                        <div class="product__item">
-                            <div class="product__item__pic">
-                                <img src="{{ asset('frontend/assets/images/women-collection/DSC03541.jpg') }}"
-                                    class="w-100 h-100" alt="" />
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Piqué Biker Jacket</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                <h5>$67.24</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix men">
-                        <div class="product__item sale">
-                            <div class="product__item__pic">
-                                <span class="label">Sale</span>
-                                <img src="{{ asset('frontend/assets/images/women-collection/DSC03656.jpg') }}"
-                                    class="w-100 h-100" alt="" />
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Multi-pocket Chest Bag</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                <h5>$43.48</h5>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>
@@ -709,54 +354,7 @@
                 <div class="row product_filter">
                     @foreach ($superfineCollections as $superfine)
                         @include('frontend.component.product', ['product' => $superfine])
-
-                        {{-- <div class="col-lg-3 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic">
-                                    @if ($superfine->tag ?? '')
-                                        <span class="label">{{ $superfine->tag ?? '' }}</span>
-                                    @endif
-                                    <img src="{{ asset('frontend/assets/images/superfine-collection/1825.1.jpg') }}"
-                                        class="w-100 h-100" alt="" />
-                                </div>
-                                <div class="product__item__text">
-                                    <h6>{{ $superfine->name }}</h6>
-                                    <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                    <h5>${{ $superfine->price }}</h5>
-                                </div>
-                            </div>
-                        </div> --}}
                     @endforeach
-                    {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix women">
-                        <div class="product__item">
-                            <div class="product__item__pic">
-                                <img src="{{ asset('frontend/assets/images/superfine-collection/1833.1.jpg') }}"
-                                    class="w-100 h-100" alt="" />
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Piqué Biker Jacket</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                <h5>$67.24</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix men">
-                        <div class="product__item sale">
-                            <div class="product__item__pic">
-                                <span class="label">Sale</span>
-                                <img src="{{ asset('frontend/assets/images/superfine-collection/24.jpg') }}"
-                                    class="w-100 h-100" alt="" />
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Multi-pocket Chest Bag</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-
-                                <h5>$43.48</h5>
-                            </div>
-                        </div>
-                    </div> --}}
                     <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 superfine-link-container">
                         <a href="#" class="my-5 superfine-link">← The Superfine Collection
                         </a>
