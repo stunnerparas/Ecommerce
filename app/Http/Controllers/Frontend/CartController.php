@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Cart;
 
 class CartController extends Controller
 {
@@ -14,6 +16,8 @@ class CartController extends Controller
      */
     public function index()
     {
+        $cartItems = \Cart::getContent();
+        // dd($cartItems);
         return view('frontend.cart.index');
     }
 
@@ -35,7 +39,17 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::where('id', $request->product_id)->first();
+        \Cart::add([
+            'id' => $product->id,
+            'name' => $product->name,
+            'price' => $product->price,
+            'quantity' => 1,
+            'attributes' => array(
+                'image' => $product->featured_image,
+                'color' => 'red',
+            )
+        ]);
     }
 
     /**

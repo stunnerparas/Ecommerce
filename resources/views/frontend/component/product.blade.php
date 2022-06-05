@@ -10,7 +10,7 @@
         </div>
         <div class="product__item__text">
             <h6>{{ $product->name }}</h6>
-            <a href="#" class="add-cart">+ Add To Cart</a>
+            <a href="{{ route('product', $product->slug) }}" class="add-cart">+ Add To Cart</a>
 
             <h5>${{ $product->price }}</h5>
         </div>

@@ -37,17 +37,21 @@
 
                     <div class="product-size py-3 d-flex">
                         @foreach ($sizes as $size)
-                            <div class="size-circle">
+                            <div class="size-circle size-value" data-attribute="Size" data-value="{{ $size->id }}">
                                 <span class="size">{{ $size->name }}</span>
                             </div>
                         @endforeach
                     </div>
                     <div class="product-color d-flex py-3">
-                        <div class="color2">Black</div>
-                        <div class="color2">White</div>
+                        @foreach ($colors as $color)
+                            <div class="color2 color-circle color-value" data-attribute="Color"
+                                data-value="{{ $color->id }}">
+                                {{ $color->name }}</div>
+                        @endforeach
                     </div>
                     <div class="product-button py-2">
-                        <a href="#" class="tritary-btn text-center">
+                        <a href="javascript:void(0)" class="tritary-btn text-center" data-value="{{ $product->id }}"
+                            id="btn-add-to-cart">
                             <i class="fas fa-shopping-bag"></i> Add to Cart</a>
                         <p>Free Shipping & return all over Nepal</p>
                     </div>
@@ -66,8 +70,8 @@
             <div class="recomendation-heading d-flex justify-content-between">
                 <h2 class="section-heading">You may Also Like</h2>
                 <ul class="recomendation-items">
-                    <li><a href="javascript::void(0)" id="men-link">Men</a></li>
-                    <li><a href="javascript::void(0)" id="women-link">Women</a></li>
+                    <li><a href="javascript:void(0)" id="men-link">Men</a></li>
+                    <li><a href="javascript:void(0)" id="women-link">Women</a></li>
                     {{-- <li><a href="#" id="accessories-link">Accessories</a></li> --}}
                 </ul>
             </div>
@@ -148,4 +152,57 @@
             </div> --}}
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        var size = '';
+        var color = '';
+
+        $('.size-value').click(function(e) {
+            size = $(this).attr('data-value');
+        })
+
+        $('.color-value').click(function(e) {
+            color = $(this).attr('data-value');
+        })
+
+        $('#btn-add-to-cart').click(function(e) {
+            var id = $(this).attr('data-value');
+            if (!size) {
+                alert("Select Size");
+                return false;
+            }
+            if (!color) {
+                alert("Select Color");
+                return false;
+            }
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                url: "{{ route('cart.store') }}",
+                type: "POST",
+                data: {
+                    size: size,
+                    color: color,
+                    product_id: id
+                },
+                // processData: false,
+                // cache: false,
+                // contentType: false,
+                success: function(data) {
+
+                },
+                error: function(data) {
+                    alert("Some Problems Occured!");
+                },
+            });
+
+        })
+    </script>
 @endsection
