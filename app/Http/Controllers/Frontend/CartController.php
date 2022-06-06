@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Attribute as ModelsAttribute;
 use App\Models\Product;
+use Attribute;
 use Illuminate\Http\Request;
 use Cart;
 
@@ -18,7 +20,7 @@ class CartController extends Controller
     {
         $cartItems = \Cart::getContent();
         // dd($cartItems);
-        return view('frontend.cart.index');
+        return view('frontend.cart.index', compact('cartItems'));
     }
 
     /**
@@ -40,14 +42,20 @@ class CartController extends Controller
     public function store(Request $request)
     {
         $product = Product::where('id', $request->product_id)->first();
+        $color = ModelsAttribute::where('id', $request->color)->first();
+        $size = ModelsAttribute::where('id', $request->size)->first();
         \Cart::add([
-            'id' => $product->id,
+            'id' => $product->id . '-' . $request->size . '-' . $request->color,
             'name' => $product->name,
             'price' => $product->price,
             'quantity' => 1,
             'attributes' => array(
                 'image' => $product->featured_image,
-                'color' => 'red',
+                'color' => $color->name,
+                'size' => $size->name,
+                'color_id' => $request->color,
+                'size_id' => $request->size,
+                'product_id' => $request->product_id,
             )
         ]);
     }
@@ -95,5 +103,40 @@ class CartController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function cartItems()
+    {
+        $cartItems = \Cart::getContent();
+        return view('frontend.cart.component', compact('cartItems'));
+    }
+
+    public function cartItemsIncrease($id)
+    {
+        $row = \Cart::get($id);
+        $qty = $row->quantity + 1;
+        \Cart::update($id, [
+            'quantity' => [
+                'relative' => false,
+                'value' => $qty
+            ],
+        ]);
+    }
+
+    public function cartItemsDecrease($id)
+    {
+        $row = \Cart::get($id);
+        $qty = $row->quantity - 1;
+        \Cart::update($id, [
+            'quantity' => [
+                'relative' => false,
+                'value' => $qty
+            ],
+        ]);
+    }
+
+    public function cartItemsRemove($id)
+    {
+        \Cart::remove($id);
     }
 }

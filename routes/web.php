@@ -24,4 +24,7 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::get('/product/{product:slug}', [ProductController::class, 'product'])->name('product');
 Route::resource('cart', CartController::class);
-
+Route::get('/view-items/cart', [CartController::class, 'cartItems'])->name('cartItems.view');
+Route::get('/view-items/cart/increase/{id}', [CartController::class, 'cartItemsIncrease'])->name('cartItems.view.increase');
+Route::get('/view-items/cart/decrease/{id}', [CartController::class, 'cartItemsDecrease'])->name('cartItems.view.decrease');
+Route::get('/view-items/cart/remove/{id}', [CartController::class, 'cartItemsRemove'])->name('cartItems.view.remove');

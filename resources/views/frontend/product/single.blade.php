@@ -170,11 +170,11 @@
         $('#btn-add-to-cart').click(function(e) {
             var id = $(this).attr('data-value');
             if (!size) {
-                alert("Select Size");
+                toastr.error("Select Size");
                 return false;
             }
             if (!color) {
-                alert("Select Color");
+                toastr.error("Select Color");
                 return false;
             }
 
@@ -192,11 +192,8 @@
                     color: color,
                     product_id: id
                 },
-                // processData: false,
-                // cache: false,
-                // contentType: false,
                 success: function(data) {
-
+                    toastr.success("Added to Cart");
                 },
                 error: function(data) {
                     alert("Some Problems Occured!");
