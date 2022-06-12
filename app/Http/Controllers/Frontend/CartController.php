@@ -107,7 +107,7 @@ class CartController extends Controller
 
     public function cartItems()
     {
-        $cartItems = \Cart::getContent();
+        $cartItems = \Cart::getContent()->sort();
         return view('frontend.cart.component', compact('cartItems'));
     }
 
@@ -127,6 +127,9 @@ class CartController extends Controller
     {
         $row = \Cart::get($id);
         $qty = $row->quantity - 1;
+        if ($qty < 1) {
+            $qty = 1;
+        }
         \Cart::update($id, [
             'quantity' => [
                 'relative' => false,

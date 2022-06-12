@@ -16,7 +16,7 @@
                                 {{ $item->name }}
                                 <p class="product-price my-2 d-flex justify-content-lg-start">${{ $item->price }}</p>
                                 <p class="product-price d-flex justify-content-lg-start">
-                                    {{ $item->attributes->size . ', ' . $item->attributes->color }}</p>
+                                    {{ $item->attributes->size . ' / ' . $item->attributes->color }}</p>
 
                             </h5>
                             <p class="product-quantity">
@@ -77,7 +77,7 @@
                 </div>
             </div>
 
-            <div class="btn secondary-btn p-3 mt-4">Checkout<i class="bi bi-arrow-right ml-2"></i></div>
+            <a href="{{ route('checkout') }}" class="btn secondary-btn p-3 mt-4">Checkout<i class="bi bi-arrow-right ml-2"></i></a>
         </div>
     </div>
 @else

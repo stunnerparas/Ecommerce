@@ -48,3 +48,10 @@ function getAllChildCategories($slug)
     }
     return $emp[$parent_id];
 }
+
+function getTotalAmount()
+{
+    $shipping_charge = 10;
+    $total_amount = Cart::getTotal() + 10;
+    return $total_amount ?? 0;
+}

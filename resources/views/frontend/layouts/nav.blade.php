@@ -18,8 +18,8 @@
             <a href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart fa-2x"></i></a>
         </div>
         <div class="offcanvas__links">
-            <a href="#">Login</a>
-            <a href="#">My account</a>
+            <a href="{{ route('login') }}">Login</a>
+            <a href="{{ route('myaccount') }}">My account</a>
         </div>
         <div class="offcanvas__top__hover">
             <span>Usd $</span>
@@ -354,8 +354,13 @@
                     <div class="header__top__right">
                         <div class="header__top__links">
                             <a href="#">Order Tracker</a>
-                            <a href="#">Login</a>
-                            <a href="#">My Account</a>
+
+                            @if (Auth::check())
+                                <a href="{{ route('myaccount') }}">My Account</a>
+                                <a href="{{ route('logout') }}">Logout</a>
+                            @else
+                                <a href="{{ route('login') }}">Login</a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -653,8 +658,8 @@
                         </div>
                     </div>
                     <div class="col-lg-2 pane-image-column">
-                        <img src="{{ asset('frontend/assets/images/sub-menu/women(2).jpg') }}" class="w-100 h-100"
-                            alt="">
+                        <img src="{{ asset('frontend/assets/images/sub-menu/women(2).jpg') }}"
+                            class="w-100 h-100" alt="">
                         <div class="column-content text-center">
                             <a class="heading">Shop All Women</a>
                         </div>
