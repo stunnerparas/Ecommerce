@@ -18,4 +18,16 @@ class Order extends Model
         'transaction_status',
         'is_seen',
     ];
+
+    public const status = [
+        'Pending' => 'Pending',
+        'Delivered' => 'Delivered',
+        'Cancelled' => 'Cancelled',
+        'Failed' => 'Failed',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

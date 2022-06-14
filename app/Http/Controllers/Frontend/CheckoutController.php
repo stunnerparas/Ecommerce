@@ -86,6 +86,6 @@ class CheckoutController extends Controller
 
     public function thankyou($order_number)
     {
-        return view('frontend.checkout.thankyou');
+        return view('frontend.checkout.thankyou', compact('order_number'));
     }
 }

@@ -15,4 +15,9 @@ class OrderItems extends Model
         'variations',
         'price',
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

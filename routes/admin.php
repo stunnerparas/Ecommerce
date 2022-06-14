@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
@@ -37,3 +38,9 @@ Route::get('/product/image/delete/{id}/{type}', [ProductController::class, 'imag
 
 Route::get('/company', [CompanyController::class, 'index'])->name('company.index');
 Route::post('/company/{company}', [CompanyController::class, 'update'])->name('company.update');
+
+// orders
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('/orders/{order}', [OrderController::class, 'orderItems'])->name('orders.items');
+Route::post('order-status/{order}', [OrderController::class, 'changeOrderStatus'])->name('order.status');
+

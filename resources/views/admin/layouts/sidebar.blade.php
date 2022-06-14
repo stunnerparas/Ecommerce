@@ -47,6 +47,10 @@
                 </ul>
             </li>
 
+            <li class="{{ Request::segment(2) == 'orders' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.orders.index') }}"><i class="fas fa-fire"></i>
+                    <span>Orders</span></a>
+            </li>
             <li class="{{ Request::segment(2) == 'users' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.users.index') }}"><i class="fas fa-fire"></i>
                     <span>Users</span></a>
