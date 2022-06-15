@@ -41,6 +41,6 @@ Route::post('/company/{company}', [CompanyController::class, 'update'])->name('c
 
 // orders
 Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+Route::delete('/orders/{order}', [OrderController::class, 'destroy'])->name('orders.delete');
 Route::get('/orders/{order}', [OrderController::class, 'orderItems'])->name('orders.items');
 Route::post('order-status/{order}', [OrderController::class, 'changeOrderStatus'])->name('order.status');
-

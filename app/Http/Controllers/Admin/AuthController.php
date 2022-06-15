@@ -47,10 +47,10 @@ class AuthController extends Controller
             $user->update([
                 'password' => $request->new_password
             ]);
+            Auth::logout();
+            return redirect()->route('admin.login')->with('success', 'Password Changed Successfully');
         } else {
             return redirect()->back()->with('error', 'Invaild Current Password!');
         }
-        Auth::logout();
-        return redirect()->route('admin.login')->with('success', 'Password Changed Successfully');
     }
 }

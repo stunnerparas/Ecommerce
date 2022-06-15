@@ -6,33 +6,46 @@
             <h4 class="text-center">Order Details</h4>
             <div class="order-number-container d-flex justify-content-between mt-5 p-2 profile-sub-container">
                 <div class="order-info-wrapper">
-                    <h5>Order <span class="order-number font-weight-bold">#0123</span></h5>
+                    <h5>Order <span class="order-number font-weight-bold">#{{ $order->order_number ?? '' }}</span></h5>
                 </div>
                 <div class="order-total-wrapper">
-                    <h4>Total: <span class="order-total">$ 230.2</span></h4>
+                    <h4>Total: <span class="order-total">${{ $order->total_amount ?? 0 }}</span></h4>
                 </div>
             </div>
             <div class="product-description-container">
                 <div class="hr my-4"></div>
-                <div class="product-description-child  d-sm-flex justify-content-between align-content-center">
-                    <div class="product-img-container mx-auto">
-                        <img src="{{ asset('images/20220530154306file.DSC04405.jpg') }}" class="product-img" alt="product" srcset="">
-                    </div>
-                    <div class="product-description-content d-flex mt-sm-0 mt-4 justify-content-between flex-grow-1">
-                        <h5 class="product-name font-weight-bold my-auto d-flex flex-column align-content-start">
-                            Product Name
-                            <p class="product-price my-2 d-flex justify-content-lg-start price">100</p>
+                @if ($orderItems->count() > 0)
+                    @php
+                        $total = 0;
+                    @endphp
+                    @foreach ($orderItems as $item)
+                        @php
+                            $subTotal = $item->product->price * $item->quantity;
+                            $total += $subTotal;
+                        @endphp
+                        <div class="product-description-child  d-sm-flex justify-content-between align-content-center">
+                            <div class="product-img-container mx-auto">
+                                <img src="{{ asset('images/' . ($item->product->featured_image ?? '')) }}"
+                                    class="product-img" alt="product" srcset="">
+                            </div>
+                            <div
+                                class="product-description-content d-flex mt-sm-0 mt-4 justify-content-between flex-grow-1">
+                                <h5 class="product-name font-weight-bold my-auto d-flex flex-column align-content-start">
+                                    {{ $item->product->name ?? '' }}
+                                    <p class="product-price my-2 d-flex justify-content-lg-start price">{{ $item->price }}
+                                    </p>
 
-                        </h5>
-                        <p class="product-quantity my-auto">
-                            1
-                        </p>
-                        <p class="product-total-price my-auto price">100</p>
-                    </div>
+                                </h5>
+                                <p class="product-quantity my-auto">
+                                    {{ $item->quantity ?? 0 }}
+                                </p>
+                                <p class="product-total-price my-auto price">{{ $subTotal ?? 0 }}</p>
+                            </div>
 
-                </div>
-                <div class="hr my-4"></div>
-
+                        </div>
+                        <div class="hr my-4"></div>
+                    @endforeach
+                @endif
 
             </div>
             <div class="order-details-bottom-container">
@@ -43,9 +56,17 @@
                                 Shipping Details
                             </h6>
                             <div class="shipping-address-container">
-                                <p class="orderReciverName mt-3">John Smith</p>
-                                <p class="order-shipping address">House 201,Los Angeles 90011, USA</p>
-                                <p class="order-shipping-contact">9821146218</p>
+                                <p class="orderReciverName mt-3">{{ $shipping->full_name ?? '' }}</p>
+                                <p class="order-shipping address">{{ $shipping->address ?? '' }},
+                                    {{ $shipping->city ?? '' }},
+                                    {{ $shipping->state ?? '' }},
+                                    {{ $shipping->country ?? '' }}</p>
+                                <p class="order-shipping-contact">
+                                    {{ $shipping->apartment ?? '' }},
+                                    {{ $shipping->postal_code ?? '' }}-{{ $shipping->phone ?? '' }}
+                                </p>
+                                <p class="order-shipping-contact">
+                                    {{ $shipping->email ?? '' }}</p>
                             </div>
                         </div>
                         <div class="hr my-2"></div>
@@ -54,9 +75,16 @@
                                 Billing Details
                             </h6>
                             <div class="shipping-address-container">
-                                <p class="orderReciverName mt-3">John Smith</p>
-                                <p class="order-shipping address">House 201,Los Angeles 90011, USA</p>
-                                <p class="order-shipping-contact">9821146218</p>
+                                <p class="orderReciverName mt-3">{{ $billing->full_name ?? '' }}</p>
+                                <p class="order-shipping address">{{ $billing->address ?? '' }},
+                                    {{ $billing->city ?? '' }},
+                                    {{ $billing->state ?? '' }},
+                                    {{ $billing->country ?? '' }}</p>
+                                <p class="order-shipping-contact">
+                                    {{ $billing->apartment ?? '' }},
+                                    {{ $billing->postal_code ?? '' }}-{{ $billing->phone ?? '' }}</p>
+                                <p class="order-shipping-contact">
+                                    {{ $billing->email ?? '' }}</p>
                             </div>
                         </div>
 
@@ -70,27 +98,28 @@
 
                                         <p class="">Cart Total:</p>
                                         <!-- Cart total for cart.html -->
-                                        <p class="totalCartItem price">200</p>
+                                        <p class="totalCartItem price">{{ $total }}</p>
                                     </div>
                                     <div class="cart-total-container d-flex justify-content-between">
                                         <p class="">Shipping Cost:</p>
                                         <!-- shipping cost after user selection -->
-                                        <p class="totalCartPrice price">30.1</p>
+                                        <p class="totalCartPrice price">10</p>
                                     </div>
-                                    <div class="cart-total-container d-flex justify-content-between">
+                                    {{-- <div class="cart-total-container d-flex justify-content-between">
                                         <p class="">Tax:</p>
                                         <!-- Calculate tax as per country -->
                                         <p class="totalCartPrice price">10.1</p>
-                                    </div>
+                                    </div> --}}
                                     <div class="hr"></div>
                                     <div class="cart-total-container d-flex justify-content-between mt-2">
                                         <!-- Grand total for all -->
                                         <p class="font-weight-bold">Total:</p>
-                                        <p class="totalCartPrice price font-weight-bold">230.2</p>
+                                        <p class="totalCartPrice price font-weight-bold">{{ $order->total_amount ?? 0 }}
+                                        </p>
                                     </div>
                                     <div class="cart-payment-type">
                                         <div class="hr my-2"></div>
-                                        <p class="payment-type">Paid with Card</p>
+                                        <p class="payment-type">Paid with {{ $order->payment_method ?: 'N/A' }}</p>
                                     </div>
                                 </div>
                             </div>

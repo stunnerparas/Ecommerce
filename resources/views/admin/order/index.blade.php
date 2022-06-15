@@ -26,6 +26,7 @@
                                             <th scope="col">Payment Method</th>
                                             <th scope="col">Total Amount</th>
                                             <th scope="col">Status</th>
+                                            <th scope="col">Order Time</th>
                                             <th scope="col">Seen</th>
                                             <th scope="col">Action</th>
                                         </tr>
@@ -38,6 +39,7 @@
                                                 <td>{{ $order->payment_method ?: 'NA' }}</td>
                                                 <td>{{ $order->total_amount }}</td>
                                                 <td>{{ $order->status }}</td>
+                                                <td>{{ date('Y-m-d, h:i A', strtotime($order->created_at)) }}</td>
                                                 <td>{{ $order->is_seen ? 'Seen' : '' }}</td>
 
                                                 <td>
@@ -46,7 +48,9 @@
                                                         <a class="btn btn-success mr-1"
                                                             href="{{ route('admin.orders.items', $order->id) }}">View</a>
 
-                                                        <form class="" action="" method="POST">
+                                                        <form class=""
+                                                            action="{{ route('admin.orders.delete', $order->id) }}"
+                                                            method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button class="btn btn-danger delete-order" type="submit">
@@ -79,7 +83,7 @@
             e.preventDefault();
             Swal.fire({
                 title: 'Are you sure?',
-                html: 'If you delete this, it will be gone forever.',
+                html: 'If you delete this, you can recover this from trash.',
                 showDenyButton: true,
                 confirmButtonText: 'Yes',
                 denyButtonText: `No`,

@@ -44,4 +44,10 @@ class OrderController extends Controller
 
         return redirect()->back()->with('message', 'Order status changed');
     }
+
+    public function destroy(Order $order)
+    {
+        $order->delete();
+        return redirect()->back()->with('success', 'Order Deleted');
+    }
 }

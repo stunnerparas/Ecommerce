@@ -41,5 +41,8 @@ Route::post('/login/check', [AuthController::class, 'loginCheck'])->name('login.
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register/store', [AuthController::class, 'storeRegister'])->name('register.store');
 
+// profile pages
 Route::get('/my-account', [FrontendUserController::class, 'myAccount'])->name('myaccount');
-Route::get('/order-details/{order?}', [FrontendUserController::class, 'orderDetails'])->name('order.details');
+Route::get('/order-details/{order}', [FrontendUserController::class, 'orderDetails'])->name('order.details');
+Route::get('/change-password', [FrontendUserController::class, 'changePassword'])->name('change.password');
+Route::post('/change-password', [FrontendUserController::class, 'changePasswordStore'])->name('change.password.store');
