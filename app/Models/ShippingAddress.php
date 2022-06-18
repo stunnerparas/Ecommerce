@@ -19,5 +19,6 @@ class ShippingAddress extends Model
         'postal_code',
         'phone',
         'country',
+        'user_id'
     ];
 }

@@ -23,6 +23,8 @@ class TypeController extends Controller
     public function index()
     {
         $types = Type::latest()->paginate(10);
+        createLog('viewed type details'); // activity log
+
         return view('admin.type.index', compact('types'));
     }
 
@@ -47,6 +49,8 @@ class TypeController extends Controller
         $input = $request->all();
         $input['slug'] = Str::slug($request->type);
         Type::create($input);
+        createLog('created a new type'); // activity log
+
         return redirect()->route('admin.types.index')->with('success', 'New Type Created');
     }
 
@@ -84,6 +88,8 @@ class TypeController extends Controller
         $input = $request->all();
         $input['slug'] = Str::slug($request->type);
         $type->update($input);
+        createLog('edited a type'); // activity log
+
         return redirect()->route('admin.types.index')->with('success', 'Type Updated');
     }
 
@@ -96,6 +102,8 @@ class TypeController extends Controller
     public function destroy(Type $type)
     {
         $type->delete();
+        createLog('deleted a type'); // activity log
+
         return redirect()->route('admin.types.index')->with('success', 'Type Deleted');
     }
 }

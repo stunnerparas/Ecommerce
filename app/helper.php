@@ -2,7 +2,10 @@
 
 use App\Models\Attribute;
 use App\Models\Category;
+use App\Models\Company;
+use App\Models\Log;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 
 function getChildCategories($parent_id)
 {
@@ -54,4 +57,16 @@ function getTotalAmount()
     $shipping_charge = 10;
     $total_amount = Cart::getTotal() + 10;
     return $total_amount ?? 0;
+}
+
+function createLog($details)
+{
+    Log::create([
+        'log' => Auth::user()->name . ' ' . $details
+    ]);
+}
+
+function company()
+{
+    return Company::latest()->first();
 }

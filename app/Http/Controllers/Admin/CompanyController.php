@@ -17,6 +17,8 @@ class CompanyController extends Controller
     public function index()
     {
         $company = Company::latest()->first();
+        createLog('viewed company details'); // activity log
+
         return view('admin.company.index', compact('company'));
     }
 
@@ -29,6 +31,7 @@ class CompanyController extends Controller
             $input['logo'] = $logo;
         }
         $company->update($input);
+        createLog('edited company details'); // activity log
 
         return redirect()->back()->with('message', 'Company Details Updated');
     }

@@ -24,6 +24,8 @@ class SliderController extends Controller
     public function index()
     {
         $sliders = Slider::latest()->paginate(15);
+        createLog('viewed slider details'); // activity log
+
         return view('admin.slider.index', compact('sliders'));
     }
 
@@ -48,6 +50,7 @@ class SliderController extends Controller
         $input = $request->except('image');
         $input['image'] = $this->fileUpload($request, 'image');
         Slider::create($input);
+        createLog('created a new slider'); // activity log
 
         return redirect()->route('admin.sliders.index')->with('success', 'New Slider Created');
     }
@@ -91,6 +94,8 @@ class SliderController extends Controller
         }
 
         $slider->update($input);
+        createLog('edited a slider'); // activity log
+
         return redirect()->route('admin.sliders.index')->with('success', 'Slider Updated');
     }
 
@@ -104,6 +109,8 @@ class SliderController extends Controller
     {
         $this->removeFile($slider->image);
         $slider->delete();
+        createLog('deleted a slider'); // activity log
+
         return redirect()->route('admin.sliders.index')->with('success', 'Slider Deleted');
     }
 

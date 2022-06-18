@@ -22,6 +22,8 @@ class FaqController extends Controller
     public function index()
     {
         $faqs = Faq::latest()->paginate(10);
+        createLog('viewed FAQ details'); // activity log
+
         return view('admin.faq.index', compact('faqs'));
     }
 
@@ -45,6 +47,7 @@ class FaqController extends Controller
     {
         $input = $request->all();
         Faq::create($input);
+        createLog('created new FAQ'); // activity log
 
         return redirect()->route('admin.faqs.index')->with('success', 'New Faq Created');
     }
@@ -82,6 +85,8 @@ class FaqController extends Controller
     {
         $input = $request->all();
         $faq->update($input);
+        createLog('edited FAQ details'); // activity log
+
 
         return redirect()->route('admin.faqs.index')->with('success', 'Faq Updated');
     }
@@ -95,6 +100,8 @@ class FaqController extends Controller
     public function destroy(Faq $faq)
     {
         $faq->delete();
+        createLog('deleted FAQ details'); // activity log
+
         return redirect()->route('admin.faqs.index')->with('success', 'Faq Deleted');
     }
 }

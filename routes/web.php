@@ -46,3 +46,16 @@ Route::get('/my-account', [FrontendUserController::class, 'myAccount'])->name('m
 Route::get('/order-details/{order}', [FrontendUserController::class, 'orderDetails'])->name('order.details');
 Route::get('/change-password', [FrontendUserController::class, 'changePassword'])->name('change.password');
 Route::post('/change-password', [FrontendUserController::class, 'changePasswordStore'])->name('change.password.store');
+Route::get('/profile/edit', [FrontendUserController::class, 'editProfile'])->name('profile.edit');
+Route::post('/profile/update', [FrontendUserController::class, 'updateProfile'])->name('profile.update');
+
+Route::get('/shipping-details', [FrontendUserController::class, 'shippingDetails'])->name('shipping.details');
+Route::post('/shipping-details/update', [FrontendUserController::class, 'shippingDetailsUpdate'])->name('shipping.details.update');
+Route::get('/billing-details', [FrontendUserController::class, 'billingDetails'])->name('billing.details');
+Route::post('/billing-details/update', [FrontendUserController::class, 'billingDetailsUpdate'])->name('billing.details.update');
+
+Route::get('/autocomplete-search', [HomeController::class, 'autocompleteSearch'])->name('autocomplete.search');
+Route::post('/newsletter', [HomeController::class, 'newsletter'])->name('newsletter');
+
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/page/{page:slug?}', [HomeController::class, 'page'])->name('page');

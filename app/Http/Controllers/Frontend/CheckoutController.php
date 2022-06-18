@@ -15,7 +15,14 @@ class CheckoutController extends Controller
     public function index()
     {
         $cartItems = \Cart::getContent()->sort();
-        return view('frontend.checkout.index', compact('cartItems'));
+
+        $shipping = '';
+        $billing = '';
+        if (Auth::check()) {
+            $shipping = ShippingAddress::where('user_id', Auth::user()->id)->first();
+            $billing = BillingAddress::where('user_id', Auth::user()->id)->first();
+        }
+        return view('frontend.checkout.index', compact('cartItems', 'shipping', 'billing'));
     }
 
     public function store(Request $request)
@@ -26,7 +33,7 @@ class CheckoutController extends Controller
         }
 
         $total_amount = getTotalAmount();
-        $order_number = 0000;
+        $order_number = date('YmdHis');
         $order = Order::create([
             'order_number' => $order_number,
             'payment_method' => '',

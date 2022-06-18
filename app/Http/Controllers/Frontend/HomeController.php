@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Company;
+use App\Models\Newsletter;
+use App\Models\Page;
 use App\Models\Product;
 use App\Models\Slider;
 use App\Models\WeeklyDeal;
@@ -55,5 +58,27 @@ class HomeController extends Controller
     public function banner($category)
     {
         return Slider::where('category', $category)->latest()->first();
+    }
+
+    public function autocompleteSearch(Request $request)
+    {
+        $query = $request->get('query');
+        $filterResult = Product::where('name', 'LIKE', '%' . $query . '%')->get();
+        return response()->json($filterResult);
+    }
+
+    public function newsletter(Request $request)
+    {
+        Newsletter::create($request->all());
+    }
+
+    public function contact()
+    {
+        return view('frontend.pages.contact');
+    }
+
+    public function page(Page $page)
+    {
+        return view('frontend.pages.index', compact('page'));
     }
 }

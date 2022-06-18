@@ -37,6 +37,8 @@ class CategoryController extends Controller
         $categories = $categories->paginate(10);
 
         $params = array('parent' => $parent); // for sub categories pagination
+        createLog('viewed categories'); // activity log
+
         return view('admin.category.index', compact('categories', 'parent', 'parentCategory', 'params'));
     }
 
@@ -71,6 +73,7 @@ class CategoryController extends Controller
         }
         $input['slug'] = Str::slug($slug);
         Category::create($input);
+        createLog('created new category'); // activity log
 
         if ($request->parent_id) {
             return redirect()->route('admin.categories.index', ['parent' => $request->parent_id])->with('success', 'New Category Created');
@@ -130,6 +133,7 @@ class CategoryController extends Controller
         }
         $input['slug'] = Str::slug($slug);
         $category->update($input);
+        createLog('edited a category'); // activity log
 
         if ($request->parent_id) {
             return redirect()->route('admin.categories.index', ['parent' => $request->parent_id])->with('success', 'Category Updated');
@@ -147,6 +151,8 @@ class CategoryController extends Controller
     {
         // $this->removeFile($category->image); // soft delete
         $category->delete();
+        createLog('deleted a category'); // activity log
+
         return redirect()->route('admin.categories.index')->with('success', 'Category Deleted');
     }
 

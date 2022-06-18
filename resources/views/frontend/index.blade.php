@@ -79,7 +79,8 @@
                 @if ($topLeft)
                     <div class="col-lg-6">
                         <div class="women-catagories catagories-items my-2">
-                            <img src="{{ asset('images/' . $topLeft->image ?? '') }}" class="w-100 h-100" alt="" />
+                            <img src="{{ asset('images/' . $topLeft->image ?? '') }}" class="w-100 h-100"
+                                alt="" />
                             <div class="content text-center">
                                 <h3>{{ $topLeft->title ?? '' }}</h3>
                             </div>
@@ -90,7 +91,8 @@
                 <div class="col-lg-6">
                     @if ($topAbove)
                         <div class="men-catagories catagories-items my-2">
-                            <img src="{{ asset('images/' . ($topAbove->image ?? '')) }}" class="w-100 h-100" alt="" />
+                            <img src="{{ asset('images/' . ($topAbove->image ?? '')) }}" class="w-100 h-100"
+                                alt="" />
                             <div class="content text-center">
                                 <h3>{{ $topAbove->title ?? '' }}</h3>
                             </div>
@@ -109,7 +111,8 @@
 
                     @if ($topBelow)
                         <div class="home-catagories catagories-items">
-                            <img src="{{ asset('images/' . ($topBelow->image ?? '')) }}" class="w-100 h-100" alt="" />
+                            <img src="{{ asset('images/' . ($topBelow->image ?? '')) }}" class="w-100 h-100"
+                                alt="" />
                             <div class="content text-center">
                                 <h3>{{ $topBelow->title ?? '' }}</h3>
                             </div>
@@ -390,7 +393,8 @@
         <div class="container-fluid">
             @if ($footerTop)
                 <div class="detail-banner">
-                    <img src="{{ asset('images/' . ($footerTop->image ?? '')) }}" class="w-100 h-100" alt="" />
+                    <img src="{{ asset('images/' . ($footerTop->image ?? '')) }}" class="w-100 h-100"
+                        alt="" />
                     <div class="detail-content text-center">
                         <h2 class="section-heading">{{ $footerTop->title ?? '' }}</h2>
                         <h3 class="section-heading">{!! strip_tags($footerTop->description ?? '') !!}</h3>
@@ -422,8 +426,8 @@
                         @if ($footerRight)
                             <div class="col-lg-4 col-md-6 col-sm-12 px-2">
                                 <div class="image my-2">
-                                    <img src="{{ asset('images/' . ($footerRight->image ?? '')) }}"
-                                        class="w-100 h-100" alt="" />
+                                    <img src="{{ asset('images/' . ($footerRight->image ?? '')) }}" class="w-100 h-100"
+                                        alt="" />
                                 </div>
                             </div>
                         @endif
@@ -440,9 +444,10 @@
         <div class="container">
             <h2 class="text-center">Keep In Touch</h2>
             <div class="form text-center my-3">
-                <form class="form">
-                    <input class="form_input" type="text" placeholder="example@gmail.com" />
-                    <button class="submit-btn" type="button">Submit</button>
+                <form class="form" id="newsletter-form" method="POST">
+                    @csrf
+                    <input class="form_input" id="newsletter-email" name="email" type="email" placeholder="example@gmail.com" />
+                    <button style="cursor: pointer" class="submit-btn" type="submit">Submit</button>
                 </form>
             </div>
         </div>
@@ -513,5 +518,33 @@
         $(document).ready(function() {
             getSeconds();
         });
+
+        $(document).on('submit', '#newsletter-form', function(e) {
+            e.preventDefault();
+
+            var email = $('#newsletter-email').val();
+            if(!email){
+                toastr.error("Please enter your email");
+                return false;
+            }
+
+            nthis = $(this);
+            var newsletterData = new FormData(nthis[0]);
+            $.ajax({
+                url: "{{ route('newsletter') }}",
+                type: "POST",
+                data: newsletterData,
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function(data) {
+                    toastr.success("Your email has been sent");
+                    nthis[0].reset();
+                },
+                error: function(data) {
+                    toastr.error("Some Problems Occured!");
+                },
+            });
+        })
     </script>
 @endsection

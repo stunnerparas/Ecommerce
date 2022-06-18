@@ -17,6 +17,8 @@ class WeeklyDealsController extends Controller
     public function index()
     {
         $deals = WeeklyDeal::latest()->paginate(10);
+        createLog('viewed weekly deals details'); // activity log
+
         return view('admin.weekly-deals.index', compact('deals'));
     }
 
@@ -41,6 +43,7 @@ class WeeklyDealsController extends Controller
         $input = $request->except('image');
         $input['image'] = $this->fileUpload($request, 'image');
         WeeklyDeal::create($input);
+        createLog('created a weekly deals'); // activity log
 
         return redirect()->route('admin.deals.index')->with('success', 'New Weekly Deal Created');
     }
@@ -84,6 +87,8 @@ class WeeklyDealsController extends Controller
         }
 
         $deal->update($input);
+        createLog('edited a weekly deals'); // activity log
+
         return redirect()->route('admin.deals.index')->with('success', 'Weekly Deal Updated');
     }
 
@@ -97,6 +102,8 @@ class WeeklyDealsController extends Controller
     {
         $this->removeFile($deal->image);
         $deal->delete();
+        createLog('deleted a weekly deals'); // activity log
+
         return redirect()->route('admin.deals.index')->with('success', 'Weekly Deal Deleted');
     }
 

@@ -23,6 +23,8 @@ class PageController extends Controller
     public function index()
     {
         $pages = Page::latest()->paginate(10);
+        createLog('viewed page details'); // activity log
+
         return view('admin.page.index', compact('pages'));
     }
 
@@ -48,6 +50,7 @@ class PageController extends Controller
         $input['image'] = $this->fileUpload($request, 'image');
         $input['slug'] = Str::slug($request->title);
         Page::create($input);
+        createLog('created a new page'); // activity log
 
         return redirect()->route('admin.pages.index')->with('success', 'New Page Created');
     }
@@ -91,6 +94,7 @@ class PageController extends Controller
         }
         $input['slug'] = Str::slug($request->title);
         $page->update($input);
+        createLog('edited a page'); // activity log
 
         return redirect()->route('admin.pages.index')->with('success', 'Page Updated');
     }
@@ -105,6 +109,8 @@ class PageController extends Controller
     {
         $this->removeFile($page->image);
         $page->delete();
+        createLog('deleted a page'); // activity log
+
         return redirect()->route('admin.pages.index')->with('success', 'Page Deleted');
     }
 

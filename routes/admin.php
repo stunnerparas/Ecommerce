@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\LogController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProductController;
@@ -44,3 +45,6 @@ Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 Route::delete('/orders/{order}', [OrderController::class, 'destroy'])->name('orders.delete');
 Route::get('/orders/{order}', [OrderController::class, 'orderItems'])->name('orders.items');
 Route::post('order-status/{order}', [OrderController::class, 'changeOrderStatus'])->name('order.status');
+
+// activity log
+Route::get('/logs', [LogController::class, 'index'])->name('logs.index');

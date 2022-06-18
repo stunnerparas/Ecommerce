@@ -47,6 +47,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public const gender = [
+        'Male' => 'Male',
+        'Female' => 'Female',
+        'Others' => 'Others',
+    ];
+
     //mutators for password hashing
     public function setPasswordAttribute($value)
     {

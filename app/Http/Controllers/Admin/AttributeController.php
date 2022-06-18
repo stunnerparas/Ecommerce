@@ -35,6 +35,8 @@ class AttributeController extends Controller
         $attributes = $attributes->paginate(10);
 
         $params = array('parent' => $parent); // for sub attributes pagination
+
+        createLog('viewed attributes'); // activity log
         return view('admin.attribute.index', compact('attributes', 'parent', 'parentAttribute', 'params'));
     }
 
@@ -58,6 +60,8 @@ class AttributeController extends Controller
     {
         $input = $request->all();
         ModelsAttribute::create($input);
+
+        createLog('created new attribute'); // activity log
 
         if ($request->parent_id) {
             return redirect()->route('admin.attributes.index', ['parent' => $request->parent_id])->with('success', 'New Attribute Created');
@@ -99,6 +103,8 @@ class AttributeController extends Controller
         $input = $request->all();
         $attribute->update($input);
 
+        createLog('edited attribute'); // activity log
+
         if ($request->parent_id) {
             return redirect()->route('admin.attributes.index', ['parent' => $request->parent_id])->with('success', 'Attribute Updated');
         }
@@ -114,6 +120,8 @@ class AttributeController extends Controller
     public function destroy(ModelsAttribute $attribute)
     {
         $attribute->delete();
+        createLog('deleted attribute'); // activity log
+
         return redirect()->route('admin.attributes.index')->with('success', 'Attribute Deleted');
     }
 }

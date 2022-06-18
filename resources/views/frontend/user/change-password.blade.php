@@ -14,7 +14,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="inputPasswordOld">Current Password</label>
-                            <input type="password" name="current_password" class="form-control" id="inputPasswordOld"
+                            <input style="width: 100%" type="password" name="current_password" class="form-control" id="inputPasswordOld"
                                 required="">
                             @error('current_password')
                                 <div class="invalid-feedback" style="display: block;">
@@ -24,7 +24,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inputPasswordNew">New Password</label>
-                            <input type="password" name="new_password" class="form-control" id="inputPasswordNew"
+                            <input style="width: 100%" type="password" name="new_password" class="form-control" id="inputPasswordNew"
                                 required="">
                             <span class="form-text small text-muted">
                                 The password must be 8-20 characters, and must <em>not</em> contain spaces.
@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inputPasswordNewVerify">Confirm Password</label>
-                            <input type="password" name="new_password_confirmation" class="form-control"
+                            <input style="width: 100%" type="password" name="new_password_confirmation" class="form-control"
                                 id="inputPasswordNewVerify" required="">
                             <span class="form-text small text-muted">
                                 To confirm, type the new password again.

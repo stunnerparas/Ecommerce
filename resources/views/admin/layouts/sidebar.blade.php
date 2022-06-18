@@ -51,9 +51,15 @@
                 <a class="nav-link" href="{{ route('admin.orders.index') }}"><i class="fas fa-fire"></i>
                     <span>Orders</span></a>
             </li>
+
             <li class="{{ Request::segment(2) == 'users' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.users.index') }}"><i class="fas fa-fire"></i>
                     <span>Users</span></a>
+            </li>
+
+            <li class="{{ Request::segment(2) == 'logs' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.logs.index') }}"><i class="fas fa-fire"></i>
+                    <span>Activity Logs</span></a>
             </li>
 
         </ul>

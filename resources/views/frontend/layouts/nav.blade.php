@@ -1,4 +1,5 @@
 <!-- Offcanvas Menu Start -->
+
 <div class="offcanvas-menu-overlay"></div>
 <div class="offcanvas-menu-wrapper">
     <div class="offcanvas-close-switch">+</div>
@@ -10,7 +11,8 @@
                 <div class="h-100 d-flex align-items-center justify-content-center">
                     <div class="offcanvas-search-close-switch">+</div>
                     <form class="search-model-form">
-                        <input type="text" id="search-input" placeholder="Search here....." />
+                        <input type="text" id="search-input" autocomplete="off" class="search-input"
+                            placeholder="Search here....." />
                     </form>
                 </div>
             </div>
@@ -372,7 +374,7 @@
         <div class="row">
             <div class="col-lg-2 col-md-6 col-sm-6 col-10">
                 <div class="header__logo">
-                    <a href="./index.html"><img src="{{ asset('frontend/assets/images/logo/logo.png') }}"
+                    <a href="{{ route('index') }}"><img src="{{ asset('frontend/assets/images/logo/logo.png') }}"
                             class="w-100 h-100" alt="" /></a>
                 </div>
             </div>
@@ -412,7 +414,8 @@
                     <div class="h-100 d-flex align-items-center justify-content-center">
                         <div class="search-close-switch">+</div>
                         <form class="search-model-form">
-                            <input type="text" id="search-input" placeholder="Search here....." />
+                            <input type="text" id="search-input" autocomplete="off" class="search-input"
+                                placeholder="Search here....." />
                         </form>
                     </div>
                 </div>
@@ -529,7 +532,8 @@
                         <img src="{{ asset('frontend/assets/images/sub-menu/cashmere (1).jpg') }}" alt="" />
                     </div>
                     <div class="col-lg-2 pane-image-column">
-                        <img src="{{ asset('frontend/assets/images/sub-menu/cashmere (2).jpg') }}" alt="" />
+                        <img src="{{ asset('frontend/assets/images/sub-menu/cashmere (2).jpg') }}"
+                            alt="" />
                     </div>
                 </div>
             </div>
@@ -658,8 +662,8 @@
                         </div>
                     </div>
                     <div class="col-lg-2 pane-image-column">
-                        <img src="{{ asset('frontend/assets/images/sub-menu/women(2).jpg') }}"
-                            class="w-100 h-100" alt="">
+                        <img src="{{ asset('frontend/assets/images/sub-menu/women(2).jpg') }}" class="w-100 h-100"
+                            alt="">
                         <div class="column-content text-center">
                             <a class="heading">Shop All Women</a>
                         </div>
@@ -876,7 +880,8 @@
                         </div>
                     </div>
                     <div class="col-lg-2 pane-image-column">
-                        <img src="{{ asset('frontend/assets/images/sub-menu/accessories (2).jpg') }}" alt="" />
+                        <img src="{{ asset('frontend/assets/images/sub-menu/accessories (2).jpg') }}"
+                            alt="" />
                         <div class="column-content text-center">
                             <a class="heading">Shop All</a>
                         </div>
@@ -977,8 +982,8 @@
                 <div class="row d-flex justify-content-between">
                     <div class="col-lg-6 px-2 world-pane-column">
                         <div class="our-world-image">
-                            <img src="{{ asset('frontend/assets/images/sub-menu/WORLD.jpg') }}"
-                                class="w-100 h-100" alt="" />
+                            <img src="{{ asset('frontend/assets/images/sub-menu/WORLD.jpg') }}" class="w-100 h-100"
+                                alt="" />
                         </div>
                         <div class="our-world-content py-2">
                             <h4 class="text-center">Cashmere: The Origin</h4>
@@ -1001,3 +1006,18 @@
     </div>
 </header>
 <!-- Header section End -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+<script type="text/javascript">
+    var route = "{{ url('autocomplete-search') }}";
+    $('.search-input').typeahead({
+        source: function(query, process) {
+            return $.get(route, {
+                query: query
+            }, function(data) {
+                return process(data);
+            });
+        }
+    });
+</script>

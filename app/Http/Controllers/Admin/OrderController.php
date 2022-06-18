@@ -19,6 +19,8 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::latest()->paginate(10);
+        createLog('viewed order details'); // activity log
+
         return view('admin.order.index', compact('orders'));
     }
 
@@ -30,6 +32,8 @@ class OrderController extends Controller
         $orderItems = OrderItems::where('order_id', $order->id)->get();
         $shipping = ShippingAddress::where('order_id', $order->id)->first();
         $billing = BillingAddress::where('order_id', $order->id)->first();
+        createLog('viewed orderitem details'); // activity log
+
         return view('admin.order.order-items', compact('order', 'orderItems', 'shipping', 'billing'));
     }
 
@@ -41,6 +45,8 @@ class OrderController extends Controller
         $order->update([
             'status' => $request->status
         ]);
+        createLog('changes status of an order'); // activity log
+
 
         return redirect()->back()->with('message', 'Order status changed');
     }
@@ -48,6 +54,8 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         $order->delete();
+        createLog('deleted an order'); // activity log
+
         return redirect()->back()->with('success', 'Order Deleted');
     }
 }

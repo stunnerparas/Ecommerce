@@ -2,7 +2,7 @@
 <section class="footer" id="footer">
     <div class="container">
         <div class="row py-2">
-            <div class="col-lg-2 col-md-6 col-sm-12 px-4 py-3">
+            {{-- <div class="col-lg-2 col-md-6 col-sm-12 px-4 py-3">
                 <h4>Help</h4>
                 <div class="footer-list my-2">
                     <ul class="navbar-nav">
@@ -23,15 +23,18 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
             <div class="col-lg-3 col-md-6 col-sm-12 px-4 py-3">
                 <h4>Kanchan Cashmere</h4>
                 <div class="footer-list my-2">
                     <ul class="navbar-nav">
                         <li>
-                            <a href="#">About us</a>
+                            <a href="{{ route('page', 'about') }}">About us</a>
                         </li>
                         <li>
+                            <a href="{{ route('page', 'terms-and-conditions') }}">Terms And Conditions</a>
+                        </li>
+                        {{-- <li>
                             <a href="#">Our Natural Yarns</a>
                         </li>
                         <li>
@@ -42,14 +45,14 @@
                         </li>
                         <li>
                             <a href="#">Future</a>
-                        </li>
+                        </li> --}}
                         <li>
-                            <a href="#">Contact Us</a>
+                            <a href="{{ route('contact') }}">Contact Us</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-6 col-sm-12 px-4 py-3">
+            <div class="col-lg-3 col-md-6 col-sm-12 px-4 py-3">
                 <h4>Business</h4>
                 <div class="footer-list my-2">
                     <ul class="navbar-nav">
@@ -74,7 +77,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-6 col-sm-12 px-4 py-3">
+            <div class="col-lg-3 col-md-6 col-sm-12 px-4 py-3">
                 <h4>Track</h4>
                 <div class="footer-list my-2">
                     <ul class="navbar-nav">
@@ -99,7 +102,8 @@
                 <div class="shipping-partner my-4">
                     <h4>Shipping Partner</h4>
                     <div class="images">
-                        <img src="{{ asset('frontend/assets/images/partner/partner1.png') }}" class="w-100" alt="" />
+                        <img src="{{ asset('frontend/assets/images/partner/partner1.png') }}" class="w-100"
+                            alt="" />
                     </div>
                 </div>
             </div>
@@ -112,7 +116,8 @@
                     </h6>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <img src="{{ asset('frontend/assets/images/partner/payment.png') }}" class="w-100 h-100" style="object-fit: fill;" alt="" />
+                    <img src="{{ asset('frontend/assets/images/partner/payment.png') }}" class="w-100 h-100"
+                        style="object-fit: fill;" alt="" />
                 </div>
             </div>
         </div>

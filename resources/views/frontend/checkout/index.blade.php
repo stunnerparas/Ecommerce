@@ -15,56 +15,58 @@
                                 <div class="row my-3">
                                     <div class="col-sm-6 col-12 mb-3 mb-sm-0">
                                         <!-- First Name for shipping -->
-                                        <input type="text" name="shipping_full_name" class="form-control p-4"
-                                            placeholder="Full Name">
+                                        <input type="text" value="{{ $shipping->full_name ?? '' }}"
+                                            name="shipping_full_name" class="form-control p-4" placeholder="Full Name">
                                     </div>
                                     <div class="col-sm-6 col-12">
                                         <!-- Last Name for shipping -->
-                                        <input type="email" name="shipping_email" class="form-control p-4"
-                                            placeholder="Email">
+                                        <input type="email" value="{{ $shipping->email ?? '' }}" name="shipping_email"
+                                            class="form-control p-4" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col">
                                         <!-- Address of shipping -->
-                                        <input type="text" name="shipping_address" class="form-control p-4"
-                                            placeholder=" Address ">
+                                        <input type="text" value="{{ $shipping->address ?? '' }}"
+                                            name="shipping_address" class="form-control p-4" placeholder=" Address ">
                                     </div>
                                 </div>
                                 <div class="row mb-3 ">
                                     <div class="col ">
                                         <!-- Apartment number, suite number -->
-                                        <input type="text " name="shipping_apartment" class="form-control p-4 "
+                                        <input type="text " value="{{ $shipping->apartment ?? '' }}"
+                                            name="shipping_apartment" class="form-control p-4 "
                                             placeholder="Apartment, suite, (optional) ">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-4 col-6">
                                         <!-- City for shipping -->
-                                        <input type="text " name="shipping_city" class="form-control p-4 "
-                                            placeholder="City">
+                                        <input type="text " value="{{ $shipping->city ?? '' }}" name="shipping_city"
+                                            class="form-control p-4 " placeholder="City">
                                     </div>
                                     <div class="col-sm-4 col-6 mb-3 mb-sm-0">
                                         <!-- State for shipping -->
-                                        <input type="text " name="shipping_state" class="form-control p-4 "
-                                            placeholder="State">
+                                        <input type="text " value="{{ $shipping->state ?? '' }}" name="shipping_state"
+                                            class="form-control p-4 " placeholder="State">
                                     </div>
                                     <div class="col-sm-4 col-12">
                                         <!-- Zip code for shipping -->
-                                        <input type="text " name="shipping_postal_code" class="form-control p-4 "
-                                            placeholder="Postal Code">
+                                        <input type="text " value="{{ $shipping->postal_code ?? '' }}"
+                                            name="shipping_postal_code" class="form-control p-4 " placeholder="Postal Code">
                                     </div>
                                 </div>
                                 <div class="row mb-3 ">
                                     <div class="col ">
-                                        <input type="text " name="shipping_country" class="form-control p-4 "
-                                            placeholder="Country">
+                                        <input type="text " value="{{ $shipping->country ?? '' }}"
+                                            name="shipping_country" class="form-control p-4 " placeholder="Country">
                                     </div>
                                 </div>
                                 <div class="row mb-3 ">
                                     <div class="col ">
                                         <!-- Contact information for shipping -->
-                                        <input type="text " name="shipping_phone" class="form-control p-4 " placeholder="Phone">
+                                        <input type="text " value="{{ $shipping->phone ?? '' }}" name="shipping_phone"
+                                            class="form-control p-4 " placeholder="Phone">
                                     </div>
                                 </div>
 
@@ -75,13 +77,14 @@
                                         <div class="deafult-billing-info">
                                             <h4>Billing address same as shipping</h4>
                                         </div>
-                                        <input type="radio" name="billAddress" value="no" checked id="billSaveAddress">
+                                        <input type="radio" name="billAddress" value="no" checked
+                                            id="billSaveAddress">
                                     </div>
                                 </div>
                                 <div class="row default-shipping-container mt-3 p-3">
                                     <div class="col-12 d-flex align-content-center justify-content-between">
                                         <div class="deafult-shipping-info">
-                                            <h4>Set a new billing address</h4>
+                                            <h4>Set a new or default billing address</h4>
                                         </div>
                                         <input type="radio" name="billAddress" value="yes" id="billNewAddress">
 
@@ -92,64 +95,65 @@
                                     <div class="row mb-3">
                                         <div class="col-sm-6 col-12 mb-3 mb-sm-0">
                                             <!-- First Name for billing -->
-                                            <input type="text" name="billing_full_name" class="form-control p-4"
+                                            <input type="text" value="{{ $billing->full_name ?? '' }}" name="billing_full_name" class="form-control p-4"
                                                 placeholder="Full Name">
                                         </div>
                                         <div class="col-sm-6 col-12">
                                             <!-- Last Name for billing -->
-                                            <input type="email" name="billing_email" class="form-control p-4"
+                                            <input type="email" value="{{ $billing->email ?? '' }}" name="billing_email" class="form-control p-4"
                                                 placeholder="Email">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col">
                                             <!-- Address of billing -->
-                                            <input type="text" name="billing_address" class="form-control p-4"
+                                            <input type="text" value="{{ $billing->address ?? '' }}" name="billing_address" class="form-control p-4"
                                                 placeholder=" Address ">
                                         </div>
                                     </div>
                                     <div class="row mb-3 ">
                                         <div class="col ">
                                             <!-- Apartment number, suite number for billing -->
-                                            <input type="text " name="billing_apartment" class="form-control p-4 "
+                                            <input type="text " value="{{ $billing->apartment ?? '' }}" name="billing_apartment" class="form-control p-4 "
                                                 placeholder="Apartment, suite, (optional) ">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-sm-4 col-6">
                                             <!-- City for shipping billing -->
-                                            <input type="text " name="billing_city" class="form-control p-4 "
+                                            <input type="text " value="{{ $billing->city ?? '' }}" name="billing_city" class="form-control p-4 "
                                                 placeholder="City">
                                         </div>
                                         <div class="col-sm-4 col-6 mb-3 mb-sm-0">
                                             <!-- State for shipping -->
-                                            <input type="text " name="billing_state" class="form-control p-4 "
+                                            <input type="text " value="{{ $billing->state ?? '' }}" name="billing_state" class="form-control p-4 "
                                                 placeholder="State">
                                         </div>
                                         <div class="col-sm-4 col-12">
                                             <!-- Zip code for shipping billing -->
-                                            <input type="text " name="billing_postal_code" class="form-control p-4 "
+                                            <input type="text " value="{{ $billing->postal_code ?? '' }}" name="billing_postal_code" class="form-control p-4 "
                                                 placeholder="Postal Code">
                                         </div>
                                     </div>
                                     <div class="row mb-3 ">
                                         <div class="col ">
-                                            <input type="text " name="billing_country" class="form-control p-4 "
+                                            <input type="text " value="{{ $billing->country ?? '' }}" name="billing_country" class="form-control p-4 "
                                                 placeholder="Country">
                                         </div>
                                     </div>
                                     <div class="row mb-3 ">
                                         <div class="col ">
                                             <!-- Contact information for billing -->
-                                            <input type="text " name="billing_phone" class="form-control p-4 " placeholder="Phone">
+                                            <input type="text " value="{{ $billing->phone ?? '' }}" name="billing_phone" class="form-control p-4 "
+                                                placeholder="Phone">
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
                             <div class="row mt-3 d-flex justify-content-center">
-                                <button id="quoteBtn" onclick="" class="btn primary-btn get-quote-btn mt-2">Get Quote<i
-                                        class="bi ml-3 bi-arrow-right"></i></button>
+                                <button id="quoteBtn" onclick="" class="btn primary-btn get-quote-btn mt-2">Get
+                                    Quote<i class="bi ml-3 bi-arrow-right"></i></button>
                             </div>
                         </div>
                     </form>

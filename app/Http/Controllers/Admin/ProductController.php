@@ -31,6 +31,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::latest()->paginate(10);
+        createLog('viewed product details'); // activity log
+
         return view('admin.product.index', compact('products'));
     }
 
@@ -53,6 +55,8 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
         $product = Product::create($request->all());
+        createLog('created a new product'); // activity log
+
         return redirect()->route('admin.products.edit', $product->id);
     }
 
@@ -83,6 +87,7 @@ class ProductController extends Controller
         $productCategories = ProductCategory::where('product_id', $product->id)->pluck('category_id')->toArray();
         $productAttributes = ProductAttribute::where('product_id', $product->id)->pluck('attribute_id')->toArray();
         $productTypes = ProductType::where('product_id', $product->id)->pluck('type_id')->toArray();
+
         return view('admin.product.edit', compact('product', 'categories', 'attributes', 'productCategories', 'productAttributes', 'gallery', 'types', 'productTypes'));
     }
 
@@ -106,6 +111,8 @@ class ProductController extends Controller
         $product->types()->detach();
         $product->types()->attach($request->types);
 
+        createLog('edited a product'); // activity log
+
         return redirect()->back()->with('success', 'Product Updated');
     }
 
@@ -118,6 +125,8 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();     // soft delete
+        createLog('deleted a product'); // activity log
+
         return redirect()->back()->with('success', 'Product Deleted');
     }
 

@@ -9,11 +9,11 @@
                     <div class="personal-details-top d-flex justify-content-between">
                         <h5>Personal Details</h5>
                         <i class="bi bi-pencil-fill"></i>
-                        <a href="">i</a>
+                        <a href="{{ route('profile.edit') }}">i</a>
                     </div>
                     <div class="personal-details-container ">
-                        <p class="pName">John Smith</p>
-                        <p class="pEmail">johnsmith@gmail.com</p>
+                        <p class="pName">{{ $user->name }}</p>
+                        <p class="pEmail">{{ $user->email }}</p>
                     </div>
                     <div class="personal-details-bottom">
                         <a href="{{ route('change.password') }}" class="text-underline">Change Account Password</a>
@@ -23,19 +23,40 @@
                     <div class="shipping-details-top d-flex justify-content-between">
                         <h5>Shipping Details</h5>
                         <i class="bi bi-pencil-fill"></i>
-                        <a href="">i</a>
+                        <a href="{{ route('shipping.details') }}">i</a>
                     </div>
                     <div class="shipping-details-container mt-2">
-                        <p>House 201,<br>Los Angeles 90011,<br> USA</p>
+                        {{-- <p>House 201,<br>Los Angeles 90011,<br> USA</p> --}}
+                        <p class="orderReciverName mt-3">{{ $shipping->full_name ?? '' }}</p>
+                        <p class="order-shipping address">{{ $shipping->address ?? '' }},
+                            {{ $shipping->city ?? '' }},
+                            {{ $shipping->state ?? '' }},
+                            {{ $shipping->country ?? '' }}</p>
+                        <p class="order-shipping-contact">
+                            {{ $shipping->apartment ?? '' }},
+                            {{ $shipping->postal_code ?? '' }}-{{ $shipping->phone ?? '' }}
+                        </p>
+                        <p class="order-shipping-contact">
+                            {{ $shipping->email ?? '' }}</p>
                     </div>
                 </div>
                 <div class="col-md-3 p-3 mx-2 col-12 profile-sub-container">
                     <div class="billing-details-top d-flex justify-content-between">
                         <h5>Billing Details</h5>
                         <i class="bi bi-pencil-fill"></i>
-                        <a href="">i</a>
+                        <a href="{{ route('billing.details') }}">i</a>
                     </div>
-                    <p class="mt-2">Same as Shipping Address</p>
+                    {{-- <p class="mt-2">Same as Shipping Address</p> --}}
+                    <p class="orderReciverName mt-3">{{ $billing->full_name ?? '' }}</p>
+                    <p class="order-shipping address">{{ $billing->address ?? '' }},
+                        {{ $billing->city ?? '' }},
+                        {{ $billing->state ?? '' }},
+                        {{ $billing->country ?? '' }}</p>
+                    <p class="order-shipping-contact">
+                        {{ $billing->apartment ?? '' }},
+                        {{ $billing->postal_code ?? '' }}-{{ $billing->phone ?? '' }}</p>
+                    <p class="order-shipping-contact">
+                        {{ $billing->email ?? '' }}</p>
                 </div>
 
             </div>
