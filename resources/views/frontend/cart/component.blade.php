@@ -11,7 +11,8 @@
                             <img src="{{ asset('images/' . $item->attributes->image) }}" class="product-img"
                                 alt="product" srcset="">
                         </div>
-                        <div class="product-description-content d-flex mt-sm-0 mt-4 justify-content-between flex-grow-1">
+                        <div
+                            class="product-description-content d-flex mt-sm-0 mt-4 justify-content-between flex-grow-1">
                             <h5 class="product-name font-weight-bold my-auto d-flex flex-column align-content-start">
                                 {{ $item->name }}
                                 <p class="product-price my-2 d-flex justify-content-lg-start">${{ $item->price }}</p>
@@ -22,18 +23,19 @@
                             <p class="product-quantity">
                             <div class="quantity-control" data-quantity="">
                                 <button class="quantity-btn btn-decrease" value="{{ $item->id }}"
-                                    data-quantity-minus=""><i class="bi bi-plus"></i>-</button>
+                                    data-quantity-minus=""><i class="bi bi-dash"></i></button>
                                 <input type="number" class="quantity-input" data-quantity-target=""
-                                    value="{{ $item->quantity }}" step="1" min="1" max="" name="quantity">
+                                    value="{{ $item->quantity }}" step="1" min="1" max=""
+                                    name="quantity">
                                 <button class="quantity-btn btn-increase" value="{{ $item->id }}"
-                                    data-quantity-plus=""><i class="bi bi-dash"></i>+</i></button>
+                                    data-quantity-plus=""><i class="bi bi-plus"></i></button>
                             </div>
 
                             </p>
                             <p class="product-total-price my-auto">${{ $item->price * $item->quantity }}</p>
                         </div>
                         <div class="btn remove-product btn-remove-cart" value="{{ $item->id }}"><i
-                                class="bi bi-trash-fill"></i>X</div>
+                                class="bi bi-trash-fill"></i></div>
                     </div>
                     <div class="hr my-4"></div>
                 @endforeach
@@ -77,7 +79,8 @@
                 </div>
             </div>
 
-            <a href="{{ route('checkout') }}" class="btn secondary-btn p-3 mt-4">Checkout<i class="bi bi-arrow-right ml-2"></i></a>
+            <a href="{{ route('checkout') }}" class="btn secondary-btn p-3 mt-4">Checkout<i
+                    class="bi bi-arrow-right ml-2"></i></a>
         </div>
     </div>
 @else

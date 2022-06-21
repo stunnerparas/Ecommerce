@@ -392,6 +392,30 @@ $(document).ready(function () {
     });
 });
 
+// validation Login form
+$("#btnLogin").click(function (event) {
+    var form = $("#loginForm");
+
+    if (form[0].checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+
+    // if validation passed form
+    // would post to the server here
+
+    form.addClass("was-validated");
+});
+
+// faq toggle script
+const toggles = document.querySelectorAll(".faq-toggle");
+
+toggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+        toggle.parentNode.classList.toggle("active");
+    });
+});
+
 $(document).ready(function () {
     //For Card Number formatted input
     var cardNum = document.getElementById("cr_no");

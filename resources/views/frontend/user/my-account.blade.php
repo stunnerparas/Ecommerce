@@ -8,8 +8,9 @@
                 <div class="col-md-3 p-3 mx-2 col-12 profile-sub-container">
                     <div class="personal-details-top d-flex justify-content-between">
                         <h5>Personal Details</h5>
-                        <i class="bi bi-pencil-fill"></i>
-                        <a href="{{ route('profile.edit') }}">i</a>
+                        <a href="{{ route('profile.edit') }}">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
                     </div>
                     <div class="personal-details-container ">
                         <p class="pName">{{ $user->name }}</p>
@@ -22,8 +23,9 @@
                 <div class="col-md-3 p-3 mx-2 col-12 profile-sub-container">
                     <div class="shipping-details-top d-flex justify-content-between">
                         <h5>Shipping Details</h5>
-                        <i class="bi bi-pencil-fill"></i>
-                        <a href="{{ route('shipping.details') }}">i</a>
+                        <a href="{{ route('shipping.details') }}">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
                     </div>
                     <div class="shipping-details-container mt-2">
                         {{-- <p>House 201,<br>Los Angeles 90011,<br> USA</p> --}}
@@ -43,8 +45,9 @@
                 <div class="col-md-3 p-3 mx-2 col-12 profile-sub-container">
                     <div class="billing-details-top d-flex justify-content-between">
                         <h5>Billing Details</h5>
-                        <i class="bi bi-pencil-fill"></i>
-                        <a href="{{ route('billing.details') }}">i</a>
+                        <a href="{{ route('billing.details') }}">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
                     </div>
                     {{-- <p class="mt-2">Same as Shipping Address</p> --}}
                     <p class="orderReciverName mt-3">{{ $billing->full_name ?? '' }}</p>

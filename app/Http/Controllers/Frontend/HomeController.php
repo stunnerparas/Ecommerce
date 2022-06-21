@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Company;
+use App\Models\Faq;
 use App\Models\Newsletter;
 use App\Models\Page;
 use App\Models\Product;
@@ -80,5 +81,11 @@ class HomeController extends Controller
     public function page(Page $page)
     {
         return view('frontend.pages.index', compact('page'));
+    }
+
+    public function faq()
+    {
+        $faqs = Faq::latest()->get();
+        return view('frontend.pages.faq', compact('faqs'));
     }
 }

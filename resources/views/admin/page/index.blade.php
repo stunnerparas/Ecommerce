@@ -24,6 +24,7 @@
                                             <th scope="col">Image</th>
                                             <th scope="col">Title</th>
                                             <th scope="col">Show</th>
+                                            <th scope="col">Slug</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -39,6 +40,7 @@
                                                 </td>
                                                 <td>{{ $page->title }}</td>
                                                 <td>{{ $page->show }}</td>
+                                                <td>{{ $page->slug }}</td>
 
                                                 <td>
                                                     <div class="row">

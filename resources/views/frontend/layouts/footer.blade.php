@@ -29,10 +29,13 @@
                 <div class="footer-list my-2">
                     <ul class="navbar-nav">
                         <li>
-                            <a href="{{ route('page', 'about') }}">About us</a>
+                            <a href="{{ route('page', 'about-us') }}">About us</a>
                         </li>
                         <li>
                             <a href="{{ route('page', 'terms-and-conditions') }}">Terms And Conditions</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('faq') }}">FAQs</a>
                         </li>
                         {{-- <li>
                             <a href="#">Our Natural Yarns</a>

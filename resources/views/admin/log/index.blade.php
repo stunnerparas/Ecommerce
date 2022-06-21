@@ -21,7 +21,7 @@
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Title</th>
+                                            <th scope="col">Activity</th>
                                             <th scope="col">Date/Time</th>
                                         </tr>
                                     </thead>
