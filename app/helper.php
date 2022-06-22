@@ -5,6 +5,7 @@ use App\Models\Category;
 use App\Models\Company;
 use App\Models\Log;
 use App\Models\Product;
+use App\Models\Type;
 use Illuminate\Support\Facades\Auth;
 
 function getChildCategories($parent_id)
@@ -35,21 +36,33 @@ function getProductsFromCategory($category, $limit)
 function getAllChildCategories($slug)
 {
     $mainCategory = Category::where('slug', $slug)->first();
-    $parent_id = $mainCategory->id;
-    $main = Category::where('parent_id', $parent_id)->get();
-    $emp = [];
-    foreach ($main as $m1) {
-        $emp[$parent_id][] = $m1->id;
+    if ($mainCategory) {
+        $parent_id = $mainCategory->id;
+        $main = Category::where('parent_id', $parent_id)->get();
+        $emp = [];
+        foreach ($main as $m1) {
+            $emp[$parent_id][] = $m1->id;
 
-        if ($m1) {
-            $main1 = Category::where('parent_id', $m1->id)->get();
+            if ($m1) {
+                $main1 = Category::where('parent_id', $m1->id)->get();
 
-            foreach ($main1 as $m) {
-                $emp[$parent_id][] = $m->id;
+                foreach ($main1 as $m) {
+                    $emp[$parent_id][] = $m->id;
+                }
             }
         }
+        return $emp[$parent_id];
     }
-    return $emp[$parent_id];
+}
+
+function getCategoryFromSlug($slug)
+{
+    return Category::where('slug', $slug)->first();
+}
+
+function getCollectionFromSlug($slug)
+{
+    return Type::where('slug', $slug)->first();
 }
 
 function getTotalAmount()

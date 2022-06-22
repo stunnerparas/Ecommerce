@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Attribute as ModelsAttribute;
 use App\Models\Category;
 use App\Models\Company;
 use App\Models\Faq;
@@ -11,6 +12,7 @@ use App\Models\Page;
 use App\Models\Product;
 use App\Models\Slider;
 use App\Models\WeeklyDeal;
+use Attribute;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -87,5 +89,88 @@ class HomeController extends Controller
     {
         $faqs = Faq::latest()->get();
         return view('frontend.pages.faq', compact('faqs'));
+    }
+
+    public function filter($type = '', $slug = '')
+    {
+        $products = Product::select('products.*')->distinct('products.id');
+        $data = '';
+        $filterBy = '';
+        if ($type == 'category') {
+            $category = getCategoryFromSlug($slug);
+            if ($category) {
+                $filterBy = $category->name . ' Products';
+            }
+
+            $category_ids = getAllChildCategories($slug);
+            if ($category_ids) {
+                $data = 1;
+                $products = $products->join('product_categories', 'product_categories.product_id', '=', 'products.id')
+                    ->join('categories', 'categories.id', '=', 'product_categories.category_id')
+                    ->whereIn('product_categories.category_id', $category_ids);
+            }
+        } else if ($type == 'collection') {
+            $data = 1;
+            $collection = getCollectionFromSlug($slug);
+            if ($collection) {
+                $filterBy = $collection->type . ' Collection';
+            }
+            $products = $products->join('product_types', 'product_types.product_id', '=', 'products.id')
+                ->join('types', 'types.id', '=', 'product_types.type_id')
+                ->where('types.slug', $slug);
+        } else {
+            if (isset($_GET['search']) && $_GET['search']) {
+                $data = 1;
+                $filterBy = 'search results for "' . $_GET['search'] . '"';
+                $products = $products->where('name', 'LIKE', '%' . $_GET['search'] . '%');
+            }
+        }
+
+        // dropdown filter
+        if (isset($_GET['order']) && $_GET['order']) {
+            if ($_GET['order'] == 'high-price') {
+                $products = $products->orderBy('price', 'DESC');
+            }
+            if ($_GET['order'] == 'low-price') {
+                $products = $products->orderBy('price', 'ASC');
+            }
+            if ($_GET['order'] == 'latest') {
+                $products = $products->orderBy('created_at', 'DESC');
+            }
+        } else {
+            $products = $products->orderBy('created_at', 'DESC');
+        }
+
+        // attributes filter
+        if (isset($_GET['color']) && $_GET['color']) {
+            $products = $products->join('product_attributes', 'product_attributes.product_id', '=', 'products.id')
+                ->whereIn('product_attributes.attribute_id', $_GET['color']);
+        }
+        if (isset($_GET['size']) && $_GET['size']) {
+            $products = $products->join('product_attributes', 'product_attributes.product_id', '=', 'products.id')
+                ->whereIn('product_attributes.attribute_id', $_GET['size']);
+        }
+
+        // price filter
+        if (isset($_GET['min-price']) && $_GET['min-price']) {
+            $products = $products->where('products.price', '>=', $_GET['min-price']);
+        }
+        if (isset($_GET['max-price']) && $_GET['max-price']) {
+            $products = $products->where('products.price', '<=', $_GET['max-price']);
+        }
+
+        $products = $products->paginate(1);
+
+        $params = $_GET;
+        // dd($products);
+
+        $colors = ModelsAttribute::where('parent_id', $this->getAttributeByName('Color'))->get();
+        $sizes = ModelsAttribute::where('parent_id', $this->getAttributeByName('Size'))->get();
+        return view('frontend.filter.index', compact('products', 'data', 'filterBy', 'params', 'colors', 'sizes'));
+    }
+
+    public function getAttributeByName($name)
+    {
+        return ModelsAttribute::where('name', $name)->pluck('id');
     }
 }

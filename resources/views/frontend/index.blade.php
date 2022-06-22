@@ -136,7 +136,7 @@
                             <p>
                                 {!! $signatureBanner->description ?? '' !!}
                             </p>
-                            <a href="{{ $signatureBanner->btn_link ?? '' }}"
+                            <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'signature']) }}"
                                 class="primary-btn">{{ $signatureBanner->btn_text ?? '' }} <i
                                     class="fas fa-arrow-right"></i></a>
                         </div>
@@ -149,7 +149,7 @@
             <div class="container-fluid">
                 <div class="row product_filter">
                     <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 signature-link-container">
-                        <a href="#" class="my-5 signature-link">The Signature Collection →</a>
+                        <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'signature']) }}" class="my-5 signature-link">The Signature Collection →</a>
                     </div>
 
                     @foreach ($signatureCollections as $signature)
@@ -172,7 +172,7 @@
                             <p>
                                 {!! $classicBanner->description ?? '' !!}
                             </p>
-                            <a href="{{ $classicBanner->btn_link ?? '' }}"
+                            <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'classic']) }}"
                                 class="primary-btn">{{ $classicBanner->btn_text ?? '' }} <i
                                     class="fas fa-arrow-right"></i></a>
                         </div>
@@ -188,7 +188,7 @@
                         @include('frontend.component.product', ['product' => $classic])
                     @endforeach
                     <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 classic-link-container">
-                        <a href="#" class="my-5 classic-link">← The Classic Collection</a>
+                        <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'classic']) }}" class="my-5 classic-link">← The Classic Collection</a>
                     </div>
                 </div>
             </div>
@@ -254,7 +254,7 @@
                             <p>
                                 {!! $accessoriesBanner->description ?? '' !!}
                             </p>
-                            <a href="{{ $accessoriesBanner->btn_link ?? '' }}"
+                            <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'accessories']) }}"
                                 class="primary-btn">{{ $accessoriesBanner->btn_text ?? '' }} <i
                                     class="fas fa-arrow-right"></i></a>
                         </div>
@@ -267,7 +267,7 @@
             <div class="container-fluid">
                 <div class="row product_filter">
                     <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 accessories-link-container">
-                        <a href="#" class="my-5 accessories-link">
+                        <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'accessories']) }}" class="my-5 accessories-link">
                             The Accessories Collection →</a>
                     </div>
                     @foreach ($accessoriesCollections as $accessories)
@@ -290,7 +290,7 @@
                             <p>
                                 {!! $menBanner->description ?? '' !!}
                             </p>
-                            <a href="{{ $menBanner->btn_link ?? '' }}"
+                            <a href="{{ route('filter', ['type' => 'category', 'slug' => 'men']) }}"
                                 class="primary-btn">{{ $menBanner->btn_text ?? '' }} <i
                                     class="fas fa-arrow-right"></i></a>
                         </div>
@@ -306,7 +306,7 @@
                         @include('frontend.component.product', ['product' => $men])
                     @endforeach
                     <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 men-link-container">
-                        <a href="#" class="my-5 men-link">← The Men Collection</a>
+                        <a href="{{ route('filter', ['type' => 'category', 'slug' => 'men']) }}" class="my-5 men-link">← The Men Collection</a>
                     </div>
                 </div>
             </div>
@@ -325,7 +325,7 @@
                             <p>
                                 {!! $womenBanner->description ?? '' !!}
                             </p>
-                            <a href="{{ $womenBanner->btn_link ?? '' }}"
+                            <a href="{{ route('filter', ['type' => 'category', 'slug' => 'women']) }}"
                                 class="primary-btn">{{ $womenBanner->btn_text ?? '' }} <i
                                     class="fas fa-arrow-right"></i></a>
                         </div>
@@ -338,7 +338,8 @@
             <div class="container-fluid">
                 <div class="row product_filter">
                     <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 women-link-containers">
-                        <a href="#" class="my-5 women-link"> The Women Collection → </a>
+                        <a href="{{ route('filter', ['type' => 'category', 'slug' => 'women']) }}" class="my-5 women-link">
+                            The Women Collection → </a>
                     </div>
                     @foreach ($womenCollections as $women)
                         @include('frontend.component.product', ['product' => $women])
@@ -359,7 +360,7 @@
                         @include('frontend.component.product', ['product' => $superfine])
                     @endforeach
                     <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 superfine-link-container">
-                        <a href="#" class="my-5 superfine-link">← The Superfine Collection
+                        <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'superfine']) }}" class="my-5 superfine-link">← The Superfine Collection
                         </a>
                     </div>
                 </div>
@@ -376,7 +377,7 @@
                             <p>
                                 {!! $superfineBanner->description ?? '' !!}
                             </p>
-                            <a href="{{ $superfineBanner->btn_link ?? '' }}"
+                            <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'superfine']) }}"
                                 class="primary-btn">{{ $superfineBanner->btn_text ?? '' }} <i
                                     class="fas fa-arrow-right"></i></a>
                         </div>
@@ -446,7 +447,8 @@
             <div class="form text-center my-3">
                 <form class="form" id="newsletter-form" method="POST">
                     @csrf
-                    <input class="form_input" id="newsletter-email" name="email" type="email" placeholder="example@gmail.com" />
+                    <input class="form_input" id="newsletter-email" name="email" type="email"
+                        placeholder="example@gmail.com" />
                     <button style="cursor: pointer" class="submit-btn" type="submit">Submit</button>
                 </form>
             </div>
@@ -523,7 +525,7 @@
             e.preventDefault();
 
             var email = $('#newsletter-email').val();
-            if(!email){
+            if (!email) {
                 toastr.error("Please enter your email");
                 return false;
             }

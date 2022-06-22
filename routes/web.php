@@ -60,3 +60,6 @@ Route::post('/newsletter', [HomeController::class, 'newsletter'])->name('newslet
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/page/{page:slug?}', [HomeController::class, 'page'])->name('page');
 Route::get('/faqs', [HomeController::class, 'faq'])->name('faq');
+
+// filter page
+Route::get('/filter/{type?}/{slug?}', [HomeController::class, 'filter'])->name('filter');

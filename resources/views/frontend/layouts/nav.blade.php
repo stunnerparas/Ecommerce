@@ -10,8 +10,8 @@
             <div class="search-model">
                 <div class="h-100 d-flex align-items-center justify-content-center">
                     <div class="offcanvas-search-close-switch">+</div>
-                    <form class="search-model-form">
-                        <input type="text" id="search-input" autocomplete="off" class="search-input"
+                    <form class="search-model-form" method="GET" action="{{ route('filter') }}">
+                        <input type="text" name="search" id="search-input" autocomplete="off" class="search-input"
                             placeholder="Search here....." />
                     </form>
                 </div>
@@ -413,9 +413,9 @@
                 <div class="search-model">
                     <div class="h-100 d-flex align-items-center justify-content-center">
                         <div class="search-close-switch">+</div>
-                        <form class="search-model-form">
-                            <input type="text" id="search-input" autocomplete="off" class="search-input"
-                                placeholder="Search here....." />
+                        <form class="search-model-form" method="GET" action="{{ route('filter') }}">
+                            <input type="text" id="search-input" name="search" autocomplete="off"
+                                class="search-input" placeholder="Search here....." />
                         </form>
                     </div>
                 </div>
@@ -529,7 +529,8 @@
                     </div>
 
                     <div class="col-lg-2 pane-image-column">
-                        <img src="{{ asset('frontend/assets/images/sub-menu/cashmere (1).jpg') }}" alt="" />
+                        <img src="{{ asset('frontend/assets/images/sub-menu/cashmere (1).jpg') }}"
+                            alt="" />
                     </div>
                     <div class="col-lg-2 pane-image-column">
                         <img src="{{ asset('frontend/assets/images/sub-menu/cashmere (2).jpg') }}"
