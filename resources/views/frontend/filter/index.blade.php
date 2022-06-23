@@ -11,7 +11,9 @@
                     </button>
                     <div class="filter-container d-md-block" id="filter-container">
                         <div class="category-type mt-4">
-                            <form action="" method="get">
+                            <form action="#" method="get">
+                                <input type="hidden" value="{{ isset($_GET['search']) ? $_GET['search'] : '' }}"
+                                    name="search" id="">
                                 <div class="sub-category mb-3">
                                     <h5 class="mb-3 category-filter-heading">Colors</h5>
                                     @foreach ($colors as $color)

@@ -10,6 +10,7 @@ use App\Models\Faq;
 use App\Models\Newsletter;
 use App\Models\Page;
 use App\Models\Product;
+use App\Models\ProductAttribute;
 use App\Models\Slider;
 use App\Models\WeeklyDeal;
 use Attribute;
@@ -142,14 +143,37 @@ class HomeController extends Controller
         }
 
         // attributes filter
+        if ((isset($_GET['color']) && $_GET['color']) || (isset($_GET['size']) && $_GET['size'])) {
+            $products = $products->join('product_attributes', 'product_attributes.product_id', '=', 'products.id');
+        }
+
+        $flag = 0;
+        if ((isset($_GET['color']) && $_GET['color']) && (isset($_GET['size']) && $_GET['size'])) {
+            $flag = 1;
+        }
+
+        $ids = [];
         if (isset($_GET['color']) && $_GET['color']) {
-            $products = $products->join('product_attributes', 'product_attributes.product_id', '=', 'products.id')
-                ->whereIn('product_attributes.attribute_id', $_GET['color']);
+            if ($flag == 0) {
+                $products = $products->whereIn('product_attributes.attribute_id', $_GET['color']);
+            } else {
+                $colorProducts = ProductAttribute::whereIn('attribute_id', $_GET['color'])->pluck('product_id')->toArray();
+            }
         }
         if (isset($_GET['size']) && $_GET['size']) {
-            $products = $products->join('product_attributes', 'product_attributes.product_id', '=', 'products.id')
-                ->whereIn('product_attributes.attribute_id', $_GET['size']);
+            if($flag == 0){
+                $products = $products->whereIn('product_attributes.attribute_id', $_GET['size']);
+            }else{
+                $sizeProducts = ProductAttribute::whereIn('attribute_id', $_GET['size'])->pluck('product_id')->toArray();
+            }
         }
+
+        if($flag == 1){
+            $a = array_intersect($colorProducts, $sizeProducts);
+            $products = $products->whereIn('products.id', $a);
+        }
+
+        // dd($a);
 
         // price filter
         if (isset($_GET['min-price']) && $_GET['min-price']) {
@@ -159,7 +183,7 @@ class HomeController extends Controller
             $products = $products->where('products.price', '<=', $_GET['max-price']);
         }
 
-        $products = $products->paginate(1);
+        $products = $products->paginate(10);
 
         $params = $_GET;
         // dd($products);
