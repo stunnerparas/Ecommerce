@@ -105,6 +105,7 @@ class HomeController extends Controller
 
             $category_ids = getAllChildCategories($slug);
             if ($category_ids) {
+                // dd($category_ids);
                 $data = 1;
                 $products = $products->join('product_categories', 'product_categories.product_id', '=', 'products.id')
                     ->join('categories', 'categories.id', '=', 'product_categories.category_id')

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\LogController;
+use App\Http\Controllers\Admin\NewsletterController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProductController;
@@ -48,3 +49,6 @@ Route::post('order-status/{order}', [OrderController::class, 'changeOrderStatus'
 
 // activity log
 Route::get('/logs', [LogController::class, 'index'])->name('logs.index');
+
+// newsletter
+Route::get('/newsletter', [NewsletterController::class, 'index'])->name('newsletter.index');

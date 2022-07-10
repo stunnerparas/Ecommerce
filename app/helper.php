@@ -8,6 +8,11 @@ use App\Models\Product;
 use App\Models\Type;
 use Illuminate\Support\Facades\Auth;
 
+function getParentCategories()
+{
+    return Category::where('parent_id', 0)->orderBy('order', 'ASC')->get();
+}
+
 function getChildCategories($parent_id)
 {
     return Category::where('parent_id', $parent_id)->get();
@@ -40,14 +45,17 @@ function getAllChildCategories($slug)
         $parent_id = $mainCategory->id;
         $main = Category::where('parent_id', $parent_id)->get();
         $emp = [];
-        foreach ($main as $m1) {
-            $emp[$parent_id][] = $m1->id;
+        $emp[$parent_id][] = $mainCategory->id;
+        if ($main->count() > 0) {
+            foreach ($main as $m1) {
+                $emp[$parent_id][] = $m1->id;
 
-            if ($m1) {
-                $main1 = Category::where('parent_id', $m1->id)->get();
+                if ($m1) {
+                    $main1 = Category::where('parent_id', $m1->id)->get();
 
-                foreach ($main1 as $m) {
-                    $emp[$parent_id][] = $m->id;
+                    foreach ($main1 as $m) {
+                        $emp[$parent_id][] = $m->id;
+                    }
                 }
             }
         }

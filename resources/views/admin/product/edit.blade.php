@@ -55,6 +55,34 @@
                                             </div>
 
                                             <div class="form-group">
+                                                <label>Price For Business</label>
+                                                <input type="text" value="{{ old('business_price', $product->business_price) }}"
+                                                    name="business_price" class="form-control" >
+                                                <div class="invalid-feedback">
+                                                    Business Price is required
+                                                </div>
+                                                @error('business_price')
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Minimum Quantity For Business</label>
+                                                <input type="number" value="{{ old('min_quantity', $product->min_quantity) }}"
+                                                    name="min_quantity" class="form-control">
+                                                <div class="invalid-feedback">
+                                                    Minimum Quantity Price is required
+                                                </div>
+                                                @error('min_quantity')
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+
+                                            <div class="form-group">
                                                 <label>Description</label>
                                                 <textarea name="description" class="summernote"
                                                     style="display: none;">{{ old('description', $product->description) }}</textarea>

@@ -14,7 +14,7 @@
 
             <li
                 class="dropdown {{ Request::segment(2) == 'sliders' || Request::segment(2) == 'deals' || Request::segment(2) == 'company' || Request::segment(2) == 'pages' || Request::segment(2) == 'faqs' ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i>
                     <span>Settings</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ Request::segment(2) == 'sliders' ? 'active' : '' }}"><a class="nav-link"
@@ -32,7 +32,7 @@
 
             <li
                 class="dropdown {{ Request::segment(2) == 'categories' || Request::segment(2) == 'products' || Request::segment(2) == 'attributes' ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-tags"></i>
                     <span>Products</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ Request::segment(2) == 'categories' ? 'active' : '' }}"><a class="nav-link"
@@ -48,18 +48,23 @@
             </li>
 
             <li class="{{ Request::segment(2) == 'orders' ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin.orders.index') }}"><i class="fas fa-fire"></i>
+                <a class="nav-link" href="{{ route('admin.orders.index') }}"><i class="fas fa-cart-arrow-down"></i>
                     <span>Orders</span></a>
             </li>
 
             <li class="{{ Request::segment(2) == 'users' ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin.users.index') }}"><i class="fas fa-fire"></i>
+                <a class="nav-link" href="{{ route('admin.users.index') }}"><i class="fas fa-users"></i>
                     <span>Users</span></a>
             </li>
 
             <li class="{{ Request::segment(2) == 'logs' ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin.logs.index') }}"><i class="fas fa-fire"></i>
+                <a class="nav-link" href="{{ route('admin.logs.index') }}"><i class="fas fa-file-alt"></i>
                     <span>Activity Logs</span></a>
+            </li>
+
+            <li class="{{ Request::segment(2) == 'newsletter' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.newsletter.index') }}"><i class="fas fa-envelope"></i>
+                    <span>Newsletters</span></a>
             </li>
 
         </ul>

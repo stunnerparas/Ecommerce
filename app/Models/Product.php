@@ -22,6 +22,8 @@ class Product extends Model
         'type',
         'tag',
         'rating',
+        'business_price',
+        'min_quantity'
     ];
 
     public const visibility_status = [

@@ -23,6 +23,7 @@
                                         <tr>
                                             <th scope="col">Name</th>
                                             <th scope="col">Price</th>
+                                            <th scope="col">Business Price</th>
                                             <th scope="col">Image</th>
                                             <th scope="col">Visibility Status</th>
                                             <th scope="col">Action</th>
@@ -33,6 +34,7 @@
                                             <tr>
                                                 <td>{{ $product->name }}</td>
                                                 <td>{{ $product->price }}</td>
+                                                <td>{{ $product->business_price ?? 0 }}</td>
                                                 <td>
                                                     <a href="{{ asset('images/' . ($product->featured_image ?: 'no-image.png')) }}"
                                                         data-fancybox="demo" class="fancybox">

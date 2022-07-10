@@ -8,6 +8,7 @@ use App\Models\Product;
 use Attribute;
 use Illuminate\Http\Request;
 use Cart;
+use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
@@ -44,11 +45,20 @@ class CartController extends Controller
         $product = Product::where('id', $request->product_id)->first();
         $color = ModelsAttribute::where('id', $request->color)->first();
         $size = ModelsAttribute::where('id', $request->size)->first();
+
+        $price = $product->price ?? 0;
+        if (Session::get('business')) {
+            $price = $product->business_price ?? 0;
+            if ($request->min_quantity < $product->min_quantity) {
+                $request->min_quantity = $product->min_quantity;
+            }
+        }
+
         \Cart::add([
             'id' => $product->id . '-' . $request->size . '-' . $request->color,
             'name' => $product->name,
-            'price' => $product->price,
-            'quantity' => 1,
+            'price' => $price,
+            'quantity' => $request->min_quantity,
             'attributes' => array(
                 'image' => $product->featured_image,
                 'color' => $color->name,
@@ -125,11 +135,21 @@ class CartController extends Controller
 
     public function cartItemsDecrease($id)
     {
+        $product = Product::where('id', $id)->first();
+
         $row = \Cart::get($id);
         $qty = $row->quantity - 1;
         if ($qty < 1) {
             $qty = 1;
         }
+
+        // if logged in as business
+        if (Session::get('business')) {
+            if ($qty < $product->min_quantity) {
+                $qty = $product->min_quantity;
+            }
+        }
+
         \Cart::update($id, [
             'quantity' => [
                 'relative' => false,

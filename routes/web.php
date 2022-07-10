@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ProductController;
 use App\Http\Controllers\Frontend\UserController as FrontendUserController;
+use App\Http\Controllers\Frontend\WishlistController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,17 +27,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::get('/product/{product:slug}', [ProductController::class, 'product'])->name('product');
+
+// cart
 Route::resource('cart', CartController::class);
 Route::get('/view-items/cart', [CartController::class, 'cartItems'])->name('cartItems.view');
 Route::get('/view-items/cart/increase/{id}', [CartController::class, 'cartItemsIncrease'])->name('cartItems.view.increase');
 Route::get('/view-items/cart/decrease/{id}', [CartController::class, 'cartItemsDecrease'])->name('cartItems.view.decrease');
 Route::get('/view-items/cart/remove/{id}', [CartController::class, 'cartItemsRemove'])->name('cartItems.view.remove');
+
+// checkout
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::post('/checkout/store', [CheckoutController::class, 'store'])->name('checkout.store');
 Route::get('/confirmation/{order_number}', [CheckoutController::class, 'thankyou'])->name('checkout.thankyou');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/business-login', [AuthController::class, 'businessLogin'])->name('business.login');
 Route::post('/login/check', [AuthController::class, 'loginCheck'])->name('login.check');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register/store', [AuthController::class, 'storeRegister'])->name('register.store');
@@ -63,3 +69,9 @@ Route::get('/faqs', [HomeController::class, 'faq'])->name('faq');
 
 // filter page
 Route::get('/filter/{type?}/{slug?}', [HomeController::class, 'filter'])->name('filter');
+
+// wishlist
+Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+Route::post('/wishlist', [WishlistController::class, 'store'])->name('wishlist.store');
+Route::get('/wishlist/destroy/{wishlist}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
+Route::get('/wishlist/cart/', [WishlistController::class, 'addToCart'])->name('wishlist.cart');

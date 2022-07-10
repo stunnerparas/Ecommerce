@@ -28,7 +28,12 @@
                         @endfor
                     </div>
                     <div class="rate py-2">
-                        <h3>${{ $product->price ?? 0 }}</h3>
+                        @if (Session::get('business'))
+                            <h3>${{ $product->business_price ?? 0 }}</h3>
+                            <h6>Note: Minimum quantity for this product is {{ $product->min_quantity }}</h6>
+                        @else
+                            <h3>${{ $product->price ?? 0 }}</h3>
+                        @endif
                     </div>
                     <div class="batch">
                         <a href="#" class="pdp-batch">Best Seller</a>
@@ -50,9 +55,19 @@
                         @endforeach
                     </div>
                     <div class="product-button py-2">
-                        <a href="javascript:void(0)" class="tritary-btn text-center" data-value="{{ $product->id }}"
+                        @if (Session::get('business'))
+                            <input type="number" class="form-control py-2 mb-2"
+                                value="{{ $product->min_quantity ?? 0 }}" placeholder="Quantity" name=""
+                                id="min-quantity">
+                        @endif
+                        <a href="javascript:void(0)" class="tritary-btn text-center"
+                            data-business="{{ Session::get('business') ? 'yes' : 'no' }}"
+                            data-quantity="{{ $product->min_quantity }}" data-value="{{ $product->id }}"
                             id="btn-add-to-cart">
-                            <i class="fas fa-shopping-bag"></i> Add to Cart</a>
+                            <i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                        <a href="javascript:void(0)" class="tritary-btn text-center" data-value="{{ $product->id }}"
+                            id="btn-add-to-wishlist">
+                            <i class="fas fa-heart"></i> Add to Wishlist</a>
                         <p>Free Shipping & return all over Nepal</p>
                     </div>
                     <div class="product-detail">
@@ -169,14 +184,36 @@
 
         $('#btn-add-to-cart').click(function(e) {
             var id = $(this).attr('data-value');
+            var isBusiness = $(this).attr('data-business');
+            var quantity = parseInt($(this).attr('data-quantity'));
+            if (isBusiness == 'yes') {
+                if (parseInt($('#min-quantity').val()) < quantity) {
+                    toastr.error("Minimun Quantity For This Product is " + quantity);
+                    return false;
+                }
+            }
+            url = "{{ route('cart.store') }}";
+            cartData(id, url);
+        })
+
+        $('#btn-add-to-wishlist').click(function(e) {
+            var id = $(this).attr('data-value');
+            url = "{{ route('wishlist.store') }}";
+            cartData(id, url);
+        })
+
+        function cartData(id, url) {
             if (!size) {
                 toastr.error("Select Size");
                 return false;
             }
+
             if (!color) {
                 toastr.error("Select Color");
                 return false;
             }
+
+            min_quantity = parseInt($('#min-quantity').val() ?? 1);
 
             $.ajaxSetup({
                 headers: {
@@ -185,21 +222,36 @@
             });
 
             $.ajax({
-                url: "{{ route('cart.store') }}",
+                url: url,
                 type: "POST",
                 data: {
                     size: size,
                     color: color,
-                    product_id: id
+                    product_id: id,
+                    min_quantity: min_quantity
                 },
                 success: function(data) {
+                    if (data == 'not-logged-in') {
+                        toastr.error("Please Login First");
+                        return false;
+                    }
+
+                    if (data == 'already-added') {
+                        toastr.error("Already Added To Wishlist");
+                        return false;
+                    }
+
+                    if (data == 'success') {
+                        toastr.success("Added To Wishlist");
+                        return false;
+                    }
+
                     toastr.success("Added to Cart");
                 },
                 error: function(data) {
                     alert("Some Problems Occured!");
                 },
             });
-
-        })
+        }
     </script>
 @endsection

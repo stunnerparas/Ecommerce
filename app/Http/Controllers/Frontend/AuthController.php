@@ -23,12 +23,17 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
+
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
+            // for business login
+            if ($request->business_login) {
+                Session::put('business', 'yes');
+            }
             return redirect()->route('index');
         }
 
-        return redirect()->route('login')->with('error', 'Invalid Email/Password');
+        return redirect()->back()->with('error', 'Invalid Email/Password');
     }
 
     public function register()
@@ -44,8 +49,17 @@ class AuthController extends Controller
 
     public function logout()
     {
+        // for business login
+        if (Session::get('business')) {
+            Session::forget('business');
+        }
         Session::flush();
         Auth::logout();
         return redirect()->route('index');
+    }
+
+    public function businessLogin()
+    {
+        return view('frontend.auth.business-login');
     }
 }

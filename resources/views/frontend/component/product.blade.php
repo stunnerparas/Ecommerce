@@ -12,7 +12,11 @@
             <h6>{{ $product->name }}</h6>
             <a href="{{ route('product', $product->slug) }}" class="add-cart">+ Add To Cart</a>
 
-            <h5>${{ $product->price }}</h5>
+            @if (Session::get('business'))
+                <h5>${{ $product->business_price ?? 0 }}</h5>
+            @else
+                <h5>${{ $product->price }}</h5>
+            @endif
         </div>
     </div>
 </div>

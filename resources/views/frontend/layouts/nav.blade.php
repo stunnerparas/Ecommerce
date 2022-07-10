@@ -16,7 +16,7 @@
                     </form>
                 </div>
             </div>
-            <a href="#"><i class="fas fa-heart fa-2x"></i></a>
+            <a href="{{ route('wishlist.index') }}"><i class="fas fa-heart fa-2x"></i></a>
             <a href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart fa-2x"></i></a>
         </div>
         <div class="offcanvas__links">
@@ -33,124 +33,41 @@
     </div>
     <div class="offcanvas_header_menu">
         <ul>
-            <li><a href="./index.html">Cashmere</a></li>
-            <li class="offcanvas-li" id="offcanvas-women-li">
-                <a href="#">Women <i class="fas fa-caret-right" id="rotate-icon"></i></a>
-                <ul class="offcanvas-submenu" id="women-submenu">
-                    <li id="submenu-menu">
-                        <a href="#">Ready To Wear
-                            <i class="fas fa-caret-right" id="rotate-icon1"></i></a>
-                        <ul class="offcanvas-submenu-menu" id="women-clothes">
-                            <li>
-                                <a href="#" class="pane-link">Dress</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Top </a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Bottom</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Pullover</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Hodiee</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Skirt</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Shirt and tops</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Hodiee</a>
-                            </li>
+            {{-- <li><a href="./index.html">Cashmere</a></li> --}}
+            @foreach (getParentCategories() as $main)
+                <li class="offcanvas-li" id="offcanvas-women-li">
+                    <a href="{{ route('filter', ['type' => 'category', 'slug' => $main->slug]) }}">{{ $main->name ?? '' }}
+                        @if (getChildCategories($main->id)->count() > 0)
+                            <i class="fas fa-caret-right" id="rotate-icon"></i>
+                        @endif
+                    </a>
+                    @if (getChildCategories($main->id)->count() > 0)
+                        <ul class="offcanvas-submenu" id="women-submenu">
+                            @foreach (getChildCategories($main->id) as $category)
+                                <li id="submenu-menu">
+                                    <a
+                                        href="{{ route('filter', ['type' => 'category', 'slug' => $category->slug]) }}">{{ $category->name ?? '' }}
+                                        @if (getChildCategories($category->id)->count() > 0)
+                                            <i class="fas fa-caret-right" id="rotate-icon1"></i>
+                                        @endif
+                                    </a>
+                                    @if (getChildCategories($category->id)->count() > 0)
+                                        <ul class="offcanvas-submenu-menu" id="women-clothes">
+                                            @foreach (getChildCategories($category->id) as $sub_category)
+                                                <li>
+                                                    <a href="{{ route('filter', ['type' => 'category', 'slug' => $sub_category->slug]) }}"
+                                                        class="pane-link">{{ $sub_category->name ?? '' }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                </li>
+                            @endforeach
                         </ul>
-                    </li>
-                    <li id="submenu-menu1">
-                        <a href="#">Accessories
-                            <i class="fas fa-caret-right" id="rotate-icon2"></i></a>
-                        <ul class="offcanvas-submenu-menu" id="women-accessories">
-                            <li>
-                                <a href="#" class="pane-link">Belt</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Bags </a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Gloves</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Sunglasses</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Scarves</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li id="submenu-menu2">
-                        <a href="#">Shoes <i class="fas fa-caret-right" id="rotate-icon3"></i></a>
-                        <ul class="offcanvas-submenu-menu" id="women-shoes">
-                            <li>
-                                <a href="#" class="pane-link">New Balance</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Skechers </a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">ASICS</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Clarks</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Fila</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li id="submenu-menu3">
-                        <a href="#">Bags <i class="fas fa-caret-right" id="rotate-icon4"></i></a>
-                        <ul class="offcanvas-submenu-menu" id="women-bags">
-                            <li>
-                                <a href="#" class="pane-link">Luis Vitton</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Gucci</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Hermes</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Bagstop</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Bag Nation</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li id="submenu-menu4">
-                        <a href="#">At Home <i class="fas fa-caret-right" id="rotate-icon4"></i></a>
-                        <ul class="offcanvas-submenu-menu" id="women-home">
-                            <li>
-                                <a href="#" class="pane-link">Blanket</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Bed Cover </a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Mattress</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Towel</a>
-                            </li>
-                            <li>
-                                <a href="#" class="pane-link">Pillow</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class="offcanvas-li" id="offcanvas-men-li">
+                    @endif
+                </li>
+            @endforeach
+            {{-- <li class="offcanvas-li" id="offcanvas-men-li">
                 <a href="#">Men <i class="fas fa-caret-right" id="rotate-icon6"></i></a>
                 <ul class="offcanvas-submenu" id="men-submenu">
                     <li id="submenu-menu5">
@@ -321,7 +238,7 @@
             </li>
             <li><a href="">Home</a></li>
             <li><a href="">Look Book</a></li>
-            <li><a href="">Our World</a></li>
+            <li><a href="">Our World</a></li> --}}
         </ul>
     </div>
 
@@ -382,27 +299,12 @@
                 <nav class="nav__primary">
                     <div class="nav__primary__links">
                         <ul id="menuElem">
-                            <li id="sub-menu-cashmere">
-                                <a href="#">Cashmere</a>
-                            </li>
-                            <li id="sub-menu-women">
-                                <a href="#">Women</a>
-                            </li>
-                            <li id="sub-menu-men">
-                                <a href="#">Men</a>
-                            </li>
-                            <li class="has-children" id="sub-menu-accessories">
-                                <a href="#">Accessories</a>
-                            </li>
-                            <li class="has-children" id="sub-menu-home">
-                                <a href="#">Home</a>
-                            </li>
-                            <li class="has-children" id="sub-menu-lookbook">
-                                <a href="#">Look Book</a>
-                            </li>
-                            <li id="sub-menu-world">
-                                <a href="#">Our world</a>
-                            </li>
+                            @foreach (getParentCategories() as $category)
+                                <li id="" class="sub-menu-click" data-category="{{ $category->slug }}">
+                                    <a
+                                        href="{{ route('filter', ['type' => 'category', 'slug' => $category->slug]) }}">{{ $category->name }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </nav>
@@ -419,13 +321,46 @@
                         </form>
                     </div>
                 </div>
-                <a href="#"><i class="fas fa-heart fa-2x"></i></a>
+                <a href="{{ route('wishlist.index') }}"><i class="fas fa-heart fa-2x"></i></a>
                 <a href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart fa-2x"></i></a>
             </div>
         </div>
         <!-- Sub menu Section Started -->
         <!-- Cashmere Submenu -->
-        <div class="pane" id="cashmere-pane">
+        @foreach (getParentCategories() as $main)
+            <div class="pane {{ $main->slug }}" id="">
+                <div class="container-fluid">
+                    <div class="row">
+                        @foreach (getChildCategories($main->id) as $category)
+                            <div class="col-lg-2 pane-column">
+                                <a href="{{ route('filter', ['type' => 'category', 'slug' => $category->slug]) }}"
+                                    class="pane-heading">{{ $category->name }}</a>
+                                <ul>
+                                    @foreach (getChildCategories($category->id) as $sub_category)
+                                        <li>
+                                            <a href="{{ route('filter', ['type' => 'category', 'slug' => $sub_category->slug]) }}"
+                                                class="pane-link">{{ $sub_category->name }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endforeach
+
+                        <div class="col-lg-2 pane-image-column">
+                            <img src="{{ asset('frontend/assets/images/sub-menu/cashmere (1).jpg') }}"
+                                alt="" />
+                        </div>
+                        <div class="col-lg-2 pane-image-column">
+                            <img src="{{ asset('frontend/assets/images/sub-menu/cashmere (2).jpg') }}"
+                                alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+
+
+        {{-- <div class="pane women" id="">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-2 pane-column">
@@ -538,9 +473,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Women sub menu -->
-        <div class="pane" id="women-pane">
+        {{-- <div class="pane" id="women-pane">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-8 pane-column">
@@ -1001,7 +936,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="canvas__open"><i class="fa fa-bars"></i></div>
     </div>
