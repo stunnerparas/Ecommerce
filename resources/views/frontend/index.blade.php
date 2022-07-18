@@ -42,7 +42,7 @@
                                     alt="" />
                             </div>
                             <div class="content">
-                                <a href="#" class="secondary-btn">{{ $luxuryLeft->title ?? '' }}</a>
+                                <a href="{{ $luxuryLeft->btn_link ?? '#' }}" class="secondary-btn">{{ $luxuryLeft->title ?? '' }}</a>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                                     alt="" />
                             </div>
                             <div class="content">
-                                <a href="#" class="secondary-btn">{{ $luxuryRight->title ?? '' }}</a>
+                                <a href="{{ $luxuryRight->btn_link ?? '#' }}" class="secondary-btn">{{ $luxuryRight->title ?? '' }}</a>
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
     </section>
     <!-- Product Section End -->
     <!-- Catagories Section Start -->
-    <section class="catagories">
+    <section class="catagories mt-5">
         <div class="container">
             <div class="row">
                 @if ($topLeft)

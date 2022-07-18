@@ -89,7 +89,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Types</label><br>
+                                                <label>Collections</label><br>
                                                 @foreach ($types as $key => $type)
                                                     <span class="mr-3">
                                                         <input @if (in_array($type->id, $productTypes)) {{ 'checked' }} @endif type="checkbox" name="types[]" value="{{ $type->id }}">

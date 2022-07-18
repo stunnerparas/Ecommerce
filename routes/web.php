@@ -75,3 +75,6 @@ Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.in
 Route::post('/wishlist', [WishlistController::class, 'store'])->name('wishlist.store');
 Route::get('/wishlist/destroy/{wishlist}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
 Route::get('/wishlist/cart/', [WishlistController::class, 'addToCart'])->name('wishlist.cart');
+
+// track order
+Route::get('/order-tracker', [HomeController::class, 'orderTracker'])->name('order.tracker');

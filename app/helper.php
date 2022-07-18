@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 function getParentCategories()
 {
-    return Category::where('parent_id', 0)->orderBy('order', 'ASC')->get();
+    return Category::where('parent_id', 0)->where('featured', 'yes')->orderBy('order', 'ASC')->get();
 }
 
 function getChildCategories($parent_id)

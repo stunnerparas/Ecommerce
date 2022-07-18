@@ -4,7 +4,7 @@
             <a target="_blank" href="/">Kanchan Cashmere</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">St</a>
+            <a href="index.html">KC</a>
         </div>
         <ul class="sidebar-menu">
             <li class="{{ Request::segment(2) == 'dashboard' ? 'active' : '' }}">
@@ -31,7 +31,7 @@
             </li>
 
             <li
-                class="dropdown {{ Request::segment(2) == 'categories' || Request::segment(2) == 'products' || Request::segment(2) == 'attributes' ? 'active' : '' }}">
+                class="dropdown {{ Request::segment(2) == 'categories' || Request::segment(2) == 'types' || Request::segment(2) == 'products' || Request::segment(2) == 'attributes' ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-tags"></i>
                     <span>Products</span></a>
                 <ul class="dropdown-menu">
@@ -43,7 +43,7 @@
                     <li class="{{ Request::segment(2) == 'attributes' ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.attributes.index') }}">Attributes</a></li>
                     <li class="{{ Request::segment(2) == 'types' ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('admin.types.index') }}">Types</a></li>
+                            href="{{ route('admin.types.index') }}">Collections</a></li>
                 </ul>
             </li>
 

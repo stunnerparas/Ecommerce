@@ -120,6 +120,7 @@
                                     <div class="cart-payment-type">
                                         <div class="hr my-2"></div>
                                         <p class="payment-type">Paid with {{ $order->payment_method ?: 'N/A' }}</p>
+                                        <p class="">Status:<span class="badge badge-success"> {{ $order->status ?: 'N/A' }}</span></p>
                                     </div>
                                 </div>
                             </div>

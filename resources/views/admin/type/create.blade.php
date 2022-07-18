@@ -24,11 +24,11 @@
                                         <div class="col-md-6">
 
                                             <div class="form-group">
-                                                <label>Type</label>
+                                                <label>Collection</label>
                                                 <input type="text" value="{{ old('type') }}" name="type"
                                                     class="form-control" required="">
                                                 <div class="invalid-feedback">
-                                                    Type is required
+                                                    Collection is required
                                                 </div>
                                                 @error('type')
                                                     <div class="invalid-feedback" style="display: block;">

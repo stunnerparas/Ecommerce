@@ -4,13 +4,17 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Attribute as ModelsAttribute;
+use App\Models\BillingAddress;
 use App\Models\Category;
 use App\Models\Company;
 use App\Models\Faq;
 use App\Models\Newsletter;
+use App\Models\Order;
+use App\Models\OrderItems;
 use App\Models\Page;
 use App\Models\Product;
 use App\Models\ProductAttribute;
+use App\Models\ShippingAddress;
 use App\Models\Slider;
 use App\Models\WeeklyDeal;
 use Attribute;
@@ -162,14 +166,14 @@ class HomeController extends Controller
             }
         }
         if (isset($_GET['size']) && $_GET['size']) {
-            if($flag == 0){
+            if ($flag == 0) {
                 $products = $products->whereIn('product_attributes.attribute_id', $_GET['size']);
-            }else{
+            } else {
                 $sizeProducts = ProductAttribute::whereIn('attribute_id', $_GET['size'])->pluck('product_id')->toArray();
             }
         }
 
-        if($flag == 1){
+        if ($flag == 1) {
             $a = array_intersect($colorProducts, $sizeProducts);
             $products = $products->whereIn('products.id', $a);
         }
@@ -197,5 +201,26 @@ class HomeController extends Controller
     public function getAttributeByName($name)
     {
         return ModelsAttribute::where('name', $name)->pluck('id');
+    }
+
+    public function orderTracker()
+    {
+        $data = '';
+        $order = '';
+        $orderItems = '';
+        $shipping = '';
+        $billing = '';
+
+        if (isset($_GET['order_number']) && $_GET['order_number']) {
+            $data = 'no-data';
+            $order = Order::where('order_number', $_GET['order_number'])->first();
+            if ($order) {
+                $data = 1;
+                $orderItems = OrderItems::where('order_id', $order->id)->get();
+                $shipping = ShippingAddress::where('order_id', $order->id)->first();
+                $billing = BillingAddress::where('order_id', $order->id)->first();
+            }
+        }
+        return view('frontend.track-order.index', compact('data', 'order', 'orderItems', 'shipping', 'billing'));
     }
 }
