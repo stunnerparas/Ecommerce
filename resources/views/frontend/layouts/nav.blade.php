@@ -272,7 +272,8 @@
                 <div class="col-lg-8 col-md-9">
                     <div class="header__top__right">
                         <div class="header__top__links">
-                            <a href="{{ route('order.tracker') }}">Order Tracker</a>
+                            <a href="{{ route('order-tracking') }}">Order Tracker</a>
+                            <a href="{{ route('my-orders') }}">My Orders</a>
 
                             @if (Auth::check())
                                 <a href="{{ route('myaccount') }}">My Account</a>

@@ -85,6 +85,34 @@ class HomeController extends Controller
         return view('frontend.pages.contact');
     }
 
+    public function helpDesk()
+    {
+        return view('frontend.help-desk.index');
+    }
+
+    public function blog()
+    {
+        return view('frontend.blog.index');
+    }
+    public function showblog()
+    {
+        return view('frontend.blog.show');
+    }
+    public function orderTracking()
+    {
+        return view('frontend.orderTracking.index');
+    }
+
+    public function orderTrackingOther()
+    {
+        return view('frontend.orderTracking.other');
+    }
+    
+    public function myOrders()
+    {
+        return view('frontend.myOrders.index');
+    }
+
     public function page(Page $page)
     {
         return view('frontend.pages.index', compact('page'));

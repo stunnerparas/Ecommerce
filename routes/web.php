@@ -78,3 +78,19 @@ Route::get('/wishlist/cart/', [WishlistController::class, 'addToCart'])->name('w
 
 // track order
 Route::get('/order-tracker', [HomeController::class, 'orderTracker'])->name('order.tracker');
+
+// Helpdesk 
+Route::get('/help-desk', [HomeController::class, 'helpDesk'])->name('helpDesk');
+
+
+//Blog 
+Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
+Route::get('/blog/show-blog', [HomeController::class, 'showblog'])->name('show-blog');
+
+//Order tracking
+Route::get('/order-tracking', [HomeController::class, 'orderTracking'])->name('order-tracking');
+Route::get('/order-tracking/other', [HomeController::class, 'orderTrackingOther'])->name('order-tracking-other');
+
+
+// My orders
+Route::get('/my-orders', [HomeController::class, 'myOrders'])->name('my-orders');

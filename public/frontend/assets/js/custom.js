@@ -16,3 +16,8 @@ $(".pane").hover(
         $(this).css("display", "none");
     }
 );
+
+reply = () => {
+    let replyInput = document.getElementById("replyComment");
+    replyInput.style.display ="block";
+}
