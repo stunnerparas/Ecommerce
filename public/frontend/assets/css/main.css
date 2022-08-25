@@ -2118,7 +2118,7 @@ a:link {
 
 .category__item__pic {
     width: 100%;
-    height: 250px;
+    height: 600px;
     position: relative;
     background-position: center center;
 }
@@ -2137,11 +2137,14 @@ a:link {
 
 .filter-btn {
     display: none;
-    background-color: #e53637;
+   
     width: 45px;
     height: 35px;
-    color: white;
+    color: #000000;
     font-weight: bold;
+}
+.filter-btn:focus{
+    outline: none;
 }
 
 .profile-sub-container {
@@ -2959,6 +2962,18 @@ a:link {
     width: 60px;
     height: auto;
 }
+/* Product filter page new design */
+.filter-container select{
+    border: none;
+    color: #222222;
+    font-size: 16px;
+    padding: 5px;
+    margin-right: 15px;
+}
+.filter-container select:focus{
+    border: none;
+    outline: none;
+}
 
 /* **************************************************Responsive Media Query***************************************************************** */
 
@@ -3405,7 +3420,7 @@ a:link {
         width: calc(100% / 2);
     }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768.5px) {
     .women-cart .content {
         top: 11px;
         right: 32px;
@@ -3419,6 +3434,7 @@ a:link {
     .filter-btn {
         display: flex;
     }
+    
     .category-view-container {
         border: none;
     }
@@ -3586,6 +3602,13 @@ a:link {
     .orderNumber {
         flex-direction: column;
     }
+    #arrangeOption {
+        width: 70px;
+        height: 30px;
+    }
+    .category__item__pic{
+        height: auto !important;
+    }
 }
 @media only screen and (max-width: 556px) {
     .orderTrackPlatform .form label {
@@ -3695,6 +3718,9 @@ a:link {
     }
     .other-orderTracking {
         padding: 20px 10px;
+    }
+    .category-type{
+        flex-direction: column;
     }
 }
 
