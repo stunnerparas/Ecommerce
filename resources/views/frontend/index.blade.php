@@ -490,6 +490,33 @@
     </div>
 </section>
 <!-- Detail Section End -->
+<!-- Catalogue section start -->
+<div class="catalogue py-4">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="catalogue-content">
+                <h2 class="section-heading">Product Catalogue </h2>
+
+                <p class="text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo esse, laborum velit magni accusantium at et amet laudantium quas quasi a iusto quos accusamus tenetur eveniet non ipsa? Corrupti voluptatibus tenetur consectetur sequi in id! Similique necessitatibus quos, eveniet veniam autem odit, at adipisci illo earum, nostrum ducimus corporis iure.</p>
+
+                <div class="button">
+                    <a href="#" class="tritary-btn">Download <i class="fas fa-arrow-down"></i></a>
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="col-lg-6">
+            <div class="catalogue-image">
+                <img src="{{ asset('frontend/assets/images/catalogue.jpeg') }}" class="w-100 h-100" alt="" />
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Catalogue section end -->
+
 
 <!-- Contact Section Start -->
 <section class="contact">
@@ -500,7 +527,7 @@
             <!-- contact form -->
             <form class="form" id="newsletter-form" method="POST">
                 @csrf
-                <input class="form_input" id="newsletter-email" name="email" type="email" placeholder="example@gmail.com" />
+                <input class="form_input w-50" style="padding:20px 30px ;" id="newsletter-email" name="email" type="email" placeholder="example@gmail.com" />
                 <button style="cursor: pointer" class="submit-btn" type="submit">Submit</button>
             </form>
             <!-- end -->

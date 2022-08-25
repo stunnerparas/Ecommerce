@@ -112,6 +112,10 @@ class HomeController extends Controller
     {
         return view('frontend.myOrders.index');
     }
+    public function myProfile()
+    {
+        return view('frontend.myProfile.index');
+    }
 
     public function page(Page $page)
     {

@@ -918,7 +918,7 @@ a:link {
     font-size: 3em;
     font-weight: 600;
     color: #fe4c50;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .timer_unit {
@@ -1265,6 +1265,15 @@ a:link {
 }
 
 /* Superfine Collection End */
+/* Help desk */
+.help-left-sec {
+    display: flex;
+    width: 100%;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 /* Detail Section Started */
 
@@ -1293,7 +1302,18 @@ a:link {
 }
 
 /* Detail Section End */
-
+/* catalogue container */
+.catalogue-content{
+    padding: 30px 50px;
+    height: 100%;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+.catalogue-content .button a{
+    background-color: #3498db;
+}
 /* Contact Section Start */
 
 .form {
@@ -1429,32 +1449,30 @@ a:link {
 }
 
 .product-color .color1 {
-    width: 50px;
-    height: 40px;
+   
     border: 1px solid #000000;
-    padding: 5px;
+    padding: 5px 10px;
     cursor: pointer;
     border-radius: 15px;
     background-color: #000;
     color: white;
+    margin-left:10px;
+    margin-right:10px;
 }
 
 .product-color .color2 {
-    width: 50px;
-    height: 40px;
+    
     border: 1px solid #000000;
-    padding: 5px;
+    padding: 5px 10px;
     cursor: pointer;
-    margin-left: 10px;
+    margin-right:10px;
+    margin-left:10px;
     border-radius: 15px;
     background-color: white;
     color: black;
 }
 
-.product-color .color1:hover,
-.product-color .color2:hover {
-    font-weight: bold;
-}
+
 
 .product-detail h3 {
     text-decoration: underline;
@@ -2844,6 +2862,111 @@ a:link {
     height: 80vh;
 }
 
+/* *********************       User Profile section        *************************** */
+.user-profile {
+    padding: 25px;
+}
+.profile-information-card {
+    padding: 10px 30px;
+    background: #f7f7f7;
+}
+.user-profile .left-sec .profile-image {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+        url("../images/profile-background.jpeg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-profile .profile-image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.user-profile .username h2 {
+    font-size: 30px;
+}
+.user-profile .username h3 {
+    font-size: 25px;
+}
+.user-profile input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 20px;
+    color: #575757;
+    padding-left: 10px;
+}
+.user-profile .usernumber i {
+    position: absolute;
+    right: 122px;
+    top: 15px;
+}
+.user-profile label {
+    font-size: 25px;
+    font-family: "Nunito Sans";
+    font-weight: 500;
+    color: #474747;
+}
+.user-profile .useremail input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 20px;
+    color: #575757;
+    width: 80%;
+}
+.user-profile .right-sec {
+    padding: 0px 30px !important;
+}
+.user-profile .password-box {
+    padding: 10px 20px;
+    background: #f7f7f7;
+    width: 100%;
+}
+.password-box .heading {
+    border-bottom: 2px solid #777777;
+}
+.password-form {
+    padding-top: 30px;
+}
+.password-form input {
+    margin-bottom: 20px;
+    border: 1px solid #545353;
+}
+.new-pass {
+    margin-left: 33px;
+}
+.current-pass {
+    margin-left: 2px;
+}
+.user-profile .right-sec .user-order {
+    padding: 10px 20px;
+    background: #f7f7f7;
+    width: 100%;
+    margin-top: 20px;
+}
+.useraddress input {
+    width: 70%;
+}
+.user-order .heading {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 2px solid #545353;
+}
+.user-order .heading a {
+    font-size: 20px;
+    color: #474747;
+}
+.user-product-container .image {
+    width: 60px;
+    height: auto;
+}
+
 /* **************************************************Responsive Media Query***************************************************************** */
 
 @media only screen and (max-width: 1433px) {
@@ -3283,7 +3406,6 @@ a:link {
     .order-detail-right {
         display: none;
     }
-   
 }
 @media only screen and (max-width: 800px) {
     .blog-hero .blog-card {
@@ -3331,12 +3453,10 @@ a:link {
         left: 70px;
 
         opacity: 0.2;
- 
     }
-    .customer-image{
+    .customer-image {
         display: none;
     }
-   
 }
 
 @media only screen and (max-width: 730px) {
@@ -3613,7 +3733,7 @@ a:link {
         font-size: 1.5em;
         font-weight: 600;
         color: #fe4c50;
-        margin-top: 2rem;
+        margin-top: 2em;
     }
     .category-heading {
         font-size: 1.5em;

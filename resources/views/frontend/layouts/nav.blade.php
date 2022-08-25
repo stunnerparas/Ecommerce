@@ -296,7 +296,7 @@
                             class="w-100 h-100" alt="" /></a>
                 </div>
             </div>
-            <div class="col-lg-8 col-md-8 header_nav">
+            <div class="col-lg-7 col-md-7 header_nav">
                 <nav class="nav__primary">
                     <div class="nav__primary__links">
                         <ul id="menuElem">
@@ -310,7 +310,7 @@
                     </div>
                 </nav>
             </div>
-            <div class="col-lg-2 col-md-2 px-4 nav-icons">
+            <div class="col-lg-3 col-md-3 text-center px-4 nav-icons">
                 <a href="#" class="search-switch"><i class="fas fa-search fa-2x"></i></a>
                 <!-- Search Model -->
                 <div class="search-model">
@@ -324,6 +324,7 @@
                 </div>
                 <a href="{{ route('wishlist.index') }}"><i class="fas fa-heart fa-2x"></i></a>
                 <a href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart fa-2x"></i></a>
+                <a href="{{ route('myProfile') }}"><i class="fas fa-user fa-2x"></i></a>
             </div>
         </div>
         <!-- Sub menu Section Started -->
