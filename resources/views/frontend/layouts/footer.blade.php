@@ -21,6 +21,7 @@
                         <li>
                             <a href="#">Size Guide</a>
                         </li>
+                        
                     </ul>
                 </div>
             </div> --}}
@@ -36,6 +37,12 @@
                         </li>
                         <li>
                             <a href="{{ route('faq') }}">FAQs</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('helpDesk') }}">Help Desk</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('blog') }}">Kanchan Blogs</a>
                         </li>
                         {{-- <li>
                             <a href="#">Our Natural Yarns</a>

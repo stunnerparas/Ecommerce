@@ -404,40 +404,6 @@
 
 </section>
 <!-- superfine Collection End -->
-<!-- Help desk section start -->
-<section class="help-desk my-4">
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Help desk left sec -->
-            <div class="col-lg-5 col-md-6 help-left-sec">
-                <!-- Help desk heading -->
-                <h2 class="section-heading">Help Desk Support</h2>
-                <!-- Help desk paragraph -->
-                <p class="py-2 text-justify">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                    ducimus odit. Inventore quam laboriosam culpa. Obcaecati illo
-                    nulla consequatur ex? Repudiandae hic voluptatum dicta, maiores
-                    eius eveniet blanditiis. Maiores iste exercitationem sunt
-                    minima. Quidem explicabo facere, inventore placeat sunt libero
-                    iusto, eveniet sed cupiditate dolores neque totam mollitia minus
-                    repellendus incidunt eius? Consequatur, dolorum fugiat velit
-                    quos minus quam at sit incidunt ipsam vel molestiae. Repellat
-                    perferendis deleniti molestias nesciunt.
-                </p>
-                <!-- help desk button -->
-                <a href="{{ route('helpDesk') }}" class="primary-btn">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-
-            <!-- Help desk right sec -->
-            <div class="col-lg-7 col-md-6">
-                <div class="help-desk-image w-100">
-                    <img src="{{ asset('frontend/assets/images/help-desk.jpg') }}" class="w-100 h-100" alt="help-desk" />
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 
 <!-- Detail Section Start -->
 <section class="detail">
