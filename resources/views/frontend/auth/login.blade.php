@@ -21,7 +21,7 @@
                     <p class="text-underline text-center my-4">Having trouble logging in?</p>
                 </small>
                 <div class="form-group d-flex justify-content-center">
-                    <input class="btn login-btn primary-btn p-4" type="submit" value="SIGN IN">
+                    <input class="btn login-btn tritary-btn p-4" type="submit" value="Sign In">
 
                 </div>
             </form>

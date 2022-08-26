@@ -2969,6 +2969,7 @@ a:link {
     font-size: 16px;
     padding: 5px;
     margin-right: 15px;
+    cursor: pointer;
 }
 .filter-container select:focus{
     border: none;
@@ -3036,14 +3037,14 @@ a:link {
                 rgb(80 79 79 / 60%),
                 rgb(66 66 66 / 60%)
             ),
-            url(../../images/Hero/hero1.jpg);
+            url('../images/Hero/hero1.jpg');
         background-size: cover;
     }
     .hero__text h2 {
         color: #ffffff;
     }
     .hero__text p {
-        color: #ffffff;
+        color: #ffffff  !important;
     }
     .hero-menu img {
         display: none;
@@ -3057,13 +3058,13 @@ a:link {
                 rgb(80 79 79 / 60%),
                 rgb(66 66 66 / 60%)
             ),
-            url(../../images/signature-collection/signature-banner1.jpg);
+            url('../images/signature-collection/signature-banner1.jpg');
     }
     .signature-collection-banner h2 {
         color: #ffffff;
     }
     .signature-collection-banner p {
-        color: #ffffff;
+        color: #ffffff !important;
     }
     .signature-collection-banner img {
         display: none;
@@ -3074,16 +3075,16 @@ a:link {
                 rgb(80 79 79 / 60%),
                 rgb(66 66 66 / 60%)
             ),
-            url(../../images/classic-collection/classic-banner1.jpg);
+            url('../images/classic-collection/classic-banner1.jpg');
     }
     .classic-collection-banner img {
         display: none;
     }
     .classic-collection-banner h2 {
-        color: #ffffff;
+        color: #ffffff !important;
     }
     .classic-collection-banner p {
-        color: #ffffff;
+        color: #ffffff !important;
     }
     .accessories-collection-banner {
         background-size: cover;
@@ -3091,16 +3092,16 @@ a:link {
                 rgb(80 79 79 / 60%),
                 rgb(66 66 66 / 60%)
             ),
-            url(../../images/accessories-collection/accessories-banner1.jpg);
+            url('../images/accessories-collection/accessories-banner1.jpg');
     }
     .accessories-collection-banner img {
         display: none;
     }
     .accessories-collection-banner h2 {
-        color: #ffffff;
+        color: #ffffff !important;
     }
     .accessories-collection-banner p {
-        color: #ffffff;
+        color: #ffffff !important;
     }
     .men-collection-banner {
         background-size: cover;
@@ -3108,16 +3109,16 @@ a:link {
                 rgb(80 79 79 / 60%),
                 rgb(66 66 66 / 60%)
             ),
-            url(../../images/men-collection/men-banner1.jpg);
+            url('../images/men-collection/men-banner1.jpg');
     }
     .men-collection-banner img {
         display: none;
     }
     .men-collection-banner h2 {
-        color: #ffffff;
+        color: #ffffff !important;
     }
     .men-collection-banner p {
-        color: #ffffff;
+        color: #ffffff !important;
     }
     .women-collection-banner {
         background-size: cover;
@@ -3125,16 +3126,16 @@ a:link {
                 rgb(80 79 79 / 60%),
                 rgb(66 66 66 / 60%)
             ),
-            url(../../images/women-collection/women-banner1.jpg);
+            url('../images/women-collection/women-banner1.jpg');
     }
     .women-collection-banner img {
         display: none;
     }
     .women-collection-banner h2 {
-        color: #ffffff;
+        color: #ffffff !important;
     }
     .women-collection-banner p {
-        color: #ffffff;
+        color: #ffffff !important;
     }
     .superfine-collection-banner {
         background-size: cover;
@@ -3142,16 +3143,16 @@ a:link {
                 rgb(80 79 79 / 60%),
                 rgb(66 66 66 / 60%)
             ),
-            url(../../images/superfine-collection/superfine-banner1.jpg);
+            url('../images/superfine-collection/superfine-banner1.jpg');
     }
     .superfine-collection-banner img {
         display: none;
     }
     .superfine-collection-banner h2 {
-        color: #ffffff;
+        color: #ffffff !important;
     }
     .superfine-collection-banner p {
-        color: #ffffff;
+        color: #ffffff !important;
     }
     .product-images {
         padding: 0 0px !important;
@@ -3470,12 +3471,12 @@ a:link {
 
 @media only screen and (max-width: 730px) {
     .hero__text {
-        position: absolute;
+        
         top: 0;
         left: -27px;
     }
     .classic-banner-container {
-        position: absolute;
+       
         top: 0;
         left: -16px;
     }
@@ -3484,27 +3485,27 @@ a:link {
         height: 593px;
     }
     .signature-banner-container {
-        position: absolute;
+      
         top: 0;
         left: -16px;
     }
     .men-banner-container {
-        position: absolute;
+       
         top: 0;
         left: -16px;
     }
     .women-banner-container {
-        position: absolute;
+  
         top: 0;
         left: -16px;
     }
     .accessories-banner-container {
-        position: absolute;
+       
         top: 0;
         left: -16px;
     }
     .superfine-banner-container {
-        position: absolute;
+      
         top: 0;
         left: -16px;
     }

@@ -10,7 +10,7 @@
         <div class="content">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-8 col-lg-8 col-md-10 col-sm-12 hero-container">
+                    <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 hero-container">
                         <div class="hero__text">
                             <h2>{{ $mainBanner->title ?? '' }}</h2>
                             <p>
