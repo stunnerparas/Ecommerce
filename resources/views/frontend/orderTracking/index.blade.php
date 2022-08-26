@@ -25,11 +25,7 @@
     </div>
 
 
-    <!-- Order tracking image -->
-    <div class="orderTacking-image container">
-
-        <img src="{{ asset('frontend/assets/images/DHL.JPG') }}" class="w-100 h-100" alt="DHL banner">
-    </div>
+  
     <!-- OrderTracking platforms -->
     <div class="orderTrackPlatform container py-3">
         <!-- Heading -->
@@ -40,19 +36,19 @@
                 <!-- Track order DHL -->
                 <div class="platform1">
                 <input type="radio" id="DHL" name="DHL" value="DHL">
-                <label for="DHL"> <i class="fas fa-plane"></i> Track order through DHL</label> <br>
+                <label for="DHL"> <i class="fas fa-plane pr-3"></i>DHL</label> <br>
                 </div>
                 
                
                 <!-- Track order Other Platform -->
                 <div class="platform2 my-3">
                 <input type="radio" id="other" name="other" value="other">
-                <label for="other"> <i class="fas fa-truck"></i> Track order through others</label>
+                <label for="other"> <i class="fas fa-truck pr-3"></i>others</label>
                 </div>
                
 
                 <div class="button">
-                    <a href="{{ route('order-tracking-other') }}" class="secondary-btn">Track</a>
+                    <a href="{{ route('') }}" class="secondary-btn">Track</a>
                 </div>
                 
             </form>
