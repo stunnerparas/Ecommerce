@@ -89,6 +89,10 @@ class HomeController extends Controller
     {
         return view('frontend.help-desk.index');
     }
+    public function ticketGenerator()
+    {
+        return view('frontend.ticket-Generator.index');
+    }
 
     public function blog()
     {

@@ -262,9 +262,7 @@
                   />
                 </div>
                 <!-- Form submit -->
-                <button type="submit" class="primary-btn">
-                  Create Your Ticket <i class="fas fa-arrow-right"></i>
-                </button>
+                <a href="{{ route('ticket-Generator') }}" type="submit" class="secondary-btn">Create Ticket</a>
               </form>
             </div>
           </div>

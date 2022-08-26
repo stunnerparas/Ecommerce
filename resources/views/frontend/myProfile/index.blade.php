@@ -64,44 +64,8 @@
             </div>
             <!-- user profile right sec -->
             <div class="col-lg-6 right-sec px-3">
-                <!-- Password box -->
-                <div class="password-box my-3">
-                    <!-- heading -->
-                    <div class="heading">
-                        <h3>Change Password</h3>
-                    </div>
-                    <!-- password-form -->
-                    <div class="password-form">
-                        <form action="">
-                            <!-- current password -->
-                            <div class="current">
-                                <label for="current">Current :</label>
-                                <input type="password" class="current-pass" name="current">
-
-                            </div>
-                            <!-- New password -->
-                            <div class="new">
-                                <label for="new">New :</label>
-                                <input type="password" class="new-pass" name="new">
-                            </div>
-
-                            <!-- confirm password -->
-                            <div class="confirm">
-                                <label for="confirm">Confirm :</label>
-                                <input type="password" name="confirm">
-                            </div>
-                            <div class="button w-100 d-flex justify-content-center">
-                                <a href="#" class="secondary-btn">Change</a>
-
-                            </div>
-                        </form>
-                    </div>
-
-
-                </div>
-                <!-- end -->
-                <!-- recent orders -->
-                <div class="user-order">
+                 <!-- recent orders -->
+                 <div class="user-order">
                     <!-- heading -->
                     <div class="heading">
                         <h2 style="font-size: 30px;">Recent Orders</h2>
@@ -154,6 +118,43 @@
                     </div>
                     <!-- end -->
                 </div>
+                <!-- Password box -->
+                <div class="password-box my-3">
+                    <!-- heading -->
+                    <div class="heading">
+                        <h3>Change Password</h3>
+                    </div>
+                    <!-- password-form -->
+                    <div class="password-form">
+                        <form action="">
+                            <!-- current password -->
+                            <div class="current">
+                                <label for="current">Current :</label>
+                                <input type="password" class="current-pass" name="current">
+
+                            </div>
+                            <!-- New password -->
+                            <div class="new">
+                                <label for="new">New :</label>
+                                <input type="password" class="new-pass" name="new">
+                            </div>
+
+                            <!-- confirm password -->
+                            <div class="confirm">
+                                <label for="confirm">Confirm :</label>
+                                <input type="password" name="confirm">
+                            </div>
+                            <div class="button w-100 d-flex justify-content-center">
+                                <a href="#" class="secondary-btn">Change</a>
+
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+                <!-- end -->
+               
 
 
             </div>

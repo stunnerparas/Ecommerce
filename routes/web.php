@@ -83,6 +83,10 @@ Route::get('/order-tracker', [HomeController::class, 'orderTracker'])->name('ord
 Route::get('/help-desk', [HomeController::class, 'helpDesk'])->name('helpDesk');
 
 
+// Ticket Generator
+Route::get('/ticket-Generator', [HomeController::class, 'ticketGenerator'])->name('ticket-Generator');
+
+
 //Blog 
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/blog/show-blog', [HomeController::class, 'showblog'])->name('show-blog');
