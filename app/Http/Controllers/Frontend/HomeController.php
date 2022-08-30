@@ -111,7 +111,7 @@ class HomeController extends Controller
     {
         return view('frontend.orderTracking.other');
     }
-    
+
     public function myOrders()
     {
         return view('frontend.myOrders.index');

@@ -13,7 +13,7 @@
 
           </div>
           <!-- Filter toogler button -->
-        
+
           <button id="toggleDiv" class="navbar-toggler filter-btn" type="button">
               <i style="font-size: 30px" class="bi bi-filter"></i>
               <span class="navbar-toggler-icon"></span>
@@ -22,8 +22,8 @@
 
           <div class="product-filters mb-3 d-flex justify-content-between">
             <!-- Product filter -->
-            
-           
+
+
             <div class="filter-container" id="filter-container">
               <!-- Product filters -->
               <div class="category-type mt-1 d-flex">
