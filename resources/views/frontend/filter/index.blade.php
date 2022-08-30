@@ -15,9 +15,9 @@
           <!-- Filter toogler button -->
 
           <button id="toggleDiv" class="navbar-toggler filter-btn" type="button">
-              <i style="font-size: 30px" class="bi bi-filter"></i>
-              <span class="navbar-toggler-icon"></span>
-            </button>
+            <i style="font-size: 30px" class="bi bi-filter"></i>
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
 
           <div class="product-filters mb-3 d-flex justify-content-between">
@@ -29,67 +29,62 @@
               <div class="category-type mt-1 d-flex">
                 <!-- Product catagories -->
                 <div class="sub-category mb-3">
-                  <div class="wrapper-dropdown mr-3 mt-4" id="myDropdown4">
-                    <span>Product</span>
-                    <ul class="dropdown">
-                      <li>Tops</li>
-                      <li>Pants</li>
-                      <li>Hats</li>
-                      <li>Assessories</li>
-                    </ul>
+                  <div class="custom-select" >
+                    <select>
+                      <option value="0">Product</option>
+                      <option value="1">Tops</option>
+                      <option value="2">Pant</option>
+                      <option value="3">Hats</option>
+                      <option value="4">Belt</option>
+
+                    </select>
                   </div>
                 </div>
                 <!-- product color catagories -->
                 <div class="color-category mb-3">
-                  <div class="wrapper-dropdown mr-3 mt-4" id="myDropdown3">
-                    <span>Color</span>
-                    <ul class="dropdown">
-                      <li>Black</li>
-                      <li>White</li>
-                      <li>Red</li>
-                      <li>Brown</li>
-                    </ul>
+                  <div class="custom-select" >
+                    <select>
+                      <option value="0">Color</option>
+                      <option value="1">Brown</option>
+                      <option value="2">White</option>
+                      <option value="3">Grey</option>
+                      <option value="4">Black</option>
+
+                    </select>
                   </div>
                 </div>
                 <!-- product size catagories -->
                 <div class="size-category mb-3">
-                  <div class="wrapper-dropdown mr-3 mt-4" id="myDropdown2">
-                    <span>Size</span>
-                    <ul class="dropdown">
-                      <li>XL</li>
-                      <li>L</li>
-                      <li>M</li>
-                      <li>S</li>
-                      <li>XS</li>
-                    </ul>
+                  <div class="custom-select">
+                    <select>
+                      <option value="0">Size</option>
+                      <option value="1">XL</option>
+                      <option value="2">L</option>
+                      <option value="3">M</option>
+                      <option value="4">S</option>
+                      <option value="4">XS</option>
+
+                    </select>
                   </div>
                 </div>
 
-                <!-- Product prize range -->
-                <div class="range-category mb-3">
-                  <div class="wrapper-dropdown mr-3 mt-4" id="myDropdown1">
-                    <span>Price </span>
-                    <ul class="dropdown">
-                      <li>$50 - $100</li>
-                      <li>$100 - $500</li>
-                      <li>$500 - $1000</li>
-                      <li>$1000 - above</li>
-                    </ul>
-                  </div>
-                </div>
+                
               </div>
             </div>
 
             <!-- sort out -->
             <div class="filter-sort">
-              <div class="wrapper-dropdown mr-3 mb-2 mt-4" id="myDropdown">
-                <span>Sort By</span>
-                <ul class="dropdown">
-                  <li>Best Match</li>
-                  <li>Price: High-Low</li>
-                  <li>Price: Low-High</li>
-                  <li>New Arrivals</li>
-                </ul>
+              <div class="wrapper-dropdown mr-3 mb-2" id="myDropdown">
+                <div class="custom-select" style="width:200px;">
+                  <select>
+                    <option value="0">Sort By</option>
+                    <option value="1">Best Seller</option>
+                    <option value="2">Top Picks</option>
+                    <option value="3">Price:High-Low</option>
+                    <option value="4">Price:Low-High</option>
+
+                  </select>
+                </div>
               </div>
 
             </div>
