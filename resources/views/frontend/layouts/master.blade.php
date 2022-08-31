@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <!-- Linking FontAwesome -->
     <script src="https://kit.fontawesome.com/178da8e8d6.js" crossorigin="anonymous"></script>
+
+    <!-- Linking Google Icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Linking custom css -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css') }}" />

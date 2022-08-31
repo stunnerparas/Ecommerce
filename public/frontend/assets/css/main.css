@@ -17,7 +17,7 @@ body {
     font-size: 14px;
     line-height: 23px;
     font-weight: 400;
-    background: #ffffff;
+    background: #fcfcfc;
     color: #1e1e27;
 }
 
@@ -105,6 +105,12 @@ p a {
 
 img {
     object-fit: cover;
+    filter: grayscale(25%);
+    transition: all 350ms ease;
+}
+img:hover{
+    filter: grayscale(0%);
+
 }
 
 a,
@@ -120,6 +126,15 @@ a:link {
 
 .super-container {
     overflow: hidden;
+}
+.google-icon{
+    font-size: 30px;
+    color: #000;
+    padding-top:8px;
+    margin-right:10px;
+}
+.section-margin{
+    margin: 0 30px;
 }
 
 /* Navigation Section */
@@ -420,7 +435,10 @@ a:link {
 
 .hero-menu {
     width: 100%;
-    height: 800px;
+    height: auto;
+}
+.hero-banner-sm{
+    display: none;
 }
 
 .hero-menu .content {
@@ -430,7 +448,7 @@ a:link {
 }
 
 .hero-container {
-    padding-top: 100px;
+    padding-top: 160px;
 }
 
 .hero__text h6 {
@@ -447,7 +465,7 @@ a:link {
 
 .hero__text h2 {
     color: #2d2c2c;
-    font-size: 48px;
+    font-size: 65px;
     font-weight: 700;
     line-height: 58px;
     margin-bottom: 30px;
@@ -463,6 +481,76 @@ a:link {
     -webkit-transition: all, 0.9s;
     -o-transition: all, 0.9s;
     transition: all, 0.9s;
+}
+@media only screen and (max-width:1050px){
+    .hero-container {
+        padding-top: 50px;
+    }
+
+}
+@media only screen and (max-width:820px){
+    .hero__text h2{
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+    .hero__text p{
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+
+}
+@media only screen and (max-width:658px){
+    .hero-container {
+        padding-top: 10px;
+    }
+    .hero__text{
+        left: -71px !important;
+    }
+
+}
+@media only screen and (max-width:580px){
+    .hero__text .primary-btn{
+        font-size: 20px;
+        padding: 10px;
+    }
+
+}
+@media only screen and (max-width:530px){
+    .hero-menu .content{
+        top: 7px;
+    }
+
+
+}
+@media only screen and (max-width:475px){
+    .hero-banner-sm{
+        display:block;
+        width: 100%;
+        height: auto;
+        order: 0;
+    }
+    .hero-banner-sm img{
+        display: block;
+    }
+    .hero-menu{
+        display: flex;
+        flex-direction:column;
+
+    }
+    
+    .hero-banner-image{
+        display:none;
+    }
+    
+    .hero-menu .content{
+        order: 1;
+        
+        position: relative;
+        margin-bottom:20px;
+
+    }
+   
+    
 }
 
 /* Hero Section End */
@@ -535,7 +623,8 @@ a:link {
 
 .product__item__pic {
     width: 100%;
-    height: 450px;
+    height: auto;
+    aspect-ratio: 23 / 42;
     position: relative;
     background-position: center center;
 }
@@ -702,12 +791,23 @@ a:link {
 /* catagories section End */
 
 /* Signature Collection Section Start */
-
+.product__item{
+    padding: 15px;
+}
 .signature-collection-banner {
     width: 100%;
-    height: 600px;
+    height: auto;
     overflow: hidden;
     position: relative;
+}
+.product_filter{
+    background-color: #f1f1f1;
+    padding:20px 10px;
+}
+.signature-content{
+    width: 655px;
+    position: absolute;
+    right: 20px;
 }
 
 .signature-collection-banner img {
@@ -716,11 +816,12 @@ a:link {
 }
 
 .signature-collection-text {
-    margin-top: 85px;
+    margin-top: 160px;
 }
 
 .signature-banner-container {
     position: absolute;
+    width: 100%;
     top: 0;
     left: 0;
 }
@@ -736,7 +837,7 @@ a:link {
 
 .signature-collection-banner h2 {
     color: #111111;
-    font-size: 48px;
+    font-size: 65px;
     font-weight: 700;
     line-height: 58px;
     margin-bottom: 30px;
@@ -749,7 +850,7 @@ a:link {
 }
 
 .signature-collection-product .signature-link {
-    font-size: 25px;
+    font-size: 20px;
     position: absolute;
     top: 10px;
     left: 25px;
@@ -764,7 +865,8 @@ a:link {
 
 .signature-collection-product .product__item__pic {
     width: 100%;
-    height: 600px;
+    height: auto;
+    aspect-ratio: 23 / 42;
     position: relative;
     background-position: center center;
 }
@@ -782,6 +884,93 @@ a:link {
     -o-transition: all, 0.3s;
     transition: all, 0.3s;
 }
+@media only screen and (max-width:1000px){
+   
+    
+    .signature-banner-container{
+        position: relative;
+        left: 0;
+    }
+    .signature-content{
+        width: 100%;
+        position: relative;
+        text-align: center;
+        right: 0;
+    }
+    
+}
+@media only screen and (max-width:1050px){
+    .signature-collection-text {
+        margin-top: 50px;
+    }
+    .signature-collection-text h2{
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+
+}
+@media only screen and (max-width:820px){
+    
+    .hero__text p{
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+
+}
+@media only screen and (max-width:658px){
+    .hero-container {
+        padding-top: 10px;
+    }
+    .hero__text{
+        left: -71px !important;
+    }
+
+}
+@media only screen and (max-width:580px){
+    .hero__text .primary-btn{
+        font-size: 20px;
+        padding: 10px;
+    }
+
+}
+@media only screen and (max-width:530px){
+    .hero-menu .content{
+        top: 7px;
+    }
+
+
+}
+@media only screen and (max-width:475px){
+    .hero-banner-sm{
+        display:block;
+        width: 100%;
+        height: auto;
+        order: 0;
+    }
+    .hero-banner-sm img{
+        display: block;
+    }
+    .hero-menu{
+        display: flex;
+        flex-direction:column;
+
+    }
+    
+    .hero-banner-image{
+        display:none;
+    }
+    
+    .hero-menu .content{
+        order: 1;
+        
+        position: relative;
+        margin-bottom:20px;
+
+    }
+   
+    
+}
+
 
 /* Signature Collection End */
 
@@ -789,7 +978,7 @@ a:link {
 
 .classic-collection-banner {
     width: 100%;
-    height: 600px;
+    height: auto;
     overflow: hidden;
     position: relative;
 }
@@ -806,7 +995,7 @@ a:link {
 }
 
 .classic-collection-text {
-    margin-top: 85px;
+    margin-top: 160px;
 }
 
 .classic-collection-banner h6 {
@@ -819,8 +1008,8 @@ a:link {
 }
 
 .classic-collection-banner h2 {
-    color: #111111;
-    font-size: 48px;
+    color: #ffffff;
+    font-size: 65px;
     font-weight: 700;
     line-height: 58px;
     margin-bottom: 30px;
@@ -833,7 +1022,7 @@ a:link {
 }
 
 .classic-collection-product .classic-link {
-    font-size: 25px;
+    font-size: 20px;
     position: absolute;
     top: 10px;
     right: 40px;
@@ -848,7 +1037,8 @@ a:link {
 
 .classic-collection-product .product__item__pic {
     width: 100%;
-    height: 600px;
+    height: auto;
+    aspect-ratio: 23 / 42;
     position: relative;
     background-position: center center;
 }
@@ -867,75 +1057,35 @@ a:link {
     transition: all, 0.3s;
 }
 
+
+@media only screen and (max-width:1000px){
+    .classic-collection-banner h2{
+        font-size: 40px;
+        color: #000000;
+
+    }
+    .classic-collection-text{
+        margin-top: 50px;
+        width: 100%;
+        position: relative;
+        text-align: center;
+        right: 0;
+    }
+    
+    .classic-banner-container{
+        position: relative;
+        
+    }
+    
+    
+}
 /* Classic Collection End */
-
-/* Deal of the week Started */
-
-.deal_ofthe_week {
-    width: 100%;
-    background: #f2f2f2;
-}
-
-.deal_ofthe_week_img {
-    height: 40em;
-}
-
-.deal_ofthe_week_img img {
-    height: 100%;
-    width: 100%;
-}
-
-.deal_ofthe_week_content {
-    height: 100%;
-}
-
-.section_title {
-    display: inline-block;
-    text-align: center;
-}
-
-.section_title h2 {
-    display: inline-block;
-}
-
-.timer {
-    margin-top: 5em;
-}
-
-.timer li {
-    display: inline-block;
-    width: 6em;
-    height: 6em;
-    border-radius: 50%;
-    background: #ffffff;
-    margin-right: 10px;
-}
-
-.timer li:last-child {
-    margin-right: 0px;
-}
-
-.timer_num {
-    font-size: 3em;
-    font-weight: 600;
-    color: #fe4c50;
-    margin-top: 1rem;
-}
-
-.timer_unit {
-    margin-top: 6px;
-    font-size: 16px;
-    font-weight: 500;
-    color: #51545f;
-}
-
-/* Deal of week End */
 
 /* Accessories Collection Started */
 
 .accessories-collection-banner {
     width: 100%;
-    height: 600px;
+    height: auto;
     overflow: hidden;
     position: relative;
 }
@@ -946,13 +1096,20 @@ a:link {
 }
 
 .accessories-banner-container {
+    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
 }
+.accessories-content{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: 725px;
+}
 
 .accessories-collection-text {
-    margin-top: 85px;
+    margin-top: 160px;
 }
 
 .accessories-collection-banner h6 {
@@ -966,7 +1123,7 @@ a:link {
 
 .accessories-collection-banner h2 {
     color: #111111;
-    font-size: 48px;
+    font-size: 65px;
     font-weight: 700;
     line-height: 58px;
     margin-bottom: 30px;
@@ -979,7 +1136,7 @@ a:link {
 }
 
 .accessories-collection-product .accessories-link {
-    font-size: 25px;
+    font-size: 20px;
     position: absolute;
     top: 10px;
     left: 25px;
@@ -994,7 +1151,8 @@ a:link {
 
 .accessories-collection-product .product__item__pic {
     width: 100%;
-    height: 600px;
+    aspect-ratio: 23 / 42;
+    height: auto;
     position: relative;
     background-position: center center;
 }
@@ -1012,6 +1170,25 @@ a:link {
     -o-transition: all, 0.3s;
     transition: all, 0.3s;
 }
+@media only screen and (max-width:1000px){
+    .accessories-collection-text{
+        margin-top: 50px;
+    }
+    .accessories-collection-text h2{
+        font-size: 40px;
+    }
+    
+    .accessories-banner-container{
+        position: relative;
+    }
+    .accessories-content{
+        right: 0;
+        width: 100%;
+        position: relative;
+        text-align: center;
+    }
+    
+}
 
 /* Accessories Collection End */
 
@@ -1019,7 +1196,7 @@ a:link {
 
 .men-collection-banner {
     width: 100%;
-    height: 600px;
+    height: auto;
     overflow: hidden;
     position: relative;
 }
@@ -1036,7 +1213,7 @@ a:link {
 }
 
 .men-collection-text {
-    margin-top: 85px;
+    margin-top: 160px;
 }
 
 .men-collection-banner h6 {
@@ -1049,8 +1226,8 @@ a:link {
 }
 
 .men-collection-banner h2 {
-    color: #111111;
-    font-size: 48px;
+    color: #ffffff;
+    font-size: 65px;
     font-weight: 700;
     line-height: 58px;
     margin-bottom: 30px;
@@ -1063,7 +1240,7 @@ a:link {
 }
 
 .men-collection-product .men-link {
-    font-size: 25px;
+    font-size: 20px;
     position: absolute;
     top: 10px;
     right: 60px;
@@ -1078,7 +1255,8 @@ a:link {
 
 .men-collection-product .product__item__pic {
     width: 100%;
-    height: 600px;
+    aspect-ratio: 23 / 42;
+    height: auto;
     position: relative;
     background-position: center center;
 }
@@ -1096,6 +1274,27 @@ a:link {
     -o-transition: all, 0.3s;
     transition: all, 0.3s;
 }
+@media only screen and (max-width:1000px){
+    .men-collection-text h2{
+        font-size: 40px;
+        color: #000000;
+    }
+    .men-collection-text{
+        margin-top: 50px;
+        text-align: center;
+    }
+    
+    .men-banner-container{
+        position: relative;
+    }
+    .accessories-content{
+        right: 0;
+        width: 100%;
+        position: relative;
+        text-align: center;
+    }
+    
+}
 
 /* Men Collection End */
 
@@ -1103,7 +1302,7 @@ a:link {
 
 .women-collection-banner {
     width: 100%;
-    height: 600px;
+    height: auto;
     overflow: hidden;
     position: relative;
 }
@@ -1120,7 +1319,7 @@ a:link {
 }
 
 .women-collection-text {
-    margin-top: 85px;
+    margin-top: 160px;
 }
 
 .women-collection-banner h6 {
@@ -1134,7 +1333,7 @@ a:link {
 
 .women-collection-banner h2 {
     color: #111111;
-    font-size: 48px;
+    font-size: 65px;
     font-weight: 700;
     line-height: 58px;
     margin-bottom: 30px;
@@ -1147,7 +1346,7 @@ a:link {
 }
 
 .women-collection-product .women-link {
-    font-size: 25px;
+    font-size: 20px;
     position: absolute;
     top: 10px;
     left: 25px;
@@ -1162,7 +1361,8 @@ a:link {
 
 .women-collection-product .product__item__pic {
     width: 100%;
-    height: 600px;
+    aspect-ratio: 23 / 42;
+    height: auto;
     position: relative;
     background-position: center center;
 }
@@ -1180,6 +1380,27 @@ a:link {
     -o-transition: all, 0.3s;
     transition: all, 0.3s;
 }
+@media only screen and (max-width:1000px){
+    .women-collection-text h2{
+        font-size: 40px;
+        color: #000000;
+    }
+    .women-collection-text{
+        margin-top: 50px;
+        text-align: center;
+    }
+    
+    .women-banner-container{
+        position: relative;
+    }
+    .women-content{
+        right: 0;
+        width: 100%;
+        position: relative;
+        text-align: center;
+    }
+    
+}
 
 /* Women Collection End */
 
@@ -1187,7 +1408,7 @@ a:link {
 
 .superfine-collection-banner {
     width: 100%;
-    height: 600px;
+    height: auto;
     overflow: hidden;
     position: relative;
 }
@@ -1201,10 +1422,17 @@ a:link {
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
 }
 
+.superfine-content{
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: 725px;
+}
 .superfine-collection-text {
-    margin-top: 85px;
+    margin-top: 160px;
 }
 
 .superfine-collection-banner h6 {
@@ -1217,8 +1445,8 @@ a:link {
 }
 
 .superfine-collection-banner h2 {
-    color: #111111;
-    font-size: 48px;
+    color: #ffffff;
+    font-size: 65px;
     font-weight: 700;
     line-height: 58px;
     margin-bottom: 30px;
@@ -1231,7 +1459,7 @@ a:link {
 }
 
 .superfine-collection-product .superfine-link {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 500;
     position: absolute;
     top: 10px;
@@ -1245,8 +1473,9 @@ a:link {
 }
 
 .superfine-collection-product .product__item__pic {
+    aspect-ratio: 23 / 42;
     width: 100%;
-    height: 600px;
+    height: auto;
     position: relative;
     background-position: center center;
 }
@@ -1263,6 +1492,39 @@ a:link {
     -webkit-transition: all, 0.3s;
     -o-transition: all, 0.3s;
     transition: all, 0.3s;
+}
+@media only screen and (max-width:1000px){
+    .superfine-collection{
+        display: flex;
+        flex-direction: column;
+    }
+    .superfine-collection .section-heading{
+        display: none;
+    }
+    .superfine-collection-product{
+        order: 2;
+    }
+    .superfine-banner-container{
+        order: 1;
+    }
+    .superfine-collection-text h2{
+        font-size: 40px;
+        color: #000000;
+    }
+    .superfine-collection-text{
+        margin-top: 50px;
+        text-align: center;
+    }
+    
+    .superfine-banner-container{
+        position: relative;
+    }
+    .superfine-content{
+        right: 0;
+        width: 100%;
+        position: relative;
+        text-align: center;
+    }
 }
 
 /* Superfine Collection End */
@@ -1547,6 +1809,7 @@ a:link {
 .product__item__pic {
     width: 100%;
     height: 450px;
+    aspect-ratio: 23 / 42;
     position: relative;
     background-position: center center;
 }
@@ -2065,6 +2328,7 @@ a:link {
 .category__item__pic {
     width: 100%;
     height: 600px;
+    aspect-ratio: 23 / 42;
     position: relative;
     background-position: center center;
 }
@@ -3032,128 +3296,13 @@ a:link {
 }
 
 @media only screen and (max-width: 1000px) {
-    .hero-menu {
-        background-image: linear-gradient(
-                rgb(80 79 79 / 60%),
-                rgb(66 66 66 / 60%)
-            ),
-            url("../images/Hero/hero1.jpg");
-        background-size: cover;
-    }
-    .hero__text h2 {
-        color: #ffffff;
-    }
-    .hero__text p {
-        color: #ffffff !important;
-    }
-    .hero-menu img {
-        display: none;
-    }
+    
     .navbar_bottom {
         z-index: 9999;
     }
-    .signature-collection-banner {
-        background-size: cover;
-        background-image: linear-gradient(
-                rgb(80 79 79 / 60%),
-                rgb(66 66 66 / 60%)
-            ),
-            url("../images/signature-collection/signature-banner1.jpg");
-    }
-    .signature-collection-banner h2 {
-        color: #ffffff;
-    }
-    .signature-collection-banner p {
-        color: #ffffff !important;
-    }
-    .signature-collection-banner img {
-        display: none;
-    }
-    .classic-collection-banner {
-        background-size: cover;
-        background-image: linear-gradient(
-                rgb(80 79 79 / 60%),
-                rgb(66 66 66 / 60%)
-            ),
-            url("../images/classic-collection/classic-banner1.jpg");
-    }
-    .classic-collection-banner img {
-        display: none;
-    }
-    .classic-collection-banner h2 {
-        color: #ffffff !important;
-    }
-    .classic-collection-banner p {
-        color: #ffffff !important;
-    }
-    .accessories-collection-banner {
-        background-size: cover;
-        background-image: linear-gradient(
-                rgb(80 79 79 / 60%),
-                rgb(66 66 66 / 60%)
-            ),
-            url("../images/accessories-collection/accessories-banner1.jpg");
-    }
-    .accessories-collection-banner img {
-        display: none;
-    }
-    .accessories-collection-banner h2 {
-        color: #ffffff !important;
-    }
-    .accessories-collection-banner p {
-        color: #ffffff !important;
-    }
-    .men-collection-banner {
-        background-size: cover;
-        background-image: linear-gradient(
-                rgb(80 79 79 / 60%),
-                rgb(66 66 66 / 60%)
-            ),
-            url("../images/men-collection/men-banner1.jpg");
-    }
-    .men-collection-banner img {
-        display: none;
-    }
-    .men-collection-banner h2 {
-        color: #ffffff !important;
-    }
-    .men-collection-banner p {
-        color: #ffffff !important;
-    }
-    .women-collection-banner {
-        background-size: cover;
-        background-image: linear-gradient(
-                rgb(80 79 79 / 60%),
-                rgb(66 66 66 / 60%)
-            ),
-            url("../images/women-collection/women-banner1.jpg");
-    }
-    .women-collection-banner img {
-        display: none;
-    }
-    .women-collection-banner h2 {
-        color: #ffffff !important;
-    }
-    .women-collection-banner p {
-        color: #ffffff !important;
-    }
-    .superfine-collection-banner {
-        background-size: cover;
-        background-image: linear-gradient(
-                rgb(80 79 79 / 60%),
-                rgb(66 66 66 / 60%)
-            ),
-            url("../images/superfine-collection/superfine-banner1.jpg");
-    }
-    .superfine-collection-banner img {
-        display: none;
-    }
-    .superfine-collection-banner h2 {
-        color: #ffffff !important;
-    }
-    .superfine-collection-banner p {
-        color: #ffffff !important;
-    }
+   
+
+    
     .product-images {
         padding: 0 0px !important;
     }

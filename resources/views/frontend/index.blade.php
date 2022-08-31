@@ -1,4 +1,3 @@
-
 @extends('frontend.layouts.master')
 
 @section('content')
@@ -7,11 +6,11 @@
 <section class="hero">
     <!-- Hero main Banner -->
     <div class="hero-menu banner">
-        <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100" alt="" />
+        <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="" />
         <div class="content">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 hero-container">
+                    <div class="col-xl-9 col-lg-10 col-md-9 col-sm-12 hero-container">
                         <div class="hero__text">
                             <h2>{{ $mainBanner->title ?? '' }}</h2>
                             <p>
@@ -23,7 +22,12 @@
                 </div>
             </div>
         </div>
+
+        <div class="hero-banner-sm">
+            <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100" alt="">
+        </div>
     </div>
+
 </section>
 @endif
 
@@ -65,13 +69,9 @@
 
         </div>
 
-        <!-- Luxary product -->
 
-        <div class="row product__filter my-3">
-            @foreach ($luxuryCollections as $luxury)
-            @include('frontend.component.product', ['product' => $luxury])
-            @endforeach
-        </div>
+
+
     </div>
 </section>
 <!-- Product Section End -->
@@ -127,14 +127,16 @@
     </div>
 </section>
 <!-- Catagories Section End -->
+
+<!-- Catagories Section End -->
 <!-- Signature Collection Section -->
 <section class="signature-collection my-3">
     @if ($signatureBanner)
     <!-- Signature collection banner -->
     <div class="signature-collection-banner banner">
         <img src="{{ asset('images/' . ($signatureBanner->image ?? '')) }}" alt="" />
-        <div class="row signature-banner-container">
-            <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
+        <div class="signature-banner-container">
+            <div class="signature-content">
                 <div class="signature-collection-text px-4 py-2">
                     <h2>{{ $signatureBanner->title ?? '' }}</h2>
                     <p>
@@ -143,6 +145,7 @@
                     <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'signature']) }}" class="primary-btn">{{ $signatureBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
+
         </div>
     </div>
     <!-- end -->
@@ -150,7 +153,7 @@
     <!-- Signature collection product -->
 
     <div class="signature-collection-product py-3">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row product_filter">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 signature-link-container">
                     <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'signature']) }}" class="my-5 signature-link">The Signature Collection →</a>
@@ -173,7 +176,7 @@
     <div class="classic-collection-banner banner">
         <img src="{{ asset('images/' . ($classicBanner->image ?? '')) }}" alt="" />
         <div class="row classic-banner-container">
-            <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
+            <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12">
                 <div class="classic-collection-text px-4 py-2">
                     <h2>{{ $classicBanner->title ?? '' }}</h2>
                     <p>
@@ -189,7 +192,7 @@
     <!-- Classic collection product -->
 
     <div class="classic-collection-product py-4">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row product_filter">
                 @foreach ($classicCollections as $classic)
                 @include('frontend.component.product', ['product' => $classic])
@@ -203,63 +206,15 @@
     <!-- end -->
 </section>
 <!-- Classic Collection End -->
-<!-- Deal of the week started -->
-@if ($dealOfTheWeek)
-<section class="deal_ofthe_week">
-    <div class="container">
-        <div class="row align-items-center">
-            <!-- Deal of weak image sec -->
-            <div class="col-lg-6">
-                <div class="deal_ofthe_week_img">
-                    <img src="{{ asset('images/' . ($dealOfTheWeek->image ?? '')) }}" alt="" />
-                </div>
-            </div>
-            <!-- End -->
-            <!-- Deal of the week TIMER  -->
-            <div class="col-lg-6 col-md-12 text-right deal_ofthe_week_col">
-                <div class="deal_ofthe_week_content d-flex flex-column align-items-center">
-                    <div class="section_title">
-                        <h2>{{ $dealOfTheWeek->title ?? '' }}</h2>
-                    </div>
-                    <ul class="timer">
-                        <li class="d-inline-flex flex-column justify-content-center align-items-center">
-                            <div id="day" class="timer_num">03</div>
-                            <div class="timer_unit">Day</div>
-                        </li>
-                        <li class="d-inline-flex flex-column justify-content-center align-items-center">
-                            <div id="hour" class="timer_num">15</div>
-                            <div class="timer_unit">Hours</div>
-                        </li>
-                        <li class="d-inline-flex flex-column justify-content-center align-items-center">
-                            <div id="minute" class="timer_num">45</div>
-                            <div class="timer_unit">Mins</div>
-                        </li>
-                        <li class="d-inline-flex flex-column justify-content-center align-items-center">
-                            <div id="second" class="timer_num">23</div>
-                            <div class="timer_unit">Sec</div>
-                        </li>
-                    </ul>
-                    <div class="button my-5">
-                        <a href="{{ $dealOfTheWeek->btn_link ?? '' }}" class="primary-btn">{{ $dealOfTheWeek->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
-                    </div>
 
-                </div>
-            </div>
-            <!-- END -->
-        </div>
-    </div>
-</section>
-@endif
-
-<!-- Deal of week End -->
 <!-- Accessories Collection Started -->
 <section class="accessories-collection my-2">
     @if ($accessoriesBanner)
     <!-- aCCESSORIES BANNER  -->
     <div class="accessories-collection-banner banner">
         <img src="{{ asset('images/' . ($accessoriesBanner->image ?? '')) }}" alt="" />
-        <div class="row accessories-banner-container">
-            <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
+        <div class="accessories-banner-container">
+            <div class="accessories-content">
                 <div class="accessories-collection-text px-4 py-2">
                     <h2>{{ $accessoriesBanner->title ?? '' }}</h2>
                     <p>
@@ -274,7 +229,7 @@
     @endif
     <!-- accessories collection product -->
     <div class="accessories-collection-product py-4">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row product_filter">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 accessories-link-container">
                     <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'accessories']) }}" class="my-5 accessories-link">
@@ -296,7 +251,7 @@
     <div class="men-collection-banner banner">
         <img src="{{ asset('images/' . ($menBanner->image ?? '')) }}" alt="" />
         <div class="row men-banner-container">
-            <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
+            <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12">
                 <div class="men-collection-text px-4 py-2">
                     <h2>{{ $menBanner->title ?? '' }}</h2>
                     <p>
@@ -312,7 +267,7 @@
     <!-- men collection product -->
 
     <div class="men-collection-product py-4">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row product_filter">
                 @foreach ($menCollections as $men)
                 @include('frontend.component.product', ['product' => $men])
@@ -333,7 +288,7 @@
     <div class="women-collection-banner banner">
         <img src="{{ asset('images/' . ($womenBanner->image ?? '')) }}" alt="" />
         <div class="row women-banner-container">
-            <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
+            <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12">
                 <div class="women-collection-text px-4 py-2">
                     <h2>{{ $womenBanner->title ?? '' }}</h2>
                     <p>
@@ -348,7 +303,7 @@
     @endif
     <!-- women collection product -->
     <div class="women-collection-product py-4">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row product_filter">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 women-link-containers">
                     <a href="{{ route('filter', ['type' => 'category', 'slug' => 'women']) }}" class="my-5 women-link">
@@ -370,7 +325,7 @@
 
     <div class="superfine-collection-product py-4">
         <!-- super fine collection product -->
-        <div class="container-fluid">
+        <div class="container">
             <div class="row product_filter">
                 @foreach ($superfineCollections as $superfine)
                 @include('frontend.component.product', ['product' => $superfine])
@@ -388,8 +343,8 @@
     <!-- super fine collection banner -->
     <div class="superfine-collection-banner banner">
         <img src="{{ asset('images/' . ($superfineBanner->image ?? '')) }}" alt="" />
-        <div class="row superfine-banner-container">
-            <div class="col-xl-7 col-lg-10 col-md-9 col-sm-12 mx-5 my-5">
+        <div class="superfine-banner-container">
+            <div class="superfine-content">
                 <div class="superfine-collection-text px-4 py-2">
                     <h2>{{ $superfineBanner->title ?? '' }}</h2>
                     <p>
@@ -492,10 +447,12 @@
         <h2 class="text-center">Keep In Touch</h2>
         <div class="form text-center my-3">
             <!-- contact form -->
-            <form class="form" id="newsletter-form" method="POST">
+            <form class="form d-flex justify-content-center" id="newsletter-form" method="POST">
                 @csrf
                 <input class="form_input w-50" style="padding:20px 30px ;" id="newsletter-email" name="email" type="email" placeholder="example@gmail.com" />
-                <button style="cursor: pointer" class="submit-btn" type="submit">Submit</button>
+                <div class="submit-button ml-2">
+                    <button style="cursor: pointer" class="submit-btn " type="submit">Submit</button>
+                </div>
             </form>
             <!-- end -->
         </div>

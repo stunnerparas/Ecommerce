@@ -312,7 +312,9 @@ Backend Developer : Rudra Rajbansi.
                 </nav>
             </div>
             <div class="col-lg-3 col-md-3 text-center px-4 nav-icons">
-                <a href="#" class="search-switch"><i class="fas fa-search fa-2x"></i></a>
+                <a href="#" class="search-switch"><span class="material-symbols-outlined google-icon">
+                        search
+                    </span></a>
                 <!-- Search Model -->
                 <div class="search-model">
                     <div class="h-100 d-flex align-items-center justify-content-center">
@@ -322,9 +324,15 @@ Backend Developer : Rudra Rajbansi.
                         </form>
                     </div>
                 </div>
-                <a href="{{ route('wishlist.index') }}"><i class="fas fa-heart fa-2x"></i></a>
-                <a href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart fa-2x"></i></a>
-                <a href="{{ route('myProfile') }}"><i class="fas fa-user fa-2x"></i></a>
+                <a href="{{ route('wishlist.index') }}"><span class="material-symbols-outlined google-icon">
+                        favorite
+                    </span></a>
+                <a href="{{ route('cart.index') }}"><span class="material-symbols-outlined google-icon">
+                        shopping_cart
+                    </span></a>
+                <a href="{{ route('myProfile') }}"><span class="material-symbols-outlined google-icon">
+                        account_circle
+                    </span></a>
             </div>
         </div>
         <!-- Sub menu Section Started -->
