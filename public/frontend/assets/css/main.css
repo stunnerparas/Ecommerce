@@ -884,7 +884,7 @@ a:link {
     
     .signature-banner-container{
         position: relative;
-        left: 0;
+        left: 0 !important;
     }
     .signature-content{
         width: 100%;
@@ -892,6 +892,10 @@ a:link {
         text-align: center;
         right: 0;
     }
+    .signature-collection-text{
+        padding: 0 !important;
+    }
+   
     
 }
 @media only screen and (max-width:1050px){
@@ -1069,7 +1073,11 @@ a:link {
     
     .classic-banner-container{
         position: relative;
+        left: 0 !important;
         
+    }
+    .classic-collection-text{
+        padding: 0 !important;
     }
     
     
@@ -1175,6 +1183,7 @@ a:link {
     
     .accessories-banner-container{
         position: relative;
+        left: 0 !important;
     }
     .accessories-content{
         right: 0;
@@ -1182,7 +1191,9 @@ a:link {
         position: relative;
         text-align: center;
     }
-    
+    .accessories-collection-text{
+        padding: 0 !important;
+    }
 }
 
 /* Accessories Collection End */
@@ -1281,12 +1292,16 @@ a:link {
     
     .men-banner-container{
         position: relative;
+        left: 0 !important;
     }
-    .accessories-content{
+    .men-content{
         right: 0;
         width: 100%;
         position: relative;
         text-align: center;
+    }
+    .men-collection-text{
+        padding: 0 !important;
     }
     
 }
@@ -1387,12 +1402,16 @@ a:link {
     
     .women-banner-container{
         position: relative;
+        left: 0 !important;
     }
     .women-content{
         right: 0;
         width: 100%;
         position: relative;
         text-align: center;
+    }
+    .women-collection-text{
+        padding: 0 !important;
     }
     
 }
@@ -1513,12 +1532,16 @@ a:link {
     
     .superfine-banner-container{
         position: relative;
+        left: 0 !important;
     }
     .superfine-content{
         right: 0;
         width: 100%;
         position: relative;
         text-align: center;
+    }
+    .signature-collection-text{
+        padding: 0 !important;
     }
 }
 
