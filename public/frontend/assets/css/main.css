@@ -105,12 +105,7 @@ p a {
 
 img {
     object-fit: cover;
-    filter: grayscale(25%);
-    transition: all 350ms ease;
-}
-img:hover{
-    filter: grayscale(0%);
-
+  
 }
 
 a,
