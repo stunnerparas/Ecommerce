@@ -292,12 +292,15 @@ Backend Developer : Rudra Rajbansi.
     </div>
     <!-- Bottom Navigation -->
     <div class="container-fluid navbar_bottom">
+        <!-- Navigation Main -->
         <div class="row">
+            <!-- Logo Section -->
             <div class="col-lg-2 col-md-6 col-sm-6 col-10">
                 <div class="header__logo">
                     <a href="{{ route('index') }}"><img src="{{ asset('frontend/assets/images/logo/logo.png') }}" class="w-100 h-100" alt="" /></a>
                 </div>
             </div>
+            <!-- Navigation Links -->
             <div class="col-lg-7 col-md-7 header_nav">
                 <nav class="nav__primary">
                     <div class="nav__primary__links">
@@ -311,6 +314,8 @@ Backend Developer : Rudra Rajbansi.
                     </div>
                 </nav>
             </div>
+            <!-- Navigation icons
+             -->
             <div class="col-lg-3 col-md-3 text-center px-4 nav-icons">
                 <a href="#" class="search-switch"><span class="material-symbols-outlined google-icon">
                         search
@@ -365,7 +370,7 @@ Backend Developer : Rudra Rajbansi.
         </div>
         @endforeach
 
-
+        <!-- Women submenu -->
         {{-- <div class="pane women" id="">
             <div class="container-fluid">
                 <div class="row">
