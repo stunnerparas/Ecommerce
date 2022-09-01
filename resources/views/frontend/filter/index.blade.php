@@ -21,7 +21,7 @@
 
 
           <div class="product-filters mb-3 d-flex justify-content-between">
-            <!-- Product filter -->
+            <!-- Product filter container -->
 
 
             <div class="filter-container" id="filter-container">
