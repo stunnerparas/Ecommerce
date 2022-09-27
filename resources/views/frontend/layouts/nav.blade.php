@@ -279,7 +279,7 @@ Backend Developer : Rudra Rajbansi.
                             <a href="{{ route('my-orders') }}">My Orders</a>
 
                             @if (Auth::check())
-                            <a href="{{ route('myaccount') }}">My Account</a>
+                           
                             <a href="{{ route('logout') }}">Logout</a>
                             @else
                             <a href="{{ route('login') }}">Login</a>

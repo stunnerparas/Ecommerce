@@ -185,7 +185,7 @@
                         </div>
                         <div class="name">
                             <!-- User Full name -->
-                            <h6 class="font-weight-bold">User 1</h6>
+                            <h5 class="font-weight-bold">User 1</h5>
                             <!-- comment date -->
                             <p>31 Nov 2022</p>
 
