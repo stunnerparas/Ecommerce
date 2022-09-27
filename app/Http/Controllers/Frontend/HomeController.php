@@ -125,6 +125,9 @@ class HomeController extends Controller
     {
         return view('frontend.pages.index', compact('page'));
     }
+    public function changeProfile(){
+        return view('frontend.myProfile.setting');
+    }
 
     public function faq()
     {

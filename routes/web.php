@@ -101,3 +101,6 @@ Route::get('/my-orders', [HomeController::class, 'myOrders'])->name('my-orders')
 
 // My profile
 Route::get('/myProfile', [HomeController::class, 'myProfile'])->name('myProfile');
+
+// Change Profile
+Route::get('/myProfile/setting', [HomeController::class , 'changeProfile'] ) -> name('changeProfile');

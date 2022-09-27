@@ -3082,18 +3082,38 @@ a:link {
 }
 
 /* *********************       User Profile section        *************************** */
-.user-profile {
-    padding: 25px;
+
+.profile-nav{
+    background: #929292;
+}
+.profile-nav ul li a{
+    color: #ffffff;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+}
+.profile-nav ul li a span{
+    font-size: 30px;
+    padding-right: 10px;
+}
+.profile-nav h2{
+    color: #ffffff;
 }
 .profile-information-card {
     padding: 10px 30px;
     background: #f7f7f7;
 }
+.profile-information-card h5{
+    font-size: 20px;
+}
+.profile-information-card h2{
+    font-size: 35px;
+    color: #e53637;
+}
 .user-profile .left-sec .profile-image {
     width: 100%;
-    height: 300px;
-    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-        url("../images/profile-background.jpeg");
+ 
     background-position: center;
     background-size: cover;
     display: flex;
@@ -3111,37 +3131,16 @@ a:link {
 .user-profile .username h3 {
     font-size: 25px;
 }
-.user-profile input {
-    border: none;
-    outline: none;
-    background-color: transparent;
-    font-size: 20px;
-    color: #575757;
-    padding-left: 10px;
-}
-.user-profile .usernumber i {
-    position: absolute;
-    right: 122px;
-    top: 15px;
-}
-.user-profile label {
-    font-size: 25px;
-    font-family: "Nunito Sans";
-    font-weight: 500;
-    color: #474747;
-}
-.user-profile .useremail input {
-    border: none;
-    outline: none;
-    background-color: transparent;
-    font-size: 20px;
-    color: #575757;
-    width: 80%;
+.profile-information-card input{
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 1.5px solid #338a9a;
 }
 .user-profile .right-sec {
     padding: 0px 30px !important;
 }
-.user-profile .password-box {
+ .password-box {
     padding: 10px 20px;
     background: #f7f7f7;
     width: 100%;
@@ -3155,22 +3154,18 @@ a:link {
 .password-form input {
     margin-bottom: 20px;
     border: 1px solid  #a4c2ff;
+    width: 100%;
+    background: transparent;
+    padding: 5px;
 }
-.new-pass {
-    margin-left: 33px;
-}
-.current-pass {
-    margin-left: 2px;
-}
+
 .user-profile .right-sec .user-order {
     padding: 10px 20px;
     background: #f7f7f7;
     width: 100%;
     margin-top: 20px;
 }
-.useraddress input {
-    width: 70%;
-}
+
 .user-order .heading {
     display: flex;
     justify-content: space-between;
