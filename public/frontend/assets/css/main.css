@@ -3046,7 +3046,7 @@ a:link {
 }
 
 .order-detail-body .product-box .product-image {
-    width: 200px;
+    width: 100px;
     height: auto;
 }
 .order-detail-body .product-box .product-name {
@@ -3165,7 +3165,19 @@ a:link {
     width: 100%;
     margin-top: 20px;
 }
-
+.profile-image .icon{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    background: #a3a3a3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 10px;
+    left: 60%;
+}
 .user-order .heading {
     display: flex;
     justify-content: space-between;

@@ -16,7 +16,7 @@
                     <li><a href="{{route('changeProfile')}}"><span class="material-symbols-outlined">
                                 settings
                             </span>Setting</a></li>
-                    <li><a href="#"><span class="material-symbols-outlined">
+                    <li><a href="{{route('my-orders')}}"><span class="material-symbols-outlined">
                                 shopping_bag
                             </span>My Orders</a></li>
                 </ul>

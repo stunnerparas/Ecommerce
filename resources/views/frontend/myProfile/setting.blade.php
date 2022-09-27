@@ -16,7 +16,7 @@
                     <li><a href="#"><span class="material-symbols-outlined">
                                 settings
                             </span>Setting</a></li>
-                    <li><a href="#"><span class="material-symbols-outlined">
+                    <li><a href="{{route('my-orders')}}"><span class="material-symbols-outlined">
                                 shopping_bag
                             </span>My Orders</a></li>
                 </ul>
@@ -32,6 +32,13 @@
                     <div class="profile-image">
                         <img src="{{ asset('frontend/assets/images/krishnapokharel.jpg') }}" alt="">
 
+                        <div class="icon">
+                            <span class="material-symbols-outlined">
+                                photo_camera
+                            </span>
+
+                        </div>
+
                     </div>
                     <!-- Display user informations -->
                     <!-- user name -->
@@ -45,7 +52,7 @@
 
 
                                 </div>
-                               
+
                             </div>
 
 
