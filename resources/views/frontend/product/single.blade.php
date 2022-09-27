@@ -158,7 +158,7 @@
 
 <!-- comment section created -->
 <div class="comment">
-    <div class="container-fluid">
+    <div class="container">
         <h2 class="section-heading my-4 text-center">Review <span style="color:#e53637 ;">The Product</span></h2>
         <!-- Input comment -->
         <div class="comment-input py-2">
@@ -179,15 +179,26 @@
             <div class="comment-box my-3">
 
                 <div class="content px-3">
-                    <!-- User Full name -->
-                    <h6 class="font-weight-bold">User 1</h6>
+                    <div class="user-profiles">
+                        <div class="profile-image">
+                            <img src="{{ asset('frontend/assets/images/krishnapokharel.jpg') }}" alt="">
+                        </div>
+                        <div class="name">
+                            <!-- User Full name -->
+                            <h6 class="font-weight-bold">User 1</h6>
+                            <!-- comment date -->
+                            <p>31 Nov 2022</p>
 
-                    <!-- comment date -->
-                    <p>31 Nov 2022</p>
+
+                        </div>
+
+                    </div>
+
 
                     <!-- user Comment -->
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae magni veniam quod eveniet ad commodi at praesentium atque ratione, sed quis voluptatum, debitis vitae placeat sit saepe optio velit soluta ducimus, reprehenderit provident modi illo laborum. Dolorem illo optio rerum aliquam, sit temporibus quidem est, ab, cum dolorum maiores dolor.</p>
-
+                    <div class="user-comment">
+                        <p class="text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam cumque minus obcaecati facilis illo error placeat suscipit ducimus aliquid exercitationem quas accusantium cupiditate inventore voluptatem iste, amet totam a eum distinctio assumenda nam eligendi unde dicta odit. Facere, dolor! Animi! </p>
+                    </div>
                     <!-- icons -->
                     <div class="comment-icon">
 
@@ -203,7 +214,7 @@
             </div>
             <!-- comment box end -->
 
-           
+
 
 
         </div>

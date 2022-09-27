@@ -3023,9 +3023,27 @@ a:link {
     background-color: #f4f4f4;
     border-radius: 20px;
 }
+.comment-box .profile-image{
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+.user-profiles{
+    display: flex;
+}
+.user-comment{
+    padding: 10px 30px;
+}
+.comment-box .profile-image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
 
 .comment-reply input {
     display: none;
+    background: transparent;
+    border: 1px solid #333;
 
     width: 100%;
     height: 40px;
