@@ -14,11 +14,9 @@
         <div class="row">
           <div class="col-lg-6 left-sec">
             <!-- Help desk main content heading -->
-            <h2>Lorem ipsum dolor sit amet.</h2>
+            <h2>Create Your Ticket</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eum
-              corporis maxime fuga! Id dolorum nobis asperiores neque facere
-              hic.
+              Please enter your correct email and number:
             </p>
             <!-- Help desk form section -->
 

@@ -67,6 +67,10 @@ class HomeController extends Controller
     {
         return Slider::where('category', $category)->latest()->first();
     }
+    
+  public function aboutUs(){
+    return view('frontend.about.index');
+  }
 
     public function autocompleteSearch(Request $request)
     {
@@ -92,6 +96,10 @@ class HomeController extends Controller
     public function ticketGenerator()
     {
         return view('frontend.ticket-Generator.index');
+    }
+    public function thankYou()
+    {
+        return view('frontend.ticket-Generator.thankyou');
     }
 
     public function blog()

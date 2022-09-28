@@ -66,6 +66,70 @@
     </div>
 </div>
 <!-- product section end -->
+<!-- comment section created -->
+<div class="comment">
+    <div class="container">
+        <h2 class="section-heading my-4 text-center">Review <span style="color:#e53637 ;">The Product</span></h2>
+        <!-- Input comment -->
+        <div class="comment-input py-2">
+            <form action="">
+                <div class="input">
+                    <textarea name="comment" id="comment" class="w-100" cols="30" rows="10" placeholder="Your comment here"></textarea>
+                </div>
+                <div class="button py-1">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- comment display container -->
+        <div class="comment-display py-3">
+            <!-- comment box  -->
+            <div class="comment-box my-3">
+
+                <div class="content px-3">
+                    <div class="user-profiles">
+                        <div class="profile-image">
+                            <img src="{{ asset('frontend/assets/images/krishnapokharel.jpg') }}" alt="">
+                        </div>
+                        <div class="name">
+                            <!-- User Full name -->
+                            <h5 class="font-weight-bold">User 1</h5>
+                            <!-- comment date -->
+                            <p>31 Nov 2022</p>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- user Comment -->
+                    <div class="user-comment">
+                        <p class="text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam cumque minus obcaecati facilis illo error placeat suscipit ducimus aliquid exercitationem quas accusantium cupiditate inventore voluptatem iste, amet totam a eum distinctio assumenda nam eligendi unde dicta odit. Facere, dolor! Animi! </p>
+                    </div>
+                    <!-- icons -->
+                    <div class="comment-icon">
+
+                        <i class="fas fa-reply" onclick="reply()" id="reply"></i>
+                    </div>
+
+                </div>
+
+                <div class="comment-reply px-4 py-2" id="commentReply">
+                    <input type="text" id="replyComment" placeholder="Your reply">
+                </div>
+
+            </div>
+            <!-- comment box end -->
+
+
+
+
+        </div>
+    </div>
+</div>
 <!-- Recomendation Section Start -->
 <div class="recomendation py-5">
     <div class="container-fluid">
@@ -156,70 +220,7 @@
 </div>
 <!-- recommendation section end -->
 
-<!-- comment section created -->
-<div class="comment">
-    <div class="container">
-        <h2 class="section-heading my-4 text-center">Review <span style="color:#e53637 ;">The Product</span></h2>
-        <!-- Input comment -->
-        <div class="comment-input py-2">
-            <form action="">
-                <div class="input">
-                    <textarea name="comment" id="comment" class="w-100" cols="30" rows="10" placeholder="Your comment here"></textarea>
-                </div>
-                <div class="button py-1">
-                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                </div>
 
-            </form>
-        </div>
-
-        <!-- comment display container -->
-        <div class="comment-display py-3">
-            <!-- comment box  -->
-            <div class="comment-box my-3">
-
-                <div class="content px-3">
-                    <div class="user-profiles">
-                        <div class="profile-image">
-                            <img src="{{ asset('frontend/assets/images/krishnapokharel.jpg') }}" alt="">
-                        </div>
-                        <div class="name">
-                            <!-- User Full name -->
-                            <h5 class="font-weight-bold">User 1</h5>
-                            <!-- comment date -->
-                            <p>31 Nov 2022</p>
-
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- user Comment -->
-                    <div class="user-comment">
-                        <p class="text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam cumque minus obcaecati facilis illo error placeat suscipit ducimus aliquid exercitationem quas accusantium cupiditate inventore voluptatem iste, amet totam a eum distinctio assumenda nam eligendi unde dicta odit. Facere, dolor! Animi! </p>
-                    </div>
-                    <!-- icons -->
-                    <div class="comment-icon">
-
-                        <i class="fas fa-reply" onclick="reply()" id="reply"></i>
-                    </div>
-
-                </div>
-
-                <div class="comment-reply px-4 py-2" id="commentReply">
-                    <input type="text" id="replyComment" placeholder="Your reply">
-                </div>
-
-            </div>
-            <!-- comment box end -->
-
-
-
-
-        </div>
-    </div>
-</div>
 @endsection
 
 @section('scripts')

@@ -335,7 +335,7 @@ Backend Developer : Rudra Rajbansi.
                 <a href="{{ route('cart.index') }}"><span class="material-symbols-outlined google-icon">
                         shopping_cart
                     </span></a>
-                <a href="{{ route('myProfile') }}"><span class="material-symbols-outlined google-icon">
+                <a href="{{ route('myaccount') }}"><span class="material-symbols-outlined google-icon">
                         account_circle
                     </span></a>
             </div>

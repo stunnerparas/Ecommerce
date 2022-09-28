@@ -34,7 +34,7 @@
                     <ul class="navbar-nav">
                         <!-- Footer Links -->
                         <li>
-                            <a href="{{ route('page', 'about-us') }}">About us</a>
+                            <a href="{{ route('aboutUs') }}">About us</a>
                         </li>
                         <li>
                             <a href="{{ route('page', 'terms-and-conditions') }}">Terms And Conditions</a>
@@ -123,6 +123,16 @@
                         <img src="{{ asset('frontend/assets/images/partner/partner1.png') }}" class="w-100"
                             alt="" />
                     </div>
+                </div>
+                <div class="socialmedia-icon">
+                    <h4>Follow Us</h4>
+                    <div class="icon">
+                    <a href="https://www.linkedin.com/company/kanchan-cashmere-industries/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://instagram.com/kcinepal?igshid=YmMyMTA2M2Y=" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="https://twitter.com/CashmereKanchan" target="_blank"><i class="bi bi-twitter"></i></a>
+                   
+                    </div>
+                   
                 </div>
             </div>
         </div>

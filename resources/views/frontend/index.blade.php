@@ -422,7 +422,7 @@
                 <p class="text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo esse, laborum velit magni accusantium at et amet laudantium quas quasi a iusto quos accusamus tenetur eveniet non ipsa? Corrupti voluptatibus tenetur consectetur sequi in id! Similique necessitatibus quos, eveniet veniam autem odit, at adipisci illo earum, nostrum ducimus corporis iure.</p>
 
                 <div class="button">
-                    <a href="#" class="tritary-btn">Download <i class="fas fa-arrow-down"></i></a>
+                    <a href="{{asset('catalogue/kanchanmaggfinal.pdf')}}" download="catalogue" class="tritary-btn">Download <i class="fas fa-arrow-down"></i></a>
                 </div>
 
 

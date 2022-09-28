@@ -7,16 +7,7 @@
     </div>
     <div class="container">
         <h2 class="text-center">Generate Your Ticket</h2>
-        <p class="text-center">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam
-            debitis unde cumque, odio, molestiae sit ab et nulla, officiis
-            assumenda consequuntur iusto saepe nesciunt. Iure deleniti totam
-            expedita, ea est vitae nihil dolorem voluptates dignissimos
-            exercitationem mollitia doloribus rem blanditiis error voluptatem,
-            quos sit vel excepturi voluptas voluptatibus enim consectetur
-            quibusdam repellat. Debitis architecto, natus in neque ipsum mollitia
-            at!
-        </p>
+       
         <form>
             <div class="row my-3">
                 <div class="col-sm-6 col-12 mb-3 mb-sm-0">
@@ -48,7 +39,7 @@
                 </div>
             </div>
             <div class="button w-100 d-flex justify-content-center">
-                <button type="submit" class="secondary-btn">Generate Ticket <i class="fas fa-arrow-right"></i></button>
+                <a href="{{route('thankYou')}}" type="submit" class="secondary-btn">Generate Ticket</a>
             </div>
         </form>
     </div>

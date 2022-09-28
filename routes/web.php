@@ -81,6 +81,7 @@ Route::get('/order-tracker', [HomeController::class, 'orderTracker'])->name('ord
 
 // Helpdesk 
 Route::get('/help-desk', [HomeController::class, 'helpDesk'])->name('helpDesk');
+Route::get('/ticket-Generator/thankyou' , [HomeController::class, 'thankYou']) -> name('thankYou');
 
 
 // Ticket Generator
@@ -104,3 +105,6 @@ Route::get('/myProfile', [HomeController::class, 'myProfile'])->name('myProfile'
 
 // Change Profile
 Route::get('/myProfile/setting', [HomeController::class , 'changeProfile'] ) -> name('changeProfile');
+
+// About us 
+Route::get('/about' , [HomeController::class , 'aboutUs']) -> name ('aboutUs');

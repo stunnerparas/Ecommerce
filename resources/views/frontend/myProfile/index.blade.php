@@ -79,7 +79,7 @@
                     <!-- heading -->
                     <div class="heading">
                         <h2 style="font-size: 30px;">Recent Orders</h2>
-                        <a href="#">See all <i class="fas fa-arrow-right"></i></a>
+                        <a href="{{route('my-orders')}}">See all <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <!-- product 1 start -->
                     <div class="user-product-container d-flex py-2 justify-content-between">
