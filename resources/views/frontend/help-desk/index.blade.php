@@ -14,14 +14,14 @@
         <div class="row">
           <div class="col-lg-6 left-sec">
             <!-- Help desk main content heading -->
-            <h2>Lorem ipsum dolor sit amet.</h2>
+            <h2>Create Your Ticket</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eum
-              corporis maxime fuga! Id dolorum nobis asperiores neque facere
-              hic.
+              Please enter your correct email and number:
             </p>
+            <!-- Help desk form section -->
 
             <div class="form">
+              <!-- Input Email -->
               <form action="">
                 <input
                   type="email"
@@ -29,7 +29,7 @@
                   name="email"
                   placeholder="Enter Your Email"
                 />
-
+                 <!-- Input number with country code -->
                 <div class="form-number">
                   <select name="countryCode" id="">
                     <option data-countryCode="GB" value="44" selected>
@@ -266,7 +266,7 @@
               </form>
             </div>
           </div>
-
+        <!-- hELP DESK Image -->
           <div class="col-lg-6 right-sec">
             <div class="help-content-image w-100">
               <img

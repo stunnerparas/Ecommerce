@@ -67,6 +67,10 @@ class HomeController extends Controller
     {
         return Slider::where('category', $category)->latest()->first();
     }
+    
+  public function aboutUs(){
+    return view('frontend.about.index');
+  }
 
     public function autocompleteSearch(Request $request)
     {
@@ -93,6 +97,10 @@ class HomeController extends Controller
     {
         return view('frontend.ticket-Generator.index');
     }
+    public function thankYou()
+    {
+        return view('frontend.ticket-Generator.thankyou');
+    }
 
     public function blog()
     {
@@ -104,12 +112,12 @@ class HomeController extends Controller
     }
     public function orderTracking()
     {
-        return view('frontend.orderTracking.index');
+        return view('frontend.order-tracking.index');
     }
 
     public function orderTrackingOther()
     {
-        return view('frontend.orderTracking.other');
+        return view('frontend.order-tracking.other');
     }
 
     public function myOrders()
@@ -124,6 +132,9 @@ class HomeController extends Controller
     public function page(Page $page)
     {
         return view('frontend.pages.index', compact('page'));
+    }
+    public function changeProfile(){
+        return view('frontend.myProfile.setting');
     }
 
     public function faq()

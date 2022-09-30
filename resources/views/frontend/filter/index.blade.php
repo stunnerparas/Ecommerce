@@ -3,7 +3,7 @@
 @section('content')
 <!-- Main section -->
 
-<div class="category-main-container my-5 px-2">
+<div class="category-main-container  px-2">
   <div class="row">
     <div class="container-fluid">
       <div class="category-view-container px-2">
@@ -21,7 +21,7 @@
 
 
           <div class="product-filters mb-3 d-flex justify-content-between">
-            <!-- Product filter -->
+            <!-- Product filter container -->
 
 
             <div class="filter-container" id="filter-container">

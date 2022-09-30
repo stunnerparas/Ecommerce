@@ -1,11 +1,13 @@
 <!-- Footer Section Start -->
 <section class="footer" id="footer">
     <div class="container">
+        <!-- Footer First column -->
         <div class="row py-2">
             {{-- <div class="col-lg-2 col-md-6 col-sm-12 px-4 py-3">
                 <h4>Help</h4>
                 <div class="footer-list my-2">
                     <ul class="navbar-nav">
+                        <!-- Footer Links -->
                         <li>
                             <a href="#">Cashmere Care</a>
                         </li>
@@ -25,12 +27,14 @@
                     </ul>
                 </div>
             </div> --}}
+            <!-- Footer second column -->
             <div class="col-lg-3 col-md-6 col-sm-12 px-4 py-3">
                 <h4>Kanchan Cashmere</h4>
                 <div class="footer-list my-2">
                     <ul class="navbar-nav">
+                        <!-- Footer Links -->
                         <li>
-                            <a href="{{ route('page', 'about-us') }}">About us</a>
+                            <a href="{{ route('aboutUs') }}">About us</a>
                         </li>
                         <li>
                             <a href="{{ route('page', 'terms-and-conditions') }}">Terms And Conditions</a>
@@ -62,10 +66,12 @@
                     </ul>
                 </div>
             </div>
+            <!-- Footer Third column-->
             <div class="col-lg-3 col-md-6 col-sm-12 px-4 py-3">
                 <h4>Business</h4>
                 <div class="footer-list my-2">
                     <ul class="navbar-nav">
+                        <!--Footer Links -->
                         <li>
                             <a href="#">Color Card Request</a>
                         </li>
@@ -87,6 +93,7 @@
                     </ul>
                 </div>
             </div>
+            <!-- Footer Fourth column  -->
             <div class="col-lg-3 col-md-6 col-sm-12 px-4 py-3">
                 <h4>Track</h4>
                 <div class="footer-list my-2">
@@ -100,6 +107,7 @@
                     </ul>
                 </div>
             </div>
+            <!-- Footer fifth column -->
             <div class="col-lg-3 col-md-6 col-sm-12 px-3 py-3">
                 <h4>Help Center</h4>
                 <p class="footer-p">
@@ -116,8 +124,19 @@
                             alt="" />
                     </div>
                 </div>
+                <div class="socialmedia-icon">
+                    <h4>Follow Us</h4>
+                    <div class="icon">
+                    <a href="https://www.linkedin.com/company/kanchan-cashmere-industries/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://instagram.com/kcinepal?igshid=YmMyMTA2M2Y=" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="https://twitter.com/CashmereKanchan" target="_blank"><i class="bi bi-twitter"></i></a>
+                   
+                    </div>
+                   
+                </div>
             </div>
         </div>
+        <!-- Copy right section -->
         <div class="last-footer py-1 d-flex justify-content-around" style="border-top: 1px solid rgb(131, 131, 131)">
             <div class="row">
                 <div class="col-lg-8 col-md-6">
@@ -125,6 +144,7 @@
                         Copyrights © 2012-2022, Kanchan Cashmere Industries Pvt. Ltd. All rights reserved.
                     </h6>
                 </div>
+                <!-- Payment Partners -->
                 <div class="col-lg-4 col-md-6">
                     <img src="{{ asset('frontend/assets/images/partner/payment.png') }}" class="w-100 h-100"
                         style="object-fit: fill;" alt="" />
