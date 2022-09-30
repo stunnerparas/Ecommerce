@@ -67,7 +67,7 @@ class HomeController extends Controller
     {
         return Slider::where('category', $category)->latest()->first();
     }
-    
+
   public function aboutUs(){
     return view('frontend.about.index');
   }
@@ -89,27 +89,6 @@ class HomeController extends Controller
         return view('frontend.pages.contact');
     }
 
-    public function helpDesk()
-    {
-        return view('frontend.help-desk.index');
-    }
-    public function ticketGenerator()
-    {
-        return view('frontend.ticket-Generator.index');
-    }
-    public function thankYou()
-    {
-        return view('frontend.ticket-Generator.thankyou');
-    }
-
-    public function blog()
-    {
-        return view('frontend.blog.index');
-    }
-    public function showblog()
-    {
-        return view('frontend.blog.show');
-    }
     public function orderTracking()
     {
         return view('frontend.order-tracking.index');
@@ -145,9 +124,10 @@ class HomeController extends Controller
 
     public function filter($type = '', $slug = '')
     {
-        $products = Product::select('products.*')->distinct('products.id');
         $data = '';
         $filterBy = '';
+
+        $products = Product::select('products.*')->distinct('products.id');
         if ($type == 'category') {
             $category = getCategoryFromSlug($slug);
             if ($category) {
@@ -174,24 +154,24 @@ class HomeController extends Controller
         } else {
             if (isset($_GET['search']) && $_GET['search']) {
                 $data = 1;
-                $filterBy = 'search results for "' . $_GET['search'] . '"';
-                $products = $products->where('name', 'LIKE', '%' . $_GET['search'] . '%');
+                $filterBy = 'Search results for "' . $_GET['search'] . '"';
+                $products = $products->where('products.name', 'LIKE', '%' . $_GET['search'] . '%');
             }
         }
 
         // dropdown filter
         if (isset($_GET['order']) && $_GET['order']) {
             if ($_GET['order'] == 'high-price') {
-                $products = $products->orderBy('price', 'DESC');
+                $products = $products->orderBy('products.price', 'DESC');
             }
             if ($_GET['order'] == 'low-price') {
-                $products = $products->orderBy('price', 'ASC');
+                $products = $products->orderBy('products.price', 'ASC');
             }
             if ($_GET['order'] == 'latest') {
-                $products = $products->orderBy('created_at', 'DESC');
+                $products = $products->orderBy('products.created_at', 'DESC');
             }
         } else {
-            $products = $products->orderBy('created_at', 'DESC');
+            $products = $products->orderBy('products.created_at', 'DESC');
         }
 
         // attributes filter
@@ -207,16 +187,16 @@ class HomeController extends Controller
         $ids = [];
         if (isset($_GET['color']) && $_GET['color']) {
             if ($flag == 0) {
-                $products = $products->whereIn('product_attributes.attribute_id', $_GET['color']);
+                $products = $products->where('product_attributes.attribute_id', $_GET['color']);
             } else {
-                $colorProducts = ProductAttribute::whereIn('attribute_id', $_GET['color'])->pluck('product_id')->toArray();
+                $colorProducts = ProductAttribute::where('attribute_id', $_GET['color'])->pluck('product_id')->toArray();
             }
         }
         if (isset($_GET['size']) && $_GET['size']) {
             if ($flag == 0) {
-                $products = $products->whereIn('product_attributes.attribute_id', $_GET['size']);
+                $products = $products->where('product_attributes.attribute_id', $_GET['size']);
             } else {
-                $sizeProducts = ProductAttribute::whereIn('attribute_id', $_GET['size'])->pluck('product_id')->toArray();
+                $sizeProducts = ProductAttribute::where('attribute_id', $_GET['size'])->pluck('product_id')->toArray();
             }
         }
 
@@ -228,14 +208,15 @@ class HomeController extends Controller
         // dd($a);
 
         // price filter
-        if (isset($_GET['min-price']) && $_GET['min-price']) {
-            $products = $products->where('products.price', '>=', $_GET['min-price']);
-        }
-        if (isset($_GET['max-price']) && $_GET['max-price']) {
-            $products = $products->where('products.price', '<=', $_GET['max-price']);
-        }
+        // if (isset($_GET['min-price']) && $_GET['min-price']) {
+        //     $products = $products->where('products.price', '>=', $_GET['min-price']);
+        // }
+        // if (isset($_GET['max-price']) && $_GET['max-price']) {
+        //     $products = $products->where('products.price', '<=', $_GET['max-price']);
+        // }
 
         $products = $products->paginate(10);
+        // return $products;
 
         $params = $_GET;
         // dd($products);

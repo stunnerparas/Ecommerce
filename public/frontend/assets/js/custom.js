@@ -29,7 +29,7 @@ l = x.length;
 for (i = 0; i < l; i++) {
     selElmnt = x[i].getElementsByTagName("select")[0];
     ll = selElmnt.length;
-    
+
     a = document.createElement("DIV");
     a.setAttribute("class", "select-selected");
     a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
@@ -38,11 +38,11 @@ for (i = 0; i < l; i++) {
     b = document.createElement("DIV");
     b.setAttribute("class", "select-items select-hide");
     for (j = 1; j < ll; j++) {
-     
+
         c = document.createElement("DIV");
         c.innerHTML = selElmnt.options[j].innerHTML;
         c.addEventListener("click", function (e) {
-           
+            // alert("yes")
             var y, i, k, s, h, sl, yl;
             s = this.parentNode.parentNode.getElementsByTagName("select")[0];
             sl = s.length;
@@ -64,12 +64,13 @@ for (i = 0; i < l; i++) {
                 }
             }
             h.click();
+            $(this).closest('form').submit();
         });
         b.appendChild(c);
     }
     x[i].appendChild(b);
     a.addEventListener("click", function (e) {
-       
+
         e.stopPropagation();
         closeAllSelect(this);
         this.nextSibling.classList.toggle("select-hide");
@@ -77,7 +78,7 @@ for (i = 0; i < l; i++) {
     });
 }
 function closeAllSelect(elmnt) {
-   
+
     var x,
         y,
         i,

@@ -67,6 +67,16 @@
                     <span>Newsletters</span></a>
             </li>
 
+            <li class="{{ Request::segment(2) == 'blogs' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.blogs.index') }}"><i class="fas fa-envelope"></i>
+                    <span>Blogs</span></a>
+            </li>
+
+            <li class="{{ Request::segment(2) == 'tickets' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.tickets.index') }}"><i class="fas fa-envelope"></i>
+                    <span>Tickets</span></a>
+            </li>
+
         </ul>
 
     </aside>

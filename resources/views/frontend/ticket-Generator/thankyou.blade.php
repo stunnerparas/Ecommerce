@@ -16,10 +16,10 @@
                         <div class="col-12 text-center">
                             <h4>Thank You for generating Ticket.</h4>
                             <p>Your Ticket has been Generated. You can easily track your order using your Ticket ID. <span
-                                    class="font-weight-bold order-id"> #{{ $order_number ?? '' }}</span></p>
-                            <a href="#">
+                                    class="font-weight-bold order-id"> #{{ $ticket ?? '' }}</span></p>
+                            {{-- <a href="#">
                                 <p class="text-underline">Track Order</p>
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 </div>

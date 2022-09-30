@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\Frontend\AuthController;
+use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ProductController;
+use App\Http\Controllers\Frontend\TicketController;
 use App\Http\Controllers\Frontend\UserController as FrontendUserController;
 use App\Http\Controllers\Frontend\WishlistController;
 use Illuminate\Support\Facades\Route;
@@ -79,18 +81,18 @@ Route::get('/wishlist/cart/', [WishlistController::class, 'addToCart'])->name('w
 // track order
 Route::get('/order-tracker', [HomeController::class, 'orderTracker'])->name('order.tracker');
 
-// Helpdesk 
-Route::get('/help-desk', [HomeController::class, 'helpDesk'])->name('helpDesk');
-Route::get('/ticket-Generator/thankyou' , [HomeController::class, 'thankYou']) -> name('thankYou');
+// Helpdesk
+Route::get('/help-desk', [TicketController::class, 'helpDesk'])->name('helpDesk');
+Route::get('/ticket-Generator/{ticket}', [TicketController::class, 'thankYou'])->name('thankYou');
 
 
 // Ticket Generator
-Route::get('/ticket-Generator', [HomeController::class, 'ticketGenerator'])->name('ticket-Generator');
+Route::post('/ticket-Generator', [TicketController::class, 'ticketGenerator'])->name('ticket.generator');
+Route::post('/generate-ticket', [TicketController::class, 'generateTicket'])->name('generate.ticket');
 
-
-//Blog 
-Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
-Route::get('/blog/show-blog', [HomeController::class, 'showblog'])->name('show-blog');
+//Blog
+Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
+Route::get('/blog/{blog:slug}', [BlogController::class, 'single'])->name('blog');
 
 //Order tracking
 Route::get('/order-tracking', [HomeController::class, 'orderTracking'])->name('order-tracking');
@@ -104,7 +106,10 @@ Route::get('/my-orders', [HomeController::class, 'myOrders'])->name('my-orders')
 Route::get('/myProfile', [HomeController::class, 'myProfile'])->name('myProfile');
 
 // Change Profile
-Route::get('/myProfile/setting', [HomeController::class , 'changeProfile'] ) -> name('changeProfile');
+Route::get('/myProfile/setting', [HomeController::class, 'changeProfile'])->name('changeProfile');
 
-// About us 
-Route::get('/about' , [HomeController::class , 'aboutUs']) -> name ('aboutUs');
+// About us
+Route::get('/about', [HomeController::class, 'aboutUs'])->name('aboutUs');
+
+// comment
+Route::post('/comment/{product}/{parent}', [ProductController::class, 'storeComments'])->name('store.product.comments');

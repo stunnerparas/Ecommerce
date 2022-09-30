@@ -88,6 +88,10 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
 
+    {{-- datepicker --}}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
     @yield('scripts')
     <script>
         $("body").on("change", ".preview-image", function(e) {
@@ -103,6 +107,13 @@
                 };
                 reader.readAsDataURL(input.files[0]);
             }
+        });
+
+        $(".datepicker").datepicker({
+            dateFormat: 'yy-mm-dd',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1800:+nn",
         });
     </script>
 </body>

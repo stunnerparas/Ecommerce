@@ -23,7 +23,7 @@
                         <li>
                             <a href="#">Size Guide</a>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div> --}}
@@ -46,7 +46,7 @@
                             <a href="{{ route('helpDesk') }}">Help Desk</a>
                         </li>
                         <li>
-                            <a href="{{ route('blog') }}">Kanchan Blogs</a>
+                            <a href="{{ route('blogs') }}">Kanchan Blogs</a>
                         </li>
                         {{-- <li>
                             <a href="#">Our Natural Yarns</a>
@@ -88,7 +88,7 @@
                             <a href="#">Private Label</a>
                         </li>
                         <li>
-                            <a href="#">B2B</a>
+                            <a href="{{ route('business.login') }}">B2B</a>
                         </li>
                     </ul>
                 </div>
@@ -130,9 +130,9 @@
                     <a href="https://www.linkedin.com/company/kanchan-cashmere-industries/" target="_blank"><i class="bi bi-linkedin"></i></a>
                     <a href="https://instagram.com/kcinepal?igshid=YmMyMTA2M2Y=" target="_blank"><i class="bi bi-instagram"></i></a>
                     <a href="https://twitter.com/CashmereKanchan" target="_blank"><i class="bi bi-twitter"></i></a>
-                   
+
                     </div>
-                   
+
                 </div>
             </div>
         </div>
