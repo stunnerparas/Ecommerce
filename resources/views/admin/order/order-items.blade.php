@@ -30,6 +30,8 @@
                                                 </p>
                                                 <p class="order-shipping address">Payment Method:
                                                     {{ $order->payment_method ?: 'N/A' }}</p>
+                                                <p class="order-shipping address">Currency:
+                                                    {{ $order->currency ?: '' }}</p>
                                                 <p class="order-shipping-contact">
                                                     Transaction ID: {{ $order->transaction_id ?: 'N/A' }}</p>
                                                 <p class="order-shipping-contact">
@@ -89,8 +91,8 @@
                                                         <tr>
                                                             <th>Product</th>
                                                             <th>Quantity</th>
-                                                            <th>Price</th>
-                                                            <th>Sub-Total</th>
+                                                            <th>Price ({{ $order->currency }})</th>
+                                                            <th>Sub-Total ({{ $order->currency }})</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -99,31 +101,34 @@
                                                         @endphp
                                                         @foreach ($orderItems as $item)
                                                             @php
-                                                                $subTotal = $item->product->price * $item->quantity;
+                                                                $subTotal = $item->price * $item->quantity;
                                                                 $total += $subTotal;
                                                             @endphp
                                                             <tr>
                                                                 <td>{{ $item->product->name }}</td>
                                                                 <td>{{ $item->quantity }}</td>
-                                                                <td>{{ $item->product->price }}</td>
-                                                                <td>{{ $subTotal }}</td>
+                                                                <td>{{ currencyDBSymbol($order->currency) }} {{ $item->price }}</td>
+                                                                <td>{{ currencyDBSymbol($order->currency) }} {{ $subTotal }}</td>
                                                             </tr>
                                                         @endforeach
                                                     </tbody>
                                                 </table>
                                                 <hr>
                                                 <div class="row ">
-                                                    <label for="" class="col-12 d-flex justify-content-end"><b> Total:
-                                                            ${{ $total }}</b></label>
-                                                    <label for="" class="col-12 d-flex justify-content-end"><b> Shipping
-                                                            Charge: $10</b></label>
-                                                    <label for="" class="col-12 d-flex justify-content-end"><b>Grand Total:
-                                                            ${{ $order->total_amount }}</b></label>
+                                                    <label for="" class="col-12 d-flex justify-content-end"><b>
+                                                            Total:
+                                                            {{ currencyDBSymbol($order->currency) }} {{ $total }}</b></label>
+                                                    <label for="" class="col-12 d-flex justify-content-end"><b>
+                                                            Shipping
+                                                            Charge: {{ currencyDBSymbol($order->currency) }} 10</b></label>
+                                                    <label for="" class="col-12 d-flex justify-content-end"><b>Grand
+                                                            Total:
+                                                            {{ currencyDBSymbol($order->currency) }} {{ $order->total_amount }}</b></label>
 
                                                 </div>
 
-                                                <form class=""
-                                                    action="{{ route('admin.order.status', $order->id) }}" method="POST">
+                                                <form class="" action="{{ route('admin.order.status', $order->id) }}"
+                                                    method="POST">
                                                     @csrf
                                                     <label for="">Change Status</label>
                                                     <select class="form-control" name="status" id="">

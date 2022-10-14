@@ -24,7 +24,7 @@
                         </h5>
                     </div>
                     <div class="order-total-wrapper">
-                        <h4>Total: <span class="order-total">${{ $order->total_amount ?? 0 }}</span></h4>
+                        <h4>Total: <span class="order-total">{{ currencyDBSymbol($order->currency) }} {{ $order->total_amount ?? 0 }}</span></h4>
                     </div>
                 </div>
                 <div class="product-description-container">
@@ -48,15 +48,15 @@
                                     <h5
                                         class="product-name font-weight-bold my-auto d-flex flex-column align-content-start">
                                         {{ $item->product->name ?? '' }}
-                                        <p class="product-price my-2 d-flex justify-content-lg-start price">
-                                            {{ $item->price }}
+                                        <p class="product-price my-2 d-flex justify-content-lg-start">
+                                            {{ currencyDBSymbol($order->currency) }} {{ $item->price }}
                                         </p>
 
                                     </h5>
                                     <p class="product-quantity my-auto">
                                         {{ $item->quantity ?? 0 }}
                                     </p>
-                                    <p class="product-total-price my-auto price">{{ $subTotal ?? 0 }}</p>
+                                    <p class="product-total-price my-auto">{{ currencyDBSymbol($order->currency) }} {{ $subTotal ?? 0 }}</p>
                                 </div>
 
                             </div>
@@ -115,12 +115,12 @@
 
                                             <p class="">Cart Total:</p>
                                             <!-- Cart total for cart.html -->
-                                            <p class="totalCartItem price">{{ $total }}</p>
+                                            <p class="totalCartItem">{{ currencyDBSymbol($order->currency) }} {{ $total }}</p>
                                         </div>
                                         <div class="cart-total-container d-flex justify-content-between">
                                             <p class="">Shipping Cost:</p>
                                             <!-- shipping cost after user selection -->
-                                            <p class="totalCartPrice price">10</p>
+                                            <p class="totalCartPrice">{{ currencyDBSymbol($order->currency) }} 10</p>
                                         </div>
                                         {{-- <div class="cart-total-container d-flex justify-content-between">
                                         <p class="">Tax:</p>
@@ -131,12 +131,13 @@
                                         <div class="cart-total-container d-flex justify-content-between mt-2">
                                             <!-- Grand total for all -->
                                             <p class="font-weight-bold">Total:</p>
-                                            <p class="totalCartPrice price font-weight-bold">
-                                                {{ $order->total_amount ?? 0 }}
+                                            <p class="totalCartPrice font-weight-bold">
+                                                {{ currencyDBSymbol($order->currency) }} {{ $order->total_amount ?? 0 }}
                                             </p>
                                         </div>
                                         <div class="cart-payment-type">
                                             <div class="hr my-2"></div>
+                                            <p class="payment-type">Currency: {{ $order->currency ?: '' }}</p>
                                             <p class="payment-type">Paid with {{ $order->payment_method ?: 'N/A' }}</p>
                                             <p class="">Status:<span class="badge badge-success">
                                                     {{ $order->status ?: 'N/A' }}</span></p>

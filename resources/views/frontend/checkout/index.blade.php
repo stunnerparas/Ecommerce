@@ -171,7 +171,7 @@
                                             <p>{{ $item->attributes->size . ' / ' . $item->attributes->color }}</p>
                                         </div>
                                         <p class="item-total">{{ $item->quantity }}</p>
-                                        <p class="price">{{ $item->price * $item->quantity }}</p>
+                                        <p class="">{{ currencySymbol() }} {{ $item->price * $item->quantity }}</p>
                                     </div>
                                 @endforeach
                             </div>
@@ -192,17 +192,17 @@
                                     <div class="items-summary d-flex justify-content-between">
                                         <!-- Total items present in the cart -->
                                         <p class="">Total Cost:</p>
-                                        <p class="totalCartItem">${{ Cart::getTotal() }}</p>
+                                        <p class="totalCartItem">{{ currencySymbol() }} {{ Cart::getTotal() }}</p>
                                     </div>
                                     <div class="items-summary d-flex justify-content-between">
                                         <!-- Total items present in the cart -->
                                         <p class="">Shipping Cost:</p>
-                                        <p class="totalCartItem">$10</p>
+                                        <p class="totalCartItem">{{ currencySymbol() }} 10</p>
                                     </div>
                                     <div class="cart-total-container d-flex justify-content-between">
                                         <!-- Total of the cart -->
                                         <p class="">Grand Total:</p>
-                                        <p class="totalCartPrice price">{{ Cart::getTotal() + 10 }}</p>
+                                        <p class="totalCartPrice">{{ currencySymbol() }} {{ Cart::getTotal() + 10 }}</p>
                                     </div>
                                 </div>
                             </div>

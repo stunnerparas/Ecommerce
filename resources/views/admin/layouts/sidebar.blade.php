@@ -77,6 +77,11 @@
                     <span>Tickets</span></a>
             </li>
 
+            <li class="{{ Request::segment(2) == 'business-users' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.business.users') }}"><i class="fas fa-envelope"></i>
+                    <span>Business Users</span></a>
+            </li>
+
         </ul>
 
     </aside>

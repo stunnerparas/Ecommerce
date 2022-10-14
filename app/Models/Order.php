@@ -21,6 +21,7 @@ class Order extends Model
         'transaction_id',
         'transaction_status',
         'is_seen',
+        'currency',
     ];
 
     public const status = [

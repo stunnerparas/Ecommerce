@@ -19,6 +19,7 @@ use App\Models\Slider;
 use App\Models\WeeklyDeal;
 use Attribute;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -68,9 +69,10 @@ class HomeController extends Controller
         return Slider::where('category', $category)->latest()->first();
     }
 
-  public function aboutUs(){
-    return view('frontend.about.index');
-  }
+    public function aboutUs()
+    {
+        return view('frontend.about.index');
+    }
 
     public function autocompleteSearch(Request $request)
     {
@@ -112,7 +114,8 @@ class HomeController extends Controller
     {
         return view('frontend.pages.index', compact('page'));
     }
-    public function changeProfile(){
+    public function changeProfile()
+    {
         return view('frontend.myProfile.setting');
     }
 
@@ -250,5 +253,12 @@ class HomeController extends Controller
             }
         }
         return view('frontend.track-order.index', compact('data', 'order', 'orderItems', 'shipping', 'billing'));
+    }
+
+    public function setCurrency(Request $request)
+    {
+        Session::put('currency',$request->currency);
+        \Cart::clear();
+        return redirect()->back();
     }
 }

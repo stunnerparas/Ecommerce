@@ -3,11 +3,11 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Orders</h1>
-            {{-- <div class="section-header-breadcrumb">
-                <a class="btn btn-primary" href=""><i class="fas fa-plus"></i>
-                    Create</a>
-            </div> --}}
+            <h1>Users</h1>
+            <div class="section-header-breadcrumb">
+                {{-- <a class="btn btn-primary" href="{{ route('admin.users.create') }}"><i class="fas fa-plus"></i>
+                    Create</a> --}}
+            </div>
         </div>
 
         <div class="section-body">
@@ -17,48 +17,46 @@
 
                         <div class="card-body">
                             @include('admin.includes.messages')
-                            @if ($orders->count() > 0)
+                            @if ($users->count() > 0)
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Order Number</th>
-                                            <th scope="col">Customer</th>
-                                            <th scope="col">Payment Method</th>
-                                            <th scope="col">Currency</th>
-                                            <th scope="col">Total Amount</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Phone</th>
+                                            <th scope="col">Address</th>
+                                            <th scope="col">Country</th>
+                                            <th scope="col">Gender</th>
                                             <th scope="col">Status</th>
-                                            <th scope="col">Order Time</th>
-                                            <th scope="col">Seen</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($orders as $key => $order)
+                                        @foreach ($users as $user)
                                             <tr>
-                                                <td>{{ $order->order_number }}</td>
-                                                <td>{{ $order->user->name ?? 'Not Registered' }}</td>
-                                                <td>{{ $order->payment_method ?: 'NA' }}</td>
-                                                <td>{{ $order->currency ?? '' }}</td>
-                                                <td>{{ $order->total_amount }}</td>
-                                                <td>{{ $order->status }}</td>
-                                                <td>{{ date('Y-m-d, h:i A', strtotime($order->created_at)) }}</td>
-                                                <td>{{ $order->is_seen ? 'Seen' : '' }}</td>
+                                                <td>{{ $user->name }}</td>
+                                                <td>{{ $user->email }}</td>
+                                                <td>{{ $user->phone }}</td>
+                                                <td>{{ $user->address }}</td>
+                                                <td>{{ $user->country }}</td>
+                                                <td>{{ $user->gender }}</td>
+                                                <td>{{ $user->status ?? '' }}</td>
 
                                                 <td>
                                                     <div class="row">
 
                                                         <a class="btn btn-success mr-1"
-                                                            href="{{ route('admin.orders.items', $order->id) }}">View</a>
+                                                            href="{{ route('admin.business.users.edit', $user->id) }}">Manage</a>
 
-                                                        <form class=""
-                                                            action="{{ route('admin.orders.delete', $order->id) }}"
+                                                        {{-- <form class=""
+                                                            action="{{ route('admin.users.destroy', $user->id) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button class="btn btn-danger delete-order" type="submit">
+                                                            <button class="btn btn-danger delete-user" type="submit">
                                                                 Delete
                                                             </button>
-                                                        </form>
+                                                        </form> --}}
                                                     </div>
                                                 </td>
                                             </tr>
@@ -66,9 +64,9 @@
                                     </tbody>
                                 </table>
 
-                                {{ $orders->links() }}
+                                {{ $users->links() }}
                             @else
-                                <h5>No Orders Found !!</h5>
+                                <h5>No Users Found !!</h5>
                             @endif
 
                         </div>
@@ -81,11 +79,11 @@
 
 @section('scripts')
     <script>
-        $('.delete-order').click(function(e) {
+        $('.delete-user').click(function(e) {
             e.preventDefault();
             Swal.fire({
                 title: 'Are you sure?',
-                html: 'If you delete this, you can recover this from trash.',
+                html: 'If you delete this, it will be gone forever.',
                 showDenyButton: true,
                 confirmButtonText: 'Yes',
                 denyButtonText: `No`,

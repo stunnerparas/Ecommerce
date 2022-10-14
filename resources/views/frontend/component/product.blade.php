@@ -13,9 +13,9 @@
             <a href="{{ route('product', $product->slug) }}" class="add-cart">+ Add To Cart</a>
 
             @if (Session::get('business'))
-                <h5>${{ $product->business_price ?? 0 }}</h5>
+                <h5>{{ currencySymbol() }} {{ $product->business_price ?? 0 }}</h5>
             @else
-                <h5>${{ $product->price }}</h5>
+                <h5>{{ currencySymbol() }} {{ $product->price }}</h5>
             @endif
         </div>
     </div>

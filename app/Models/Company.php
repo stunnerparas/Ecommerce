@@ -18,4 +18,13 @@ class Company extends Model
         'date',
         'website',
     ];
+
+    public const currency = [
+        'USD' => '$',
+        'NPR' => 'Rs.',
+        'INR' => '₹',
+        'EUR' => '€',
+        'AUD' => '$',
+        'CAD' => '$',
+    ];
 }

@@ -26,6 +26,15 @@ class User extends Authenticatable
         'country',
         'address',
         'gender',
+        'user_type',
+        'status',
+        'company',
+        'vat',
+        'website',
+        'zip_code',
+        'state',
+        'city',
+        'country_code',
     ];
 
     /**
@@ -51,6 +60,12 @@ class User extends Authenticatable
         'Male' => 'Male',
         'Female' => 'Female',
         'Others' => 'Others',
+    ];
+
+    public const status = [
+        'PENDING' => 'PENDING',
+        'APPROVED' => 'APPROVED',
+        'REJECTED' => 'REJECTED',
     ];
 
     //mutators for password hashing

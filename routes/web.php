@@ -113,3 +113,11 @@ Route::get('/about', [HomeController::class, 'aboutUs'])->name('aboutUs');
 
 // comment
 Route::post('/comment/{product}/{parent}', [ProductController::class, 'storeComments'])->name('store.product.comments');
+
+// business register
+Route::get('/business-register', [AuthController::class, 'businessRegister'])->name('business.register');
+Route::post('/business-register/store', [AuthController::class, 'storeBusinessRegister'])->name('business.register.store');
+Route::post('/business-login', [AuthController::class, 'businessLoginCheck'])->name('business.login.check');
+
+//currency setter
+Route::post('/set-currency', [HomeController::class, 'setCurrency'])->name('currency.setter');

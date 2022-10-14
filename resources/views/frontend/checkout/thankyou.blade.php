@@ -17,7 +17,7 @@
                             <h4>Thank You for your purchase</h4>
                             <p>Your order has been confirmed. You can easily track your order using your order ID <span
                                     class="font-weight-bold order-id"> #{{ $order_number ?? '' }}</span></p>
-                            <a href="#">
+                            <a href="{{ route('order.tracker') }}">
                                 <p class="text-underline">Track Order</p>
                             </a>
                         </div>

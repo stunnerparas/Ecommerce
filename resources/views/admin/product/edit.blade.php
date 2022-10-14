@@ -41,7 +41,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Price</label>
+                                                <label>Price (USD)</label>
                                                 <input type="text" value="{{ old('price', $product->price) }}"
                                                     name="price" class="form-control" required="">
                                                 <div class="invalid-feedback">
@@ -55,7 +55,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Price For Business</label>
+                                                <label>Price For Business (USD)</label>
                                                 <input type="text" value="{{ old('business_price', $product->business_price) }}"
                                                     name="business_price" class="form-control" >
                                                 <div class="invalid-feedback">

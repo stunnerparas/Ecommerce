@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\BusinessController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -59,3 +60,8 @@ Route::get('/newsletter', [NewsletterController::class, 'index'])->name('newslet
 Route::get('/tickets', [TicketController::class, 'index'])->name('tickets.index');
 Route::get('/ticket/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
 Route::get('/ticket/complete/{ticket}', [TicketController::class, 'completeTicket'])->name('tickets.complete');
+
+// business users
+Route::get('/business-users', [BusinessController::class, 'index'])->name('business.users');
+Route::get('/business-users/edit/{user}', [BusinessController::class, 'edit'])->name('business.users.edit');
+Route::post('/business-users/update/{user}', [BusinessController::class, 'update'])->name('business.users.update');

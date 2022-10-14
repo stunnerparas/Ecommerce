@@ -7,6 +7,7 @@ use App\Models\Log;
 use App\Models\Product;
 use App\Models\Type;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 function getParentCategories()
 {
@@ -90,4 +91,35 @@ function createLog($details)
 function company()
 {
     return Company::latest()->first();
+}
+
+function convertPrice($price = 1)
+{
+    $currency = Session::get('currency') ?? 'USD';
+
+    $url = "https://api.currencyapi.com/v3/latest?apikey=EUBC0OsS2c2xk8GL1x4VXLuZhirHV3ilMm4SNARi&base_currency=USD";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_HEADER, FALSE);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    $data = json_decode($response);
+    $rate = $data->data->$currency->value ?? 1;
+    $net_amount = $price * $rate;
+    return round($net_amount, 2);
+}
+
+function currencySymbol()
+{
+    $currency = Session::get('currency') ?? 'USD';
+    return Company::currency[$currency];
+}
+
+function currencyDBSymbol($currency)
+{
+    return Company::currency[$currency];
 }

@@ -9,6 +9,7 @@ use App\Models\OrderItems;
 use App\Models\ShippingAddress;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CheckoutController extends Controller
 {
@@ -43,6 +44,7 @@ class CheckoutController extends Controller
             'transaction_id' => '',
             'transaction_status' => '',
             'is_seen' => 0,
+            'currency' => Session::get('currency') ?? 'USD',
         ]);
 
         foreach ($cartItems as $item) {

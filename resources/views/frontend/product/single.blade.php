@@ -22,10 +22,10 @@
 
                     <div class="rate py-2">
                         @if (Session::get('business'))
-                            <h3>${{ $product->business_price ?? 0 }}</h3>
+                            <h3>{{ currencySymbol() }} {{ $product->business_price ?? 0 }}</h3>
                             <h6>Note: Minimum quantity for this product is {{ $product->min_quantity }}</h6>
                         @else
-                            <h3>${{ $product->price ?? 0 }}</h3>
+                            <h3>{{ currencySymbol() }} {{ $product->price ?? 0 }}</h3>
                         @endif
                     </div>
                     <div class="batch">

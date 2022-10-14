@@ -58,4 +58,14 @@ class Product extends Model
     {
         return $this->belongsToMany(Type::class, 'product_types');
     }
+
+    public function getPriceAttribute($value)
+    {
+        return convertPrice($value);
+    }
+
+    public function getBusinessPriceAttribute($value)
+    {
+        return convertPrice($value);
+    }
 }

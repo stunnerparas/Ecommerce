@@ -20,7 +20,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->paginate(10);
+        $users = User::latest()->where('user_type', 'customer')->paginate(10);
         createLog('viewed user details'); // activity log
 
         return view('admin.user.index', compact('users'));
