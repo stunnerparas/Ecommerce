@@ -108,6 +108,8 @@ function convertPrice($price = 1)
     curl_close($ch);
 
     $data = json_decode($response);
+    print_r($data);
+    die;
     $rate = $data->data->$currency->value ?? 1;
     $net_amount = $price * $rate;
     return round($net_amount, 2);
