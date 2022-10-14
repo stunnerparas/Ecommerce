@@ -14,7 +14,7 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return convertPrice();
+        // return convertPrice();
 
         return view('admin.dashboard.index');
     }
