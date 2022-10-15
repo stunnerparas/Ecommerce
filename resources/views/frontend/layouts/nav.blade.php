@@ -273,9 +273,9 @@ Backend Developer : Rudra Rajbansi.
                             <form action="{{ route('currency.setter') }}" method="POST">
                                 @csrf
                                 <select name="currency" onchange="this.form.submit()" id="">
-                                    @foreach (\App\Models\Company::currency as $key => $value)
-                                        <option {{ Session::get('currency') == $key ? 'selected' : '' }}
-                                            value="{{ $key }}">{{ $key }}</option>
+                                    @foreach (currencies() as $currency)
+                                        <option {{ Session::get('currency') == $currency->currency ? 'selected' : '' }}
+                                            value="{{ $currency->currency }}">{{ $currency->currency }}</option>
                                     @endforeach
                                 </select>
                             </form>

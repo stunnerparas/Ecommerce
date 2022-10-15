@@ -3,6 +3,7 @@
 use App\Models\Attribute;
 use App\Models\Category;
 use App\Models\Company;
+use App\Models\Currency;
 use App\Models\Log;
 use App\Models\Product;
 use App\Models\Type;
@@ -97,22 +98,29 @@ function convertPrice($price = 1)
 {
     $currency = Session::get('currency') ?? 'USD';
 
-    $url = "https://api.currencyapi.com/v3/latest?apikey=EUBC0OsS2c2xk8GL1x4VXLuZhirHV3ilMm4SNARi&base_currency=USD";
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($ch, CURLOPT_HEADER, FALSE);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-    $response = curl_exec($ch);
-    curl_close($ch);
+    // $url = "https://api.currencyapi.com/v3/latest?apikey=EUBC0OsS2c2xk8GL1x4VXLuZhirHV3ilMm4SNARi&base_currency=USD";
+    // $ch = curl_init();
+    // curl_setopt($ch, CURLOPT_URL, $url);
+    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    // curl_setopt($ch, CURLOPT_HEADER, FALSE);
+    // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    // $response = curl_exec($ch);
+    // curl_close($ch);
 
-    $data = json_decode($response);
+    // $data = json_decode($response);
     // print_r($data);
     // die;
-    $rate = $data->data->$currency->value ?? 1;
+
+    $currency = Currency::where('currency', $currency)->first();
+    $rate = $currency->rate ?? 1;
     $net_amount = $price * $rate;
     return round($net_amount, 2);
+}
+
+function currencies()
+{
+    return Currency::all();
 }
 
 function currencySymbol()
@@ -123,5 +131,6 @@ function currencySymbol()
 
 function currencyDBSymbol($currency)
 {
-    return Company::currency[$currency];
+    $currency = Currency::where('currency', $currency)->first();
+    return $currency->symbol;
 }

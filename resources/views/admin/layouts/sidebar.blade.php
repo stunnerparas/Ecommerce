@@ -12,8 +12,13 @@
                     <span>Dashboard</span></a>
             </li>
 
+            <li class="{{ Request::segment(2) == 'reports' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.reports.index') }}"><i class="fas fa-fire"></i>
+                    <span>Reports</span></a>
+            </li>
+
             <li
-                class="dropdown {{ Request::segment(2) == 'sliders' || Request::segment(2) == 'deals' || Request::segment(2) == 'company' || Request::segment(2) == 'pages' || Request::segment(2) == 'faqs' ? 'active' : '' }}">
+                class="dropdown {{ Request::segment(2) == 'sliders' || Request::segment(2) == 'currency' || Request::segment(2) == 'deals' || Request::segment(2) == 'company' || Request::segment(2) == 'pages' || Request::segment(2) == 'faqs' ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i>
                     <span>Settings</span></a>
                 <ul class="dropdown-menu">
@@ -27,6 +32,8 @@
                             href="{{ route('admin.pages.index') }}">Pages</a></li>
                     <li class="{{ Request::segment(2) == 'faqs' ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin.faqs.index') }}">FAQ</a></li>
+                    <li class="{{ Request::segment(2) == 'currency' ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin.currency.index') }}">Currencies</a></li>
                 </ul>
             </li>
 

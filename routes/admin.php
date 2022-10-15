@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BusinessController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CompanyController;
+use App\Http\Controllers\Admin\CurrencyController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\LogController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Admin\NewsletterController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TicketController;
 use App\Http\Controllers\Admin\TypeController;
@@ -38,6 +40,7 @@ Route::resource('pages', PageController::class);
 Route::resource('faqs', FaqController::class);
 Route::resource('users', UserController::class);
 Route::resource('blogs', BlogController::class);
+Route::resource('currency', CurrencyController::class);
 Route::post('/product/featured-image/{product}', [ProductController::class, 'featuredImage'])->name('featured.image');
 Route::post('/product/gallery/{product}', [ProductController::class, 'gallery'])->name('gallery');
 Route::get('/product/image/delete/{id}/{type}', [ProductController::class, 'imageDelete'])->name('image.delete');
@@ -65,3 +68,6 @@ Route::get('/ticket/complete/{ticket}', [TicketController::class, 'completeTicke
 Route::get('/business-users', [BusinessController::class, 'index'])->name('business.users');
 Route::get('/business-users/edit/{user}', [BusinessController::class, 'edit'])->name('business.users.edit');
 Route::post('/business-users/update/{user}', [BusinessController::class, 'update'])->name('business.users.update');
+
+// reports
+Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
