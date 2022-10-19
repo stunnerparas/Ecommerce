@@ -217,6 +217,23 @@ a:link {
     top: 3px;
     right: 2px;
 }
+.header__top__left .custom-select{
+    background: none;
+    padding: 0;
+}
+.header__top__left .select-selected{
+    color: #ffffff;
+    font-size: 15px;
+    padding: 0;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+}
+.header__top__left .select-selected::after{
+    right: -19px;
+    top: 8px;
+    border-color: #ffffff transparent transparent transparent;
+}
 
 .header__top__hover ul {
     background: #ffffff;
@@ -3357,6 +3374,87 @@ a:link {
     width: 100%;
     height: 100%;
   }
+  
+/* ************************          Product Comparision            ************************* */
+.productComparision .help-hero {
+    height: auto;
+}
+.productComparision .compare-box {
+    display: flex;
+    justify-content: center;
+}
+.productComparision .compare-box input {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    margin-right: 15px;
+}
+.productComparision .compare-box input:focus {
+    outline: none;
+}
+.productComparision .compare-box input::placeholder {
+    color: #e3e3e3;
+}
+
+.compare-btn {
+    padding: 10px 20px;
+    outline: none;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+    background-color: #e53637;
+    color: #ffffff;
+    font-size: 15px;
+}
+.product-comparision-container {
+    padding: 0 80px;
+}
+.product-comparision-container .product-image .first-image {
+    display: flex;
+    justify-content: center;
+}
+.product-comparision-container .product-image img {
+    width: 150px;
+    height: auto;
+}
+.specification-box {
+    
+    background: #575757;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.specification-box h3 {
+    color: #fff;
+    font-size: 20px;
+}
+.specification-box .google-icon {
+    font-size: 30px;
+    color: #ffffff;
+}
+.first-product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ebebeb;
+}
+.second-product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ebebeb;
+}
+.first-product p {
+    padding: 10px 0;
+}
+.second-product p {
+    padding: 10px 0;
+}
+.first-bg{
+    background-color: #f7f7f7;
+}
  
   
   
@@ -3685,6 +3783,11 @@ a:link {
         display: none;
     }
 }
+@media only screen and (max-width: 917px) {
+    .specification-box h3 {
+        display: none;
+    }
+}
 @media only screen and (max-width: 817px){
     .wrapper-dropdown{
         min-width: 130px;
@@ -3697,6 +3800,23 @@ a:link {
     }
 }
 @media only screen and (max-width: 768.5px) {
+    .product-comparision-container {
+        padding: 0 20px;
+    }
+    .first-product h4{
+        font-size: 20px;
+       }
+   .second-product h4{
+    font-size: 20px;
+   }
+   .first-product-name h2{
+    font-size: 30px;
+
+   }
+   .second-product-name h2{
+    font-size: 30px;
+
+   }
     .women-cart .content {
         top: 11px;
         right: 32px;
@@ -3833,6 +3953,9 @@ a:link {
 }
 
 @media only screen and (max-width: 576px) {
+    .specification-box {
+        padding: 20px;
+    }
     .accessories-link-container {
         display: none;
     }

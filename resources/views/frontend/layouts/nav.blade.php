@@ -287,6 +287,8 @@ Backend Developer : Rudra Rajbansi.
                         <div class="header__top__links">
                             <a href="{{ route('order-tracking') }}">Order Tracker</a>
                             <a href="{{ route('my-orders') }}">My Orders</a>
+                            <a href="{{ route('compare') }}">Compare</a>
+
 
                             @if (Auth::check())
                                 <a href="{{ route('logout') }}">Logout</a>
