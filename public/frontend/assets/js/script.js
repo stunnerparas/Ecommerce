@@ -307,7 +307,9 @@
         $(".product-image1").scroll();
     });
 })(jQuery);
-
+$(window).load(function() {
+    $('.google-icon').css('opacity','1');
+});
 (function () {
     "use strict";
     var jQueryPlugin = (window.jQueryPlugin = function (ident, func) {
