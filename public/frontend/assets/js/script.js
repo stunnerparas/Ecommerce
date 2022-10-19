@@ -307,10 +307,7 @@
         $(".product-image1").scroll();
     });
 })(jQuery);
-// Google icon loads only after certain time
-$(window).load(function() {
-    $('.google-icon').css('opacity','1');
-});
+
 (function () {
     "use strict";
     var jQueryPlugin = (window.jQueryPlugin = function (ident, func) {
