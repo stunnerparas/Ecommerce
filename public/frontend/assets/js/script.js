@@ -1,4 +1,7 @@
-
+setTimeout(() => {
+    const Googleicon = document.querySelectorAll('.google-icon');
+    Googleicon.classList.add('google-load');
+  }, "1000")
 (function ($) {
     // Navbar fixed top
     var yourNavigation = $(".navbar_bottom");

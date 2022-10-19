@@ -130,12 +130,15 @@ a:link {
     color: #000;
     padding-top:8px;
     margin-right:10px;
+    opacity: 0;
     
 }
 .section-margin{
     margin: 0 30px;
 }
-
+.google-load{
+    opacity: 1;
+}
 /* Navigation Section */
 
 /* top Navigation */
