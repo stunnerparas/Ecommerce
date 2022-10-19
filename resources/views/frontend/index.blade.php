@@ -85,7 +85,7 @@
                 <div class="women-catagories catagories-items my-2">
                     <img src="{{ asset('images/' . $topLeft->image ?? '') }}" class="w-100 h-100" alt="" />
                     <div class="content text-center">
-                        <h3>{{ $topLeft->title ?? '' }}</h3>
+                       <a href="#">{{ $topLeft->title ?? '' }}</a> 
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                 <div class="men-catagories catagories-items my-2">
                     <img src="{{ asset('images/' . ($topAbove->image ?? '')) }}" class="w-100 h-100" alt="" />
                     <div class="content text-center">
-                        <h3>{{ $topAbove->title ?? '' }}</h3>
+                        <a href="#">{{ $topAbove->title ?? '' }}</a>
                     </div>
                 </div>
                 <!-- end -->
@@ -106,7 +106,7 @@
                 <div class="accessories-catagories catagories-items my-2">
                     <img src="{{ asset('images/' . ($topCenter->image ?? '')) }}" class="w-100 h-100" alt="" />
                     <div class="content text-center">
-                        <h3>{{ $topCenter->title ?? '' }}</h3>
+                        <a href="#">{{ $topCenter->title ?? '' }}</a>
                     </div>
                 </div>
                 <!-- end -->
@@ -116,7 +116,7 @@
                 <div class="home-catagories catagories-items">
                     <img src="{{ asset('images/' . ($topBelow->image ?? '')) }}" class="w-100 h-100" alt="" />
                     <div class="content text-center">
-                        <h3>{{ $topBelow->title ?? '' }}</h3>
+                        <a href="#">{{ $topBelow->title ?? '' }}</a>
                     </div>
                 </div>
                 <!-- end -->

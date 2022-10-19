@@ -789,7 +789,7 @@ a:link {
     transition: 350ms ease;
 }
 
-.catagories .content h3 {
+.catagories .content a {
     color: #ffffff;
 }
 
