@@ -2267,7 +2267,7 @@ a:link {
 .form-container {
     background-color: rgb(243, 243, 243);
     border-radius: 10px;
-    width: 370px;
+    
 }
 
 .register-field {
@@ -2338,8 +2338,24 @@ a:link {
 }
 
 .login-container {
-    background-color: rgb(243, 243, 243);
+    width: 100%;
+    
     border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.login-container .forget-pass{
+    text-align: end;
+}
+.login-container h3{
+    font-size: 35px;
+}
+.login-container .form-group label{
+    font-size: 15px;
+}
+.login-image{
+    width: 100%;
+    height: auto;
+    
 }
 
 .login-btn {
@@ -2348,17 +2364,17 @@ a:link {
 
 .optional-container-text {
     position: relative;
-    top: -14px;
-    left: 120px;
+    top: -11px;
+    left: 50%;
     background-color: rgb(243, 243, 243);
     z-index: 100;
     width: fit-content;
 }
 
 .login-field {
-    background-color: rgb(243, 243, 243);
-    border: none;
-    border-bottom: 2px solid #959494;
+    background-color: transparent;
+    border:  1px solid #959494 ;
+   padding: 11px !important;
     outline: none;
     border-radius: 0%;
 }
@@ -2613,7 +2629,9 @@ a:link {
     height: auto;
     padding-left: 16px;
 }
-
+.form-control{
+    height:auto !important;
+}
 .contact-form .form-control::placeholder {
     color: rgb(243, 243, 243);
     font-weight: 500;
@@ -3790,6 +3808,11 @@ a:link {
     .order-detail-right {
         display: none;
     }
+}
+@media only screen and (max-width: 992px) {
+   .login-image{
+    display: none;
+   }
 }
 @media only screen and (max-width: 917px) {
     .specification-box h3 {
