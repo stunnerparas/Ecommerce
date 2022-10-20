@@ -1,3 +1,6 @@
+setTimeout(function() {
+    $('.google-icon').css("opacity", "1");
+  }, 1000);
 (function ($) {
     // Navbar fixed top
     var yourNavigation = $(".navbar_bottom");

@@ -124,6 +124,9 @@ class HomeController extends Controller
         $faqs = Faq::latest()->get();
         return view('frontend.pages.faq', compact('faqs'));
     }
+    public function compare(){
+        return view('frontend.compare.index');
+    }
 
     public function filter($type = '', $slug = '')
     {
@@ -254,6 +257,8 @@ class HomeController extends Controller
         }
         return view('frontend.track-order.index', compact('data', 'order', 'orderItems', 'shipping', 'billing'));
     }
+ 
+    
 
     public function setCurrency(Request $request)
     {

@@ -121,3 +121,7 @@ Route::post('/business-login', [AuthController::class, 'businessLoginCheck'])->n
 
 //currency setter
 Route::post('/set-currency', [HomeController::class, 'setCurrency'])->name('currency.setter');
+
+
+// Compare
+Route::get('/compare' , [HomeController::class , 'compare']) -> name ('compare');

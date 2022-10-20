@@ -28,7 +28,7 @@
                                             <div class="form-group">
                                                 <label>Title</label>
                                                 <input type="text" value="{{ old('title', $slider->title) }}" name="title"
-                                                    class="form-control" required="">
+                                                    class="form-control">
                                                 <div class="invalid-feedback">
                                                     Title is required
                                                 </div>
@@ -42,7 +42,7 @@
                                             <div class="form-group">
                                                 <label>Button Text</label>
                                                 <input type="text" value="{{ old('btn_text', $slider->btn_text) }}"
-                                                    name="btn_text" class="form-control" required="">
+                                                    name="btn_text" class="form-control">
                                                 <div class="invalid-feedback">
                                                     Button Text is required
                                                 </div>
@@ -56,7 +56,7 @@
                                             <div class="form-group">
                                                 <label>Button Link</label>
                                                 <input type="text" value="{{ old('btn_link', $slider->btn_link) }}"
-                                                    name="btn_link" class="form-control" required="">
+                                                    name="btn_link" class="form-control" >
                                                 <div class="invalid-feedback">
                                                     Button Link is required
                                                 </div>

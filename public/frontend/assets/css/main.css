@@ -2,7 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,600;1,400&family=Nunito:ital,wght@1,300&display=swap");
 /* Body and some General Stuff */
-
+ @font-face {
+      font-family: 'Material Icons';
+      font-display: block;
+    }
 * {
     margin: 0;
     padding: 0;
@@ -127,11 +130,15 @@ a:link {
     color: #000;
     padding-top:8px;
     margin-right:10px;
+    opacity: 0;
+    
 }
 .section-margin{
     margin: 0 30px;
 }
-
+.google-load{
+    opacity: 1;
+}
 /* Navigation Section */
 
 /* top Navigation */
@@ -216,6 +223,23 @@ a:link {
     position: relative;
     top: 3px;
     right: 2px;
+}
+.header__top__left .custom-select{
+    background: none;
+    padding: 0;
+}
+.header__top__left .select-selected{
+    color: #ffffff;
+    font-size: 15px;
+    padding: 0;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+}
+.header__top__left .select-selected::after{
+    right: -19px;
+    top: 8px;
+    border-color: #ffffff transparent transparent transparent;
 }
 
 .header__top__hover ul {
@@ -759,13 +783,14 @@ a:link {
     position: absolute;
     width: 100%;
     top: 0;
-    padding-top: 10px;
+    padding: 10px 0;
     transform: scaleY(0);
     background-color: #777777;
     transition: 350ms ease;
 }
 
-.catagories .content h3 {
+.catagories .content a {
+    font-size: 20px;
     color: #ffffff;
 }
 
@@ -2240,15 +2265,33 @@ a:link {
 }
 
 .form-container {
-    background-color: rgb(243, 243, 243);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 10px;
-    width: 370px;
+    
+}
+.registration-container .form-group{
+    display: flex;
+    justify-content: space-between;
+
+}
+.registration-container .form-group input{
+    width: 49%;
+}
+.registration-container .form-group input[type="checkbox"]{
+    width: auto;
+}
+#userRegister .form-group input{
+    width: 100%;
+}
+#userRegister .form-group input[type="checkbox"]{
+    width: auto;
 }
 
 .register-field {
-    background-color: rgb(243, 243, 243);
-    border: none;
-    border-bottom: 2px solid #959494;
+   
+    border: 1px solid #959494;
+    padding: 15px !important;
+    
     outline: none;
     border-radius: 0%;
 }
@@ -2313,8 +2356,24 @@ a:link {
 }
 
 .login-container {
-    background-color: rgb(243, 243, 243);
+    width: 100%;
+    
     border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.login-container .forget-pass{
+    text-align: end;
+}
+.login-container h3{
+    font-size: 35px;
+}
+.login-container .form-group label{
+    font-size: 15px;
+}
+.login-image{
+    width: 100%;
+    height: auto;
+    
 }
 
 .login-btn {
@@ -2323,17 +2382,17 @@ a:link {
 
 .optional-container-text {
     position: relative;
-    top: -14px;
-    left: 120px;
+    top: -11px;
+    left: 50%;
     background-color: rgb(243, 243, 243);
     z-index: 100;
     width: fit-content;
 }
 
 .login-field {
-    background-color: rgb(243, 243, 243);
-    border: none;
-    border-bottom: 2px solid #959494;
+    background-color: transparent;
+    border:  1px solid #959494 ;
+   padding: 11px !important;
     outline: none;
     border-radius: 0%;
 }
@@ -2588,7 +2647,9 @@ a:link {
     height: auto;
     padding-left: 16px;
 }
-
+.form-control{
+    height:auto !important;
+}
 .contact-form .form-control::placeholder {
     color: rgb(243, 243, 243);
     font-weight: 500;
@@ -3357,6 +3418,87 @@ a:link {
     width: 100%;
     height: 100%;
   }
+  
+/* ************************          Product Comparision            ************************* */
+.productComparision .help-hero {
+    height: auto;
+}
+.productComparision .compare-box {
+    display: flex;
+    justify-content: center;
+}
+.productComparision .compare-box input {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    margin-right: 15px;
+}
+.productComparision .compare-box input:focus {
+    outline: none;
+}
+.productComparision .compare-box input::placeholder {
+    color: #e3e3e3;
+}
+
+.compare-btn {
+    padding: 10px 20px;
+    outline: none;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+    background-color: #e53637;
+    color: #ffffff;
+    font-size: 15px;
+}
+.product-comparision-container {
+    padding: 0 80px;
+}
+.product-comparision-container .product-image .first-image {
+    display: flex;
+    justify-content: center;
+}
+.product-comparision-container .product-image img {
+    width: 150px;
+    height: auto;
+}
+.specification-box {
+    
+    background: #575757;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.specification-box h3 {
+    color: #fff;
+    font-size: 20px;
+}
+.specification-box .google-icon {
+    font-size: 30px;
+    color: #ffffff;
+}
+.first-product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ebebeb;
+}
+.second-product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ebebeb;
+}
+.first-product p {
+    padding: 10px 0;
+}
+.second-product p {
+    padding: 10px 0;
+}
+.first-bg{
+    background-color: #f7f7f7;
+}
  
   
   
@@ -3685,6 +3827,23 @@ a:link {
         display: none;
     }
 }
+@media only screen and (max-width: 992px) {
+   .login-image{
+    display: none;
+   }
+   .registration-container .form-group input{
+    margin-bottom: 15px;
+    width: 100%;
+}
+.registration-container .form-group{
+    flex-direction: column;
+}
+}
+@media only screen and (max-width: 917px) {
+    .specification-box h3 {
+        display: none;
+    }
+}
 @media only screen and (max-width: 817px){
     .wrapper-dropdown{
         min-width: 130px;
@@ -3697,6 +3856,23 @@ a:link {
     }
 }
 @media only screen and (max-width: 768.5px) {
+    .product-comparision-container {
+        padding: 0 20px;
+    }
+    .first-product h4{
+        font-size: 20px;
+       }
+   .second-product h4{
+    font-size: 20px;
+   }
+   .first-product-name h2{
+    font-size: 30px;
+
+   }
+   .second-product-name h2{
+    font-size: 30px;
+
+   }
     .women-cart .content {
         top: 11px;
         right: 32px;
@@ -3833,6 +4009,9 @@ a:link {
 }
 
 @media only screen and (max-width: 576px) {
+    .specification-box {
+        padding: 20px;
+    }
     .accessories-link-container {
         display: none;
     }
