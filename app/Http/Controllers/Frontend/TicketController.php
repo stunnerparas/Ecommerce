@@ -26,6 +26,10 @@ class TicketController extends Controller
         $input['ticket_no'] = date('ymdHis');
         $ticket = Ticket::create($input);
 
+        // send mails
+        sendAdminMail('Ticket Generation', 'Ticket has been generated for ' . $request->email);
+        sendCustomerMail($request->email, 'Ticket Generation', 'Your ticket has been generated. We will contact you as soon as possible');
+
         return redirect()->route('thankYou', $ticket->ticket_no);
     }
 

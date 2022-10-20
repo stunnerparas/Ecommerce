@@ -90,6 +90,11 @@ class CheckoutController extends Controller
         }
 
         \Cart::clear();
+
+        // send emails
+        sendAdminMail('Order Successful', 'New order received from ' . $request->shipping_email);
+        sendCustomerMail($request->shipping_email, 'Order Successful', 'Your order has been confirmed. You can easily track your order using your Order Number ' . $order_number);
+
         return redirect()->route('checkout.thankyou', $order_number);
     }
 

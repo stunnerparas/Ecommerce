@@ -23,8 +23,8 @@
                                         <tr>
                                             <th scope="col">Image</th>
                                             {{-- <th scope="col">Heading</th> --}}
-                                            <th scope="col">Title</th>
-                                            <th scope="col">Link</th>
+                                            {{-- <th scope="col">Title</th>
+                                            <th scope="col">Link</th> --}}
                                             <th scope="col">Position</th>
                                             <th scope="col">Action</th>
                                         </tr>
@@ -40,8 +40,8 @@
                                                     </a>
                                                 </td>
                                                 {{-- <td>{{ $slider->heading }}</td> --}}
-                                                <td>{{ $slider->title }}</td>
-                                                <td>{{ $slider->btn_link }}</td>
+                                                {{-- <td>{{ $slider->title }}</td>
+                                                <td>{{ $slider->btn_link }}</td> --}}
                                                 <td>{{ $slider->category }}</td>
 
                                                 <td>

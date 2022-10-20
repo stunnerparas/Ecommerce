@@ -257,7 +257,7 @@ class HomeController extends Controller
 
     public function setCurrency(Request $request)
     {
-        Session::put('currency',$request->currency);
+        Session::put('currency', $request->currency);
         \Cart::clear();
         return redirect()->back();
     }

@@ -26,9 +26,9 @@ class StoreSliderRequest extends FormRequest
         return [
             'image' => 'required',
             // 'heading' => 'required',
-            'title' => 'required',
-            'btn_text' => 'required',
-            'btn_link' => 'required',
+            // 'title' => 'required',
+            // 'btn_text' => 'required',
+            // 'btn_link' => 'required',
         ];
     }
 }

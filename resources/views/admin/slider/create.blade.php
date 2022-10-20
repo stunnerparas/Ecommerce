@@ -21,7 +21,7 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        {{-- <div class="col-md-6">
 
 
                                             <div class="form-group">
@@ -71,7 +71,7 @@
                                                 <label>Description</label>
                                                 <textarea name="description" class="summernote" style="display: none;">{{ old('description') }}</textarea>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Image</label>

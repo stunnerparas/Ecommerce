@@ -22,7 +22,7 @@
                                 @method('PUT')
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        {{-- <div class="col-md-6">
 
 
                                             <div class="form-group">
@@ -73,7 +73,7 @@
                                                 <textarea name="description" class="summernote"
                                                     style="display: none;">{{ old('description', $slider->description) }}</textarea>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Image</label>

@@ -1,5 +1,8 @@
 <?php
 
+use App\Mail\SendAdminMail;
+use App\Mail\SendCustomerMail;
+use App\Mail\SendMail;
 use App\Models\Attribute;
 use App\Models\Category;
 use App\Models\Company;
@@ -8,6 +11,7 @@ use App\Models\Log;
 use App\Models\Product;
 use App\Models\Type;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 function getParentCategories()
@@ -133,4 +137,38 @@ function currencyDBSymbol($currency)
 {
     $currency = Currency::where('currency', $currency)->first();
     return $currency->symbol;
+}
+
+function sendAdminMail($subject, $message)
+{
+    $company = Company::latest()->first();
+
+    $to = '';
+    if ($company) {
+        $to = explode(',', $company->email);
+    }
+
+    // dd($to);
+    $details = [
+        'subject' => $subject,
+        'message' => $message,
+    ];
+
+    $details = (object) $details;
+    if ($to) {
+        Mail::to($to)->send(new SendAdminMail($details));
+    }
+}
+
+function sendCustomerMail($to, $subject, $message)
+{
+    $details = [
+        'subject' => $subject,
+        'message' => $message,
+    ];
+
+    $details = (object) $details;
+    if ($to) {
+        Mail::to($to)->send(new SendCustomerMail($details));
+    }
 }

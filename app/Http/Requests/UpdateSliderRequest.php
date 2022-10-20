@@ -25,9 +25,9 @@ class UpdateSliderRequest extends FormRequest
     {
         return [
             // 'heading' => 'required',
-            'title' => 'required',
-            'btn_text' => 'required',
-            'btn_link' => 'required',
+            // 'title' => 'required',
+            // 'btn_text' => 'required',
+            // 'btn_link' => 'required',
         ];
     }
 }

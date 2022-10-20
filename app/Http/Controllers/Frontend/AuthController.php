@@ -47,7 +47,12 @@ class AuthController extends Controller
     {
         $input = $request->all();
         $input['user_type'] = 'customer';
-        User::create();
+        User::create($input);
+
+        // send emails
+        sendAdminMail('Registration Successful', 'New account with email ' . $request->email . ' has been registered');
+        sendCustomerMail($request->email, 'Registration Successful', 'Your account has been registered successfully');
+
         return redirect()->route('login')->with('success', 'Registered Successfully.');
     }
 
@@ -78,6 +83,10 @@ class AuthController extends Controller
         $input['user_type'] = 'business';
         $input['status'] = 'PENDING';
         User::create($input);
+
+        // send mails
+        sendAdminMail('Registration Successful', 'New business account with email ' . $request->email . ' has been registered');
+        sendCustomerMail($request->email, 'Registration Successful', 'Your business account has been registered successfully');
 
         return redirect()->route('business.login')->with('success', 'Registered Successfully.');
     }
