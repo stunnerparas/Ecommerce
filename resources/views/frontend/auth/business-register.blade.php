@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="registration-container my-5 d-flex justify-content-center">
+        <div class="registration-container my-5">
             <div class="row pl-md-5">
-                <div class="col-lg-6 col-md-6  d-flex justify-content-end order-md-0 order-1">
+                <div class="col-lg-12 col-md-12">
                     <div class="container form-container  p-5">
                         <h4 class="text-center font-weight-bold mb-5">Registration for Business</h4>
                         <!-- registration page -->
@@ -17,16 +17,14 @@
                                 @error('name')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <!-- name field -->
                                 <input type="text" value="{{ old('company') }}" class="form-control register-field p-2" id="company" placeholder="Company"
                                     name="company">
                                 @error('company')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
                             </div>
+
+                            
 
                             <div class="form-group">
                                 <!-- name field -->
@@ -35,16 +33,15 @@
                                 @error('vat')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <!-- name field -->
-                                <input type="text" value="{{ old('website') }}" class="form-control register-field p-2" id="website" placeholder="Website"
+                                 <!-- name field -->
+                                 <input type="text" value="{{ old('website') }}" class="form-control register-field p-2" id="website" placeholder="Website"
                                     name="website">
                                 @error('website')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
                             </div>
+
+                           
 
                             <div class="form-group">
                                 <!-- name field -->
@@ -53,16 +50,15 @@
                                 @error('zip_code')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <!-- name field -->
-                                <input type="text" value="{{ old('phone') }}" class="form-control register-field p-2" id="phone" placeholder="Phone"
+                                 <!-- name field -->
+                                 <input type="text" value="{{ old('phone') }}" class="form-control register-field p-2" id="phone" placeholder="Phone"
                                     name="phone">
                                 @error('phone')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
                             </div>
+
+                            
 
                             <div class="form-group">
                                 <!-- name field -->
@@ -71,16 +67,15 @@
                                 @error('country')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <!-- name field -->
-                                <input type="text" value="{{ old('country_code') }}" class="form-control register-field p-2" id="country_code" placeholder="Country Code"
+                                 <!-- name field -->
+                                 <input type="text" value="{{ old('country_code') }}" class="form-control register-field p-2" id="country_code" placeholder="Country Code"
                                     name="country_code">
                                 @error('country_code')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
                             </div>
+
+                           
 
                             <div class="form-group">
                                 <!-- name field -->
@@ -89,16 +84,14 @@
                                 @error('state')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <!-- name field -->
                                 <input type="text" value="{{ old('city') }}" class="form-control register-field p-2" id="city" placeholder="City"
                                     name="city">
                                 @error('city')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
                             </div>
+
+                           
 
                             <div class="form-group">
                                 <!-- name field -->
@@ -107,16 +100,15 @@
                                 @error('address')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <!-- email field -->
-                                <input type="email" value="{{ old('email') }}" class="form-control register-field p-2" id="email" placeholder="Email"
+                                 <!-- email field -->
+                                 <input type="email" value="{{ old('email') }}" class="form-control register-field p-2" id="email" placeholder="Email"
                                     name="email">
                                 @error('email')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
                             </div>
+
+                           
                             <div class="form-group">
                                 <!-- password field -->
                                 <input type="password" class="form-control register-field p-2" id="password"
@@ -124,15 +116,14 @@
                                 @error('password')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
-                            </div>
-                            <div class="form-group">
-                                <!-- password conformation -->
-                                <input type="password" class="form-control register-field p-2" id="confirm-password"
+                                 <!-- password conformation -->
+                                 <input type="password" class="form-control register-field p-2" id="confirm-password"
                                     placeholder="Confirm password" name="password_confirmation">
                                 @error('password_confirmation')
                                     <span class="error">{{ $message }}</span>
                                 @enderror
                             </div>
+                            
                             <div class="form-group">
                                 <input class="form-check-input ml-2" checked required type="checkbox" value=""
                                     id="flexCheckDefault">
@@ -150,14 +141,7 @@
                         </form>
                     </div>
                 </div>
-                <div
-                    class="col-lg-6 col-md-5  d-flex justify-content-md-end justify-content-center order-md-1 order-0 align-content-center">
-                    <div class="img-container ">
-                        <img class="registration-img-container img-fluid"
-                            src="{{ asset('frontend/assets/images/others/undraw_web_shopping_re_owap.png') }}" alt=""
-                            srcset="">
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>

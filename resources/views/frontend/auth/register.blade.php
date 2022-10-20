@@ -1,8 +1,8 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-    <div class="container-fluid">
-        <div class="registration-container my-5 d-flex justify-content-center">
+    <div class="container">
+        <div class="registration-container my-5" id="userRegister">
             <div class="row pl-md-5">
                 <div class="col-lg-6 col-md-6  d-flex justify-content-end order-md-0 order-1">
                     <div class="container form-container  p-5">

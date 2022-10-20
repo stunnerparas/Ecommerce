@@ -2265,15 +2265,33 @@ a:link {
 }
 
 .form-container {
-    background-color: rgb(243, 243, 243);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 10px;
     
 }
+.registration-container .form-group{
+    display: flex;
+    justify-content: space-between;
+
+}
+.registration-container .form-group input{
+    width: 49%;
+}
+.registration-container .form-group input[type="checkbox"]{
+    width: auto;
+}
+#userRegister .form-group input{
+    width: 100%;
+}
+#userRegister .form-group input[type="checkbox"]{
+    width: auto;
+}
 
 .register-field {
-    background-color: rgb(243, 243, 243);
-    border: none;
-    border-bottom: 2px solid #959494;
+   
+    border: 1px solid #959494;
+    padding: 15px !important;
+    
     outline: none;
     border-radius: 0%;
 }
@@ -3813,6 +3831,13 @@ a:link {
    .login-image{
     display: none;
    }
+   .registration-container .form-group input{
+    margin-bottom: 15px;
+    width: 100%;
+}
+.registration-container .form-group{
+    flex-direction: column;
+}
 }
 @media only screen and (max-width: 917px) {
     .specification-box h3 {
