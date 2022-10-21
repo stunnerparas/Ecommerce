@@ -3,6 +3,7 @@
 @section('content')
 <div class="container my-5">
     <div class="row">
+        <!-- Business login form -->
         <div class="col-lg-6">
             <div class="login-container p-5">
                 <h3 class="text-center">Login For Business</h3>
@@ -11,10 +12,12 @@
                     @csrf
                     @include('frontend.includes.messages')
                     {{-- <input type="hidden" name="business_login" value="1" id=""> --}}
+                    <!-- email input -->
                     <div class="form-group mb-4">
                         <label for="email">Email Address</label>
                         <input type="text" class="form-control login-field p-2" name="email" id="username" placeholder="Email">
                     </div>
+                    <!-- Password input -->
                     <div class="form-group">
                         <label for="password">Password</label>
 
@@ -38,13 +41,16 @@
                         </small></a>
 
                 </div>
+                
             </div>
 
         </div>
+        <!--  -->
         <div class="col-lg-6">
-            <div class="login-image">
+        <div class="login-image">
 
-            </div>
+</div>
+            
         </div>
     </div>
 
