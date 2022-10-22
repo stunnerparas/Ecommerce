@@ -11,13 +11,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-9 col-lg-10 col-md-9 col-sm-12 hero-container">
-                        <div class="hero__text">
+                        <!-- <div class="hero__text">
                             <h2>{{ $mainBanner->title ?? '' }}</h2>
                             <p>
                                 {!! $mainBanner->description ?? '' !!}
                             </p>
                             <a href="{{ $mainBanner->btn_link ?? '' }}" class="primary-btn">{{ $mainBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -137,13 +137,13 @@
         <img src="{{ asset('images/' . ($signatureBanner->image ?? '')) }}" alt="" />
         <div class="signature-banner-container">
             <div class="signature-content">
-                <div class="signature-collection-text px-4 py-2">
+                <!-- <div class="signature-collection-text px-4 py-2">
                     <h2>{{ $signatureBanner->title ?? '' }}</h2>
                     <p>
                         {!! $signatureBanner->description ?? '' !!}
                     </p>
                     <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'signature']) }}" class="primary-btn">{{ $signatureBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
-                </div>
+                </div> -->
             </div>
 
         </div>
@@ -177,13 +177,13 @@
         <img src="{{ asset('images/' . ($classicBanner->image ?? '')) }}" alt="" />
         <div class="row classic-banner-container">
             <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12">
-                <div class="classic-collection-text px-4 py-2">
+                <!-- <div class="classic-collection-text px-4 py-2">
                     <h2>{{ $classicBanner->title ?? '' }}</h2>
                     <p>
                         {!! $classicBanner->description ?? '' !!}
                     </p>
                     <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'classic']) }}" class="primary-btn">{{ $classicBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -215,13 +215,13 @@
         <img src="{{ asset('images/' . ($accessoriesBanner->image ?? '')) }}" alt="" />
         <div class="accessories-banner-container">
             <div class="accessories-content">
-                <div class="accessories-collection-text px-4 py-2">
+                <!-- <div class="accessories-collection-text px-4 py-2">
                     <h2>{{ $accessoriesBanner->title ?? '' }}</h2>
                     <p>
                         {!! $accessoriesBanner->description ?? '' !!}
                     </p>
                     <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'accessories']) }}" class="primary-btn">{{ $accessoriesBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -252,13 +252,13 @@
         <img src="{{ asset('images/' . ($menBanner->image ?? '')) }}" alt="" />
         <div class="row men-banner-container">
             <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12">
-                <div class="men-collection-text px-4 py-2">
+                <!-- <div class="men-collection-text px-4 py-2">
                     <h2>{{ $menBanner->title ?? '' }}</h2>
                     <p>
                         {!! $menBanner->description ?? '' !!}
                     </p>
                     <a href="{{ route('filter', ['type' => 'category', 'slug' => 'men']) }}" class="primary-btn">{{ $menBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -289,13 +289,13 @@
         <img src="{{ asset('images/' . ($womenBanner->image ?? '')) }}" alt="" />
         <div class="row women-banner-container">
             <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12">
-                <div class="women-collection-text px-4 py-2">
+                <!-- <div class="women-collection-text px-4 py-2">
                     <h2>{{ $womenBanner->title ?? '' }}</h2>
                     <p>
                         {!! $womenBanner->description ?? '' !!}
                     </p>
                     <a href="{{ route('filter', ['type' => 'category', 'slug' => 'women']) }}" class="primary-btn">{{ $womenBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -345,13 +345,13 @@
         <img src="{{ asset('images/' . ($superfineBanner->image ?? '')) }}" alt="" />
         <div class="superfine-banner-container">
             <div class="superfine-content">
-                <div class="superfine-collection-text px-4 py-2">
+                <!-- <div class="superfine-collection-text px-4 py-2">
                     <h2>{{ $superfineBanner->title ?? '' }}</h2>
                     <p>
                         {!! $superfineBanner->description ?? '' !!}
                     </p>
                     <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'superfine']) }}" class="primary-btn">{{ $superfineBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
