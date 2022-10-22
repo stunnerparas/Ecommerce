@@ -45,7 +45,7 @@ class OrderController extends Controller
         $order->update([
             'status' => $request->status
         ]);
-        createLog('changes status of an order'); // activity log
+        createLog('changed status of an order'); // activity log
 
 
         return redirect()->back()->with('message', 'Order status changed');
