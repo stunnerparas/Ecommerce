@@ -1,159 +1,134 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-    <div class="container-fluid my-5">
-        <form action="" method="GET">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-6">
-                    <input required type="text" placeholder="Enter order number"
-                        value="{{ isset($_GET['order_number']) ? $_GET['order_number'] : '' }}" name="order_number"
-                        id="search" class="form-control">
-                </div>
-                <div class="col-md-2">
-                    <button class="btn secondary-btn p-3">Search</button>
+<div class="track-container container">
+    <!-- New order -->
+    <div class="track-box my-3">
+        <!-- Order number tracking number and estimated date -->
+        <div class="track-heading d-flex justify-content-between">
+            <!-- order number -->
+            <div class="order-no">
+                <span class="order-heading">
+                    Order: <span style="color:#e53637;"> #3bc878</span>
+
+                </span>
+
+            </div>
+            <!-- Tracking number and date -->
+            <div class="track-num d-flex flex-column">
+                <Span class="num-heading"> DHL 142536475 </Span>
+
+
+                <Span class="num-heading py-2"> Estimate date : 2079/9/8 </Span>
+            </div>
+
+
+        </div>
+        <!-- Order status -->
+        <div class="order-status-container py-3">
+            <!-- Processing -->
+            <div class="status-item first">
+                <div class="status-circle"></div>
+                <div class="status-text">
+                    Processing
                 </div>
             </div>
-        </form>
-
-        @if ($data == 1)
-            <div class="container mt-4">
-                <h4 class="text-center">Order Details</h4>
-                <div class="order-number-container d-flex justify-content-between mt-3 p-2 profile-sub-container">
-                    <div class="order-info-wrapper">
-                        <h5>Order <span class="order-number font-weight-bold">#{{ $order->order_number ?? '' }}</span>
-                        </h5>
-                    </div>
-                    <div class="order-total-wrapper">
-                        <h4>Total: <span class="order-total">{{ currencyDBSymbol($order->currency) }} {{ $order->total_amount ?? 0 }}</span></h4>
-                    </div>
-                </div>
-                <div class="product-description-container">
-                    <div class="hr my-4"></div>
-                    @if ($orderItems->count() > 0)
-                        @php
-                            $total = 0;
-                        @endphp
-                        @foreach ($orderItems as $item)
-                            @php
-                                $subTotal = $item->product->price * $item->quantity;
-                                $total += $subTotal;
-                            @endphp
-                            <div class="product-description-child  d-sm-flex justify-content-between align-content-center">
-                                <div class="product-img-container mx-auto">
-                                    <img src="{{ asset('images/' . ($item->product->featured_image ?? '')) }}"
-                                        class="product-img" alt="product" srcset="">
-                                </div>
-                                <div
-                                    class="product-description-content d-flex mt-sm-0 mt-4 justify-content-between flex-grow-1">
-                                    <h5
-                                        class="product-name font-weight-bold my-auto d-flex flex-column align-content-start">
-                                        {{ $item->product->name ?? '' }}
-                                        <p class="product-price my-2 d-flex justify-content-lg-start">
-                                            {{ currencyDBSymbol($order->currency) }} {{ $item->price }}
-                                        </p>
-
-                                    </h5>
-                                    <p class="product-quantity my-auto">
-                                        {{ $item->quantity ?? 0 }}
-                                    </p>
-                                    <p class="product-total-price my-auto">{{ currencyDBSymbol($order->currency) }} {{ $subTotal ?? 0 }}</p>
-                                </div>
-
-                            </div>
-                            <div class="hr my-4"></div>
-                        @endforeach
-                    @endif
-
-                </div>
-                <div class="order-details-bottom-container">
-                    <div class="row d-flex justify-content-between">
-                        <div class="col-md-6 col-12 ml-md-2 p-3 profile-sub-container">
-                            <div class="shipping-details-container">
-                                <h6 class="font-weight-bold">
-                                    Shipping Details
-                                </h6>
-                                <div class="shipping-address-container">
-                                    <p class="orderReciverName mt-3">{{ $shipping->full_name ?? '' }}</p>
-                                    <p class="order-shipping address">{{ $shipping->address ?? '' }},
-                                        {{ $shipping->city ?? '' }},
-                                        {{ $shipping->state ?? '' }},
-                                        {{ $shipping->country ?? '' }}</p>
-                                    <p class="order-shipping-contact">
-                                        {{ $shipping->apartment ?? '' }},
-                                        {{ $shipping->postal_code ?? '' }}-{{ $shipping->phone ?? '' }}
-                                    </p>
-                                    <p class="order-shipping-contact">
-                                        {{ $shipping->email ?? '' }}</p>
-                                </div>
-                            </div>
-                            <div class="hr my-2"></div>
-                            <div class="billing-details-container">
-                                <h6 class="font-weight-bold">
-                                    Billing Details
-                                </h6>
-                                <div class="shipping-address-container">
-                                    <p class="orderReciverName mt-3">{{ $billing->full_name ?? '' }}</p>
-                                    <p class="order-shipping address">{{ $billing->address ?? '' }},
-                                        {{ $billing->city ?? '' }},
-                                        {{ $billing->state ?? '' }},
-                                        {{ $billing->country ?? '' }}</p>
-                                    <p class="order-shipping-contact">
-                                        {{ $billing->apartment ?? '' }},
-                                        {{ $billing->postal_code ?? '' }}-{{ $billing->phone ?? '' }}</p>
-                                    <p class="order-shipping-contact">
-                                        {{ $billing->email ?? '' }}</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-md-5 col-12 mx-md-2 p-3 profile-sub-container">
-                            <h6 class="font-weight-bold">
-                                Payment Summary
-                                <div class="card mt-3 text-left">
-                                    <div class="card-body">
-                                        <div class="items-summary d-flex justify-content-between">
-
-                                            <p class="">Cart Total:</p>
-                                            <!-- Cart total for cart.html -->
-                                            <p class="totalCartItem">{{ currencyDBSymbol($order->currency) }} {{ $total }}</p>
-                                        </div>
-                                        <div class="cart-total-container d-flex justify-content-between">
-                                            <p class="">Shipping Cost:</p>
-                                            <!-- shipping cost after user selection -->
-                                            <p class="totalCartPrice">{{ currencyDBSymbol($order->currency) }} 10</p>
-                                        </div>
-                                        {{-- <div class="cart-total-container d-flex justify-content-between">
-                                        <p class="">Tax:</p>
-                                        <!-- Calculate tax as per country -->
-                                        <p class="totalCartPrice price">10.1</p>
-                                    </div> --}}
-                                        <div class="hr"></div>
-                                        <div class="cart-total-container d-flex justify-content-between mt-2">
-                                            <!-- Grand total for all -->
-                                            <p class="font-weight-bold">Total:</p>
-                                            <p class="totalCartPrice font-weight-bold">
-                                                {{ currencyDBSymbol($order->currency) }} {{ $order->total_amount ?? 0 }}
-                                            </p>
-                                        </div>
-                                        <div class="cart-payment-type">
-                                            <div class="hr my-2"></div>
-                                            <p class="payment-type">Currency: {{ $order->currency ?: '' }}</p>
-                                            <p class="payment-type">Paid with {{ $order->payment_method ?: 'N/A' }}</p>
-                                            <p class="">Status:<span class="badge badge-success">
-                                                    {{ $order->status ?: 'N/A' }}</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </h6>
-                        </div>
-                    </div>
+            <!-- Shipped -->
+            <div class="status-item second">
+                <div class="status-circle"></div>
+                <div class="status-text">
+                    Shipped
                 </div>
             </div>
-        @endif
+            <!-- Out for delivery -->
+            <div class="status-item third">
+                <div class="status-circle"></div>
+                <div class="status-text green">
+                    <span>Out</span><span>for delivery</span>
+                </div>
+            </div>
+            <!-- Ariving -->
+            <div class="status-item">
+                <div class="status-circle"></div>
+                <div class="status-text green">
+                    <span>Ariving</span>
 
-        @if ($data == 'no-data')
-            <h4 class="text-center mt-5">No Data Found</h4>
-        @endif
-
+                </div>
+            </div>
+        </div>
+       
+        <!-- Download button -->
+        <div class="button d-flex justify-content-center">
+            <a href="{{asset('catalogue/kanchanmaggfinal.pdf')}}" download="catalogue" class="tritary-btn">Download <i class="fas fa-arrow-down"></i></a>
+        </div>
+        <!-- Tracking url -->
+        <div class="tracking-url py-2">
+            <p class="text-center">For futher information for your delivery, please visit <a href="#">Here</a></p>
+        </div>
     </div>
+    <!-- Previous order -->
+    <div class="track-box my-3">
+        <!-- Order number tracking number and estimated date -->
+        <div class="track-heading d-flex justify-content-between">
+            <!-- order number -->
+            <div class="order-no">
+                <span class="order-heading">
+                    Order: <span style="color:#e53637;"> #3bc878</span>
+
+                </span>
+
+            </div>
+            <!-- Tracking number and date -->
+            <div class="track-num d-flex flex-column">
+                <Span class="num-heading"> DHL 142536475 </Span>
+
+
+                <Span class="num-heading py-2"> Estimate date : 2079/9/8 </Span>
+            </div>
+
+
+        </div>
+        <!-- Order status -->
+        <div class="order-status-container py-3">
+            <!-- Processing -->
+            <div class="status-item first">
+                <div class="status-circle"></div>
+                <div class="status-text">
+                    Processing
+                </div>
+            </div>
+            <!-- Shipped -->
+            <div class="status-item second">
+                <div class="status-circle"></div>
+                <div class="status-text">
+                    Shipped
+                </div>
+            </div>
+            <!-- Out for delivery -->
+            <div class="status-item third">
+                <div class="status-circle"></div>
+                <div class="status-text green">
+                    <span>Out</span><span>for delivery</span>
+                </div>
+            </div>
+            <!-- Ariving -->
+            <div class="status-item">
+                <div class="status-circle"></div>
+                <div class="status-text green">
+                    <span>Ariving</span>
+
+                </div>
+            </div>
+        </div>
+       
+        <!-- Download button -->
+        <div class="button d-flex justify-content-center">
+            <a href="{{asset('catalogue/kanchanmaggfinal.pdf')}}" download="catalogue" class="tritary-btn">Download <i class="fas fa-arrow-down"></i></a>
+        </div>
+        <!-- Tracking url -->
+        <div class="tracking-url py-2">
+            <p class="text-center">For futher information for your delivery, please visit <a href="#">Here</a></p>
+        </div>
+    </div>
+</div>
 @endsection
