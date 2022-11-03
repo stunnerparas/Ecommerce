@@ -3562,6 +3562,9 @@ a:link {
     .navbar_bottom {
         z-index: 9999;
     }
+    .header__top{
+        z-index: 99;
+    }
    
 
     
@@ -3623,31 +3626,14 @@ a:link {
         left: 0;
     }
     .offcanvas-close-switch {
-        position: absolute;
-        width: 62px;
-        height: 62px;
-        background: #333;
-        color: #fff;
-        padding: 12px;
-        text-align: center;
-        border-radius: 50%;
-        font-size: 28px;
-        line-height: 28px;
-        top: 109px;
-        right: -20px;
-        cursor: pointer;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: end;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
+       display: flex;
+       justify-content: center;
+       
+       
+        
+    }
+    #canvas-close{
+        font-size: 35px;
     }
     .offcanvas__menu {
         display: none;
@@ -3795,7 +3781,7 @@ a:link {
         color: #111111;
         margin-bottom: 0;
     }
-    .header__top {
+    .header__top__right{
         display: none;
     }
     .header .container {
@@ -4105,32 +4091,7 @@ a:link {
     }
 }
 @media only screen and (max-width: 461px) {
-    .offcanvas-close-switch {
-        position: absolute;
-        width: 40px;
-        height: 40px;
-        background: #333;
-        color: #fff;
-        text-align: center;
-        border-radius: 50%;
-        font-size: 28px;
-        line-height: 28px;
-        top: 140px;
-        left: 118px;
-        cursor: pointer;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-    }
+    
     .product img {
         object-fit: cover;
     }

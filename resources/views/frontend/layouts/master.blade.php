@@ -13,8 +13,6 @@
 
         <!-- Linking bootstrap Icon -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <!-- Linking FontAwesome -->
     <script src="https://kit.fontawesome.com/178da8e8d6.js" crossorigin="anonymous"></script>
 
