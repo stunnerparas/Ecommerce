@@ -159,7 +159,7 @@
             @endcan
 
             @if (Auth::user()->hasAnyRole('super admin'))
-                <li class="dropdown {{ Request::segment(2) == 'admins' ? 'active' : '' }}">
+                <li class="dropdown {{ Request::segment(2) == 'admins' || Request::segment(2) == 'roles' ? 'active' : '' }}">
                     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i>
                         <span>User Management</span></a>
                     <ul class="dropdown-menu">
