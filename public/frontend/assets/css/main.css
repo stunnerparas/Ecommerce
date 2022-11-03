@@ -3500,7 +3500,22 @@ a:link {
     background-color: #f7f7f7;
 }
  
-  
+  /* Track order page */
+  .track-box{
+    padding: 20px ;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px 80px 10px 10px;
+  }
+  .order-heading{
+    font-size: 25px;
+  }
+  .num-heading{
+    font-size: 20px;
+  }
+  .track-box .button a {
+    width: auto !important;
+    background-color: #3498db;
+}
   
 /* **************************************************Responsive Media Query***************************************************************** */
 
@@ -3561,6 +3576,9 @@ a:link {
     
     .navbar_bottom {
         z-index: 9999;
+    }
+    .header__top{
+        z-index: 99;
     }
    
 
@@ -3623,31 +3641,14 @@ a:link {
         left: 0;
     }
     .offcanvas-close-switch {
-        position: absolute;
-        width: 62px;
-        height: 62px;
-        background: #333;
-        color: #fff;
-        padding: 12px;
-        text-align: center;
-        border-radius: 50%;
-        font-size: 28px;
-        line-height: 28px;
-        top: 109px;
-        right: -20px;
-        cursor: pointer;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: end;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
+       display: flex;
+       justify-content: center;
+       
+       
+        
+    }
+    #canvas-close{
+        font-size: 35px;
     }
     .offcanvas__menu {
         display: none;
@@ -3795,7 +3796,7 @@ a:link {
         color: #111111;
         margin-bottom: 0;
     }
-    .header__top {
+    .header__top__right{
         display: none;
     }
     .header .container {
@@ -4060,6 +4061,41 @@ a:link {
     .category__item__pic {
         height: auto !important;
     }
+    .track-heading{
+        flex-direction: column;
+    }
+    .track-num{
+        padding-top: 15px;
+    }
+    .order-status-container{
+        flex-direction: column;
+    }
+    
+    .first::before{
+        width: 4px;
+        top: 40px;
+        left: 40px;
+        height: 140px;
+    }
+    .second::before{
+        width: 4px;
+        top: 40px;
+        left: 32px;
+        height: 140px;
+    }
+    .third:before{
+        width: 4px;
+        top: 40px;
+        left: 40px;
+        height: 140px;
+    }
+    .status-text{
+        z-index: 99;
+    }
+    .status-item > div{
+        background: #ffffff;
+    }
+    
 }
 @media only screen and (max-width: 556px) {
     .orderTrackPlatform .form label {
@@ -4081,56 +4117,10 @@ a:link {
     .content-left-sec .heading h2 {
         font-size: 30px;
     }
-    .first::before {
-        width: 30px;
-
-        top: 40px;
-        left: 74px;
-    }
-
-    .second::before {
-        width: 30px;
-
-        top: 40px;
-        left: 64px;
-
-        opacity: 0.2;
-    }
-    .third::before {
-        width: 30px;
-        top: 40px;
-        left: 54px;
-
-        opacity: 0.2;
-    }
+    
 }
 @media only screen and (max-width: 461px) {
-    .offcanvas-close-switch {
-        position: absolute;
-        width: 40px;
-        height: 40px;
-        background: #333;
-        color: #fff;
-        text-align: center;
-        border-radius: 50%;
-        font-size: 28px;
-        line-height: 28px;
-        top: 140px;
-        left: 118px;
-        cursor: pointer;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-    }
+    
     .product img {
         object-fit: cover;
     }
@@ -4227,28 +4217,7 @@ a:link {
     }
 }
 @media only screen and (max-width: 388px) {
-    .first::before {
-        width: 20px;
-
-        top: 40px;
-        left: 78px;
-    }
-
-    .second::before {
-        width: 20px;
-
-        top: 40px;
-        left: 68px;
-
-        opacity: 0.2;
-    }
-    .third::before {
-        width: 20px;
-        top: 40px;
-        left: 58px;
-
-        opacity: 0.2;
-    }
+    
 }
 @media only screen and (max-width: 365px){
     
@@ -4271,28 +4240,7 @@ a:link {
     .help-content .left-sec .primary-btn {
         font-size: 15px !important;
     }
-    .first::before {
-        width: 20px;
-
-        top: 40px;
-        left: 72px;
-    }
-
-    .second::before {
-        width: 20px;
-
-        top: 40px;
-        left: 60px;
-
-        opacity: 0.2;
-    }
-    .third::before {
-        width: 20px;
-        top: 40px;
-        left: 55px;
-
-        opacity: 0.2;
-    }
+   
 }
 @media only screen and (max-width: 325px){
     .filter-sort .custom-select{

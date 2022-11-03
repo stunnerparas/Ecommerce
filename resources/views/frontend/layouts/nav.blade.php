@@ -7,7 +7,7 @@ Backend Developer : Rudra Rajbansi.
 
 <div class="offcanvas-menu-overlay"></div>
 <div class="offcanvas-menu-wrapper">
-    <div class="offcanvas-close-switch">+</div>
+    <div class="offcanvas-close-switch"><i class="bi bi-x-circle" id="canvas-close"></i></div>
     <div class="offcanvas__option">
         <div class="offcanvas__nav__icons">
             <a href="#" class="offcanvas-search"><i class="fas fa-search fa-2x"></i></a>
@@ -24,16 +24,17 @@ Backend Developer : Rudra Rajbansi.
             <a href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart fa-2x"></i></a>
         </div>
         <div class="offcanvas__links">
-            <a href="{{ route('login') }}">Login</a>
-            <a href="{{ route('myaccount') }}">My account</a>
+            
+            @if (Auth::check())
+            <a href="{{ route('logout') }}">My account</a>
+            <a href="{{ route('login') }}">Logout</a>
+            @else
+                            <a href="{{ route('login') }}">Login</a>
+
+            @endif
+
         </div>
-        <div class="offcanvas__top__hover">
-            <span>Usd $</span>
-            <ul>
-                <li>USD $</li>
-                <li>EUR €</li>
-            </ul>
-        </div>
+
     </div>
     <div class="offcanvas_header_menu">
         <ul>
