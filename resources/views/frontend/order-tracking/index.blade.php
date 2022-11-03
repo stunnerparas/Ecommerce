@@ -25,12 +25,12 @@
     </div>
 
 
-  
+
     <!-- OrderTracking platforms -->
     <div class="orderTrackPlatform container py-3">
         <!-- Heading -->
         <h2>Track Your Order</h2>
-       
+
         <div class="form px-3 py-3">
             <form action="" method="">
                 <!-- Track order DHL -->
@@ -38,19 +38,19 @@
                 <input type="radio" id="DHL" name="DHL" value="DHL">
                 <label for="DHL"> <i class="fas fa-plane pr-3"></i>DHL</label> <br>
                 </div>
-                
-               
+
+
                 <!-- Track order Other Platform -->
                 <div class="platform2 my-3">
                 <input type="radio" id="other" name="other" value="other">
                 <label for="other"> <i class="fas fa-truck pr-3"></i>others</label>
                 </div>
-               
+
 
                 <div class="button">
-                    <a href="{{ route('') }}" class="secondary-btn">Track</a>
+                    <a href="{{ route('order.tracker') }}" class="secondary-btn">Track</a>
                 </div>
-                
+
             </form>
         </div>
     </div>

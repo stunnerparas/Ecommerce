@@ -11,6 +11,7 @@ class TicketController extends Controller
     public function index()
     {
         $tickets = Ticket::latest()->paginate(20);
+        createLog('viewed ticket details'); // activity log
         return view('admin.ticket.index', compact('tickets'));
     }
 
@@ -25,6 +26,7 @@ class TicketController extends Controller
             'status' => 'Complete'
         ]);
 
+        createLog('changed ticket status'); // activity log
         return redirect()->back()->with('success', 'Marked as Complete');
     }
 }

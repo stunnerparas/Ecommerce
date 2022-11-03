@@ -29,7 +29,7 @@
                                         @foreach ($logs as $log)
                                             <tr>
                                                 <td>{{ $log->log }}</td>
-                                                <td>{{ $log->created_at->diffForHumans() }}</td>
+                                                <td>{{ $log->created_at }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>

@@ -54,6 +54,8 @@ class ReportController extends Controller
         $year['transactionAmount'] = $yearData['transactionAmount'];
         // ends
 
+        createLog('viewed report details'); // activity log
+
         return view('admin.report.index', compact('today', 'yesterday', 'week', 'month', 'threeMonth', 'year'));
     }
 

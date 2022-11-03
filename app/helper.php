@@ -172,3 +172,4 @@ function sendCustomerMail($to, $subject, $message)
         Mail::to($to)->send(new SendCustomerMail($details));
     }
 }
+

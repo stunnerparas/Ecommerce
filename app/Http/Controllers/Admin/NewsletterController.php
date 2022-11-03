@@ -11,6 +11,7 @@ class NewsletterController extends Controller
     public function index()
     {
         $newsletters = Newsletter::latest()->paginate(20);
+        createLog('viewed newsletter details'); // activity log
         return view('admin.newsletter.index', compact('newsletters'));
     }
 }

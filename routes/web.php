@@ -4,6 +4,7 @@ use App\Http\Controllers\Frontend\AuthController;
 use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Frontend\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ProductController;
 use App\Http\Controllers\Frontend\TicketController;
@@ -124,4 +125,10 @@ Route::post('/set-currency', [HomeController::class, 'setCurrency'])->name('curr
 
 
 // Compare
-Route::get('/compare' , [HomeController::class , 'compare']) -> name ('compare');
+Route::get('/compare', [HomeController::class, 'compare'])->name('compare');
+
+// forgot password
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
