@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BusinessController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CompanyController;
+use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\CurrencyController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqController;
@@ -15,6 +17,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ReportController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TicketController;
 use App\Http\Controllers\Admin\TypeController;
@@ -41,6 +44,9 @@ Route::resource('faqs', FaqController::class);
 Route::resource('users', UserController::class);
 Route::resource('blogs', BlogController::class);
 Route::resource('currency', CurrencyController::class);
+Route::resource('coupon', CouponController::class);
+Route::resource('admins', AdminController::class);
+Route::resource('roles', RoleController::class);
 Route::post('/product/featured-image/{product}', [ProductController::class, 'featuredImage'])->name('featured.image');
 Route::post('/product/gallery/{product}', [ProductController::class, 'gallery'])->name('gallery');
 Route::get('/product/image/delete/{id}/{type}', [ProductController::class, 'imageDelete'])->name('image.delete');

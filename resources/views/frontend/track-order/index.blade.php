@@ -24,7 +24,8 @@
                         </h5>
                     </div>
                     <div class="order-total-wrapper">
-                        <h4>Total: <span class="order-total">{{ currencyDBSymbol($order->currency) }} {{ $order->total_amount ?? 0 }}</span></h4>
+                        <h4>Total: <span class="order-total">{{ currencyDBSymbol($order->currency) }}
+                                {{ $order->total_amount ?? 0 }}</span></h4>
                     </div>
                 </div>
                 <div class="product-description-container">
@@ -56,7 +57,8 @@
                                     <p class="product-quantity my-auto">
                                         {{ $item->quantity ?? 0 }}
                                     </p>
-                                    <p class="product-total-price my-auto">{{ currencyDBSymbol($order->currency) }} {{ $subTotal ?? 0 }}</p>
+                                    <p class="product-total-price my-auto">{{ currencyDBSymbol($order->currency) }}
+                                        {{ $subTotal ?? 0 }}</p>
                                 </div>
 
                             </div>
@@ -115,24 +117,31 @@
 
                                             <p class="">Cart Total:</p>
                                             <!-- Cart total for cart.html -->
-                                            <p class="totalCartItem">{{ currencyDBSymbol($order->currency) }} {{ $total }}</p>
+                                            <p class="totalCartItem">{{ currencyDBSymbol($order->currency) }}
+                                                {{ $total }}</p>
                                         </div>
                                         <div class="cart-total-container d-flex justify-content-between">
                                             <p class="">Shipping Cost:</p>
                                             <!-- shipping cost after user selection -->
-                                            <p class="totalCartPrice">{{ currencyDBSymbol($order->currency) }} 10</p>
+                                            <p class="totalCartPrice">{{ currencyDBSymbol($order->currency) }}
+                                                {{ $order->shipping_charge }}</p>
                                         </div>
-                                        {{-- <div class="cart-total-container d-flex justify-content-between">
-                                        <p class="">Tax:</p>
-                                        <!-- Calculate tax as per country -->
-                                        <p class="totalCartPrice price">10.1</p>
-                                    </div> --}}
+                                        @if ($order->coupon->discount ?? '')
+                                            <div class="cart-total-container d-flex justify-content-between">
+                                                <p class="">Coupon Discount:</p>
+                                                <p class="totalCartPrice">{{ currencyDBSymbol($order->currency) }}
+                                                    {{ $order->coupon->discount ?? 0 }}</p>
+                                            </div>
+                                        @endif
                                         <div class="hr"></div>
                                         <div class="cart-total-container d-flex justify-content-between mt-2">
                                             <!-- Grand total for all -->
                                             <p class="font-weight-bold">Total:</p>
                                             <p class="totalCartPrice font-weight-bold">
-                                                {{ currencyDBSymbol($order->currency) }} {{ $order->total_amount ?? 0 }}
+                                                @php
+                                                    $total_amount = $total + ($order->shipping_charge ?? 0) - ($order->coupon->discount ?? 0);
+                                                @endphp
+                                                {{ currencyDBSymbol($order->currency) }} {{ $total_amount ?? 0 }}
                                             </p>
                                         </div>
                                         <div class="cart-payment-type">

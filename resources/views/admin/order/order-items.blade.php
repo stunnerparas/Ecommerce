@@ -107,8 +107,10 @@
                                                             <tr>
                                                                 <td>{{ $item->product->name }}</td>
                                                                 <td>{{ $item->quantity }}</td>
-                                                                <td>{{ currencyDBSymbol($order->currency) }} {{ $item->price }}</td>
-                                                                <td>{{ currencyDBSymbol($order->currency) }} {{ $subTotal }}</td>
+                                                                <td>{{ currencyDBSymbol($order->currency) }}
+                                                                    {{ $item->price }}</td>
+                                                                <td>{{ currencyDBSymbol($order->currency) }}
+                                                                    {{ $subTotal }}</td>
                                                             </tr>
                                                         @endforeach
                                                     </tbody>
@@ -117,13 +119,23 @@
                                                 <div class="row ">
                                                     <label for="" class="col-12 d-flex justify-content-end"><b>
                                                             Total:
-                                                            {{ currencyDBSymbol($order->currency) }} {{ $total }}</b></label>
+                                                            {{ currencyDBSymbol($order->currency) }}
+                                                            {{ $total }}</b></label>
                                                     <label for="" class="col-12 d-flex justify-content-end"><b>
                                                             Shipping
-                                                            Charge: {{ currencyDBSymbol($order->currency) }} 10</b></label>
+                                                            Charge: {{ currencyDBSymbol($order->currency) }}
+                                                            {{ $order->shipping_charge ?? 0 }}</b></label>
+                                                    <label for="" class="col-12 d-flex justify-content-end"><b>
+                                                            Coupon Discount: {{ currencyDBSymbol($order->currency) }}
+                                                            {{ $order->coupon->discount ?? 0 }}</b></label>
+
+                                                    @php
+                                                        $total_amount = $order->total_amount + ($order->shipping_charge ?? 0) - ($order->coupon->discount ?? 0);
+                                                    @endphp
                                                     <label for="" class="col-12 d-flex justify-content-end"><b>Grand
                                                             Total:
-                                                            {{ currencyDBSymbol($order->currency) }} {{ $order->total_amount }}</b></label>
+                                                            {{ currencyDBSymbol($order->currency) }}
+                                                            {{ $total_amount }}</b></label>
 
                                                 </div>
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAttributeRequest;
 use App\Models\Attribute as ModelsAttribute;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class AttributeController extends Controller
 {
@@ -21,6 +22,8 @@ class AttributeController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('View Attribute'), 403);
+
         $attributes = ModelsAttribute::latest();
         $parent = 0;
         $parentAttribute = '';
@@ -47,6 +50,8 @@ class AttributeController extends Controller
      */
     public function create()
     {
+        abort_unless(Gate::allows('Create Attribute'), 403);
+
         return view('admin.attribute.create');
     }
 
@@ -58,6 +63,8 @@ class AttributeController extends Controller
      */
     public function store(StoreAttributeRequest $request)
     {
+        abort_unless(Gate::allows('Create Attribute'), 403);
+
         $input = $request->all();
         ModelsAttribute::create($input);
 
@@ -88,6 +95,8 @@ class AttributeController extends Controller
      */
     public function edit(ModelsAttribute $attribute)
     {
+        abort_unless(Gate::allows('Edit Attribute'), 403);
+
         return view('admin.attribute.edit', compact('attribute'));
     }
 
@@ -100,6 +109,8 @@ class AttributeController extends Controller
      */
     public function update(Request $request, ModelsAttribute $attribute)
     {
+        abort_unless(Gate::allows('Edit Attribute'), 403);
+
         $input = $request->all();
         $attribute->update($input);
 
@@ -119,6 +130,8 @@ class AttributeController extends Controller
      */
     public function destroy(ModelsAttribute $attribute)
     {
+        abort_unless(Gate::allows('Delete Attribute'), 403);
+
         $attribute->delete();
         createLog('deleted attribute'); // activity log
 

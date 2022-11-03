@@ -5,8 +5,10 @@
         <div class="section-header">
             <h1>Faqs</h1>
             <div class="section-header-breadcrumb">
-                <a class="btn btn-primary" href="{{ route('admin.faqs.create') }}"><i class="fas fa-plus"></i>
-                    Create</a>
+                @can('Create Faq')
+                    <a class="btn btn-primary" href="{{ route('admin.faqs.create') }}"><i class="fas fa-plus"></i>
+                        Create</a>
+                @endcan
             </div>
         </div>
 
@@ -35,18 +37,23 @@
                                                 <td>
                                                     <div class="row">
 
-                                                        <a class="btn btn-success mr-1"
-                                                            href="{{ route('admin.faqs.edit', $faq->id) }}">Edit</a>
+                                                        @can('Edit Faq')
+                                                            <a class="btn btn-success mr-1"
+                                                                href="{{ route('admin.faqs.edit', $faq->id) }}">Edit</a>
+                                                        @endcan
 
-                                                        <form class=""
-                                                            action="{{ route('admin.faqs.destroy', $faq->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger delete-faq" type="submit">
-                                                                Delete
-                                                            </button>
-                                                        </form>
+                                                        @can('Delete Faq')
+                                                            <form class=""
+                                                                action="{{ route('admin.faqs.destroy', $faq->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-danger delete-faq" type="submit">
+                                                                    Delete
+                                                                </button>
+                                                            </form>
+                                                        @endcan
+
                                                     </div>
                                                 </td>
                                             </tr>

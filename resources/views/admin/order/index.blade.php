@@ -46,19 +46,23 @@
 
                                                 <td>
                                                     <div class="row">
+                                                        @can('View Order Details', $post)
+                                                            <a class="btn btn-success mr-1"
+                                                                href="{{ route('admin.orders.items', $order->id) }}">View</a>
+                                                        @endcan
 
-                                                        <a class="btn btn-success mr-1"
-                                                            href="{{ route('admin.orders.items', $order->id) }}">View</a>
+                                                        @can('Delete Order')
+                                                            <form class=""
+                                                                action="{{ route('admin.orders.delete', $order->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-danger delete-order" type="submit">
+                                                                    Delete
+                                                                </button>
+                                                            </form>
+                                                        @endcan
 
-                                                        <form class=""
-                                                            action="{{ route('admin.orders.delete', $order->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger delete-order" type="submit">
-                                                                Delete
-                                                            </button>
-                                                        </form>
                                                     </div>
                                                 </td>
                                             </tr>

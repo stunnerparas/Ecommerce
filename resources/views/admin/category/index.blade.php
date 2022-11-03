@@ -11,14 +11,17 @@
                 @endif
             </h1>
             <div class="section-header-breadcrumb">
-                @if ($parent == 0)
-                    <a class="btn btn-primary" href="{{ route('admin.categories.create') }}"><i class="fas fa-plus"></i>
-                        Create</a>
-                @else
-                    <a class="btn btn-primary" href="{{ route('admin.categories.create', ['parent' => $parent]) }}"><i
-                            class="fas fa-plus"></i>
-                        Create</a>
-                @endif
+                @can('Create Category')
+                    @if ($parent == 0)
+                        <a class="btn btn-primary" href="{{ route('admin.categories.create') }}"><i class="fas fa-plus"></i>
+                            Create</a>
+                    @else
+                        <a class="btn btn-primary" href="{{ route('admin.categories.create', ['parent' => $parent]) }}"><i
+                                class="fas fa-plus"></i>
+                            Create</a>
+                    @endif
+                @endcan
+
             </div>
         </div>
 
@@ -64,27 +67,34 @@
                                                 <td>
                                                     <div class="row">
                                                         {{-- @if (!$parent) --}}
+                                                        @can('Create Category')
                                                             <a class="btn btn-primary mr-1"
                                                                 href="{{ route('admin.categories.index', ['parent' => $category->id]) }}">Sub-Categories</a>
+                                                        @endcan
                                                         {{-- @endif --}}
 
-                                                        @if (!$parent)
-                                                            <a class="btn btn-success mr-1"
-                                                                href="{{ route('admin.categories.edit', $category->id) }}">Edit</a>
-                                                        @else
-                                                            <a class="btn btn-success mr-1"
-                                                                href="{{ route('admin.categories.edit', ['category' => $category->id, 'parent' => $parent]) }}">Edit</a>
-                                                        @endif
+                                                        @can('Edit Category')
+                                                            @if (!$parent)
+                                                                <a class="btn btn-success mr-1"
+                                                                    href="{{ route('admin.categories.edit', $category->id) }}">Edit</a>
+                                                            @else
+                                                                <a class="btn btn-success mr-1"
+                                                                    href="{{ route('admin.categories.edit', ['category' => $category->id, 'parent' => $parent]) }}">Edit</a>
+                                                            @endif
+                                                        @endcan
 
-                                                        <form class=""
-                                                            action="{{ route('admin.categories.destroy', $category->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger delete-category" type="submit">
-                                                                Delete
-                                                            </button>
-                                                        </form>
+                                                        @can('Delete Category')
+                                                            <form class=""
+                                                                action="{{ route('admin.categories.destroy', $category->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-danger delete-category" type="submit">
+                                                                    Delete
+                                                                </button>
+                                                            </form>
+                                                        @endcan
+
                                                     </div>
                                                 </td>
                                             </tr>

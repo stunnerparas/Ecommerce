@@ -5,8 +5,10 @@
         <div class="section-header">
             <h1>Homepage Banners</h1>
             <div class="section-header-breadcrumb">
-                <a class="btn btn-primary" href="{{ route('admin.sliders.create') }}"><i class="fas fa-plus"></i>
-                    Create</a>
+                @can('Create Banner')
+                    <a class="btn btn-primary" href="{{ route('admin.sliders.create') }}"><i class="fas fa-plus"></i>
+                        Create</a>
+                @endcan
             </div>
         </div>
 
@@ -47,18 +49,23 @@
                                                 <td>
                                                     <div class="row">
 
-                                                        <a class="btn btn-success mr-1"
-                                                            href="{{ route('admin.sliders.edit', $slider->id) }}">Edit</a>
+                                                        @can('Edit Banner')
+                                                            <a class="btn btn-success mr-1"
+                                                                href="{{ route('admin.sliders.edit', $slider->id) }}">Edit</a>
+                                                        @endcan
 
-                                                        <form class=""
-                                                            action="{{ route('admin.sliders.destroy', $slider->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger delete-slider" type="submit">
-                                                                Delete
-                                                            </button>
-                                                        </form>
+                                                        @can('Delete Banner')
+                                                            <form class=""
+                                                                action="{{ route('admin.sliders.destroy', $slider->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-danger delete-slider" type="submit">
+                                                                    Delete
+                                                                </button>
+                                                            </form>
+                                                        @endcan
+
                                                     </div>
                                                 </td>
                                             </tr>

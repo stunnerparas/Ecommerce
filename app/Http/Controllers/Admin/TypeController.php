@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTypeRequest;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 
 class TypeController extends Controller
@@ -22,6 +23,8 @@ class TypeController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('View Collection'), 403);
+
         $types = Type::latest()->paginate(10);
         createLog('viewed type details'); // activity log
 
@@ -35,6 +38,8 @@ class TypeController extends Controller
      */
     public function create()
     {
+        abort_unless(Gate::allows('Create Collection'), 403);
+
         return view('admin.type.create');
     }
 
@@ -46,6 +51,8 @@ class TypeController extends Controller
      */
     public function store(StoreTypeRequest $request)
     {
+        abort_unless(Gate::allows('Create Collection'), 403);
+
         $input = $request->all();
         $input['slug'] = Str::slug($request->type);
         Type::create($input);
@@ -73,6 +80,8 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
+        abort_unless(Gate::allows('Edit Collection'), 403);
+
         return view('admin.type.edit', compact('type'));
     }
 
@@ -85,6 +94,8 @@ class TypeController extends Controller
      */
     public function update(StoreTypeRequest $request, Type $type)
     {
+        abort_unless(Gate::allows('Edit Collection'), 403);
+
         $input = $request->all();
         $input['slug'] = Str::slug($request->type);
         $type->update($input);
@@ -101,6 +112,8 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
+        abort_unless(Gate::allows('Delete Collection'), 403);
+
         $type->delete();
         createLog('deleted a type'); // activity log
 

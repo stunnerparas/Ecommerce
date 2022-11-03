@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\OrderItems;
 use App\Models\ShippingAddress;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class OrderController extends Controller
 {
@@ -18,6 +19,8 @@ class OrderController extends Controller
 
     public function index()
     {
+        abort_unless(Gate::allows('View Order'), 403);
+
         $orders = Order::latest()->paginate(10);
         createLog('viewed order details'); // activity log
 
@@ -26,6 +29,8 @@ class OrderController extends Controller
 
     public function orderItems(Order $order)
     {
+        abort_unless(Gate::allows('View Order Details'), 403);
+
         $order->update([
             'is_seen' => 1
         ]);
@@ -39,6 +44,8 @@ class OrderController extends Controller
 
     public function changeOrderStatus(Request $request, Order $order)
     {
+        abort_unless(Gate::allows('Edit Order Status'), 403);
+
         if ($order->status == 'Delivered') {
             return redirect()->back()->with('error', 'This order has already been delivered');
         }
@@ -53,6 +60,8 @@ class OrderController extends Controller
 
     public function destroy(Order $order)
     {
+        abort_unless(Gate::allows('Delete Order'), 403);
+
         $order->delete();
         createLog('deleted an order'); // activity log
 

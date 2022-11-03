@@ -5,8 +5,10 @@
         <div class="section-header">
             <h1>Deals of the week</h1>
             <div class="section-header-breadcrumb">
-                <a class="btn btn-primary" href="{{ route('admin.deals.create') }}"><i class="fas fa-plus"></i>
-                    Create</a>
+                @can('Create Deal Of The Week')
+                    <a class="btn btn-primary" href="{{ route('admin.deals.create') }}"><i class="fas fa-plus"></i>
+                        Create</a>
+                @endcan
             </div>
         </div>
 
@@ -45,19 +47,22 @@
 
                                                 <td>
                                                     <div class="row">
+                                                        @can('Edit Deal Of The Week')
+                                                            <a class="btn btn-success mr-1"
+                                                                href="{{ route('admin.deals.edit', $deal->id) }}">Edit</a>
+                                                        @endcan
 
-                                                        <a class="btn btn-success mr-1"
-                                                            href="{{ route('admin.deals.edit', $deal->id) }}">Edit</a>
-
-                                                        <form class=""
-                                                            action="{{ route('admin.deals.destroy', $deal->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger delete-deal" type="submit">
-                                                                Delete
-                                                            </button>
-                                                        </form>
+                                                        @can('Delete Deal Of The Week')
+                                                            <form class=""
+                                                                action="{{ route('admin.deals.destroy', $deal->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-danger delete-deal" type="submit">
+                                                                    Delete
+                                                                </button>
+                                                            </form>
+                                                        @endcan
                                                     </div>
                                                 </td>
                                             </tr>

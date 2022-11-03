@@ -21,8 +21,14 @@ class AuthController extends Controller
     {
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->route('admin.dashboard')
-                ->with('success', 'You have Successfully loggedin');
+            if (Auth::user()->user_type == 'admin') {
+                return redirect()->route('admin.dashboard')
+                    ->with('success', 'You have Successfully loggedin');
+            } else {
+                Session::flush();
+                Auth::logout();
+                return redirect()->back()->with('error', 'Invalid Email/Password');
+            }
         } else {
             return redirect()->back()->with('error', 'Invalid Email/Password');
         }

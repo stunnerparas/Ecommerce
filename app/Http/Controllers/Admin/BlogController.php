@@ -10,6 +10,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use File;
+use Illuminate\Support\Facades\Gate;
 
 class BlogController extends Controller
 {
@@ -25,6 +26,8 @@ class BlogController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('View Blog'), 403);
+
         $blogs = Blog::latest()->paginate(10);
         createLog('viewed blog details'); // activity log
 
@@ -38,6 +41,8 @@ class BlogController extends Controller
      */
     public function create()
     {
+        abort_unless(Gate::allows('Create Blog'), 403);
+
         $categories = Category::where('parent_id', 0)->where('featured', 'Yes')->get();
         return view('admin.blog.create', compact('categories'));
     }
@@ -50,6 +55,8 @@ class BlogController extends Controller
      */
     public function store(StoreBlogRequest $request)
     {
+        abort_unless(Gate::allows('Create Blog'), 403);
+
         $input = $request->except('image');
         $input['image'] = $this->fileUpload($request, 'image');
         $input['slug'] = Str::slug($request->title);
@@ -78,6 +85,8 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
+        abort_unless(Gate::allows('Edit Blog'), 403);
+
         $categories = Category::where('parent_id', 0)->where('featured', 'Yes')->get();
         return view('admin.blog.edit', compact('blog', 'categories'));
     }
@@ -91,6 +100,8 @@ class BlogController extends Controller
      */
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
+        abort_unless(Gate::allows('Edit Blog'), 403);
+
         $input = $request->except('image');
         $image = $this->fileUpload($request, 'image');
         if ($image) {
@@ -112,6 +123,8 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
+        abort_unless(Gate::allows('Delete Blog'), 403);
+
         $this->removeFile($blog->image);
         $blog->delete();
         createLog('deleted a blog'); // activity log

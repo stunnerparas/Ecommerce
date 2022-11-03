@@ -8,14 +8,15 @@
                 @foreach ($cartItems as $item)
                     <div class="product-description-child  d-sm-flex justify-content-between align-content-center">
                         <div class="product-img-container mx-auto">
-                            <img src="{{ asset('images/' . $item->attributes->image) }}" class="product-img"
-                                alt="product" srcset="">
+                            <img src="{{ asset('images/' . $item->attributes->image) }}" class="product-img" alt="product"
+                                srcset="">
                         </div>
                         <div
                             class="product-description-content d-flex mt-sm-0 mt-4 justify-content-between flex-grow-1">
                             <h5 class="product-name font-weight-bold my-auto d-flex flex-column align-content-start">
                                 {{ $item->name }}
-                                <p class="product-price my-2 d-flex justify-content-lg-start">{{ currencySymbol() }} {{ $item->price }}</p>
+                                <p class="product-price my-2 d-flex justify-content-lg-start">{{ currencySymbol() }}
+                                    {{ $item->price }}</p>
                                 <p class="product-price d-flex justify-content-lg-start">
                                     {{ $item->attributes->size . ' / ' . $item->attributes->color }}</p>
 
@@ -32,7 +33,8 @@
                             </div>
 
                             </p>
-                            <p class="product-total-price my-auto">{{ currencySymbol() }} {{ $item->price * $item->quantity }}</p>
+                            <p class="product-total-price my-auto">{{ currencySymbol() }}
+                                {{ $item->price * $item->quantity }}</p>
                         </div>
                         <div class="btn remove-product btn-remove-cart" value="{{ $item->id }}"><i
                                 class="bi bi-trash-fill"></i></div>
@@ -64,13 +66,13 @@
                         <div class="summay-container mt-3">
                             <div class="summary-item d-flex justify-content-between">
                                 <p class="text-black">Shipping Cost:</p>
-                                <p class="text-black">{{ currencySymbol() }} 10</p>
+                                <p class="text-black">{{ currencySymbol() }} {{ shippingCharge() }}</p>
                             </div>
                         </div>
                         <div class="summary-card-footer p-2">
                             <div class="total-price-container d-flex p-0 justify-content-between">
                                 <p class="text-black">Grand Total:</p>
-                                <p class="text-black">{{ currencySymbol() }} {{ Cart::getTotal() + 10 }}</p>
+                                <p class="text-black">{{ currencySymbol() }} {{ Cart::getTotal() + shippingCharge() }}</p>
                             </div>
 
                         </div>

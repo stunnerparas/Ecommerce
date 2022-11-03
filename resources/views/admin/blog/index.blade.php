@@ -5,8 +5,10 @@
         <div class="section-header">
             <h1>Blogs</h1>
             <div class="section-header-breadcrumb">
-                <a class="btn btn-primary" href="{{ route('admin.blogs.create') }}"><i class="fas fa-plus"></i>
-                    Create</a>
+                @can('Create Blog')
+                    <a class="btn btn-primary" href="{{ route('admin.blogs.create') }}"><i class="fas fa-plus"></i>
+                        Create</a>
+                @endcan
             </div>
         </div>
 
@@ -47,18 +49,23 @@
                                                 <td>
                                                     <div class="row">
 
-                                                        <a class="btn btn-success mr-1"
-                                                            href="{{ route('admin.blogs.edit', $blog->id) }}">Edit</a>
+                                                        @can('Edit Blog')
+                                                            <a class="btn btn-success mr-1"
+                                                                href="{{ route('admin.blogs.edit', $blog->id) }}">Edit</a>
+                                                        @endcan
 
-                                                        <form class=""
-                                                            action="{{ route('admin.blogs.destroy', $blog->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger delete-blog" type="submit">
-                                                                Delete
-                                                            </button>
-                                                        </form>
+                                                        @can('Delete Blog')
+                                                            <form class=""
+                                                                action="{{ route('admin.blogs.destroy', $blog->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-danger delete-blog" type="submit">
+                                                                    Delete
+                                                                </button>
+                                                            </form>
+                                                        @endcan
+
                                                     </div>
                                                 </td>
                                             </tr>

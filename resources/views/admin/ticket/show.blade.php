@@ -57,11 +57,13 @@
                                     </td>
                                 </tr>
                             </table>
-                            @if ($ticket->status == 'Pending')
-                                <a href="{{ route('admin.tickets.complete', $ticket->id) }}"
-                                    class="btn btn-success btn-sm">Mark as
-                                    complete</a>
-                            @endif
+                            @can('Change Ticket Status')
+                                @if ($ticket->status == 'Pending')
+                                    <a href="{{ route('admin.tickets.complete', $ticket->id) }}"
+                                        class="btn btn-success btn-sm">Mark as
+                                        complete</a>
+                                @endif
+                            @endcan
 
                         </div>
                     </div>

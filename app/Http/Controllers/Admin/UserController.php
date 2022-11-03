@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -20,6 +21,8 @@ class UserController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('View Customers'), 403);
+
         $users = User::latest()->where('user_type', 'customer')->paginate(10);
         createLog('viewed user details'); // activity log
 
