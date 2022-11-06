@@ -5,8 +5,10 @@
         <div class="section-header">
             <h1>Products</h1>
             <div class="section-header-breadcrumb">
-                <a class="btn btn-primary" href="{{ route('admin.products.create') }}"><i class="fas fa-plus"></i>
-                    Create</a>
+                @can('Create Product')
+                    <a class="btn btn-primary" href="{{ route('admin.products.create') }}"><i class="fas fa-plus"></i>
+                        Create</a>
+                @endcan
             </div>
         </div>
 
@@ -47,18 +49,23 @@
                                                 <td>
                                                     <div class="row">
 
-                                                        <a class="btn btn-success mr-1"
-                                                            href="{{ route('admin.products.edit', $product->id) }}">Edit</a>
+                                                        @can('Edit Product')
+                                                            <a class="btn btn-success mr-1"
+                                                                href="{{ route('admin.products.edit', $product->id) }}">Edit</a>
+                                                        @endcan
 
-                                                        <form class=""
-                                                            action="{{ route('admin.products.destroy', $product->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger delete-product" type="submit">
-                                                                Delete
-                                                            </button>
-                                                        </form>
+                                                        @can('Delete Product')
+                                                            <form class=""
+                                                                action="{{ route('admin.products.destroy', $product->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-danger delete-product" type="submit">
+                                                                    Delete
+                                                                </button>
+                                                            </form>
+                                                        @endcan
+
                                                     </div>
                                                 </td>
                                             </tr>

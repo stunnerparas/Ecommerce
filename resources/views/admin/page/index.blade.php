@@ -5,8 +5,10 @@
         <div class="section-header">
             <h1>Pages</h1>
             <div class="section-header-breadcrumb">
-                <a class="btn btn-primary" href="{{ route('admin.pages.create') }}"><i class="fas fa-plus"></i>
-                    Create</a>
+                @can('Create Page')
+                    <a class="btn btn-primary" href="{{ route('admin.pages.create') }}"><i class="fas fa-plus"></i>
+                        Create</a>
+                @endcan
             </div>
         </div>
 
@@ -45,18 +47,23 @@
                                                 <td>
                                                     <div class="row">
 
-                                                        <a class="btn btn-success mr-1"
-                                                            href="{{ route('admin.pages.edit', $page->id) }}">Edit</a>
+                                                        @can('Edit Page')
+                                                            <a class="btn btn-success mr-1"
+                                                                href="{{ route('admin.pages.edit', $page->id) }}">Edit</a>
+                                                        @endcan
 
-                                                        <form class=""
-                                                            action="{{ route('admin.pages.destroy', $page->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger delete-page" type="submit">
-                                                                Delete
-                                                            </button>
-                                                        </form>
+                                                        @can('Delete Page')
+                                                            <form class=""
+                                                                action="{{ route('admin.pages.destroy', $page->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-danger delete-page" type="submit">
+                                                                    Delete
+                                                                </button>
+                                                            </form>
+                                                        @endcan
+
                                                     </div>
                                                 </td>
                                             </tr>

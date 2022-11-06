@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateSliderRequest;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use File;
+use Illuminate\Support\Facades\Gate;
 
 class SliderController extends Controller
 {
@@ -23,6 +24,8 @@ class SliderController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('View Banner'), 403);
+
         $sliders = Slider::latest()->paginate(15);
         createLog('viewed slider details'); // activity log
 
@@ -36,6 +39,8 @@ class SliderController extends Controller
      */
     public function create()
     {
+        abort_unless(Gate::allows('Create Banner'), 403);
+
         return view('admin.slider.create');
     }
 
@@ -47,6 +52,8 @@ class SliderController extends Controller
      */
     public function store(StoreSliderRequest $request)
     {
+        abort_unless(Gate::allows('Create Banner'), 403);
+
         $input = $request->except('image');
         $input['image'] = $this->fileUpload($request, 'image');
         Slider::create($input);
@@ -74,6 +81,8 @@ class SliderController extends Controller
      */
     public function edit(Slider $slider)
     {
+        abort_unless(Gate::allows('Edit Banner'), 403);
+
         return view('admin.slider.edit', compact('slider'));
     }
 
@@ -86,6 +95,8 @@ class SliderController extends Controller
      */
     public function update(UpdateSliderRequest $request, Slider $slider)
     {
+        abort_unless(Gate::allows('Edit Banner'), 403);
+
         $input = $request->except('image');
         $image = $this->fileUpload($request, 'image');
         if ($image) {
@@ -107,6 +118,8 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
+        abort_unless(Gate::allows('Delete Banner'), 403);
+
         $this->removeFile($slider->image);
         $slider->delete();
         createLog('deleted a slider'); // activity log

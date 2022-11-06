@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Users</h1>
+            <h1>Business Customers</h1>
             <div class="section-header-breadcrumb">
                 {{-- <a class="btn btn-primary" href="{{ route('admin.users.create') }}"><i class="fas fa-plus"></i>
                     Create</a> --}}
@@ -45,8 +45,10 @@
                                                 <td>
                                                     <div class="row">
 
-                                                        <a class="btn btn-success mr-1"
-                                                            href="{{ route('admin.business.users.edit', $user->id) }}">Manage</a>
+                                                        @can('Edit Business Customers Status')
+                                                            <a class="btn btn-success mr-1"
+                                                                href="{{ route('admin.business.users.edit', $user->id) }}">Manage</a>
+                                                        @endcan
 
                                                         {{-- <form class=""
                                                             action="{{ route('admin.users.destroy', $user->id) }}"
@@ -66,7 +68,7 @@
 
                                 {{ $users->links() }}
                             @else
-                                <h5>No Users Found !!</h5>
+                                <h5>No Business Customers Found !!</h5>
                             @endif
 
                         </div>

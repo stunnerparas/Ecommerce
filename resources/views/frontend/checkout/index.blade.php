@@ -9,6 +9,7 @@
                     <form action="{{ route('checkout.store') }}" method="POST">
                         @include('frontend.includes.messages')
                         @csrf
+                        <input type="hidden" name="coupon_code" id="coupon_code_val">
                         <div class="shipping-form-container">
                             <div class="shipping-form-inner">
                                 <div class="h4 mb-3">Shipping Details</div>
@@ -27,8 +28,8 @@
                                 <div class="row mb-3">
                                     <div class="col">
                                         <!-- Address of shipping -->
-                                        <input type="text" value="{{ $shipping->address ?? '' }}"
-                                            name="shipping_address" class="form-control p-4" placeholder=" Address ">
+                                        <input type="text" value="{{ $shipping->address ?? '' }}" name="shipping_address"
+                                            class="form-control p-4" placeholder=" Address ">
                                     </div>
                                 </div>
                                 <div class="row mb-3 ">
@@ -58,8 +59,8 @@
                                 </div>
                                 <div class="row mb-3 ">
                                     <div class="col ">
-                                        <input type="text " value="{{ $shipping->country ?? '' }}"
-                                            name="shipping_country" class="form-control p-4 " placeholder="Country">
+                                        <input type="text " value="{{ $shipping->country ?? '' }}" name="shipping_country"
+                                            class="form-control p-4 " placeholder="Country">
                                     </div>
                                 </div>
                                 <div class="row mb-3 ">
@@ -95,57 +96,59 @@
                                     <div class="row mb-3">
                                         <div class="col-sm-6 col-12 mb-3 mb-sm-0">
                                             <!-- First Name for billing -->
-                                            <input type="text" value="{{ $billing->full_name ?? '' }}" name="billing_full_name" class="form-control p-4"
-                                                placeholder="Full Name">
+                                            <input type="text" value="{{ $billing->full_name ?? '' }}"
+                                                name="billing_full_name" class="form-control p-4" placeholder="Full Name">
                                         </div>
                                         <div class="col-sm-6 col-12">
                                             <!-- Last Name for billing -->
-                                            <input type="email" value="{{ $billing->email ?? '' }}" name="billing_email" class="form-control p-4"
-                                                placeholder="Email">
+                                            <input type="email" value="{{ $billing->email ?? '' }}"
+                                                name="billing_email" class="form-control p-4" placeholder="Email">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col">
                                             <!-- Address of billing -->
-                                            <input type="text" value="{{ $billing->address ?? '' }}" name="billing_address" class="form-control p-4"
-                                                placeholder=" Address ">
+                                            <input type="text" value="{{ $billing->address ?? '' }}"
+                                                name="billing_address" class="form-control p-4" placeholder=" Address ">
                                         </div>
                                     </div>
                                     <div class="row mb-3 ">
                                         <div class="col ">
                                             <!-- Apartment number, suite number for billing -->
-                                            <input type="text " value="{{ $billing->apartment ?? '' }}" name="billing_apartment" class="form-control p-4 "
+                                            <input type="text " value="{{ $billing->apartment ?? '' }}"
+                                                name="billing_apartment" class="form-control p-4 "
                                                 placeholder="Apartment, suite, (optional) ">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-sm-4 col-6">
                                             <!-- City for shipping billing -->
-                                            <input type="text " value="{{ $billing->city ?? '' }}" name="billing_city" class="form-control p-4 "
-                                                placeholder="City">
+                                            <input type="text " value="{{ $billing->city ?? '' }}" name="billing_city"
+                                                class="form-control p-4 " placeholder="City">
                                         </div>
                                         <div class="col-sm-4 col-6 mb-3 mb-sm-0">
                                             <!-- State for shipping -->
-                                            <input type="text " value="{{ $billing->state ?? '' }}" name="billing_state" class="form-control p-4 "
-                                                placeholder="State">
+                                            <input type="text " value="{{ $billing->state ?? '' }}"
+                                                name="billing_state" class="form-control p-4 " placeholder="State">
                                         </div>
                                         <div class="col-sm-4 col-12">
                                             <!-- Zip code for shipping billing -->
-                                            <input type="text " value="{{ $billing->postal_code ?? '' }}" name="billing_postal_code" class="form-control p-4 "
+                                            <input type="text " value="{{ $billing->postal_code ?? '' }}"
+                                                name="billing_postal_code" class="form-control p-4 "
                                                 placeholder="Postal Code">
                                         </div>
                                     </div>
                                     <div class="row mb-3 ">
                                         <div class="col ">
-                                            <input type="text " value="{{ $billing->country ?? '' }}" name="billing_country" class="form-control p-4 "
-                                                placeholder="Country">
+                                            <input type="text" value="{{ $billing->country ?? '' }}"
+                                                name="billing_country" class="form-control p-4 " placeholder="Country">
                                         </div>
                                     </div>
                                     <div class="row mb-3 ">
                                         <div class="col ">
                                             <!-- Contact information for billing -->
-                                            <input type="text " value="{{ $billing->phone ?? '' }}" name="billing_phone" class="form-control p-4 "
-                                                placeholder="Phone">
+                                            <input type="text" value="{{ $billing->phone ?? '' }}"
+                                                name="billing_phone" class="form-control p-4 " placeholder="Phone">
                                         </div>
                                     </div>
 
@@ -160,6 +163,16 @@
                 </div>
                 <div class="col-lg-6 col-12 px-md-0 px-0 order-lg-1 order-0">
                     <div class="container d-flex flex-column align-content-center mx-auto">
+                        <div class="cart-item-view col-lg-10 col-12">
+                            <h4>Have Coupon Code?</h4>
+                            <div class="checkout-item-lis my-4">
+                                <label for="">Enter coupon code here to get discount</label>
+                                <input type="text" class="form-control" name="" id="coupon_code">
+                                <button type="button" id="btn_coupon" class="btn btn-secondary btn-sm mt-2">
+                                    Apply <i style="display: none;" class="fas fa-sync fa-spin discount-loader"></i>
+                                </button>
+                            </div>
+                        </div>
                         <div class="cart-item-view col-lg-10 col-12">
                             <h4>Items in Cart</h4>
                             <div class="checkout-item-lis my-4">
@@ -197,12 +210,26 @@
                                     <div class="items-summary d-flex justify-content-between">
                                         <!-- Total items present in the cart -->
                                         <p class="">Shipping Cost:</p>
-                                        <p class="totalCartItem">{{ currencySymbol() }} 10</p>
+                                        <p class="totalCartItem">{{ currencySymbol() }} {{ shippingCharge() }}</p>
                                     </div>
                                     <div class="cart-total-container d-flex justify-content-between">
                                         <!-- Total of the cart -->
                                         <p class="">Grand Total:</p>
-                                        <p class="totalCartPrice">{{ currencySymbol() }} {{ Cart::getTotal() + 10 }}</p>
+                                        <p class="totalCartPrice">{{ currencySymbol() }}
+                                            {{ Cart::getTotal() + shippingCharge() }}</p>
+                                    </div>
+                                    <div class="cart-total-container d-flex justify-content-between view-coupon-details"
+                                        style="display: none !important">
+                                        <!-- Total of the cart -->
+                                        <p class="">Coupon Discount:</p>
+                                        <p class="">{{ currencySymbol() }} <span
+                                                id="coupon-discount-amount">0</span></p>
+                                    </div>
+                                    <div class="cart-total-container d-flex justify-content-between view-coupon-details"
+                                        style="display: none !important">
+                                        <!-- Total of the cart -->
+                                        <p class="">Total Payable Amount:</p>
+                                        <p class="">{{ currencySymbol() }} <span id="payable-amount">0</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -213,4 +240,72 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        $('#btn_coupon').click(function(e) {
+
+            var code = $('#coupon_code').val();
+            if (!code) {
+                toastr.error("Enter Coupon Code");
+                return false;
+            }
+
+            $.ajax({
+                url: "{{ url('coupon-code') }}/" + code,
+                type: "GET",
+                beforeSend: function() {
+                    $('.discount-loader').show();
+                },
+                success: function(data) {
+                    $('.discount-loader').hide();
+                    console.log(data);
+                    if (data == 'not-found') {
+                        invalidCoupon();
+                        toastr.error('Invalid Coupon');
+                        return false;
+                    } else if (data == 'limit-crossed') {
+                        invalidCoupon();
+                        toastr.error('Coupon no longer exist');
+                        return false;
+                    } else {
+                        if (data.discount) {
+                            totalAmountAfterCoupon(data.discount);
+                        } else {
+                            invalidCoupon();
+                            toastr.error('No discount available in this coupon');
+                            return false;
+                        }
+                    }
+                },
+                error: function(data) {
+                    $('.discount-loader').hide();
+                    alert("Some Problems Occured!");
+                },
+            });
+        })
+
+        function totalAmountAfterCoupon(discount) {
+            if (discount) {
+                $('.view-coupon-details').show();
+                var total = "{{ Cart::getTotal() + shippingCharge() }}";
+                var net = total - parseFloat(discount);
+                $('#coupon-discount-amount').html(discount);
+                $('#payable-amount').html(net);
+                toastr.success('Coupon Discount Added');
+
+                var code = $('#coupon_code').val();
+                $('#coupon_code_val').val(code);
+            }
+        }
+
+        function invalidCoupon() {
+            var total = "{{ Cart::getTotal() + shippingCharge() }}";
+            $('.view-coupon-details').hide();
+            $('#coupon-discount-amount').html(0);
+            $('#payable-amount').html(total);
+            $('#coupon_code_val').val('');
+        }
+    </script>
 @endsection

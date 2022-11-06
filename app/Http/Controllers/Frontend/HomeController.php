@@ -31,6 +31,7 @@ class HomeController extends Controller
         $superfineCollections = getProductsFromType('superfine', 3);
         $luxuryCollections = getProductsFromType('luxury', 8);
 
+
         $menCollections = getProductsFromCategory('men', 3);
         $womenCollections = getProductsFromCategory('women', 3);
 
@@ -261,8 +262,8 @@ class HomeController extends Controller
         }
         return view('frontend.track-order.index', compact('data', 'order', 'orderItems', 'shipping', 'billing'));
     }
- 
-    
+
+
 
     public function setCurrency(Request $request)
     {

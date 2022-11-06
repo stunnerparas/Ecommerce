@@ -15,6 +15,7 @@ use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use File;
+use Illuminate\Support\Facades\Gate;
 
 class ProductController extends Controller
 {
@@ -30,6 +31,8 @@ class ProductController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('View Product'), 403);
+
         $products = Product::latest()->paginate(10);
         createLog('viewed product details'); // activity log
 
@@ -43,6 +46,8 @@ class ProductController extends Controller
      */
     public function create()
     {
+        abort_unless(Gate::allows('Create Product'), 403);
+
         return view('admin.product.create');
     }
 
@@ -54,6 +59,8 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
+        abort_unless(Gate::allows('Create Product'), 403);
+
         $product = Product::create($request->all());
         createLog('created a new product'); // activity log
 
@@ -79,6 +86,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        abort_unless(Gate::allows('Edit Product'), 403);
+
         $categories = Category::where('parent_id', 0)->get();
         $attributes = Attribute::where('parent_id', 0)->where('show', 'Yes')->get();
         $gallery = ProductGallery::where('product_id', $product->id)->get();
@@ -100,6 +109,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        abort_unless(Gate::allows('Edit Product'), 403);
+
         $input = $request->all();
         $input['slug'] = Str::slug($request->name);
         $product->update($input);
@@ -124,6 +135,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        abort_unless(Gate::allows('Delete Product'), 403);
+
         $product->delete();     // soft delete
         createLog('deleted a product'); // activity log
 

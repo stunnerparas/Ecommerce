@@ -11,14 +11,17 @@
                 @endif
             </h1>
             <div class="section-header-breadcrumb">
-                @if ($parent == 0)
-                    <a class="btn btn-primary" href="{{ route('admin.attributes.create') }}"><i class="fas fa-plus"></i>
-                        Create</a>
-                @else
-                    <a class="btn btn-primary" href="{{ route('admin.attributes.create', ['parent' => $parent]) }}"><i
-                            class="fas fa-plus"></i>
-                        Create</a>
-                @endif
+                @can('Create Attribute')
+                    @if ($parent == 0)
+                        <a class="btn btn-primary" href="{{ route('admin.attributes.create') }}"><i class="fas fa-plus"></i>
+                            Create</a>
+                    @else
+                        <a class="btn btn-primary" href="{{ route('admin.attributes.create', ['parent' => $parent]) }}"><i
+                                class="fas fa-plus"></i>
+                            Create</a>
+                    @endif
+                @endcan
+
             </div>
         </div>
 
@@ -45,28 +48,35 @@
                                                 <td>{{ $attribute->show }}</td>
                                                 <td>
                                                     <div class="row">
-                                                        @if (!$parent)
-                                                            <a class="btn btn-primary mr-1"
-                                                                href="{{ route('admin.attributes.index', ['parent' => $attribute->id]) }}">Values</a>
-                                                        @endif
+                                                        @can('Create Attribute')
+                                                            @if (!$parent)
+                                                                <a class="btn btn-primary mr-1"
+                                                                    href="{{ route('admin.attributes.index', ['parent' => $attribute->id]) }}">Values</a>
+                                                            @endif
+                                                        @endcan
 
-                                                        @if (!$parent)
-                                                            <a class="btn btn-success mr-1"
-                                                                href="{{ route('admin.attributes.edit', $attribute->id) }}">Edit</a>
-                                                        @else
-                                                            <a class="btn btn-success mr-1"
-                                                                href="{{ route('admin.attributes.edit', ['attribute' => $attribute->id, 'parent' => $parent]) }}">Edit</a>
-                                                        @endif
+                                                        @can('Edit Attribute')
+                                                            @if (!$parent)
+                                                                <a class="btn btn-success mr-1"
+                                                                    href="{{ route('admin.attributes.edit', $attribute->id) }}">Edit</a>
+                                                            @else
+                                                                <a class="btn btn-success mr-1"
+                                                                    href="{{ route('admin.attributes.edit', ['attribute' => $attribute->id, 'parent' => $parent]) }}">Edit</a>
+                                                            @endif
+                                                        @endcan
 
-                                                        <form class=""
-                                                            action="{{ route('admin.attributes.destroy', $attribute->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger delete-attribute" type="submit">
-                                                                Delete
-                                                            </button>
-                                                        </form>
+                                                        @can('Delete Attribute')
+                                                            <form class=""
+                                                                action="{{ route('admin.attributes.destroy', $attribute->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-danger delete-attribute" type="submit">
+                                                                    Delete
+                                                                </button>
+                                                            </form>
+                                                        @endcan
+
                                                     </div>
                                                 </td>
                                             </tr>

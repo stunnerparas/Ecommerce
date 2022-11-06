@@ -25,8 +25,8 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Name</label>
-                                                <input type="text" value="{{ old('name', $company->name) }}" name="name"
-                                                    class="form-control" required="">
+                                                <input type="text" value="{{ old('name', $company->name) }}"
+                                                    name="name" class="form-control" required="">
                                                 <div class="invalid-feedback">
                                                     Name is required
                                                 </div>
@@ -81,8 +81,8 @@
 
                                             <div class="form-group">
                                                 <label>Date</label>
-                                                <input type="text" value="{{ old('date', $company->date) }}" name="date"
-                                                    class="form-control">
+                                                <input type="text" value="{{ old('date', $company->date) }}"
+                                                    name="date" class="form-control">
                                                 <div class="invalid-feedback">
                                                     Date is required
                                                 </div>
@@ -110,8 +110,7 @@
 
                                             <div class="form-group">
                                                 <label>Description</label>
-                                                <textarea name="description" class="summernote"
-                                                    style="display: none;">{{ old('description', $company->description) }}</textarea>
+                                                <textarea name="description" class="summernote" style="display: none;">{{ old('description', $company->description) }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -127,7 +126,9 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Save</button>
+                                    @can('Edit Company Details')
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    @endcan
                                 </div>
                             </form>
 

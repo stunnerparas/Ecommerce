@@ -8,6 +8,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use File;
+use Illuminate\Support\Facades\Gate;
 
 class CategoryController extends Controller
 {
@@ -23,6 +24,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('View Category'), 403);
+
         $categories = Category::latest();
         $parent = 0;
         $parentCategory = '';
@@ -49,6 +52,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        abort_unless(Gate::allows('Create Category'), 403);
+
         return view('admin.category.create');
     }
 
@@ -60,6 +65,8 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
+        abort_unless(Gate::allows('Create Category'), 403);
+
         $input = $request->except('image', 'banner');
         $input['image'] = $this->fileUpload($request, 'image');
         $input['banner'] = $this->fileUpload($request, 'banner');
@@ -100,6 +107,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
+        abort_unless(Gate::allows('Edit Category'), 403);
+
         return view('admin.category.edit', compact('category'));
     }
 
@@ -112,6 +121,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+        abort_unless(Gate::allows('Edit Category'), 403);
+
         $input = $request->except('image', 'banner');
         $image = $this->fileUpload($request, 'image');
         if ($image) {
@@ -149,6 +160,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        abort_unless(Gate::allows('Delete Category'), 403);
+
         // $this->removeFile($category->image); // soft delete
         $category->delete();
         createLog('deleted a category'); // activity log

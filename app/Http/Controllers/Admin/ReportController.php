@@ -7,11 +7,14 @@ use App\Models\Order;
 use App\Models\OrderItems;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ReportController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('View Reports'), 403);
+
         // today
         $todayData = $this->getStats(Carbon::now()->startOfDay(), Carbon::now()->endOfDay());
         $today['productSold'] = $todayData['productSold'];

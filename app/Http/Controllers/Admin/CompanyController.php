@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Company;
 use Illuminate\Http\Request;
 use File;
+use Illuminate\Support\Facades\Gate;
 
 class CompanyController extends Controller
 {
@@ -16,6 +17,8 @@ class CompanyController extends Controller
 
     public function index()
     {
+        abort_unless(Gate::allows('View Company Details'), 403);
+
         $company = Company::latest()->first();
         createLog('viewed company details'); // activity log
 
@@ -24,6 +27,8 @@ class CompanyController extends Controller
 
     public function update(Request $request, Company $company)
     {
+        abort_unless(Gate::allows('Edit Company Details'), 403);
+
         $input = $request->except('logo');
         $logo = $this->fileUpload($request, 'logo');
         if ($logo) {

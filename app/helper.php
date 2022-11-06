@@ -81,8 +81,7 @@ function getCollectionFromSlug($slug)
 
 function getTotalAmount()
 {
-    $shipping_charge = 10;
-    $total_amount = Cart::getTotal() + 10;
+    $total_amount = Cart::getTotal();
     return $total_amount ?? 0;
 }
 
@@ -171,5 +170,10 @@ function sendCustomerMail($to, $subject, $message)
     if ($to) {
         Mail::to($to)->send(new SendCustomerMail($details));
     }
+}
+
+function shippingCharge()
+{
+    return 10;
 }
 

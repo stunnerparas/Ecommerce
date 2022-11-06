@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\BillingAddress;
+use App\Models\Coupon;
 use App\Models\Order;
 use App\Models\OrderItems;
 use App\Models\ShippingAddress;
@@ -33,6 +34,23 @@ class CheckoutController extends Controller
             return redirect()->back()->with('error', 'No items found in cart');
         }
 
+        // check coupon data
+        $coupon = null;
+        if ($request->coupon_code) {
+            $coupon_details = $this->checkCouponCode($request->coupon_code);
+            if ($coupon_details == 'not-found') {
+                return redirect()->back()->with('error', 'Invalid Coupon');
+            } else if ($coupon_details == 'limit-crossed') {
+                return redirect()->back()->with('error', 'Coupon no longer exist');
+            } else {
+                if ($coupon_details->discount) {
+                    $coupon = $coupon_details->id ?? null;
+                } else {
+                    return redirect()->back()->with('error', 'No discount available in this coupon');
+                }
+            }
+        }
+
         $total_amount = getTotalAmount();
         $order_number = date('YmdHis');
         $order = Order::create([
@@ -45,6 +63,8 @@ class CheckoutController extends Controller
             'transaction_status' => '',
             'is_seen' => 0,
             'currency' => Session::get('currency') ?? 'USD',
+            'shipping_charge' => shippingCharge(),
+            'coupon_id' => $coupon,
         ]);
 
         foreach ($cartItems as $item) {
@@ -101,5 +121,23 @@ class CheckoutController extends Controller
     public function thankyou($order_number)
     {
         return view('frontend.checkout.thankyou', compact('order_number'));
+    }
+
+    public function checkCouponCode($code)
+    {
+        $coupon = Coupon::where('code', $code)->first();
+        if (!$coupon) {
+            return 'not-found';
+            die;
+        }
+
+        // check if limit is crossed
+        $used_coupon =  Order::where('coupon_id', $coupon->id)->get()->count();
+        if ($used_coupon >= $coupon->limit) {
+            return 'limit-crossed';
+            die;
+        }
+
+        return $coupon;
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCurrencyRequest;
 use App\Models\Currency;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class CurrencyController extends Controller
 {
@@ -21,6 +22,8 @@ class CurrencyController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('View Currency'), 403);
+
         $currencies = Currency::latest()->paginate(10);
         createLog('viewed currency details'); // activity log
 
@@ -34,6 +37,8 @@ class CurrencyController extends Controller
      */
     public function create()
     {
+        abort_unless(Gate::allows('Create Currency'), 403);
+
         return view('admin.currency.create');
     }
 
@@ -45,6 +50,8 @@ class CurrencyController extends Controller
      */
     public function store(StoreCurrencyRequest $request)
     {
+        abort_unless(Gate::allows('Create Currency'), 403);
+
         $input = $request->all();
         Currency::create($input);
         createLog('created new currency'); // activity log
@@ -71,6 +78,8 @@ class CurrencyController extends Controller
      */
     public function edit(Currency $currency)
     {
+        abort_unless(Gate::allows('Edit Currency'), 403);
+
         return view('admin.currency.edit', compact('currency'));
     }
 
@@ -83,6 +92,8 @@ class CurrencyController extends Controller
      */
     public function update(StoreCurrencyRequest $request, Currency $currency)
     {
+        abort_unless(Gate::allows('Edit Currency'), 403);
+
         $input = $request->all();
         $currency->update($input);
         createLog('edited currency details'); // activity log
@@ -99,6 +110,8 @@ class CurrencyController extends Controller
      */
     public function destroy(Currency $currency)
     {
+        abort_unless(Gate::allows('Delete Currency'), 403);
+
         $currency->delete();
         createLog('deleted currency details'); // activity log
 

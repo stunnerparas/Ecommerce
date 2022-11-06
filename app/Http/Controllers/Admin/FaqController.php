@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFaqRequest;
 use App\Models\Faq;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class FaqController extends Controller
 {
@@ -21,6 +22,8 @@ class FaqController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('View Faq'), 403);
+
         $faqs = Faq::latest()->paginate(10);
         createLog('viewed FAQ details'); // activity log
 
@@ -34,6 +37,8 @@ class FaqController extends Controller
      */
     public function create()
     {
+        abort_unless(Gate::allows('Create Faq'), 403);
+
         return view('admin.faq.create');
     }
 
@@ -45,6 +50,8 @@ class FaqController extends Controller
      */
     public function store(StoreFaqRequest $request)
     {
+        abort_unless(Gate::allows('Create Faq'), 403);
+
         $input = $request->all();
         Faq::create($input);
         createLog('created new FAQ'); // activity log
@@ -71,6 +78,8 @@ class FaqController extends Controller
      */
     public function edit(Faq $faq)
     {
+        abort_unless(Gate::allows('Edit Faq'), 403);
+
         return view('admin.faq.edit', compact('faq'));
     }
 
@@ -83,6 +92,8 @@ class FaqController extends Controller
      */
     public function update(StoreFaqRequest $request, Faq $faq)
     {
+        abort_unless(Gate::allows('Edit Faq'), 403);
+
         $input = $request->all();
         $faq->update($input);
         createLog('edited FAQ details'); // activity log
@@ -99,6 +110,8 @@ class FaqController extends Controller
      */
     public function destroy(Faq $faq)
     {
+        abort_unless(Gate::allows('Delete Faq'), 403);
+
         $faq->delete();
         createLog('deleted FAQ details'); // activity log
 

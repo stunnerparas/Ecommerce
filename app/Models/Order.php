@@ -22,6 +22,8 @@ class Order extends Model
         'transaction_status',
         'is_seen',
         'currency',
+        'coupon_id',
+        'shipping_charge',
     ];
 
     public const status = [
@@ -34,5 +36,10 @@ class Order extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function coupon()
+    {
+        return $this->belongsTo(Coupon::class, 'coupon_id');
     }
 }

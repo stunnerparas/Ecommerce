@@ -5,8 +5,10 @@
         <div class="section-header">
             <h1>Collections</h1>
             <div class="section-header-breadcrumb">
-                <a class="btn btn-primary" href="{{ route('admin.types.create') }}"><i class="fas fa-plus"></i>
-                    Create</a>
+                @can('Create Collection')
+                    <a class="btn btn-primary" href="{{ route('admin.types.create') }}"><i class="fas fa-plus"></i>
+                        Create</a>
+                @endcan
             </div>
         </div>
 
@@ -35,18 +37,23 @@
                                                 <td>
                                                     <div class="row">
 
-                                                        <a class="btn btn-success mr-1"
-                                                            href="{{ route('admin.types.edit', $type->id) }}">Edit</a>
+                                                        @can('Edit Collection')
+                                                            <a class="btn btn-success mr-1"
+                                                                href="{{ route('admin.types.edit', $type->id) }}">Edit</a>
+                                                        @endcan
 
-                                                        <form class=""
-                                                            action="{{ route('admin.types.destroy', $type->id) }}"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger delete-type" type="submit">
-                                                                Delete
-                                                            </button>
-                                                        </form>
+                                                        @can('Delete Collection')
+                                                            <form class=""
+                                                                action="{{ route('admin.types.destroy', $type->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-danger delete-type" type="submit">
+                                                                    Delete
+                                                                </button>
+                                                            </form>
+                                                        @endcan
+
                                                     </div>
                                                 </td>
                                             </tr>

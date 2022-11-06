@@ -7,6 +7,7 @@ use App\Models\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use File;
+use Illuminate\Support\Facades\Gate;
 
 class PageController extends Controller
 {
@@ -22,6 +23,8 @@ class PageController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('View Page'), 403);
+
         $pages = Page::latest()->paginate(10);
         createLog('viewed page details'); // activity log
 
@@ -35,6 +38,8 @@ class PageController extends Controller
      */
     public function create()
     {
+        abort_unless(Gate::allows('Create Page'), 403);
+
         return view('admin.page.create');
     }
 
@@ -46,6 +51,8 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
+        abort_unless(Gate::allows('Create Page'), 403);
+
         $input = $request->except('image');
         $input['image'] = $this->fileUpload($request, 'image');
         $input['slug'] = Str::slug($request->title);
@@ -74,6 +81,8 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
+        abort_unless(Gate::allows('Edit Page'), 403);
+
         return view('admin.page.edit', compact('page'));
     }
 
@@ -86,6 +95,8 @@ class PageController extends Controller
      */
     public function update(Request $request, Page $page)
     {
+        abort_unless(Gate::allows('Edit Page'), 403);
+
         $input = $request->except('image');
         $image = $this->fileUpload($request, 'image');
         if ($image) {
@@ -107,6 +118,8 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
+        abort_unless(Gate::allows('Delete Page'), 403);
+
         $this->removeFile($page->image);
         $page->delete();
         createLog('deleted a page'); // activity log
