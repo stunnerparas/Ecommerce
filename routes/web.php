@@ -135,3 +135,7 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 
 // detail 
 Route::get('/detail/yarn',[HomeController::class,'detailYarn'])->name('detailYarn');
+
+//coupon discount
+Route::get('coupon-code/{coupon}', [CheckoutController::class, 'checkCouponCode'])->name('check.coupon.code');
+
