@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\AuthController;
 use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\CartController;
@@ -133,7 +134,7 @@ Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPa
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
-// Yarn detail 
+// detail 
 Route::get('/detail/yarn',[HomeController::class,'detailYarn'])->name('detailYarn');
 // Knit detail 
 Route::get('/detail/knit',[HomeController::class,'detailKnit'])->name('detailKnit');
@@ -142,4 +143,5 @@ Route::get('/detail/color',[HomeController::class,'detailColor'])->name('detailC
 
 //coupon discount
 Route::get('coupon-code/{coupon}', [CheckoutController::class, 'checkCouponCode'])->name('check.coupon.code');
+
 

@@ -125,7 +125,7 @@ class CheckoutController extends Controller
 
     public function checkCouponCode($code)
     {
-        $coupon = Coupon::where('code', $code)->first();
+        $coupon = Coupon::where('code','like binary', $code)->first();
         if (!$coupon) {
             return 'not-found';
             die;

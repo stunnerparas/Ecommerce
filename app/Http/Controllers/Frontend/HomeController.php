@@ -19,6 +19,7 @@ use App\Models\Slider;
 use App\Models\WeeklyDeal;
 use Attribute;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -137,7 +138,8 @@ class HomeController extends Controller
         $faqs = Faq::latest()->get();
         return view('frontend.pages.faq', compact('faqs'));
     }
-    public function compare(){
+    public function compare()
+    {
         return view('frontend.compare.index');
     }
 
