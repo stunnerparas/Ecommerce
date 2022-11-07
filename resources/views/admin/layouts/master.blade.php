@@ -32,6 +32,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.css" />
 
+    {{-- autocomplete --}}
+    <link rel="stylesheet" href="{{ asset('autocomplete/typeahead-1.2.0.min.css') }}">
 
 </head>
 
@@ -92,6 +94,10 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
+    {{-- autocomplete --}}
+    <script src="{{ asset('autocomplete/bloodhound-1.2.0.min.js') }}"></script>
+    <script src="{{ asset('autocomplete/typeahead-1.2.0.min.js') }}"></script>
+
     @yield('scripts')
     <script>
         $("body").on("change", ".preview-image", function(e) {
@@ -116,6 +122,59 @@
             yearRange: "1800:+nn",
         });
     </script>
+
+    <script>
+        var filterResult = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            remote: {
+                url: "{{ url('admin/search-results?query=%QUERY') }}",
+                wildcard: '%QUERY',
+            },
+        })
+
+        $('#search-input').typeahead({
+            minLength: 1
+        }, {
+            name: 'item',
+            source: filterResult, // suggestion engine is passed as the source
+            display: function(data) { // display: 'name' will also work
+                return data.name;
+            },
+            templates: {
+                empty: [
+                    '<div class="empty-message ml-1"> ',
+                    'Not Found....',
+                    '</div>'
+                ].join('\n'),
+                suggestion: function(data) {
+                    // return '<div><strong class="p-0">' + data.name +
+                    //     '</strong> </div>';
+                    if(data.type == 'Category'){
+                        var url = "{{ URL::to('/admin/categories') }}/" +data.id+ "/edit";
+                    }else{
+                        var url = "{{ URL::to('/admin/products') }}/" +data.id+ "/edit";
+                    }
+                    return '<div class="search-item"><a href="'+url+'" style="text-decoration:none;color:#6c757d";font-family: Nunito;font-weight:400>'+
+                        '<div class="row">'+
+                            '<div class="col-md-3">'+
+                                '<img class="mr-3 rounded" width="30" src="{{ asset('images') }}/' +(data.image ? data.image : 'no-image.png') + '" alt="' + data.type + '">'+
+                            '</div>' +
+                            '<div class="col-md-9">'+
+                                data.name +
+                                '<br><span style="background:#6777ef;color:#ffff;font-size:10px;padding:2px">'+data.type+'</span>'+
+                            '</div>'+
+                        '</div>'+
+                        '</a></div>';
+                },
+                pending: function(query) {
+                    console.log(query);
+                    return '<div class="ml-1">Loading .............</div>';
+                }
+            }
+        });
+    </script>
+
 </body>
 
 </html>

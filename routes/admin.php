@@ -77,3 +77,7 @@ Route::post('/business-users/update/{user}', [BusinessController::class, 'update
 
 // reports
 Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+
+// global search
+Route::get('/search-results', [DashboardController::class, 'globalSearch'])->name('global.search');
+Route::get('/filter', [DashboardController::class, 'globalSearchPage'])->name('global.search.page');

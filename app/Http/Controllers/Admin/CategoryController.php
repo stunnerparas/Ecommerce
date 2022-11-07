@@ -166,7 +166,7 @@ class CategoryController extends Controller
         $category->delete();
         createLog('deleted a category'); // activity log
 
-        return redirect()->route('admin.categories.index')->with('success', 'Category Deleted');
+        return redirect()->back()->with('success', 'Category Deleted');
     }
 
     public function fileUpload(Request $request, $name)

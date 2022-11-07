@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\AuthController;
 use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\CartController;
@@ -135,3 +136,5 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 
 //coupon discount
 Route::get('coupon-code/{coupon}', [CheckoutController::class, 'checkCouponCode'])->name('check.coupon.code');
+
+
