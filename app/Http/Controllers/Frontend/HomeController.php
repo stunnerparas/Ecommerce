@@ -120,6 +120,10 @@ class HomeController extends Controller
     {
         return view('frontend.myProfile.setting');
     }
+    public function detailYarn()
+    {
+        return view('frontend.detail.yarn');
+    }
 
     public function faq()
     {

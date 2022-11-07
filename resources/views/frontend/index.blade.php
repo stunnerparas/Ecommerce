@@ -85,7 +85,7 @@
                 <div class="women-catagories catagories-items my-2">
                     <img src="{{ asset('images/' . $topLeft->image ?? '') }}" class="w-100 h-100" alt="" />
                     <div class="content text-center">
-                       <a href="#">{{ $topLeft->title ?? '' }}</a> 
+                        <a href="#">{{ $topLeft->title ?? '' }}</a>
                     </div>
                 </div>
             </div>
@@ -384,6 +384,9 @@
                         <div class="image my-2">
                             <img src="{{ asset('images/' . $footerLeft->image) }}" class="w-100 h-100" alt="" />
                         </div>
+                        <div class="detail-links">
+                            <a href="{{ route('detailYarn') }}">Yarn</a>
+                        </div>
                     </div>
                     <!-- end -->
                     @endif
@@ -393,6 +396,9 @@
                         <div class="image my-2">
                             <img src="{{ asset('images/' . ($footerCenter->image ?? '')) }}" class="w-100 h-100" alt="" />
                         </div>
+                        <div class="detail-links">
+                            <a href="#">The Knits</a>
+                        </div>
                     </div>
                     <!-- end -->
                     @endif
@@ -401,6 +407,9 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 px-2">
                         <div class="image my-2">
                             <img src="{{ asset('images/' . ($footerRight->image ?? '')) }}" class="w-100 h-100" alt="" />
+                        </div>
+                        <div class="detail-links">
+                            <a href="#">Warm Colors</a>
                         </div>
                     </div>
                     <!-- end -->
