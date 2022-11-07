@@ -385,7 +385,7 @@
                             <img src="{{ asset('images/' . $footerLeft->image) }}" class="w-100 h-100" alt="" />
                         </div>
                         <div class="detail-links">
-                            <a href="{{ route('detailYarn') }}">Yarn</a>
+                        <a href="{{ route('detailColor') }}">Warm Colors</a>
                         </div>
                     </div>
                     <!-- end -->
@@ -397,7 +397,7 @@
                             <img src="{{ asset('images/' . ($footerCenter->image ?? '')) }}" class="w-100 h-100" alt="" />
                         </div>
                         <div class="detail-links">
-                            <a href="#">The Knits</a>
+                            <a href="{{ route('detailYarn') }}">Yarn</a>
                         </div>
                     </div>
                     <!-- end -->
@@ -409,7 +409,8 @@
                             <img src="{{ asset('images/' . ($footerRight->image ?? '')) }}" class="w-100 h-100" alt="" />
                         </div>
                         <div class="detail-links">
-                            <a href="#">Warm Colors</a>
+                            <a href="{{ route('detailKnit') }}">The Knit</a>
+                          
                         </div>
                     </div>
                     <!-- end -->
@@ -428,8 +429,7 @@
             <div class="catalogue-content">
                 <h2 class="section-heading">Product Catalogue </h2>
 
-                <p class="text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo esse, laborum velit magni accusantium at et amet laudantium quas quasi a iusto quos accusamus tenetur eveniet non ipsa? Corrupti voluptatibus tenetur consectetur sequi in id! Similique necessitatibus quos, eveniet veniam autem odit, at adipisci illo earum, nostrum ducimus corporis iure.</p>
-
+              
                 <div class="button">
                     <a href="{{asset('catalogue/kanchanmaggfinal.pdf')}}" download="catalogue" class="tritary-btn">Download <i class="fas fa-arrow-down"></i></a>
                 </div>

@@ -123,6 +123,14 @@ class HomeController extends Controller
     {
         return view('frontend.detail.yarn');
     }
+    public function detailKnit()
+    {
+        return view('frontend.detail.knit');
+    }
+    public function detailColor()
+    {
+        return view('frontend.detail.color');
+    }
 
     public function faq()
     {
