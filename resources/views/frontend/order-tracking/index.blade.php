@@ -35,14 +35,14 @@
             <form action="" method="">
                 <!-- Track order DHL -->
                 <div class="platform1">
-                <input type="radio" id="DHL" name="DHL" value="DHL">
+                <input type="checkbox" class="radio" id="DHL" name="DHL" value="DHL">
                 <label for="DHL"> <i class="fas fa-plane pr-3"></i>DHL</label> <br>
                 </div>
 
 
                 <!-- Track order Other Platform -->
                 <div class="platform2 my-3">
-                <input type="radio" id="other" name="other" value="other">
+                <input type="checkbox" class="radio" id="other" name="other" value="other">
                 <label for="other"> <i class="fas fa-truck pr-3"></i>others</label>
                 </div>
 
@@ -61,7 +61,23 @@
 
 
 <!-- order tracking container end -->
-
+<script>
+    $("input:checkbox").on('click', function() {
+        // in the handler, 'this' refers to the box clicked on
+        var $box = $(this);
+        if ($box.is(":checked")) {
+          // the name of the box is retrieved using the .attr() method
+          // as it is assumed and expected to be immutable
+          var group = "input:checkbox[name='" + $box.attr("name") + "']";
+          // the checked state of the group/box on the other hand will change
+          // and the current value is retrieved using .prop() method
+          $(group).prop("checked", false);
+          $box.prop("checked", true);
+        } else {
+          $box.prop("checked", false);
+        }
+      });
+</script>
 
 
 
