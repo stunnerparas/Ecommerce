@@ -458,7 +458,7 @@
             <!-- contact form -->
             <form class="form d-flex justify-content-center" id="newsletter-form" method="POST">
                 @csrf
-                <input class="form_input w-50" style="padding:20px 30px ;" id="newsletter-email" name="email" type="email" placeholder="example@gmail.com" />
+                <input class="form_input w-50" style="padding:20px 30px ;" id="newsletter-email" name="email" type="email" placeholder="Your email" />
                 <div class="submit-button ml-2">
                     <button style="cursor: pointer" class="submit-btn " type="submit">Submit</button>
                 </div>
