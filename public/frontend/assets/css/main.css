@@ -3551,6 +3551,35 @@ a:link {
 .order-heading {
     font-size: 25px;
 }
+.order-status{
+    padding-top: 20px;
+}
+.box-container{
+    display: flex;
+
+
+}
+.status-box{
+    border-bottom: 1px solid #c9c9c9;
+  
+    padding: 15px 20px;
+    
+}
+.status-icon span{
+    font-size: 80px;
+}
+.status-content{
+    padding-left: 20px;
+    text-align: justify;
+}
+.status-heading{
+    font-size: 25px;
+    font-family: 'Nunito' ,sans-serif;
+    
+}
+.status-content p{
+    padding-top: 6px;
+}
 .num-heading {
     font-size: 20px;
 }
@@ -4105,24 +4134,7 @@ a:link {
         flex-direction: column;
     }
 
-    .first::before {
-        width: 4px;
-        top: 40px;
-        left: 40px;
-        height: 140px;
-    }
-    .second::before {
-        width: 4px;
-        top: 40px;
-        left: 32px;
-        height: 140px;
-    }
-    .third:before {
-        width: 4px;
-        top: 40px;
-        left: 40px;
-        height: 140px;
-    }
+   
     .status-text {
         z-index: 99;
     }
@@ -4133,6 +4145,18 @@ a:link {
 @media only screen and (max-width: 556px) {
     .orderTrackPlatform .form label {
         font-size: 20px;
+    }
+    .status-content{
+        padding: 10px;
+    }
+    .status-icon{
+        display: none;
+    }
+    .status-box{
+        padding: 10px 0;
+    }
+    .num-heading{
+        font-size: 18px;
     }
 }
 @media only screen and (max-width: 500px) {
