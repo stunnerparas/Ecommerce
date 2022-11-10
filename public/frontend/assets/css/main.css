@@ -3587,6 +3587,23 @@ a:link {
     width: auto !important;
     background-color: #3498db;
 }
+/* Cashmere type  */
+.cashmere-detail-heading{
+    font-size: 35px;
+    font-family: 'Nunito',sans-serif;
+}
+.type-cashmere-content .type-image{
+    height: auto;
+}
+.featured-box ul{
+    padding-left: 20px;
+}
+.featured-box ul li{
+    
+    list-style: disc;
+    padding-bottom: 10px;
+
+}
 
 /* **************************************************Responsive Media Query***************************************************************** */
 
