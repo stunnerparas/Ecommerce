@@ -144,4 +144,5 @@ Route::get('/detail/color',[HomeController::class,'detailColor'])->name('detailC
 //coupon discount
 Route::get('coupon-code/{coupon}', [CheckoutController::class, 'checkCouponCode'])->name('check.coupon.code');
 
-
+// cashmere type 
+Route::get('/cashmeretype/vicuna',[HomeController::class,'Typecashmere'])->name('Typecashmere');
