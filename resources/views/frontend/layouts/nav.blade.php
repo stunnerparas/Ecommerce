@@ -1,6 +1,6 @@
 <!-- This website is developed by Elscript Technology Pvt.Ltd
 Frontend Developer:Krishna Pokharel, Gaurav Kumar Nepal
-Backend Developer : Rudra Rajbansi.
+Backend Developer : Rudra Rajbanshi.
 
 -->
 <!-- Offcanvas Menu Start -->
@@ -16,7 +16,8 @@ Backend Developer : Rudra Rajbansi.
                 <div class="h-100 d-flex align-items-center justify-content-center">
                     <div class="offcanvas-search-close-switch">+</div>
                     <form class="search-model-form" method="GET" action="{{ route('filter') }}">
-                        <input type="text" name="search" id="search-input" autocomplete="off" class="search-input" placeholder="Search here....." />
+                        <input type="text" name="search" id="search-input" autocomplete="off" class="search-input"
+                            placeholder="Search here....." />
                     </form>
                 </div>
             </div>
@@ -24,13 +25,12 @@ Backend Developer : Rudra Rajbansi.
             <a href="{{ route('cart.index') }}"><i class="fas fa-shopping-cart fa-2x"></i></a>
         </div>
         <div class="offcanvas__links">
-            
-            @if (Auth::check())
-            <a href="{{ route('myaccount') }}">My account</a>
-            <a href="{{ route('logout') }}">Logout</a>
-            @else
-                            <a href="{{ route('login') }}">Login</a>
 
+            @if (Auth::check())
+                <a href="{{ route('myaccount') }}">My account</a>
+                <a href="{{ route('logout') }}">Logout</a>
+            @else
+                <a href="{{ route('login') }}">Login</a>
             @endif
 
         </div>
@@ -40,35 +40,36 @@ Backend Developer : Rudra Rajbansi.
         <ul>
             {{-- <li><a href="./index.html">Cashmere</a></li> --}}
             @foreach (getParentCategories() as $main)
-            <li class="offcanvas-li" id="offcanvas-women-li">
-                <a href="{{ route('filter', ['type' => 'category', 'slug' => $main->slug]) }}">{{ $main->name ?? '' }}
+                <li class="offcanvas-li" id="offcanvas-women-li">
+                    <a href="{{ route('filter', ['type' => 'category', 'slug' => $main->slug]) }}">{{ $main->name ?? '' }}
+                        @if (getChildCategories($main->id)->count() > 0)
+                            <i class="fas fa-caret-right" id="rotate-icon"></i>
+                        @endif
+                    </a>
                     @if (getChildCategories($main->id)->count() > 0)
-                    <i class="fas fa-caret-right" id="rotate-icon"></i>
-                    @endif
-                </a>
-                @if (getChildCategories($main->id)->count() > 0)
-                <ul class="offcanvas-submenu" id="women-submenu">
-                    @foreach (getChildCategories($main->id) as $category)
-                    <li id="submenu-menu">
-                        <a href="{{ route('filter', ['type' => 'category', 'slug' => $category->slug]) }}">{{ $category->name ?? '' }}
-                            @if (getChildCategories($category->id)->count() > 0)
-                            <i class="fas fa-caret-right" id="rotate-icon1"></i>
-                            @endif
-                        </a>
-                        @if (getChildCategories($category->id)->count() > 0)
-                        <ul class="offcanvas-submenu-menu" id="women-clothes">
-                            @foreach (getChildCategories($category->id) as $sub_category)
-                            <li>
-                                <a href="{{ route('filter', ['type' => 'category', 'slug' => $sub_category->slug]) }}" class="pane-link">{{ $sub_category->name ?? '' }}</a>
-                            </li>
+                        <ul class="offcanvas-submenu" id="women-submenu">
+                            @foreach (getChildCategories($main->id) as $category)
+                                <li id="submenu-menu">
+                                    <a href="{{ route('filter', ['type' => 'category', 'slug' => $category->slug]) }}">{{ $category->name ?? '' }}
+                                        @if (getChildCategories($category->id)->count() > 0)
+                                            <i class="fas fa-caret-right" id="rotate-icon1"></i>
+                                        @endif
+                                    </a>
+                                    @if (getChildCategories($category->id)->count() > 0)
+                                        <ul class="offcanvas-submenu-menu" id="women-clothes">
+                                            @foreach (getChildCategories($category->id) as $sub_category)
+                                                <li>
+                                                    <a href="{{ route('filter', ['type' => 'category', 'slug' => $sub_category->slug]) }}"
+                                                        class="pane-link">{{ $sub_category->name ?? '' }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                </li>
                             @endforeach
                         </ul>
-                        @endif
-                    </li>
-                    @endforeach
-                </ul>
-                @endif
-            </li>
+                    @endif
+                </li>
             @endforeach
             {{-- <li class="offcanvas-li" id="offcanvas-men-li">
                 <a href="#">Men <i class="fas fa-caret-right" id="rotate-icon6"></i></a>
@@ -273,7 +274,8 @@ Backend Developer : Rudra Rajbansi.
                                 @csrf
                                 <select name="currency" onchange="this.form.submit()" id="">
                                     @foreach (currencies() as $currency)
-                                    <option {{ Session::get('currency') == $currency->currency ? 'selected' : '' }} value="{{ $currency->currency }}">{{ $currency->currency }}</option>
+                                        <option {{ Session::get('currency') == $currency->currency ? 'selected' : '' }}
+                                            value="{{ $currency->currency }}">{{ $currency->currency }}</option>
                                     @endforeach
                                 </select>
                             </form>
@@ -289,9 +291,9 @@ Backend Developer : Rudra Rajbansi.
 
 
                             @if (Auth::check())
-                            <a href="{{ route('logout') }}">Logout</a>
+                                <a href="{{ route('logout') }}">Logout</a>
                             @else
-                            <a href="{{ route('login') }}">Login</a>
+                                <a href="{{ route('login') }}">Login</a>
                             @endif
                         </div>
                     </div>
@@ -306,7 +308,8 @@ Backend Developer : Rudra Rajbansi.
             <!-- Logo Section -->
             <div class="col-lg-2 col-md-6 col-sm-6 col-10">
                 <div class="header__logo">
-                    <a href="{{ route('index') }}"><img src="{{ asset('frontend/assets/images/logo/logo.png') }}" class="w-100 h-100" alt="" /></a>
+                    <a href="{{ route('index') }}"><img src="{{ asset('frontend/assets/images/logo/logo.png') }}"
+                            class="w-100 h-100" alt="" /></a>
                 </div>
             </div>
             <!-- Navigation Links -->
@@ -315,9 +318,10 @@ Backend Developer : Rudra Rajbansi.
                     <div class="nav__primary__links">
                         <ul id="menuElem">
                             @foreach (getParentCategories() as $category)
-                            <li id="" class="sub-menu-click" data-category="{{ $category->slug }}">
-                                <a href="{{ route('filter', ['type' => 'category', 'slug' => $category->slug]) }}">{{ $category->name }}</a>
-                            </li>
+                                <li id="" class="sub-menu-click" data-category="{{ $category->slug }}">
+                                    <a
+                                        href="{{ route('filter', ['type' => 'category', 'slug' => $category->slug]) }}">{{ $category->name }}</a>
+                                </li>
                             @endforeach
                         </ul>
                     </div>
@@ -334,7 +338,8 @@ Backend Developer : Rudra Rajbansi.
                     <div class="h-100 d-flex align-items-center justify-content-center">
                         <div class="search-close-switch">+</div>
                         <form class="search-model-form" method="GET" action="{{ route('filter') }}">
-                            <input type="text" id="search-input" name="search" autocomplete="off" class="search-input" placeholder="Search here....." />
+                            <input type="text" id="search-input" name="search" autocomplete="off"
+                                class="search-input" placeholder="Search here....." />
                         </form>
                     </div>
                 </div>
@@ -345,10 +350,9 @@ Backend Developer : Rudra Rajbansi.
                         shopping_cart
                     </span></a>
                 @if (Auth::check())
-                <a href="{{ route('myaccount') }}"><span class="material-symbols-outlined google-icon">
-                        account_circle
-                    </span></a>
-
+                    <a href="{{ route('myaccount') }}"><span class="material-symbols-outlined google-icon">
+                            account_circle
+                        </span></a>
                 @endif
 
             </div>
@@ -356,31 +360,38 @@ Backend Developer : Rudra Rajbansi.
         <!-- Sub menu Section Started -->
         <!-- Cashmere Submenu -->
         @foreach (getParentCategories() as $main)
-        <div class="pane {{ $main->slug }}" id="">
-            <div class="container-fluid">
-                <div class="row">
-                    @foreach (getChildCategories($main->id) as $category)
-                    <div class="col-lg-2 pane-column">
-                        <a href="{{ route('filter', ['type' => 'category', 'slug' => $category->slug]) }}" class="pane-heading">{{ $category->name }}</a>
-                        <ul>
-                            @foreach (getChildCategories($category->id) as $sub_category)
-                            <li>
-                                <a href="{{ route('filter', ['type' => 'category', 'slug' => $sub_category->slug]) }}" class="pane-link">{{ $sub_category->name }}</a>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endforeach
+            <div class="pane {{ $main->slug }}" id="">
+                <div class="container-fluid">
+                    <div class="row">
+                        @foreach (getChildCategories($main->id) as $category)
+                            <div class="col-lg-2 pane-column">
+                                <a href="{{ route('filter', ['type' => 'category', 'slug' => $category->slug]) }}"
+                                    class="pane-heading">{{ $category->name }}</a>
+                                <ul>
+                                    @foreach (getChildCategories($category->id) as $sub_category)
+                                        <li>
+                                            <a href="{{ route('filter', ['type' => 'category', 'slug' => $sub_category->slug]) }}"
+                                                class="pane-link">{{ $sub_category->name }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endforeach
 
-                    <div class="col-lg-2 pane-image-column">
-                        <img src="{{ asset('frontend/assets/images/sub-menu/cashmere (1).jpg') }}" alt="" />
-                    </div>
-                    <div class="col-lg-2 pane-image-column">
-                        <img src="{{ asset('frontend/assets/images/sub-menu/cashmere (2).jpg') }}" alt="" />
+                        @if ($main->image)
+                            <div class="col-lg-2 pane-image-column">
+                                <img src="{{ asset('images/' . $main->image) }}" alt="" />
+                            </div>
+                        @endif
+                        @if ($main->banner)
+                            <div class="col-lg-2 pane-image-column">
+                                <img src="{{ asset('images/' . $main->banner) }}" alt="" />
+                            </div>
+                        @endif
+
                     </div>
                 </div>
             </div>
-        </div>
         @endforeach
 
         <div class="canvas__open"><i class="fa fa-bars"></i></div>
