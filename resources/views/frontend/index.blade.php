@@ -137,13 +137,13 @@
         <img src="{{ asset('images/' . ($signatureBanner->image ?? '')) }}" alt="" />
         <div class="signature-banner-container">
             <div class="signature-content">
-                <!-- <div class="signature-collection-text px-4 py-2">
+                <div class="signature-collection-text px-4 py-2">
                     <h2>{{ $signatureBanner->title ?? '' }}</h2>
                     <p>
                         {!! $signatureBanner->description ?? '' !!}
                     </p>
                     <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'signature']) }}" class="primary-btn">{{ $signatureBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
-                </div> -->
+                </div>
             </div>
 
         </div>
@@ -177,13 +177,13 @@
         <img src="{{ asset('images/' . ($classicBanner->image ?? '')) }}" alt="" />
         <div class="row classic-banner-container">
             <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12">
-                <!-- <div class="classic-collection-text px-4 py-2">
+                <div class="classic-collection-text px-4 py-2">
                     <h2>{{ $classicBanner->title ?? '' }}</h2>
                     <p>
                         {!! $classicBanner->description ?? '' !!}
                     </p>
                     <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'classic']) }}" class="primary-btn">{{ $classicBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
@@ -215,13 +215,13 @@
         <img src="{{ asset('images/' . ($accessoriesBanner->image ?? '')) }}" alt="" />
         <div class="accessories-banner-container">
             <div class="accessories-content">
-                <!-- <div class="accessories-collection-text px-4 py-2">
+                <div class="accessories-collection-text px-4 py-2">
                     <h2>{{ $accessoriesBanner->title ?? '' }}</h2>
                     <p>
                         {!! $accessoriesBanner->description ?? '' !!}
                     </p>
                     <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'accessories']) }}" class="primary-btn">{{ $accessoriesBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
@@ -252,13 +252,13 @@
         <img src="{{ asset('images/' . ($menBanner->image ?? '')) }}" alt="" />
         <div class="row men-banner-container">
             <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12">
-                <!-- <div class="men-collection-text px-4 py-2">
+                <div class="men-collection-text px-4 py-2">
                     <h2>{{ $menBanner->title ?? '' }}</h2>
                     <p>
                         {!! $menBanner->description ?? '' !!}
                     </p>
                     <a href="{{ route('filter', ['type' => 'category', 'slug' => 'men']) }}" class="primary-btn">{{ $menBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
@@ -289,13 +289,13 @@
         <img src="{{ asset('images/' . ($womenBanner->image ?? '')) }}" alt="" />
         <div class="row women-banner-container">
             <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12">
-                <!-- <div class="women-collection-text px-4 py-2">
+                <div class="women-collection-text px-4 py-2">
                     <h2>{{ $womenBanner->title ?? '' }}</h2>
                     <p>
                         {!! $womenBanner->description ?? '' !!}
                     </p>
                     <a href="{{ route('filter', ['type' => 'category', 'slug' => 'women']) }}" class="primary-btn">{{ $womenBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
@@ -345,13 +345,13 @@
         <img src="{{ asset('images/' . ($superfineBanner->image ?? '')) }}" alt="" />
         <div class="superfine-banner-container">
             <div class="superfine-content">
-                <!-- <div class="superfine-collection-text px-4 py-2">
+                <div class="superfine-collection-text px-4 py-2">
                     <h2>{{ $superfineBanner->title ?? '' }}</h2>
                     <p>
                         {!! $superfineBanner->description ?? '' !!}
                     </p>
                     <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'superfine']) }}" class="primary-btn">{{ $superfineBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
@@ -382,10 +382,11 @@
                     @if ($footerLeft)
                     <div class="col-lg-4 col-md-6 col-sm-12 px-2">
                         <div class="image my-2">
-                            <img src="{{ asset('images/' . $footerLeft->image) }}" class="w-100 h-100" alt="" />
+                            <a href="{{ route('detailColor') }}"><img src="{{ asset('images/' . $footerLeft->image) }}" class="w-100 h-100" alt="" /></a>
+                            
                         </div>
                         <div class="detail-links">
-                            <a href="{{ route('detailYarn') }}">Yarn</a>
+                        <a href="{{ route('detailColor') }}">Warm Colors</a>
                         </div>
                     </div>
                     <!-- end -->
@@ -394,10 +395,11 @@
                     @if ($footerCenter)
                     <div class="col-lg-4 col-md-6 col-sm-12 px-2">
                         <div class="image my-2">
-                            <img src="{{ asset('images/' . ($footerCenter->image ?? '')) }}" class="w-100 h-100" alt="" />
+                            <a href="{{ route('detailYarn') }}"> <img src="{{ asset('images/' . ($footerCenter->image ?? '')) }}" class="w-100 h-100" alt="" /></a>
+                           
                         </div>
                         <div class="detail-links">
-                            <a href="#">The Knits</a>
+                            <a href="{{ route('detailYarn') }}">Yarn</a>
                         </div>
                     </div>
                     <!-- end -->
@@ -406,10 +408,12 @@
                     @if ($footerRight)
                     <div class="col-lg-4 col-md-6 col-sm-12 px-2">
                         <div class="image my-2">
-                            <img src="{{ asset('images/' . ($footerRight->image ?? '')) }}" class="w-100 h-100" alt="" />
+                            <a href="{{ route('detailKnit') }}"> <img src="{{ asset('images/' . ($footerRight->image ?? '')) }}" class="w-100 h-100" alt="" /></a>
+                           
                         </div>
                         <div class="detail-links">
-                            <a href="#">Warm Colors</a>
+                            <a href="{{ route('detailKnit') }}">The Knit</a>
+                          
                         </div>
                     </div>
                     <!-- end -->
@@ -428,8 +432,7 @@
             <div class="catalogue-content">
                 <h2 class="section-heading">Product Catalogue </h2>
 
-                <p class="text-justify">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo esse, laborum velit magni accusantium at et amet laudantium quas quasi a iusto quos accusamus tenetur eveniet non ipsa? Corrupti voluptatibus tenetur consectetur sequi in id! Similique necessitatibus quos, eveniet veniam autem odit, at adipisci illo earum, nostrum ducimus corporis iure.</p>
-
+              
                 <div class="button">
                     <a href="{{asset('catalogue/kanchanmaggfinal.pdf')}}" download="catalogue" class="tritary-btn">Download <i class="fas fa-arrow-down"></i></a>
                 </div>
@@ -458,7 +461,7 @@
             <!-- contact form -->
             <form class="form d-flex justify-content-center" id="newsletter-form" method="POST">
                 @csrf
-                <input class="form_input w-50" style="padding:20px 30px ;" id="newsletter-email" name="email" type="email" placeholder="example@gmail.com" />
+                <input class="form_input w-50" style="padding:20px 30px ;" id="newsletter-email" name="email" type="email" placeholder="Your email" />
                 <div class="submit-button ml-2">
                     <button style="cursor: pointer" class="submit-btn " type="submit">Submit</button>
                 </div>

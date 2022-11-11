@@ -99,18 +99,20 @@
             </div>
             <!-- Type 5 -->
             <div class="col-lg-4  col-md-6 col-sm-12 col-12 py-2">
-                <div class="type-container">
-                    <!-- Type image -->
-                    <div class="type-image">
-                        <img src="{{ asset('frontend/assets/images/vicuna.jpg') }}" alt="">
+                <a href="{{ route('Typecashmere') }}">
+                    <div class="type-container">
+                        <!-- Type image -->
+                        <div class="type-image">
+                            <img src="{{ asset('frontend/assets/images/vicuna.jpg') }}" alt="">
+
+                        </div>
+                        <!-- Type heading -->
+                        <div class="yarn-heading">
+                            <h4>Vicuna</h4>
+                        </div>
 
                     </div>
-                    <!-- Type heading -->
-                    <div class="yarn-heading">
-                        <h4>Vicuna</h4>
-                    </div>
-
-                </div>
+                </a>
 
 
             </div>
@@ -166,8 +168,8 @@
                     </div>
 
                 </div>
-                 <!-- Services -->
-                 <div class="col-lg-4 col-md-6  my-3">
+                <!-- Services -->
+                <div class="col-lg-4 col-md-6  my-3">
                     <div class="box">
                         <!-- icon -->
                         <div class="icon">
@@ -191,13 +193,13 @@
                     </div>
 
                 </div>
-                 <!-- Services -->
-                 <div class="col-lg-4 col-md-6 my-3">
+                <!-- Services -->
+                <div class="col-lg-4 col-md-6 my-3">
                     <div class="box">
                         <!-- icon -->
                         <div class="icon">
                             <span class="material-symbols-outlined google-icon">
-                            support_agent
+                                support_agent
                             </span>
 
                         </div>

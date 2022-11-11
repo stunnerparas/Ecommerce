@@ -42,9 +42,8 @@
                         <li>
                             <a href="{{ route('faq') }}">FAQs</a>
                         </li>
-                        <li>
-                            <a href="{{ route('helpDesk') }}">Help Desk</a>
-                        </li>
+                        
+                     
                         <li>
                             <a href="{{ route('blogs') }}">Kanchan Blogs</a>
                         </li>

@@ -26,8 +26,8 @@ Backend Developer : Rudra Rajbansi.
         <div class="offcanvas__links">
             
             @if (Auth::check())
-            <a href="{{ route('logout') }}">My account</a>
-            <a href="{{ route('login') }}">Logout</a>
+            <a href="{{ route('myaccount') }}">My account</a>
+            <a href="{{ route('logout') }}">Logout</a>
             @else
                             <a href="{{ route('login') }}">Login</a>
 

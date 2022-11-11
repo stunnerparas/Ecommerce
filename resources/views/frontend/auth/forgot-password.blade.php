@@ -23,7 +23,7 @@
                         </div>
 
                         <div class="form-group d-flex justify-content-center">
-                            <input class="btn login-btn tritary-btn p-4" type="submit" value="Send Password Reset Link">
+                            <input class="btn login-btn tritary-btn p-4" type="submit" value="Reset">
                         </div>
                     </form>
                 </div>

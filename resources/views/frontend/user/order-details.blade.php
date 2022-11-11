@@ -100,11 +100,11 @@
                                         <!-- Cart total for cart.html -->
                                         <p class="totalCartItem price">{{ $total }}</p>
                                     </div>
-                                    <div class="cart-total-container d-flex justify-content-between">
+                                    <!-- <div class="cart-total-container d-flex justify-content-between">
                                         <p class="">Shipping Cost:</p>
-                                        <!-- shipping cost after user selection -->
+                                       
                                         <p class="totalCartPrice price">10</p>
-                                    </div>
+                                    </div> -->
                                     {{-- <div class="cart-total-container d-flex justify-content-between">
                                         <p class="">Tax:</p>
                                         <!-- Calculate tax as per country -->
