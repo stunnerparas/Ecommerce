@@ -22,13 +22,13 @@
                                 @method('PUT')
                                 <div class="card-body">
                                     <div class="row">
-                                        {{-- <div class="col-md-6">
+                                        <div class="col-md-6">
 
 
                                             <div class="form-group">
                                                 <label>Title</label>
-                                                <input type="text" value="{{ old('title', $slider->title) }}" name="title"
-                                                    class="form-control">
+                                                <input type="text" value="{{ old('title', $slider->title) }}"
+                                                    name="title" class="form-control">
                                                 <div class="invalid-feedback">
                                                     Title is required
                                                 </div>
@@ -56,7 +56,7 @@
                                             <div class="form-group">
                                                 <label>Button Link</label>
                                                 <input type="text" value="{{ old('btn_link', $slider->btn_link) }}"
-                                                    name="btn_link" class="form-control" >
+                                                    name="btn_link" class="form-control">
                                                 <div class="invalid-feedback">
                                                     Button Link is required
                                                 </div>
@@ -70,10 +70,9 @@
 
                                             <div class="form-group">
                                                 <label>Description</label>
-                                                <textarea name="description" class="summernote"
-                                                    style="display: none;">{{ old('description', $slider->description) }}</textarea>
+                                                <textarea name="description" class="summernote" style="display: none;">{{ old('description', $slider->description) }}</textarea>
                                             </div>
-                                        </div> --}}
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Image</label>
@@ -91,14 +90,20 @@
 
                                             <div class="form-group">
                                                 <label>Position</label>
-                                                <input type="text" value="{{ old('category', $slider->category) }}"
-                                                    name="category" class="form-control" required="">
+                                                <select name="category" class="form-control" id="">
+                                                    <option value="">Select Position</option>
+                                                    @foreach (\App\Models\Slider::positions as $key => $value)
+                                                        <option
+                                                            {{ old('category', $slider->category) == $key ? 'selected' : '' }}
+                                                            value="{{ $key }}">{{ $value }}</option>
+                                                    @endforeach
+                                                </select>
                                                 <div class="invalid-feedback">
-                                                    Category is required
+                                                    Position is required
                                                 </div>
                                                 @error('category')
                                                     <div class="invalid-feedback" style="display: block;">
-                                                        {{ $message }}
+                                                        {{ 'Position is required' }}
                                                     </div>
                                                 @enderror
                                             </div>

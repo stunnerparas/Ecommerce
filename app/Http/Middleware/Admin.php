@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class Admin
 {
@@ -19,6 +20,12 @@ class Admin
     {
         if (!Auth::check()) {
             return redirect()->route('admin.login')->with('error', 'Unauthorized');
+        }else{
+            if (Auth::user()->user_type != 'admin') {
+                Session::flush();
+                Auth::logout();
+                return redirect()->route('admin.login')->with('error', 'Unauthorized');
+            }
         }
         return $next($request);
     }

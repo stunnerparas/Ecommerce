@@ -33,6 +33,15 @@
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <style>
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+        }
+
+        body {
+            top: 0px !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -53,12 +62,30 @@
     </script>
     <!--End of Tawk.to Script-->
 
+    <div id="google_translate_element"></div>
 
     <div class="super-container">
         @include('frontend.layouts.nav')
         @yield('content')
         @include('frontend.layouts.footer')
     </div>
+
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                // layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+                // includedLanguages: 'es,en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+
 
     <!-- Linking JQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

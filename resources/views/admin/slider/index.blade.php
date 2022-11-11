@@ -25,8 +25,8 @@
                                         <tr>
                                             <th scope="col">Image</th>
                                             {{-- <th scope="col">Heading</th> --}}
-                                            {{-- <th scope="col">Title</th>
-                                            <th scope="col">Link</th> --}}
+                                            <th scope="col">Title</th>
+                                            <th scope="col">Link</th>
                                             <th scope="col">Position</th>
                                             <th scope="col">Action</th>
                                         </tr>
@@ -42,15 +42,16 @@
                                                     </a>
                                                 </td>
                                                 {{-- <td>{{ $slider->heading }}</td> --}}
-                                                {{-- <td>{{ $slider->title }}</td>
-                                                <td>{{ $slider->btn_link }}</td> --}}
-                                                <td>{{ $slider->category }}</td>
+                                                <td>{{ $slider->title }}</td>
+                                                <td>{{ $slider->btn_link }}</td>
+                                                <td>{{ $slider->category ? \App\Models\Slider::positions[$slider->category] : '' }}
+                                                </td>
 
                                                 <td>
                                                     <div class="row">
 
                                                         @can('Edit Banner')
-                                                            <a class="btn btn-success mr-1"
+                                                            <a class="btn btn-success btn-sm mr-1"
                                                                 href="{{ route('admin.sliders.edit', $slider->id) }}">Edit</a>
                                                         @endcan
 
@@ -60,7 +61,7 @@
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button class="btn btn-danger delete-slider" type="submit">
+                                                                <button class="btn btn-danger btn-sm delete-slider" type="submit">
                                                                     Delete
                                                                 </button>
                                                             </form>

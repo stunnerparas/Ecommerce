@@ -21,7 +21,7 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="row">
-                                        {{-- <div class="col-md-6">
+                                        <div class="col-md-6">
 
 
                                             <div class="form-group">
@@ -71,15 +71,15 @@
                                                 <label>Description</label>
                                                 <textarea name="description" class="summernote" style="display: none;">{{ old('description') }}</textarea>
                                             </div>
-                                        </div> --}}
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Image</label>
                                                 <br>
                                                 <input type="file" name="image" class="preview-image">
                                                 <br>
-                                                <img src="" style="height:130px" class="preview-image-src" id="view-image"
-                                                    alt="">
+                                                <img src="" style="height:130px" class="preview-image-src"
+                                                    id="view-image" alt="">
                                             </div>
                                             @error('image')
                                                 <div class="invalid-feedback" style="display: block;">
@@ -89,14 +89,21 @@
 
                                             <div class="form-group">
                                                 <label>Position</label>
-                                                <input type="text" value="{{ old('category') }}" name="category"
-                                                    class="form-control" required="">
+                                                <select name="category" class="form-control" id="">
+                                                    <option value="">Select Position</option>
+                                                    @foreach (\App\Models\Slider::positions as $key => $value)
+                                                        <option {{ old('category') == $key ? 'selected' : '' }}
+                                                            value="{{ $key }}">{{ $value }}</option>
+                                                    @endforeach
+                                                </select>
+                                                {{-- <input type="text" value="{{ old('category') }}" name="category"
+                                                    class="form-control" required=""> --}}
                                                 <div class="invalid-feedback">
-                                                    Category is required
+                                                    Position is required
                                                 </div>
                                                 @error('category')
                                                     <div class="invalid-feedback" style="display: block;">
-                                                        {{ $message }}
+                                                        {{ 'Position is required' }}
                                                     </div>
                                                 @enderror
                                             </div>

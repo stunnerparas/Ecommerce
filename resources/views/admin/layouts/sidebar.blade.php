@@ -158,8 +158,16 @@
                 </li>
             @endcan
 
+            {{-- @can('View Ticket') --}}
+            <li class="{{ Request::segment(2) == 'manageshipping' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.manageshipping.index') }}"><i class="fas fa-envelope"></i>
+                    <span>Manage Shippings</span></a>
+            </li>
+            {{-- @endcan --}}
+
             @if (Auth::user()->hasAnyRole('super admin'))
-                <li class="dropdown {{ Request::segment(2) == 'admins' || Request::segment(2) == 'roles' ? 'active' : '' }}">
+                <li
+                    class="dropdown {{ Request::segment(2) == 'admins' || Request::segment(2) == 'roles' ? 'active' : '' }}">
                     <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i>
                         <span>User Management</span></a>
                     <ul class="dropdown-menu">
