@@ -445,7 +445,7 @@ a:link {
     display: none;
 }
 
-/* Navigation End */
+/* Navigation End *
 
 /* Hero Section Start */
 
@@ -456,12 +456,17 @@ a:link {
 .hero-banner-sm {
     display: none;
 }
-
-.hero-menu .content {
+.hero-menu .content{
     position: absolute;
-    top: 32px;
-    left: 68px;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+
 }
+
 
 .hero-container {
     padding-top: 160px;
@@ -527,11 +532,7 @@ a:link {
         padding: 10px;
     }
 }
-@media only screen and (max-width: 530px) {
-    .hero-menu .content {
-        top: 7px;
-    }
-}
+
 @media only screen and (max-width: 475px) {
     .hero-banner-sm {
         display: block;
@@ -551,12 +552,7 @@ a:link {
         display: none;
     }
 
-    .hero-menu .content {
-        order: 1;
-
-        position: relative;
-        margin-bottom: 20px;
-    }
+    
 }
 
 /* Hero Section End */
@@ -811,11 +807,7 @@ a:link {
     background-color: #f1f1f1;
     padding: 20px 10px;
 }
-.signature-content {
-    width: 655px;
-    position: absolute;
-    right: 20px;
-}
+
 
 .signature-collection-banner img {
     width: 100%;
@@ -898,9 +890,9 @@ a:link {
     }
     .signature-content {
         width: 100%;
-        position: relative;
+       
         text-align: center;
-        right: 0;
+      
     }
     .signature-collection-text {
         padding: 0 !important;
@@ -936,9 +928,7 @@ a:link {
     }
 }
 @media only screen and (max-width: 530px) {
-    .hero-menu .content {
-        top: 7px;
-    }
+    
 }
 @media only screen and (max-width: 475px) {
     .hero-banner-sm {
@@ -959,12 +949,7 @@ a:link {
         display: none;
     }
 
-    .hero-menu .content {
-        order: 1;
-
-        position: relative;
-        margin-bottom: 20px;
-    }
+    
 }
 
 /* Signature Collection End */
@@ -1426,16 +1411,13 @@ a:link {
 }
 
 .superfine-banner-container {
-    position: absolute;
-    top: 0;
-    left: 0;
+   
     width: 100%;
 }
 
 .superfine-content {
-    position: absolute;
-    top: 0;
-    right: 20px;
+ 
+   
     width: 725px;
 }
 .superfine-collection-text {
@@ -2182,7 +2164,7 @@ a:link {
 }
 
 .banner img {
-    object-fit: fill;
+    object-fit: contain;
 }
 
 .column-content .heading {
@@ -2306,8 +2288,6 @@ a:link {
     border-radius: 0px 0px 20px 20px;
 }
 
-.checkout-btn {
-}
 
 .text-underline {
     text-decoration: underline;
