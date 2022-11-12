@@ -42,7 +42,7 @@ Backend Developer : Rudra Rajbanshi.
                 <li class="offcanvas-li" id="offcanvas-women-li">
                     <a href="{{ route('filter', ['type' => 'category', 'slug' => $main->slug]) }}">{{ $main->name ?? '' }}
                         @if (getChildCategories($main->id)->count() > 0)
-                            <i class="fas fa-caret-right" id="rotate-icon"></i>
+                          
                         @endif
                     </a>
                     @if (getChildCategories($main->id)->count() > 0)
