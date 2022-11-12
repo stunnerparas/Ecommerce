@@ -320,6 +320,9 @@ a:link {
     background-color: #f3f3f3;
     z-index: 9999;
 }
+.pane .row{
+    justify-content: center;
+}
 
 .pane-heading {
     text-decoration: none;
