@@ -29,75 +29,9 @@
     <!-- yarn type -->
     <div class="yarn-type container">
         <div class="row">
-            <!-- Type 1 -->
-            <div class="col-lg-4  col-md-6 col-sm-12 col-12 py-2">
-                <div class="type-container">
-                    <!-- Type image -->
-                    <div class="type-image">
-                        <img src="{{ asset('frontend/assets/images/mulberry-silk.jpg') }}" alt="">
-
-                    </div>
-                    <!-- Type heading -->
-                    <div class="yarn-heading">
-                        <h4>Mulberry Silk </h4>
-                    </div>
-
-                </div>
-
-
-            </div>
-            <!-- Type 2 -->
-            <div class="col-lg-4  col-md-6 col-sm-12 col-12 py-2">
-                <div class="type-container">
-                    <!-- Type image -->
-                    <div class="type-image">
-                        <img src="{{ asset('frontend/assets/images/organic-cashmere.jpg') }}" alt="">
-
-                    </div>
-                    <!-- Type heading -->
-                    <div class="yarn-heading">
-                        <h4>Organic Cashmere</h4>
-                    </div>
-
-                </div>
-
-
-            </div>
-            <!-- Type 3 -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-12 py-2">
-                <div class="type-container">
-                    <!-- Type image -->
-                    <div class="type-image">
-                        <img src="{{ asset('frontend/assets/images/baby.png') }}" alt="">
-
-                    </div>
-                    <!-- Type heading -->
-                    <div class="yarn-heading">
-                        <h4>Baby Cashmere</h4>
-                    </div>
-
-                </div>
-
-
-            </div>
-            <!-- Type 4 -->
-            <div class="col-lg-4  col-md-6 col-sm-12 col-12 py-2">
-                <div class="type-container">
-                    <!-- Type image -->
-                    <div class="type-image">
-                        <img src="{{ asset('frontend/assets/images/alpaca3.jpg') }}" alt="">
-
-                    </div>
-                    <!-- Type heading -->
-                    <div class="yarn-heading">
-                        <h4>Alpaca</h4>
-                    </div>
-
-                </div>
-
-
-            </div>
-            <!-- Type 5 -->
+           
+          
+            <!-- Type 1-->
             <div class="col-lg-4  col-md-6 col-sm-12 col-12 py-2">
                 <a href="{{ route('Typecashmere') }}">
                     <div class="type-container">
@@ -116,23 +50,7 @@
 
 
             </div>
-            <!-- Type 6 -->
-            <div class="col-lg-4  col-md-6 col-sm-12 col-12 py-2">
-                <div class="type-container">
-                    <!-- Type image -->
-                    <div class="type-image">
-                        <img src="{{ asset('frontend/assets/images/cashmere-yarn.jpg') }}" alt="">
-
-                    </div>
-                    <!-- Type heading -->
-                    <div class="yarn-heading">
-                        <h4>Cashmere</h4>
-                    </div>
-
-                </div>
-
-
-            </div>
+          
 
         </div>
     </div>
