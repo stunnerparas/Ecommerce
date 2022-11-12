@@ -5,18 +5,18 @@
 @if ($mainBanner)
 <section class="hero">
     <!-- Hero main Banner -->
-    <div class="hero-menu banner">
+    <!-- <div class="hero-menu banner">
         <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="" />
         <div class="content">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 hero-container">
                         <div class="hero__text">
-                            <h2>{{ $mainBanner->title ?? '' }}</h2>
+                            <h2></h2>
                             <p>
                                 {!! $mainBanner->description ?? '' !!}
                             </p>
-                            <a href="{{ $mainBanner->btn_link ?? '' }}" class="primary-btn">{{ $mainBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
+                            <a href="{{ $mainBanner->btn_link ?? '' }}" class="primary-btn">{{ $mainBanner->btn_text ?? '' }} </i></a>
                         </div>
                     </div>
                 </div>
@@ -25,6 +25,36 @@
 
         <div class="hero-banner-sm">
             <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100" alt="">
+        </div>
+    </div> -->
+    <div class="page-banner-container">
+        <!-- Banner image -->
+        <div class="hero-banner-desc">
+            <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="" />
+
+        </div>
+        <div class="hero-banner-mob">
+            <img src="{{ asset('frontend/assets/images/banners/small-banner.png') }}" class="w-100 h-100" alt="">
+        </div>
+        <div class="banner-content">
+            <div class="row">
+                <div class="col-lg-5 col-md-10">
+                    <!-- Banner Heading -->
+                    <span class="banner-heading">
+                        {{ $mainBanner->title ?? '' }}
+
+                    </span>
+
+                    <!-- Banner content -->
+                    <span class="banner-p">
+                        {!! $mainBanner->description ?? '' !!}
+                    </span>
+                    <!-- Banner button -->
+                    <a href="{{ $mainBanner->btn_link ?? '' }}" class="primary-btn my-3">{{ $mainBanner->btn_text ?? '' }}</a>
+
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -132,26 +162,38 @@
 <!-- Signature Collection Section -->
 <section class="signature-collection my-3">
     @if ($signatureBanner)
-    <!-- Signature collection banner -->
-    <div class="signature-collection-banner banner">
-        <img src="{{ asset('images/' . ($signatureBanner->image ?? '')) }}" alt="" />
-        <div class="signature-banner-container">
-            <div class="signature-content">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                        <div class="signature-collection-text px-4 py-2">
-                            <h2>{{ $signatureBanner->title ?? '' }}</h2>
-                            <p>
-                                {!! $signatureBanner->description ?? '' !!}
-                            </p>
-                            <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'signature']) }}" class="primary-btn">{{ $signatureBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
+    <div class="page-banner-container">
+        <!-- Banner image -->
+        <div class="hero-banner-desc">
+            <img src="{{ asset('images/' . ($signatureBanner->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="" />
+
+        </div>
+        <div class="hero-banner-mob">
+            <img src="{{ asset('frontend/assets/images/banners/small-banner.png') }}" class="w-100 h-100" alt="">
+        </div>
+        <div class="banner-content">
+            <div class="row">
+                <div class="col-lg-5 col-md-10">
+                    <!-- Banner Heading -->
+                    <span class="banner-heading">
+                        {{ $signatureBanner->title ?? '' }}
+
+                    </span>
+
+                    <!-- Banner content -->
+                    <span class="banner-p">
+                        {!! $signatureBanner->description ?? '' !!}
+                    </span>
+                    <!-- Banner button -->
+                    <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'signature']) }}" class="primary-btn my-3">{{ $signatureBanner->btn_text ?? '' }} </a>
+
                 </div>
             </div>
 
         </div>
     </div>
+
+
     <!-- end -->
     @endif
     <!-- Signature collection product -->
@@ -176,21 +218,53 @@
 <!--  Classic Collection Section -->
 <section class="classic-collection my-2">
     @if ($classicBanner)
+    
+    <div class="page-banner-container">
+        <!-- Banner image -->
+        <div class="hero-banner-desc">
+            <img src="{{ asset('images/' . ($classicBanner->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="" />
+
+        </div>
+        <div class="hero-banner-mob">
+            <img src="{{ asset('frontend/assets/images/banners/small-banner.png') }}" class="w-100 h-100" alt="">
+        </div>
+        <div class="banner-content">
+            <div class="row">
+                <div class="col-lg-5 col-md-10">
+                    <!-- Banner Heading -->
+                    <span class="banner-heading">
+                        {{ $classicBanner->title ?? '' }}
+
+                    </span>
+
+                    <!-- Banner content -->
+                    <span class="banner-p">
+                        {!! $classicBanner->description ?? '' !!}
+                    </span>
+                    <!-- Banner button -->
+                    <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'classic']) }}" class="primary-btn my-3">{{ $classicBanner->btn_text ?? '' }}</a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <!-- Classic collection banner -->
-    <div class="classic-collection-banner banner">
-        <img src="{{ asset('images/' . ($classicBanner->image ?? '')) }}" alt="" />
+    <!-- <div class="classic-collection-banner banner">
+        <img src="" alt="" />
         <div class="row classic-banner-container">
             <div class="col-xl-9 col-lg-6 col-md-12 col-sm-12">
                 <div class="classic-collection-text px-4 py-2">
-                    <h2>{{ $classicBanner->title ?? '' }}</h2>
+                    <h2></h2>
                     <p>
-                        {!! $classicBanner->description ?? '' !!}
+                        
                     </p>
-                    <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'classic']) }}" class="primary-btn">{{ $classicBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
+                    <a href="" class="primary-btn"> <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- end -->
     @endif
     <!-- Classic collection product -->
@@ -214,25 +288,56 @@
 <!-- Accessories Collection Started -->
 <section class="accessories-collection my-2">
     @if ($accessoriesBanner)
+    <div class="page-banner-container">
+        <!-- Banner image -->
+        <div class="hero-banner-desc">
+            <img src="{{ asset('images/' . ($accessoriesBanner->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="" />
+
+        </div>
+        <div class="hero-banner-mob">
+            <img src="{{ asset('frontend/assets/images/banners/small-banner.png') }}" class="w-100 h-100" alt="">
+        </div>
+        <div class="banner-content">
+            <div class="row">
+                <div class="col-lg-5 col-md-10">
+                    <!-- Banner Heading -->
+                <span class="banner-heading">
+                {{ $accessoriesBanner->title ?? '' }}
+
+            </span>
+            
+            <!-- Banner content -->
+            <span class="banner-p">
+            {!! $accessoriesBanner->description ?? '' !!}
+            </span>
+            <!-- Banner button -->
+            <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'accessories']) }}" class="primary-btn my-3">{{ $accessoriesBanner->btn_text ?? '' }}</a>
+
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
     <!-- aCCESSORIES BANNER  -->
-    <div class="accessories-collection-banner banner">
-        <img src="{{ asset('images/' . ($accessoriesBanner->image ?? '')) }}" alt="" />
+    <!-- <div class="accessories-collection-banner banner">
+        <img src="" alt="" />
         <div class="accessories-banner-container">
             <div class="accessories-content">
                 <div class="row">
                     <div class="col-lg-6 col-md-12 col-sm-12">
                         <div class="accessories-collection-text px-4 py-2">
-                            <h2>{{ $accessoriesBanner->title ?? '' }}</h2>
+                            <h2></h2>
                             <p>
-                                {!! $accessoriesBanner->description ?? '' !!}
+                               
                             </p>
-                            <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'accessories']) }}" class="primary-btn">{{ $accessoriesBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
+                            <a href="" class="primary-btn"> <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- end -->
     @endif
     <!-- accessories collection product -->
@@ -255,21 +360,52 @@
 <!-- Men Collection Started -->
 <section class="men-collection my-2">
     @if ($menBanner)
-    <!-- Men collection banner -->
-    <div class="men-collection-banner banner">
-        <img src="{{ asset('images/' . ($menBanner->image ?? '')) }}" alt="" />
+    <div class="page-banner-container">
+        <!-- Banner image -->
+        <div class="hero-banner-desc">
+            <img src="{{ asset('images/' . ($menBanner->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="" />
+
+        </div>
+        <div class="hero-banner-mob">
+            <img src="{{ asset('frontend/assets/images/banners/small-banner.png') }}" class="w-100 h-100" alt="">
+        </div>
+        <div class="banner-content">
+            <div class="row">
+                <div class="col-lg-5 col-md-10">
+                    <!-- Banner Heading -->
+                    <span class="banner-heading">
+                    {{ $menBanner->title ?? '' }}
+
+                    </span>
+
+                    <!-- Banner content -->
+                    <span class="banner-p">
+                    {!! $menBanner->description ?? '' !!}
+                    </span>
+                    <!-- Banner button -->
+                    <a href="{{ route('filter', ['type' => 'category', 'slug' => 'men']) }}" class="primary-btn my-3">{{ $menBanner->btn_text ?? '' }}</a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Men collection 
+    banner -->
+    <!-- <div class="men-collection-banner banner">
+        <img src="" alt="" />
         <div class="row men-banner-container">
             <div class="col-xl-9 col-lg-6 col-md-12 col-sm-12">
                 <div class="men-collection-text px-4 py-2">
-                    <h2>{{ $menBanner->title ?? '' }}</h2>
+                    <h2></h2>
                     <p>
-                        {!! $menBanner->description ?? '' !!}
+                        
                     </p>
-                    <a href="{{ route('filter', ['type' => 'category', 'slug' => 'men']) }}" class="primary-btn">{{ $menBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
+                    <a href="" class="primary-btn"> <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- end -->
     @endif
     <!-- men collection product -->
@@ -292,22 +428,51 @@
 <!-- Women Collection Started -->
 <section class="women-collection my-2">
     @if ($womenBanner)
-    <!-- women collection banner -->
-    <div class="women-collection-banner banner">
-        <img src="{{ asset('images/' . ($womenBanner->image ?? '')) }}" alt="" />
+    <div class="page-banner-container">
+        <!-- Banner image -->
+        <div class="hero-banner-desc">
+            <img src="{{ asset('images/' . ($womenBanner->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="" />
+
+        </div>
+        <div class="hero-banner-mob">
+            <img src="{{ asset('frontend/assets/images/banners/small-banner.png') }}" class="w-100 h-100" alt="">
+        </div>
+        <div class="banner-content">
+            <div class="row">
+                <div class="col-lg-5 col-md-10">
+                    <!-- Banner Heading -->
+                    <span class="banner-heading">
+                    {{ $womenBanner->title ?? '' }}
+
+                    </span>
+
+                    <!-- Banner content -->
+                    <span class="banner-p">
+                    {!! $womenBanner->description ?? '' !!}
+                    </span>
+                    <!-- Banner button -->
+                    <a href="{{ route('filter', ['type' => 'category', 'slug' => 'women']) }}" class="primary-btn my-3">{{ $womenBanner->btn_text ?? '' }}</a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- <div class="women-collection-banner banner">
+        <img src="" alt="" />
         <div class="row women-banner-container">
             <div class="col-xl-9 col-lg-6 col-md-12 col-sm-12">
                 <div class="women-collection-text px-4 py-2">
-                    <h2>{{ $womenBanner->title ?? '' }}</h2>
+                    <h2></h2>
                     <p>
-                        {!! $womenBanner->description ?? '' !!}
+                        
                     </p>
-                    <a href="{{ route('filter', ['type' => 'category', 'slug' => 'women']) }}" class="primary-btn">{{ $womenBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
+                    <a href="" class="primary-btn"> <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- end -->
+    </div> -->
+
     @endif
     <!-- women collection product -->
     <div class="women-collection-product py-4">
@@ -349,25 +514,55 @@
 
     @if ($superfineBanner)
     <!-- super fine collection banner -->
-    <div class="superfine-collection-banner banner">
-        <img src="{{ asset('images/' . ($superfineBanner->image ?? '')) }}" alt="" />
+    <div class="page-banner-container">
+        <!-- Banner image -->
+        <div class="hero-banner-desc">
+            <img src="{{ asset('images/' . ($superfineBanner->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="" />
+
+        </div>
+        <div class="hero-banner-mob">
+            <img src="{{ asset('frontend/assets/images/banners/small-banner.png') }}" class="w-100 h-100" alt="">
+        </div>
+        <div class="banner-content">
+            <div class="row">
+                <div class="col-lg-5 col-md-10">
+                    <!-- Banner Heading -->
+                    <span class="banner-heading">
+                    {{ $superfineBanner->title ?? '' }}
+
+                    </span>
+
+                    <!-- Banner content -->
+                    <span class="banner-p">
+                    {!! $superfineBanner->description ?? '' !!}
+                    </span>
+                    <!-- Banner button -->
+                    <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'superfine']) }}" class="primary-btn my-3">{{ $superfineBanner->btn_text ?? '' }}</a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- <div class="superfine-collection-banner banner">
+        <img src="" alt="" />
         <div class="row">
             <div class="col-lg-6 col-md-12 col-sm-12">
                 <div class="superfine-banner-container">
                     <div class="superfine-content">
                         <div class="superfine-collection-text px-4 py-2">
-                            <h2>{{ $superfineBanner->title ?? '' }}</h2>
+                            <h2></h2>
                             <p>
-                                {!! $superfineBanner->description ?? '' !!}
+                               
                             </p>
-                            <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'superfine']) }}" class="primary-btn">{{ $superfineBanner->btn_text ?? '' }} <i class="fas fa-arrow-right"></i></a>
+                            <a href="" class="primary-btn"> <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- end -->
     @endif
 
