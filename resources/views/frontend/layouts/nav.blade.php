@@ -88,13 +88,13 @@ Backend Developer : Rudra Rajbanshi.
     <div class="header__top">
         <div class="container-fluid header_second">
             <div class="row">
-                <div class="col-lg-4 col-md-3">
+                <div class="col-lg-5 col-md-12">
                     <div class="header__top__left">
                         <span class="currency">Currency:</span>
                         <div class="header__top__hover">
                             <form action="{{ route('currency.setter') }}" method="POST">
                                 @csrf
-                                <select name="currency" onchange="this.form.submit()" id="">
+                                <select name="currency" class="currency-select" onchange="this.form.submit()" id="">
                                     @foreach (currencies() as $currency)
                                         <option {{ Session::get('currency') == $currency->currency ? 'selected' : '' }}
                                             value="{{ $currency->currency }}">{{ $currency->currency }}</option>
@@ -108,7 +108,7 @@ Backend Developer : Rudra Rajbanshi.
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-9">
+                <div class="col-lg-7 col-md-9">
                     <div class="header__top__right">
                         <div class="header__top__links">
 
