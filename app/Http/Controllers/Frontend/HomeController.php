@@ -144,7 +144,10 @@ class HomeController extends Controller
     {
         return view('frontend.Request.catalogue');
     }
-
+    public function customMade()
+    {
+        return view('frontend.Request.custom');
+    }
     public function faq()
     {
         $faqs = Faq::latest()->get();
