@@ -168,6 +168,10 @@ a:link {
     background: #929292;
     padding: 10px 0;
 }
+.header__top .row{
+    align-items: center;
+
+}
 
 .header__top__left p {
     color: #ffffff;
@@ -221,6 +225,25 @@ a:link {
     position: relative;
     top: 3px;
     right: 2px;
+}
+.goog-te-combo{
+    background-color: transparent;
+    color: #ffffff;
+    padding: 10px;
+    border: 1px solid #ffffff;
+}
+.goog-te-combo option{
+    color: #000000;
+}
+.currency-select{
+    background-color: transparent;
+    color: #ffffff;
+    padding: 10px;
+    border: 1px solid #ffffff;
+
+}
+.currency-select option{
+    color: #000000;
 }
 .header__top__left .custom-select {
     background: none;
