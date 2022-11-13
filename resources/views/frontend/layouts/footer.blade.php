@@ -75,7 +75,7 @@
                             <a href="{{ route('colorRequest') }}">Color Card Request</a>
                         </li>
                         <li>
-                            <a href="#">Catologue Request</a>
+                            <a href="{{ route('catalogueRequest') }}">Catologue Request</a>
                         </li>
                         <li>
                             <a href="#">Custom Made</a>
