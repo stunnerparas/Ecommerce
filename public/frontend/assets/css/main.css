@@ -1,5 +1,5 @@
 /* importing font  */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,600;1,400&family=Nunito:ital,wght@1,300&display=swap");
 /* Body and some General Stuff */
@@ -311,7 +311,8 @@ a:link {
 }
 
 .pane {
-    display: none;
+    transform: scaleY(0);
+    transform-origin: top;
     position: absolute;
     top: 72px;
     width: 98%;
@@ -319,8 +320,9 @@ a:link {
     box-sizing: border-box;
     background-color: #f3f3f3;
     z-index: 9999;
+    transition: 500ms transform;
 }
-.pane .row{
+.pane .row {
     justify-content: center;
 }
 
@@ -453,20 +455,19 @@ a:link {
 
 /* Hero Section Start */
 
-.page-banner-container{
+.page-banner-container {
     width: 100%;
- 
+
     position: relative;
 }
-.page-banner-container .hero-banner-desc{
+.page-banner-container .hero-banner-desc {
     width: 100%;
     height: 100%;
-   
 }
-.page-banner-container .row{
+.page-banner-container .row {
     justify-content: center;
 }
-.banner-content{
+.banner-content {
     color: #000000;
     text-align: center;
     position: absolute;
@@ -478,37 +479,34 @@ a:link {
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.5);
 }
-.banner-heading{
+.banner-heading {
     font-size: 90px;
     line-height: 90px;
     display: block;
-    font-family: 'Nunito',sans-serif;
-    
+    font-family: "Nunito", sans-serif;
 }
-.banner-p{
+.banner-p {
     color: #000;
-    font-family: 'DM Sans',sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-size: 20px;
     display: block;
-   
 }
-.hero-banner-mob{
+.hero-banner-mob {
     display: none;
 }
-@media only screen and (max-width:1200px){
-    .banner-heading{
+@media only screen and (max-width: 1200px) {
+    .banner-heading {
         font-size: 60px;
     }
 }
-@media only screen and (max-width:900px){
-    .hero-banner-desc{
+@media only screen and (max-width: 900px) {
+    .hero-banner-desc {
         display: none;
     }
-    .hero-banner-mob{
+    .hero-banner-mob {
         display: block;
     }
 }
-
 
 /* Hero Section End */
 
@@ -582,8 +580,8 @@ a:link {
     width: 100%;
     height: auto;
     justify-content: center;
-   align-items: center;
-   display: flex;
+    align-items: center;
+    display: flex;
 }
 
 .product__item__pic .label {
@@ -763,7 +761,6 @@ a:link {
     padding: 20px 10px;
 }
 
-
 .signature-collection-banner img {
     width: 100%;
     height: 100%;
@@ -821,8 +818,8 @@ a:link {
     width: 100%;
     height: auto;
     justify-content: center;
-   align-items: center;
-   display: flex;
+    align-items: center;
+    display: flex;
 }
 
 .signature-collection-product .product_item_text a {
@@ -845,9 +842,8 @@ a:link {
     }
     .signature-content {
         width: 100%;
-       
+
         text-align: center;
-      
     }
     .signature-collection-text {
         padding: 0 !important;
@@ -883,7 +879,6 @@ a:link {
     }
 }
 @media only screen and (max-width: 530px) {
-    
 }
 @media only screen and (max-width: 475px) {
     .hero-banner-sm {
@@ -903,8 +898,6 @@ a:link {
     .hero-banner-image {
         display: none;
     }
-
-    
 }
 
 /* Signature Collection End */
@@ -973,7 +966,7 @@ a:link {
 .classic-collection-product .product__item__pic {
     width: 100%;
     height: auto;
-   
+
     justify-content: center;
     align-items: center;
     display: flex;
@@ -1086,11 +1079,11 @@ a:link {
 
 .accessories-collection-product .product__item__pic {
     width: 100%;
-   
+
     height: auto;
     justify-content: center;
-   align-items: center;
-   display: flex;
+    align-items: center;
+    display: flex;
 }
 
 .accessories-collection-product .product_item_text a {
@@ -1304,11 +1297,11 @@ a:link {
 
 .women-collection-product .product__item__pic {
     width: 100%;
-   
+
     height: auto;
     justify-content: center;
-   align-items: center;
-   display: flex;
+    align-items: center;
+    display: flex;
 }
 
 .women-collection-product .product_item_text a {
@@ -1366,13 +1359,10 @@ a:link {
 }
 
 .superfine-banner-container {
-   
     width: 100%;
 }
 
 .superfine-content {
- 
-   
     width: 725px;
 }
 .superfine-collection-text {
@@ -1417,12 +1407,11 @@ a:link {
 }
 
 .superfine-collection-product .product__item__pic {
-    
     width: 100%;
     height: auto;
-   justify-content: center;
-   align-items: center;
-   display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 .superfine-collection-product .product_item_text a {
@@ -1909,7 +1898,7 @@ a:link {
 /* Utility Classes */
 
 .primary-btn {
-    padding:35px 30px;
+    padding: 35px 30px;
     background: #626262;
     text-transform: capitalize;
     color: #fff;
@@ -2242,7 +2231,6 @@ a:link {
     border: 1px solid black;
     border-radius: 0px 0px 20px 20px;
 }
-
 
 .text-underline {
     text-decoration: underline;
@@ -3486,33 +3474,29 @@ a:link {
 .order-heading {
     font-size: 25px;
 }
-.order-status{
+.order-status {
     padding-top: 20px;
 }
-.box-container{
+.box-container {
     display: flex;
-
-
 }
-.status-box{
+.status-box {
     border-bottom: 1px solid #c9c9c9;
-  
+
     padding: 15px 20px;
-    
 }
-.status-icon span{
+.status-icon span {
     font-size: 80px;
 }
-.status-content{
+.status-content {
     padding-left: 20px;
     text-align: justify;
 }
-.status-heading{
+.status-heading {
     font-size: 25px;
-    font-family: 'Nunito' ,sans-serif;
-    
+    font-family: "Nunito", sans-serif;
 }
-.status-content p{
+.status-content p {
     padding-top: 6px;
 }
 .num-heading {
@@ -3523,21 +3507,19 @@ a:link {
     background-color: #3498db;
 }
 /* Cashmere type  */
-.cashmere-detail-heading{
+.cashmere-detail-heading {
     font-size: 35px;
-    font-family: 'Nunito',sans-serif;
+    font-family: "Nunito", sans-serif;
 }
-.type-cashmere-content .type-image{
+.type-cashmere-content .type-image {
     height: auto;
 }
-.featured-box ul{
+.featured-box ul {
     padding-left: 20px;
 }
-.featured-box ul li{
-    
+.featured-box ul li {
     list-style: disc;
     padding-bottom: 10px;
-
 }
 
 /* **************************************************Responsive Media Query***************************************************************** */
@@ -4048,7 +4030,7 @@ a:link {
     .signature-link-container {
         display: none;
     }
-    
+
     /* Gaurav */
     .product-img-container {
         width: 200px;
@@ -4086,7 +4068,6 @@ a:link {
         flex-direction: column;
     }
 
-   
     .status-text {
         z-index: 99;
     }
@@ -4098,16 +4079,16 @@ a:link {
     .orderTrackPlatform .form label {
         font-size: 20px;
     }
-    .status-content{
+    .status-content {
         padding: 10px;
     }
-    .status-icon{
+    .status-icon {
         display: none;
     }
-    .status-box{
+    .status-box {
         padding: 10px 0;
     }
-    .num-heading{
+    .num-heading {
         font-size: 18px;
     }
 }
@@ -4222,14 +4203,14 @@ a:link {
     }
 }
 @media only screen and (max-width: 388px) {
-    .color-image{
+    .color-image {
         width: 100% !important;
         height: auto !important;
     }
-    .color-box{
+    .color-box {
         flex-direction: column;
     }
-    .color-content{
+    .color-content {
         padding-top: 10px;
     }
 }
