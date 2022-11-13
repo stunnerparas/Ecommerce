@@ -311,8 +311,8 @@ a:link {
 }
 
 .pane {
-    transform: scaleY(0);
-    transform-origin: top;
+    display: none;
+   
     position: absolute;
     top: 72px;
     width: 98%;
@@ -320,7 +320,7 @@ a:link {
     box-sizing: border-box;
     background-color: #f3f3f3;
     z-index: 9999;
-    transition: 500ms transform;
+   
 }
 .pane .row {
     justify-content: center;
