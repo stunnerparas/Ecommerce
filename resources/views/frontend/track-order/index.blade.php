@@ -8,8 +8,12 @@
         <div class="track-heading d-flex justify-content-between">
             <!-- order number -->
             <div class="order-no">
-                <span class="order-heading">
+                <span class="order-heading d-block">
                     Order: <span style="color:#e53637;"> #3bc878</span>
+
+                </span>
+                <span class="num-heading d-block py-2">
+                   Estimated Date: 2022 Nov 3
 
                 </span>
 
@@ -18,8 +22,8 @@
             <div class="track-num d-flex flex-column">
                 <Span class="num-heading"> Shipping Method : DHL </Span>
 
-
-                <Span class="num-heading py-2"> Estimate date : 2079/9/8 </Span>
+                <Span class="num-heading py-2">URL: <a href="#"> www.dhl.com/trackorder </a></Span>
+                
                 <Span class="num-heading"> Tracking Number : 12654789 </Span>
             </div>
 
