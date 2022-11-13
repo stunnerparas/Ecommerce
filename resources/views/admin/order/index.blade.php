@@ -39,14 +39,14 @@
                                                 <td>{{ $order->user->name ?? 'Not Registered' }}</td>
                                                 <td>{{ $order->payment_method ?: 'NA' }}</td>
                                                 <td>{{ $order->currency ?? '' }}</td>
-                                                <td>{{ $order->total_amount }}</td>
+                                                <td>{{ $order->total_amount + ($order->shipping_charge ?? 0) - ($order->coupon->discount ?? 0) }}</td>
                                                 <td>{{ $order->status }}</td>
                                                 <td>{{ date('Y-m-d, h:i A', strtotime($order->created_at)) }}</td>
                                                 <td>{{ $order->is_seen ? 'Seen' : '' }}</td>
 
                                                 <td>
                                                     <div class="row">
-                                                        @can('View Order Details', $post)
+                                                        @can('View Order Details')
                                                             <a class="btn btn-success mr-1"
                                                                 href="{{ route('admin.orders.items', $order->id) }}">View</a>
                                                         @endcan

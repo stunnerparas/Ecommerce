@@ -41,6 +41,20 @@
         body {
             top: 0px !important;
         }
+
+        .google-translate {
+            display: inline-block;
+            vertical-align: top;
+            padding-top: 15px;
+        }
+
+        .goog-logo-link {
+            display: none !important;
+        }
+
+        .goog-te-gadget {
+            color: transparent !important;
+        }
     </style>
 </head>
 
@@ -62,7 +76,6 @@
     </script>
     <!--End of Tawk.to Script-->
 
-    <div id="google_translate_element"></div>
 
     <div class="super-container">
         @include('frontend.layouts.nav')
@@ -75,9 +88,9 @@
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
-                // layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
-                // includedLanguages: 'es,en',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+                includedLanguages: 'es,en,fr,de,it,dk,ne',
+                // layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
                 autoDisplay: false
             }, 'google_translate_element');
         }

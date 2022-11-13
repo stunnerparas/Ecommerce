@@ -73,13 +73,19 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">
-                                                <p class="font-weight-bold">Order No</p>
+                                                <p class="font-weight-bold">SN</p>
+                                            </th>
+                                            <th scope="col">
+                                                <p class="font-weight-bold">Order Number</p>
                                             </th>
                                             <th scope="col">
                                                 <p class="font-weight-bold">Order Date</p>
                                             </th>
                                             <th scope="col">
                                                 <p class="font-weight-bold">Total Price</p>
+                                            </th>
+                                            <th scope="col">
+                                                <p class="font-weight-bold">Currency</p>
                                             </th>
                                             <th scope="col">
                                                 <p class="font-weight-bold">Status</p>
@@ -97,10 +103,16 @@
                                                     <p>{{ $key + 1 }}</p>
                                                 </th>
                                                 <td>
+                                                    <p>{{ $order->order_number }}</p>
+                                                </td>
+                                                <td>
                                                     <p>{{ date('Y-m-d, h:i A', strtotime($order->created_at)) }}</p>
                                                 </td>
                                                 <td>
-                                                    <p>{{ $order->total_amount }}</p>
+                                                    <p>{{ $order->total_amount + ($order->shipping_charge ?? 0) - ($order->coupon->discount ?? 0) }}</p>
+                                                </td>
+                                                <td>
+                                                    <p>{{ $order->currency ?? '-' }}</p>
                                                 </td>
                                                 <td>
                                                     <p>{{ $order->status }}</p>

@@ -27,14 +27,14 @@
                                                     class="product-name font-weight-bold my-auto d-flex flex-column align-content-start">
                                                     {{ $item->product->name }}
                                                     <p class="product-price my-2 d-flex justify-content-lg-start">
-                                                        ${{ $item->product->price }}</p>
+                                                        {{ currencySymbol() }}{{ $item->product->price }}</p>
                                                 </h5>
                                                 <div class="mt-5" data-quantity="">
                                                     <p class=" d-flex justify-content-lg-start">
                                                         {{ ($item->size->name ?? '') . ' / ' . ($item->color->name ?? '') }}
                                                     </p>
                                                 </div>
-                                                <p class="product-total-price my-auto">${{ $item->product->price }}
+                                                <p class="product-total-price my-auto">{{ currencySymbol() }}{{ $item->product->price }}
                                                 </p>
                                             </div>
                                             <a href="{{ route('wishlist.destroy', $item->id) }}"

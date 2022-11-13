@@ -17,6 +17,7 @@ class Company extends Model
         'description',
         'date',
         'website',
+        'shipping_charge',
     ];
 
     public const currency = [

@@ -13,7 +13,7 @@
                             <h4>New Orders</h4>
                         </div>
                         <div class="card-body">
-                            10
+                            {{ $orders }}
                         </div>
                     </div>
                 </div>
@@ -25,10 +25,10 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Registered Users</h4>
+                            <h4>Registered Customers</h4>
                         </div>
                         <div class="card-body">
-                            20
+                            {{ $customers }}
                         </div>
                     </div>
                 </div>
@@ -40,10 +40,10 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Registered Business Users</h4>
+                            <h4>Registered Business Customers</h4>
                         </div>
                         <div class="card-body">
-                            8
+                            {{ $business }}
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                             <h4>Pending Tickets</h4>
                         </div>
                         <div class="card-body">
-                            2
+                            {{ $tickets }}
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                             <h4>Total Products</h4>
                         </div>
                         <div class="card-body">
-                            100
+                            {{ $products }}
                         </div>
                     </div>
                 </div>
