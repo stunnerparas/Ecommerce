@@ -140,6 +140,10 @@ class HomeController extends Controller
     {
         return view('frontend.Request.colorcard');
     }
+    public function catalogueRequest()
+    {
+        return view('frontend.Request.catalogue');
+    }
 
     public function faq()
     {
