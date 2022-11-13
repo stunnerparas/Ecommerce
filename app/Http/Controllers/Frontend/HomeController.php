@@ -136,6 +136,10 @@ class HomeController extends Controller
     {
         return view('frontend.detail.color');
     }
+    public function colorRequest()
+    {
+        return view('frontend.Request.colorcard');
+    }
 
     public function faq()
     {
