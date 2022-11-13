@@ -150,3 +150,5 @@ Route::get('/cashmeretype/vicuna',[HomeController::class,'Typecashmere'])->name(
 Route::get('/Request/colorcard',[HomeController::class,'colorRequest'])->name('colorRequest');
 // catalogue request
 Route::get('/Request/catalogue',[HomeController::class,'catalogueRequest'])->name('catalogueRequest');
+// catalogue request
+Route::get('/Request/custom',[HomeController::class,'customMade'])->name('customMade');
