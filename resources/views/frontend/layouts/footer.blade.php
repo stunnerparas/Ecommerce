@@ -78,7 +78,7 @@
                             <a href="{{ route('catalogueRequest') }}">Catologue Request</a>
                         </li>
                         <li>
-                            <a href="#">Custom Made</a>
+                            <a href="{{ route('customMade') }}">Custom Made</a>
                         </li>
                         <li>
                             <a href="#">Made To Order</a>
