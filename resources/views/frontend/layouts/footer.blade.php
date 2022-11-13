@@ -72,7 +72,7 @@
                     <ul class="navbar-nav">
                         <!--Footer Links -->
                         <li>
-                            <a href="#">Color Card Request</a>
+                            <a href="{{ route('colorRequest') }}">Color Card Request</a>
                         </li>
                         <li>
                             <a href="#">Catologue Request</a>
