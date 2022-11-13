@@ -148,3 +148,5 @@ Route::get('coupon-code/{coupon}', [CheckoutController::class, 'checkCouponCode'
 Route::get('/cashmeretype/vicuna',[HomeController::class,'Typecashmere'])->name('Typecashmere');
 // Color card request
 Route::get('/Request/colorcard',[HomeController::class,'colorRequest'])->name('colorRequest');
+// catalogue request
+Route::get('/Request/catalogue',[HomeController::class,'catalogueRequest'])->name('catalogueRequest');
