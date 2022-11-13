@@ -134,9 +134,7 @@
                     <span class="banner-p">
                         {!! $signatureBanner->description ?? '' !!}
                     </span>
-                    <!-- Banner button -->
-                    <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'signature']) }}" class="primary-btn my-3">{{ $signatureBanner->btn_text ?? '' }} </a>
-
+                  
                 </div>
             </div>
 
