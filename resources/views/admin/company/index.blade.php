@@ -107,6 +107,20 @@
                                                 @enderror
                                             </div>
 
+                                            <div class="form-group">
+                                                <label>Shipping Charge</label>
+                                                <input type="text" value="{{ old('shipping_charge', $company->shipping_charge) }}"
+                                                    name="shipping_charge" class="form-control" required>
+                                                <div class="invalid-feedback">
+                                                    Shipping Charge is required
+                                                </div>
+                                                @error('shipping_charge')
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+
 
                                             <div class="form-group">
                                                 <label>Description</label>

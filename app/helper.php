@@ -174,6 +174,10 @@ function sendCustomerMail($to, $subject, $message)
 
 function shippingCharge()
 {
-    return 10;
+    $company = Company::latest()->first();
+    if($company){
+        return $company->shipping_charge ?: 0;
+    }
+    return 0;
 }
 

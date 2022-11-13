@@ -42,7 +42,6 @@ Backend Developer : Rudra Rajbanshi.
                 <li class="offcanvas-li" id="offcanvas-women-li">
                     <a href="{{ route('filter', ['type' => 'category', 'slug' => $main->slug]) }}">{{ $main->name ?? '' }}
                         @if (getChildCategories($main->id)->count() > 0)
-                          
                         @endif
                     </a>
                     @if (getChildCategories($main->id)->count() > 0)
@@ -103,11 +102,16 @@ Backend Developer : Rudra Rajbanshi.
                                 </select>
                             </form>
                         </div>
+
+                        <div class="header__top__hover">
+                            <div id="google_translate_element"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-9">
                     <div class="header__top__right">
                         <div class="header__top__links">
+
                             <a href="{{ route('order-tracking') }}">Order Tracker</a>
                             <a href="{{ route('my-orders') }}">My Orders</a>
                             <a href="{{ route('compare') }}">Compare</a>
@@ -153,7 +157,7 @@ Backend Developer : Rudra Rajbanshi.
             <!-- Navigation icons
              -->
             <div class="col-lg-3 col-md-3 text-center px-4 nav-icons">
-                <a href="#" class="search-switch"><span class="material-symbols-outlined google-icon">
+                <a href="#" class="search-switch"><span class="material-symbols-outlined google-icon notranslate">
                         search
                     </span></a>
                 <!-- Search Model -->
@@ -166,14 +170,14 @@ Backend Developer : Rudra Rajbanshi.
                         </form>
                     </div>
                 </div>
-                <a href="{{ route('wishlist.index') }}"><span class="material-symbols-outlined google-icon">
+                <a href="{{ route('wishlist.index') }}"><span class="material-symbols-outlined google-icon notranslate">
                         favorite
                     </span></a>
-                <a href="{{ route('cart.index') }}"><span class="material-symbols-outlined google-icon">
+                <a href="{{ route('cart.index') }}"><span class="material-symbols-outlined google-icon notranslate">
                         shopping_cart
                     </span></a>
                 @if (Auth::check())
-                    <a href="{{ route('myaccount') }}"><span class="material-symbols-outlined google-icon">
+                    <a href="{{ route('myaccount') }}"><span class="material-symbols-outlined google-icon notranslate">
                             account_circle
                         </span></a>
                 @endif
