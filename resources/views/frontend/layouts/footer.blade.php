@@ -81,7 +81,7 @@
                             <a href="{{ route('customMade') }}">Custom Made</a>
                         </li>
                         <li>
-                            <a href="#">Made To Order</a>
+                            <a href="{{ route('orderRequest') }}">Made To Order</a>
                         </li>
                         <li>
                             <a href="#">Private Label</a>

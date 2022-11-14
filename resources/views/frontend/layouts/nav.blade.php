@@ -103,9 +103,7 @@ Backend Developer : Rudra Rajbanshi.
                             </form>
                         </div>
 
-                        <div class="header__top__hover">
-                            <div id="google_translate_element"></div>
-                        </div>
+                       
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-9">
