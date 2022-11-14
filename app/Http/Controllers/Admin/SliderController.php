@@ -54,8 +54,9 @@ class SliderController extends Controller
     {
         abort_unless(Gate::allows('Create Banner'), 403);
 
-        $input = $request->except('image');
+        $input = $request->except('image', 'mobile_image');
         $input['image'] = $this->fileUpload($request, 'image');
+        $input['mobile_image'] = $this->fileUpload($request, 'mobile_image');
         Slider::create($input);
         createLog('created a new slider'); // activity log
 
@@ -104,6 +105,12 @@ class SliderController extends Controller
             $input['image'] = $image;
         }
 
+        $mobile_image = $this->fileUpload($request, 'mobile_image');
+        if ($mobile_image) {
+            $this->removeFile($slider->mobile_image);
+            $input['mobile_image'] = $mobile_image;
+        }
+
         $slider->update($input);
         createLog('edited a slider'); // activity log
 
@@ -121,6 +128,7 @@ class SliderController extends Controller
         abort_unless(Gate::allows('Delete Banner'), 403);
 
         $this->removeFile($slider->image);
+        $this->removeFile($slider->mobile_image);
         $slider->delete();
         createLog('deleted a slider'); // activity log
 

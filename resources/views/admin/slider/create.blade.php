@@ -74,7 +74,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>Image (Web View)</label>
                                                 <br>
                                                 <input type="file" name="image" class="preview-image">
                                                 <br>
@@ -82,6 +82,20 @@
                                                     id="view-image" alt="">
                                             </div>
                                             @error('image')
+                                                <div class="invalid-feedback" style="display: block;">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+
+                                            <div class="form-group">
+                                                <label>Image (Mobile View)</label>
+                                                <br>
+                                                <input type="file" name="mobile_image" class="preview-image">
+                                                <br>
+                                                <img src="" style="height:130px" class="preview-image-src"
+                                                    id="view-image" alt="">
+                                            </div>
+                                            @error('mobile_image')
                                                 <div class="invalid-feedback" style="display: block;">
                                                     {{ $message }}
                                                 </div>

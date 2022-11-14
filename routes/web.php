@@ -5,6 +5,7 @@ use App\Http\Controllers\Frontend\AuthController;
 use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Frontend\CompareController;
 use App\Http\Controllers\Frontend\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ProductController;
@@ -126,7 +127,8 @@ Route::post('/set-currency', [HomeController::class, 'setCurrency'])->name('curr
 
 
 // Compare
-Route::get('/compare', [HomeController::class, 'compare'])->name('compare');
+Route::get('/compare', [CompareController::class, 'index'])->name('compare');
+Route::get('/compare/auto-complete', [CompareController::class, 'globalSearch'])->name('compare.autocomplete');
 
 // forgot password
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
@@ -134,17 +136,17 @@ Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPa
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
-// detail 
+// detail
 Route::get('/detail/yarn',[HomeController::class,'detailYarn'])->name('detailYarn');
-// Knit detail 
+// Knit detail
 Route::get('/detail/knit',[HomeController::class,'detailKnit'])->name('detailKnit');
-// Knit detail 
+// Knit detail
 Route::get('/detail/color',[HomeController::class,'detailColor'])->name('detailColor');
 
 //coupon discount
 Route::get('coupon-code/{coupon}', [CheckoutController::class, 'checkCouponCode'])->name('check.coupon.code');
 
-// cashmere type 
+// cashmere type
 Route::get('/cashmeretype/vicuna',[HomeController::class,'Typecashmere'])->name('Typecashmere');
 // Color card request
 Route::get('/Request/colorcard',[HomeController::class,'colorRequest'])->name('colorRequest');

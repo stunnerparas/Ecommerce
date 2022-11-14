@@ -83,3 +83,6 @@ Route::get('/reports', [ReportController::class, 'index'])->name('reports.index'
 // global search
 Route::get('/search-results', [DashboardController::class, 'globalSearch'])->name('global.search');
 Route::get('/filter', [DashboardController::class, 'globalSearchPage'])->name('global.search.page');
+
+// remove category images
+Route::get('/remove/{category}/{type}', [CategoryController::class, 'removeImage'])->name('remove.category.image');
