@@ -84,12 +84,12 @@
     </div>
 
     <!-- about founder -->
-    <div class="about-founder">
+    <!-- <div class="about-founder">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12 py-5">
                     <div class="content px-4">
-                        <!-- heading -->
+                       
                         <h2>THE FOUNDER | Rakesh Singh</h2>
 
                         <p class="pt-3 text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum perspiciatis, atque facere, itaque natus ea quis minima iste beatae nihil nesciunt sunt laborum nam animi quod error unde praesentium et deleniti earum. Fuga ullam amet eaque architecto nam nulla repellat. A voluptatem distinctio ad non rem enim voluptas nam sit velit iure consequuntur, dolorem eaque, nemo ab id facere veniam aperiam quis impedit quod saepe. Vero vitae vel excepturi laudantium aspernatur molestias fugiat nobis molestiae repellendus consequatur minus fuga nesciunt officiis laboriosam aut, nam facilis deleniti at doloribus mollitia, soluta necessitatibus dolore. Consectetur facilis dolor ipsum pariatur aliquid labore amet.</p>
@@ -104,7 +104,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
 
