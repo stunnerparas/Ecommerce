@@ -152,3 +152,5 @@ Route::get('/Request/colorcard',[HomeController::class,'colorRequest'])->name('c
 Route::get('/Request/catalogue',[HomeController::class,'catalogueRequest'])->name('catalogueRequest');
 // catalogue request
 Route::get('/Request/custom',[HomeController::class,'customMade'])->name('customMade');
+// catalogue request
+Route::get('/Request/order',[HomeController::class,'orderRequest'])->name('orderRequest');
