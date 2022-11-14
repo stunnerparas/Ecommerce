@@ -148,6 +148,11 @@ class HomeController extends Controller
     {
         return view('frontend.Request.custom');
     }
+    public function orderRequest()
+    {
+        return view('frontend.Request.order');
+    }
+
     public function faq()
     {
         $faqs = Faq::latest()->get();
