@@ -285,6 +285,11 @@ a:link {
 }
 
 /* Bottom Navigation */
+.header__logo{
+    width: 90px;
+    height: auto;
+
+}
 
 .header__logo a {
     display: inline-block;
@@ -304,6 +309,7 @@ a:link {
 
 .navbar_bottom {
     background: #ffffff;
+    padding: 10px;
 }
 
 #menuElem {
