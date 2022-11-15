@@ -236,7 +236,7 @@ Backend Developer : Rudra Rajbanshi.
                                                 class="pane-link">Vicuna</a>
                                         </li>
                                         <li>
-                                            <a href=""
+                                            <a href="{{ route('organicCashmere') }}"
                                                 class="pane-link">Organic Cashmere</a>
                                         </li>
                                  
