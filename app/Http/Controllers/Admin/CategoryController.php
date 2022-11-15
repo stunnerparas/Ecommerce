@@ -199,4 +199,19 @@ class CategoryController extends Controller
 
         return $category->id;
     }
+
+    public function removeImage(Category $category, $type)
+    {
+        if ($type == 'banner') {
+            $this->removeFile($category->banner);
+            $category->update(['banner' => null]);
+        }
+
+        if ($type == 'image') {
+            $this->removeFile($category->image);
+            $category->update(['image' => null]);
+        }
+
+        return redirect()->back();
+    }
 }

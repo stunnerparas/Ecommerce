@@ -42,8 +42,8 @@
                         <li>
                             <a href="{{ route('faq') }}">FAQs</a>
                         </li>
-                        
-                     
+
+
                         <li>
                             <a href="{{ route('blogs') }}">Kanchan Blogs</a>
                         </li>
@@ -98,7 +98,7 @@
                 <div class="footer-list my-2">
                     <ul class="navbar-nav">
                         <li>
-                            <a href="{{ route('order.tracker') }}">Track My Order</a>
+                            <a href="{{ route('order-tracking') }}">Track My Order</a>
                         </li>
                         <li>
                             <a href="#">Order History</a>
@@ -114,7 +114,7 @@
                     find all the info you need quickly
                 </p>
                 <div class="help-center my-4">
-                    <a href="">Visit our Help Center</a>
+                    <a href="{{ route('helpDesk') }}">Visit our Help Center</a>
                 </div>
                 <div class="shipping-partner my-4">
                     <h4>Shipping Partner</h4>

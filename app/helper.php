@@ -175,9 +175,19 @@ function sendCustomerMail($to, $subject, $message)
 function shippingCharge()
 {
     $company = Company::latest()->first();
-    if($company){
+    if ($company) {
         return $company->shipping_charge ?: 0;
     }
     return 0;
 }
 
+function getPatentCategory($parent_id)
+{
+    $category = Category::where('id', $parent_id)->first();
+    if ($category) {
+        if ($category->parent_id != 0) {
+            return getPatentCategory($category->parent_id);
+        }
+    }
+    return $category;
+}

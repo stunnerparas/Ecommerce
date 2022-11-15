@@ -107,7 +107,7 @@
                                                     @foreach ($customers as $customer)
                                                         <option
                                                             {{ old('user_id', $manageshipping->user_id) == $customer->id ? 'selected' : '' }}
-                                                            value="{{ $customer->id }}">{{ $customer->name }}</option>
+                                                            value="{{ $customer->id }}">{{ $customer->name }} ({{ $customer->email }})</option>
                                                     @endforeach
                                                 </select>
                                                 <div class="invalid-feedback">

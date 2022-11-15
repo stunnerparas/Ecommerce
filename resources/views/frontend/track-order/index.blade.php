@@ -23,7 +23,7 @@
                 <Span class="num-heading"> Shipping Method : DHL </Span>
 
                 <Span class="num-heading py-2">URL: <a href="#"> www.dhl.com/trackorder </a></Span>
-                
+
                 <Span class="num-heading"> Tracking Number : 12654789 </Span>
             </div>
 

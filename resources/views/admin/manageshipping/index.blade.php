@@ -6,8 +6,8 @@
             <h1>Shipping Details</h1>
             <div class="section-header-breadcrumb">
                 {{-- @can('Create Page') --}}
-                    <a class="btn btn-primary" href="{{ route('admin.manageshipping.create') }}"><i class="fas fa-plus"></i>
-                        Create</a>
+                <a class="btn btn-primary" href="{{ route('admin.manageshipping.create') }}"><i class="fas fa-plus"></i>
+                    Create</a>
                 {{-- @endcan --}}
             </div>
         </div>
@@ -23,10 +23,10 @@
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
+                                            <th scope="col">Customer</th>
                                             <th scope="col">Tracking Number</th>
                                             <th scope="col">Shipping Method</th>
                                             <th scope="col">Estimated Arrival Date</th>
-                                            <th scope="col">Customer</th>
                                             <th scope="col">Status</th>
                                             <th scope="col">Action</th>
                                         </tr>
@@ -34,30 +34,32 @@
                                     <tbody>
                                         @foreach ($manageshippings as $manageshipping)
                                             <tr>
+                                                <td>{{ $manageshipping->user->name ?? '' }}
+                                                    ({{ $manageshipping->user->email ?? '' }})</td>
                                                 <td>{{ $manageshipping->tracking_number }}</td>
                                                 <td>{{ $manageshipping->shipping_method }}</td>
                                                 <td>{{ $manageshipping->estimated_arrival_date }}</td>
-                                                <td>{{ $manageshipping->user_id }}</td>
                                                 <td>{{ $manageshipping->shipping_status }}</td>
 
                                                 <td>
                                                     <div class="row">
 
                                                         {{-- @can('Edit Page') --}}
-                                                            <a class="btn btn-success mr-1"
-                                                                href="{{ route('admin.manageshipping.edit', $manageshipping->id) }}">Edit</a>
+                                                        <a class="btn btn-success mr-1"
+                                                            href="{{ route('admin.manageshipping.edit', $manageshipping->id) }}">Edit</a>
                                                         {{-- @endcan --}}
 
                                                         {{-- @can('Delete Page') --}}
-                                                            <form class=""
-                                                                action="{{ route('admin.manageshipping.destroy', $manageshipping->id) }}"
-                                                                method="POST">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button class="btn btn-danger delete-manageshipping" type="submit">
-                                                                    Delete
-                                                                </button>
-                                                            </form>
+                                                        <form class=""
+                                                            action="{{ route('admin.manageshipping.destroy', $manageshipping->id) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="btn btn-danger delete-manageshipping"
+                                                                type="submit">
+                                                                Delete
+                                                            </button>
+                                                        </form>
                                                         {{-- @endcan --}}
 
                                                     </div>

@@ -16,6 +16,7 @@ class Slider extends Model
         'btn_text',
         'btn_link',
         'category',
+        'mobile_image',
     ];
 
     public const positions = [

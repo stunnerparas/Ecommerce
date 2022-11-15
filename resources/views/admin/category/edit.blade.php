@@ -11,8 +11,7 @@
                             class="fas fa-arrow-left"></i>
                         Back</a>
                 @else
-                    <a class="btn btn-secondary" href="{{ route('admin.categories.index') }}"><i
-                            class="fas fa-arrow-left"></i>
+                    <a class="btn btn-secondary" href="{{ route('admin.categories.index') }}"><i class="fas fa-arrow-left"></i>
                         Back</a>
                 @endif
             </div>
@@ -33,8 +32,8 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Name</label>
-                                                <input type="text" value="{{ old('name', $category->name) }}" name="name"
-                                                    class="form-control" required="">
+                                                <input type="text" value="{{ old('name', $category->name) }}"
+                                                    name="name" class="form-control" required="">
                                                 <div class="invalid-feedback">
                                                     Name is required
                                                 </div>
@@ -64,8 +63,7 @@
 
                                             <div class="form-group">
                                                 <label>Description</label>
-                                                <textarea name="description" class="summernote"
-                                                    style="display: none;">{{ old('description', $category->description) }}</textarea>
+                                                <textarea name="description" class="summernote" style="display: none;">{{ old('description', $category->description) }}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -74,16 +72,28 @@
                                                 <br>
                                                 <input type="file" name="banner" class="preview-image">
                                                 <br>
-                                                <img src="{{ asset('images/' . ($category->banner ?: 'no-image.png')) }}"
-                                                    style="height:130px" class="preview-image-src" id="view-image" alt="">
+                                                @if ($category->banner)
+                                                    <img src="{{ asset('images/' . ($category->banner ?: 'no-image.png')) }}"
+                                                        style="height:130px" class="preview-image-src" id="view-image"
+                                                        alt="">
+                                                    <br>
+                                                    <a href="{{ route('admin.remove.category.image', ['category' => $category->id, 'type' => 'banner']) }}"
+                                                        class="btn btn-danger btn-sm">Remove Image</a>
+                                                @endif
                                             </div>
                                             <div class="form-group">
                                                 <label>Image</label>
                                                 <br>
                                                 <input type="file" name="image" class="preview-image">
                                                 <br>
-                                                <img src="{{ asset('images/' . ($category->image ?: 'no-image.png')) }}"
-                                                    style="height:130px" class="preview-image-src" id="view-image" alt="">
+                                                @if ($category->image)
+                                                    <img src="{{ asset('images/' . ($category->image ?: 'no-image.png')) }}"
+                                                        style="height:130px" class="preview-image-src" id="view-image"
+                                                        alt="">
+                                                    <br>
+                                                    <a href="{{ route('admin.remove.category.image', ['category' => $category->id, 'type' => 'image']) }}"
+                                                        class="btn btn-danger btn-sm">Remove Image</a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreChangePasswordRequest;
 use App\Models\BillingAddress;
+use App\Models\ManageShipping;
 use App\Models\Order;
 use App\Models\OrderItems;
 use App\Models\ShippingAddress;
@@ -102,5 +103,14 @@ class UserController extends Controller
             $request->all()
         );
         return redirect()->back()->with('success', 'Billing Address Updated');
+    }
+
+    public function dhlTracker()
+    {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+        $shippings = ManageShipping::where('user_id', Auth::user()->id)->get();
+        return view('frontend.track-order.dhl-tracker', compact('shippings'));
     }
 }
