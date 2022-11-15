@@ -161,4 +161,6 @@ Route::get('/Request/order',[HomeController::class,'orderRequest'])->name('order
 Route::get('/Request/private',[HomeController::class,'privateLabel'])->name('privateLabel');
 // term and condition
 Route::get('/terms/term',[HomeController::class,'termCondition'])->name('termCondition');
+// term and condition
+Route::get('/cashmeretype/organic',[HomeController::class,'organicCashmere'])->name('organicCashmere');
 
