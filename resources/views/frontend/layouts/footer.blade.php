@@ -37,7 +37,7 @@
                             <a href="{{ route('aboutUs') }}">About us</a>
                         </li>
                         <li>
-                            <a href="{{ route('page', 'terms-and-conditions') }}">Terms And Conditions</a>
+                            <a href="{{ route('termCondition') }}">Terms And Conditions</a>
                         </li>
                         <li>
                             <a href="{{ route('faq') }}">FAQs</a>
