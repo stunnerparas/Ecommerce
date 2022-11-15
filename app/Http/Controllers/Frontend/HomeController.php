@@ -160,6 +160,10 @@ class HomeController extends Controller
     {
         return view('frontend.terms.term');
     }
+    public function organicCashmere()
+    {
+        return view('frontend.cashmeretype.organic');
+    }
 
     public function faq()
     {
