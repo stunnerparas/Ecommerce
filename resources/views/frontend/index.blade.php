@@ -462,11 +462,12 @@
     <!-- super fine collection banner -->
    <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'superfine']) }}">
    <div class="page-banner-container">
-        <!-- Banner image -->
+        <!-- Banner image for desktop -->
         <div class="hero-banner-desc">
             <img src="{{ asset('images/' . ($superfineBanner->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="" />
 
         </div>
+         <!-- Banner image for mobile -->
         <div class="hero-banner-mob">
             <img src="{{ asset('frontend/assets/images/banners/small-banner.png') }}" class="w-100 h-100" alt="">
         </div>
