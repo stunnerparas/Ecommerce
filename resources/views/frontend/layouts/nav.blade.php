@@ -148,6 +148,10 @@ Backend Developer : Rudra Rajbanshi.
                                         href="{{ route('filter', ['type' => 'category', 'slug' => $category->slug]) }}">{{ $category->name }}</a>
                                 </li>
                             @endforeach
+                            <li id="sub-menu-world" class="sub-menu-click" data-category="{{ $category->slug }}">
+                                    <a
+                                        href="">Our World</a>
+                                </li>
                         </ul>
                     </div>
                 </nav>
@@ -218,6 +222,40 @@ Backend Developer : Rudra Rajbanshi.
                 </div>
             </div>
         @endforeach
+        <div class="pane" id="world-pane">
+                <div class="container-fluid">
+                    <div class="row">
+                       
+                            <div class="col-lg-2 pane-column">
+                                <a href=""
+                                    class="pane-heading">Our Excellence</a>
+                                <ul>
+                                  
+                                        <li>
+                                            <a href="{{ route('Typecashmere') }}"
+                                                class="pane-link">Vicuna</a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="pane-link">Organic Cashmere</a>
+                                        </li>
+                                 
+                                </ul>
+                            </div>
+                      
+
+                       
+                            <div class="col-lg-2 pane-image-column">
+                                <img src="{{ asset('frontend/assets/images/ourworld.jpg') }}" alt="" />
+                            </div>
+                     
+                       
+                           
+                      
+
+                    </div>
+                </div>
+            </div>
 
         <div class="canvas__open"><i class="fa fa-bars"></i></div>
     </div>
