@@ -157,3 +157,5 @@ Route::get('/Request/catalogue',[HomeController::class,'catalogueRequest'])->nam
 Route::get('/Request/custom',[HomeController::class,'customMade'])->name('customMade');
 // catalogue request
 Route::get('/Request/order',[HomeController::class,'orderRequest'])->name('orderRequest');
+// private label
+Route::get('/Request/private',[HomeController::class,'privateLabel'])->name('privateLabel');
