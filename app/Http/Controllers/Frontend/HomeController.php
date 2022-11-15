@@ -152,6 +152,10 @@ class HomeController extends Controller
     {
         return view('frontend.Request.order');
     }
+    public function privateLabel()
+    {
+        return view('frontend.Request.private');
+    }
 
     public function faq()
     {
