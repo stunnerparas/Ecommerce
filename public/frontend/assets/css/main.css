@@ -4069,6 +4069,9 @@ a:link {
     .specification-box {
         padding: 20px;
     }
+    .product__item__pic{
+        height: auto !important;
+    }
     .accessories-link-container {
         display: none;
     }
