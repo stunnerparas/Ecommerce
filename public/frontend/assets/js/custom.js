@@ -16,6 +16,24 @@ $(".pane").hover(
         $(this).css("display", "none");
     }
 );
+// Our World Sub menu
+
+$("#sub-menu-world").hover(function () {
+    $("#world-pane").css("display", "block");
+    $("#cashmere-pane").css("display", "none");
+    $("#lookbook-pane").css("display", "none");
+    $("#men-pane").css("display", "none");
+    $("#women-pane").css("display", "none");
+    $("#home-pane").css("display", "none");
+
+    $("#accessories-pane").css("display", "none");
+});
+$("#world-pane").hover(
+    function () {},
+    function () {
+        $(this).css("display", "none");
+    }
+);
 
 reply = () => {
     let replyInput = document.getElementById("replyComment");
