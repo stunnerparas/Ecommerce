@@ -101,7 +101,7 @@
                             <a href="{{ route('order-tracking') }}">Track My Order</a>
                         </li>
                         <li>
-                            <a href="#">Order History</a>
+                            <a href="{{ route('my-orders') }}">Order History</a>
                         </li>
                     </ul>
                 </div>
