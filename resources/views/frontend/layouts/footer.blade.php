@@ -84,7 +84,7 @@
                             <a href="{{ route('orderRequest') }}">Made To Order</a>
                         </li>
                         <li>
-                            <a href="#">Private Label</a>
+                            <a href="{{ route('privateLabel') }}">Private Label</a>
                         </li>
                         <li>
                             <a href="{{ route('business.login') }}">B2B</a>
