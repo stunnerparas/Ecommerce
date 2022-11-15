@@ -129,7 +129,7 @@ Backend Developer : Rudra Rajbanshi.
     <!-- Bottom Navigation -->
     <div class="container-fluid navbar_bottom">
         <!-- Navigation Main -->
-        <div class="row">
+        <div class="row" id="navbar-row">
             <!-- Logo Section -->
             <div class="col-lg-2 col-md-6 col-sm-6 col-10">
                 <div class="header__logo">
