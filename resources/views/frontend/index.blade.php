@@ -439,26 +439,7 @@
 <!-- Women Collection End -->
 <!-- Superfine Collection Started -->
 <section class="superfine-collection my-2">
-    <!-- super fine title -->
-    <h2 class="section-heading text-center">Superfine Collection</h2>
-
-    <div class="superfine-collection-product py-4">
-        <!-- super fine collection product -->
-        <div class="container">
-            <div class="row product_filter">
-                @foreach ($superfineCollections as $superfine)
-                @include('frontend.component.product', ['product' => $superfine])
-                @endforeach
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 superfine-link-container">
-                    <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'superfine']) }}" class="my-5 superfine-link">← The Superfine Collection
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- end -->
-    </div>
-
-    @if ($superfineBanner)
+@if ($superfineBanner)
     <!-- super fine collection banner -->
    <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'superfine']) }}">
    <div class="page-banner-container">
@@ -512,6 +493,26 @@
     </div> -->
     <!-- end -->
     @endif
+    <!-- super fine title -->
+   
+
+    <div class="superfine-collection-product py-4">
+        <!-- super fine collection product -->
+        <div class="container">
+            <div class="row product_filter">
+                @foreach ($superfineCollections as $superfine)
+                @include('frontend.component.product', ['product' => $superfine])
+                @endforeach
+                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 superfine-link-container">
+                    <a href="{{ route('filter', ['type' => 'collection', 'slug' => 'superfine']) }}" class="my-5 superfine-link">← The Superfine Collection
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- end -->
+    </div>
+
+   
 
 </section>
 <!-- superfine Collection End -->
