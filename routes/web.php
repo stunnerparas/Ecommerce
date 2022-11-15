@@ -159,3 +159,6 @@ Route::get('/Request/custom',[HomeController::class,'customMade'])->name('custom
 Route::get('/Request/order',[HomeController::class,'orderRequest'])->name('orderRequest');
 // private label
 Route::get('/Request/private',[HomeController::class,'privateLabel'])->name('privateLabel');
+// term and condition
+Route::get('/terms/term',[HomeController::class,'termCondition'])->name('termCondition');
+
