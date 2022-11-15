@@ -33,7 +33,7 @@
 
         <div class="form px-3 py-3">
             <form action="" method="">
-                <!-- Track order DHL -->
+                {{-- <!-- Track order DHL -->
                 <div class="platform1">
                 <input type="checkbox" class="radio" id="DHL" name="DHL" value="DHL">
                 <label for="DHL"> <i class="fas fa-plane pr-3"></i>DHL</label> <br>
@@ -44,11 +44,15 @@
                 <div class="platform2 my-3">
                 <input type="checkbox" class="radio" id="other" name="other" value="other">
                 <label for="other"> <i class="fas fa-truck pr-3"></i>others</label>
+                </div> --}}
+
+
+                <div class="button float-left mr-3">
+                    <a href="{{ route('dhl.tracker') }}" class="secondary-btn"><i class="fas fa-plane pr-3"></i>DHL</a>
                 </div>
 
-
                 <div class="button">
-                    <a href="{{ route('order.tracker') }}" class="secondary-btn">Track</a>
+                    <a href="#" class="secondary-btn"><i class="fas fa-truck pr-3"></i>Others</a>
                 </div>
 
             </form>

@@ -83,6 +83,7 @@ Route::get('/wishlist/cart/', [WishlistController::class, 'addToCart'])->name('w
 
 // track order
 Route::get('/order-tracker', [HomeController::class, 'orderTracker'])->name('order.tracker');
+Route::get('/dhl-tracker', [FrontendUserController::class, 'dhlTracker'])->name('dhl.tracker');
 
 // Helpdesk
 Route::get('/help-desk', [TicketController::class, 'helpDesk'])->name('helpDesk');

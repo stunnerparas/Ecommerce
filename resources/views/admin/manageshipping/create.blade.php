@@ -39,7 +39,7 @@
                                             <div class="form-group">
                                                 <label>Shipping Method</label>
                                                 <input type="text" value="{{ old('shipping_method') }}"
-                                                    name="shipping_method" class="form-control" >
+                                                    name="shipping_method" class="form-control">
                                                 <div class="invalid-feedback">
                                                     Shipping Method is required
                                                 </div>
@@ -99,7 +99,8 @@
                                                     <option value="" selected disabled>Select</option>
                                                     @foreach ($customers as $customer)
                                                         <option {{ old('user_id') == $customer->id ? 'selected' : '' }}
-                                                            value="{{ $customer->id }}">{{ $customer->name }}</option>
+                                                            value="{{ $customer->id }}">
+                                                            {{ $customer->name }} ({{ $customer->email }})</option>
                                                     @endforeach
                                                 </select>
                                                 <div class="invalid-feedback">
