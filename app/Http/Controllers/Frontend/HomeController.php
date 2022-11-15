@@ -156,6 +156,10 @@ class HomeController extends Controller
     {
         return view('frontend.Request.private');
     }
+    public function termCondition()
+    {
+        return view('frontend.terms.term');
+    }
 
     public function faq()
     {
