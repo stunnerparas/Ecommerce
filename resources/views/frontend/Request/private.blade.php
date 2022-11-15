@@ -22,12 +22,15 @@
 
         We will save your time and as well as cost, you don’t have to go here and there with a lengthy process, everything is available with us which will definitely make you easy and reliable.
     </p>
-    <span class="private-sub-heading">There are 3 steps for private label service, that you must have to know:</span>
-    <ul class="p-4"> 
+   
+   <div class="list-item">
+   <span class="private-sub-heading">There are 3 steps for private label service, that you must have to know:</span>
+   <ul class="p-4"> 
         <li>Your brand name and logo on label and tags</li>
         <li>Packaging</li>
         <li>Shipping your Order</li>
     </ul>
+   </div>
 </div>
 
 
