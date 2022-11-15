@@ -2,12 +2,12 @@
 @section('content')
     <div class="productComparision">
         <!-- Comparision hero section -->
-        <section class="help-hero">
+        <section class="help-hero py-5">
             <div class="content">
                 <h2 class="text-center">Product Comparision</h2>
 
                 <!-- Search box -->
-                <div class="compare-box py-3">
+                <div class="compare-box py-5">
                     <form action="#" method="GET">
                         <input type="text" value="{{ request('product1') }}" autocomplete="off" class="search-input"
                             name="product1" placeholder="Product 1">
