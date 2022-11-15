@@ -3569,10 +3569,13 @@ a:link {
 .private-sub-heading{
     font-size: 20px;
 }
-.custom-made-content ul li{
+.terms-heading{
+    font-size: 25px;
+}
+.list-item ul li{
     list-style: dot;
     font-size: 16px;
-    font-weight: 600;
+    
     padding-bottom: 10px;
 }
 
