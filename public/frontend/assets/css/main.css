@@ -2730,6 +2730,16 @@ a:link {
 .remove-whislist i {
     color: #e53637;
 }
+#shippingCountry{
+    padding: 23px 20px;
+    width: 100%;
+    border: 1px solid #ced4da;
+    color: #4b4b4b;
+}
+#shippingCountry:focus{
+    outline: none;
+
+}
 /* ***************************           Blog Page     *************************************** */
 .blog-hero .right-sec .blog-search {
     position: relative;
