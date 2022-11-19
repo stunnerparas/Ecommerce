@@ -455,16 +455,12 @@
                                     <p class="">Total Cost:</p>
                                     <p class="totalCartItem">{{ currencySymbol() }} {{ Cart::getTotal() }}</p>
                                 </div>
-                                <div class="items-summary d-flex justify-content-between">
-                                    <!-- Total items present in the cart -->
-                                    <p class="">Shipping Cost:</p>
-                                    <p class="totalCartItem">{{ currencySymbol() }} {{ shippingCharge() }}</p>
-                                </div>
+                                
                                 <div class="cart-total-container d-flex justify-content-between">
                                     <!-- Total of the cart -->
                                     <p class="">Grand Total:</p>
                                     <p class="totalCartPrice">{{ currencySymbol() }}
-                                        {{ Cart::getTotal() + shippingCharge() }}
+                                        {{ Cart::getTotal()  }}
                                     </p>
                                 </div>
                                 <div class="cart-total-container d-flex justify-content-between view-coupon-details" style="display: none !important">
