@@ -163,4 +163,7 @@ Route::get('/Request/private',[HomeController::class,'privateLabel'])->name('pri
 Route::get('/terms/term',[HomeController::class,'termCondition'])->name('termCondition');
 // term and condition
 Route::get('/cashmeretype/organic',[HomeController::class,'organicCashmere'])->name('organicCashmere');
+// Help Center
+Route::get('/Helpcenter/help',[HomeController::class,'helpCenter'])->name('helpCenter');
+
 
