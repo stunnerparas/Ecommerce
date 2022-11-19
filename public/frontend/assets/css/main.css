@@ -1644,7 +1644,7 @@ a:link {
     color: #000000;
 }
 
-.help-center a {
+.footer .help-center a {
     width: 100%;
     padding: 1em 1em;
     background-color: #777777;
@@ -2913,6 +2913,34 @@ a:link {
 .ticketGenerator #description:focus {
     outline: none;
 }
+/* Help center */
+.help-center-container{
+    padding: 30px 0;
+}
+.help-box{
+    padding: 30px;
+    border: 1px solid #989898;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 400ms ease;
+    height: 100%;
+
+}
+.help-box:hover{
+    background-color: #d3d3d3;
+}
+.help-box .icon span{
+    font-size: 50px;
+    color: #e53637;
+}
+.help-heading{
+    font-size: 25px;
+    font-family: 'Nunito',sans-serif;
+    color: #333;
+}
+
 /* Congralution page */
 .container-image {
     display: flex;
