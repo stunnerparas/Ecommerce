@@ -164,6 +164,10 @@ class HomeController extends Controller
     {
         return view('frontend.cashmeretype.organic');
     }
+    public function helpCenter()
+    {
+        return view('frontend.Helpcenter.help');
+    }
 
     public function faq()
     {
