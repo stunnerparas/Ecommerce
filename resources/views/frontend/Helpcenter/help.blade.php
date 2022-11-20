@@ -13,7 +13,7 @@
         <div class="row">
             <!-- Help box -->
             <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                <a href="">
+                <a href="{{ route('helpProduct') }}">
                     <div class="help-box">
                         <!-- icon -->
                         <div class="icon">
@@ -34,7 +34,7 @@
             </div>
             <!-- Help box -->
             <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                <a href="">
+                <a href="{{ route('helpOrder') }}">
                     <div class="help-box">
                         <!-- icon -->
                         <div class="icon">
@@ -54,13 +54,13 @@
             </div>
             <!-- Help box -->
             <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                <a href="">
+                <a href="{{ route('helpProduction') }}">
                     <div class="help-box">
                         <!-- icon -->
                         <div class="icon">
-                        <span class="material-symbols-outlined">
-precision_manufacturing
-</span>
+                            <span class="material-symbols-outlined">
+                                precision_manufacturing
+                            </span>
 
                         </div>
                         <!-- Heading -->
@@ -75,13 +75,13 @@ precision_manufacturing
             </div>
             <!-- Help box -->
             <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                <a href="">
+                <a href="{{ route('helpShipping') }}">
                     <div class="help-box">
                         <!-- icon -->
                         <div class="icon">
-                        <span class="material-symbols-outlined">
-local_shipping
-</span>
+                            <span class="material-symbols-outlined">
+                                local_shipping
+                            </span>
 
                         </div>
                         <!-- Heading -->
@@ -96,13 +96,13 @@ local_shipping
             </div>
             <!-- Help box -->
             <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                <a href="">
+                <a href="{{ route('helpReturn') }}">
                     <div class="help-box">
                         <!-- icon -->
                         <div class="icon">
-                        <span class="material-symbols-outlined">
-assignment_return
-</span>
+                            <span class="material-symbols-outlined">
+                                assignment_return
+                            </span>
 
                         </div>
                         <!-- Heading -->
@@ -117,13 +117,13 @@ assignment_return
             </div>
             <!-- Help box -->
             <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                <a href="">
+                <a href="{{ route('helpCertification') }}">
                     <div class="help-box">
                         <!-- icon -->
                         <div class="icon">
-                        <span class="material-symbols-outlined">
-redeem
-</span>
+                            <span class="material-symbols-outlined">
+                                redeem
+                            </span>
 
                         </div>
                         <!-- Heading -->
@@ -138,13 +138,13 @@ redeem
             </div>
             <!-- Help box -->
             <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                <a href="">
+                <a href="{{ route('helpExcellence') }}">
                     <div class="help-box">
                         <!-- icon -->
                         <div class="icon">
-                        <span class="material-symbols-outlined">
-military_tech
-</span>
+                            <span class="material-symbols-outlined">
+                                military_tech
+                            </span>
 
                         </div>
                         <!-- Heading -->
@@ -159,13 +159,13 @@ military_tech
             </div>
             <!-- Help box -->
             <div class="col-lg-3 col-md-4 col-sm-6 my-2">
-                <a href="">
+                <a href="{{ route('helpCashmere') }}">
                     <div class="help-box">
                         <!-- icon -->
                         <div class="icon">
-                        <span class="material-symbols-outlined">
-workspace_premium
-</span>
+                            <span class="material-symbols-outlined">
+                                workspace_premium
+                            </span>
 
                         </div>
                         <!-- Heading -->

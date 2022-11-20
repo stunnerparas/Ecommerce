@@ -168,7 +168,39 @@ class HomeController extends Controller
     {
         return view('frontend.Helpcenter.help');
     }
+    public function helpProduct()
+    {
+        return view('frontend.HelpCenterSub.product');
+    }
+    public function helpOrder()
+    {
+        return view('frontend.HelpCenterSub.order');
+    }
 
+    public function helpProduction()
+    {
+        return view('frontend.HelpCenterSub.production');
+    }
+    public function helpShipping()
+    {
+        return view('frontend.HelpCenterSub.shipping');
+    }
+    public function helpCertification()
+    {
+        return view('frontend.HelpCenterSub.certification');
+    }
+    public function helpExcellence()
+    {
+        return view('frontend.HelpCenterSub.excellence');
+    }
+    public function helpCashmere()
+    {
+        return view('frontend.HelpCenterSub.cashmere');
+    }
+    public function helpReturn()
+    {
+        return view('frontend.HelpCenterSub.return');
+    }
     public function faq()
     {
         $faqs = Faq::latest()->get();
