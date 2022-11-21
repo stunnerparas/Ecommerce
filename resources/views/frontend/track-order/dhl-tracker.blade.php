@@ -1,63 +1,64 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-    @foreach ($shippings as $shipping)
-        <div class="track-container container">
-            <!-- New order -->
-            <div class="track-box my-3">
-                <!-- Order number tracking number and estimated date -->
-                <div class="track-heading d-flex justify-content-between">
-                    <!-- order number -->
-                    <div class="order-no">
-                        <span class="order-heading d-block">
-                            Tracking Number: <span style="color:#e53637;"> {{ $shipping->tracking_number ?? '' }}</span>
-                        </span>
-                        <span class="num-heading d-block py-2">
-                            Estimated Date: {{ date('Y M d', strtotime($shipping->estimated_arrival_date)) }}
-                        </span>
+    @if ($shippings->count())
+        @foreach ($shippings as $shipping)
+            <div class="track-container container">
+                <!-- New order -->
+                <div class="track-box my-3">
+                    <!-- Order number tracking number and estimated date -->
+                    <div class="track-heading d-flex justify-content-between">
+                        <!-- order number -->
+                        <div class="order-no">
+                            <span class="order-heading d-block">
+                                Tracking Number: <span style="color:#e53637;"> {{ $shipping->tracking_number ?? '' }}</span>
+                            </span>
+                            <span class="num-heading d-block py-2">
+                                Estimated Date: {{ date('Y M d', strtotime($shipping->estimated_arrival_date)) }}
+                            </span>
 
-                    </div>
-                    <!-- Tracking number and date -->
-                    <div class="track-num d-flex flex-column">
-                        <Span class="num-heading"> Shipping Method : {{ $shipping->shipping_method ?? '' }} </Span>
-                        <Span class="num-heading py-2">URL: <a href="{{ $shipping->tracking_url ?? '#' }}">
-                                {{ $shipping->tracking_url ?? '' }} </a></Span>
-                    </div>
-                </div>
-                <!-- Order status -->
-                <div class="order-status py-3">
-                    <!-- Processing -->
-                    <div class="status-box my-2">
-                        <div class="box-container">
-                            <!-- icon -->
-                            <div class="status-icon">
-                                <span class="material-symbols-outlined">
-                                    @if ($shipping->shipping_status == 'Pending')
-                                        autorenew
-                                    @endif
-                                    @if ($shipping->shipping_status == 'Shipped')
-                                        inventory
-                                    @endif
-                                    @if ($shipping->shipping_status == 'Out For Delivery')
-                                        local_shipping
-                                    @endif
-                                    @if ($shipping->shipping_status == 'Arriving')
-                                        package
-                                    @endif
-                                    {{-- inventory/local_shipping/package --}}
-                                </span>
-                            </div>
-                            <!-- status content -->
-                            <div class="status-content">
-
-                                <span class="status-heading">
-                                    {{ $shipping->shipping_status ?? '' }}
-                                </span>
-                                <p>{{ $shipping->remarks ?? '' }}</p>
-                            </div>
+                        </div>
+                        <!-- Tracking number and date -->
+                        <div class="track-num d-flex flex-column">
+                            <Span class="num-heading"> Shipping Method : {{ $shipping->shipping_method ?? '' }} </Span>
+                            <Span class="num-heading py-2">URL: <a href="{{ $shipping->tracking_url ?? '#' }}">
+                                    {{ $shipping->tracking_url ?? '' }} </a></Span>
                         </div>
                     </div>
-                    {{-- <!-- Shipped -->
+                    <!-- Order status -->
+                    <div class="order-status py-3">
+                        <!-- Processing -->
+                        <div class="status-box my-2">
+                            <div class="box-container">
+                                <!-- icon -->
+                                <div class="status-icon">
+                                    <span class="material-symbols-outlined">
+                                        @if ($shipping->shipping_status == 'Pending')
+                                            autorenew
+                                        @endif
+                                        @if ($shipping->shipping_status == 'Shipped')
+                                            inventory
+                                        @endif
+                                        @if ($shipping->shipping_status == 'Out For Delivery')
+                                            local_shipping
+                                        @endif
+                                        @if ($shipping->shipping_status == 'Arriving')
+                                            package
+                                        @endif
+                                        {{-- inventory/local_shipping/package --}}
+                                    </span>
+                                </div>
+                                <!-- status content -->
+                                <div class="status-content">
+
+                                    <span class="status-heading">
+                                        {{ $shipping->shipping_status ?? '' }}
+                                    </span>
+                                    <p>{{ $shipping->remarks ?? '' }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- <!-- Shipped -->
                     <div class="status-box my-2">
                         <div class="box-container">
                             <!-- icon -->
@@ -125,21 +126,34 @@
                             </div>
                         </div>
                     </div> --}}
-                </div>
-
-                <!-- Download button -->
-                @if ($shipping->file)
-                    <div class="button d-flex justify-content-center">
-                        <a href="{{ asset('images/' . $shipping->file) }}" download="catalogue" class="tritary-btn">Download
-                            <i class="fas fa-arrow-down"></i></a>
                     </div>
-                @endif
-                <!-- Tracking url -->
-                <div class="tracking-url py-2">
-                    <p class="text-center"><a href="{{ $shipping->tracking_url ?? '#' }}">For futher information for your delivery, please visit
-                            Here.</a></p>
+
+                    <!-- Download button -->
+                    @if ($shipping->file)
+                        <div class="button d-flex justify-content-center">
+                            <a href="{{ asset('images/' . $shipping->file) }}" download="catalogue"
+                                class="tritary-btn">Download
+                                <i class="fas fa-arrow-down"></i></a>
+                        </div>
+                    @endif
+                    <!-- Tracking url -->
+                    <div class="tracking-url py-2">
+                        <p class="text-center"><a href="{{ $shipping->tracking_url ?? '#' }}">For futher information for
+                                your delivery, please visit
+                                Here.</a></p>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    @else
+        <div class="container-fluid main-container">
+            <div class="container my-5 text-center">
+                <h3 class="page-heading mb-3  fw-bold heading"></h3>
+                <div class="cart-info-container">
+                    <h4>You do not have any shipping items</h4>
                 </div>
             </div>
         </div>
-    @endforeach
+    @endif
+
 @endsection
