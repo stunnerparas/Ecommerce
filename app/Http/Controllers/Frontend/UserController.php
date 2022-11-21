@@ -113,4 +113,14 @@ class UserController extends Controller
         $shippings = ManageShipping::where('user_id', Auth::user()->id)->get();
         return view('frontend.track-order.dhl-tracker', compact('shippings'));
     }
+
+    public function myOrders()
+    {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+
+        $orders = Order::where('user_id', Auth::user()->id)->latest()->get();
+        return view('frontend.myOrders.index', compact('orders'));
+    }
 }

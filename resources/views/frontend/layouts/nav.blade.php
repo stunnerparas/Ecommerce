@@ -94,7 +94,8 @@ Backend Developer : Rudra Rajbanshi.
                         <div class="header__top__hover">
                             <form action="{{ route('currency.setter') }}" method="POST">
                                 @csrf
-                                <select name="currency" class="currency-select" onchange="this.form.submit()" id="">
+                                <select name="currency" class="currency-select" onchange="this.form.submit()"
+                                    id="">
                                     @foreach (currencies() as $currency)
                                         <option {{ Session::get('currency') == $currency->currency ? 'selected' : '' }}
                                             value="{{ $currency->currency }}">{{ $currency->currency }}</option>
@@ -110,8 +111,10 @@ Backend Developer : Rudra Rajbanshi.
                     <div class="header__top__right">
                         <div class="header__top__links">
 
-                            <a href="{{ route('order-tracking') }}">Order Tracker</a>
-                            <a href="{{ route('my-orders') }}">My Orders</a>
+                            <a href="{{ route('dhl.tracker') }}">Order Tracker</a>
+                            @if (Auth::check())
+                                <a href="{{ route('my-orders') }}">My Orders</a>
+                            @endif
                             <a href="{{ route('compare') }}">Compare</a>
 
 
@@ -149,9 +152,8 @@ Backend Developer : Rudra Rajbanshi.
                                 </li>
                             @endforeach
                             <li id="sub-menu-world" class="sub-menu-click" data-category="{{ $category->slug }}">
-                                    <a
-                                        href="">Our World</a>
-                                </li>
+                                <a href="">Our World</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -172,14 +174,16 @@ Backend Developer : Rudra Rajbanshi.
                         </form>
                     </div>
                 </div>
-                <a href="{{ route('wishlist.index') }}"><span class="material-symbols-outlined google-icon notranslate">
+                <a href="{{ route('wishlist.index') }}"><span
+                        class="material-symbols-outlined google-icon notranslate">
                         favorite
                     </span></a>
                 <a href="{{ route('cart.index') }}"><span class="material-symbols-outlined google-icon notranslate">
                         shopping_cart
                     </span></a>
                 @if (Auth::check())
-                    <a href="{{ route('myaccount') }}"><span class="material-symbols-outlined google-icon notranslate">
+                    <a href="{{ route('myaccount') }}"><span
+                            class="material-symbols-outlined google-icon notranslate">
                             account_circle
                         </span></a>
                 @endif
@@ -223,39 +227,36 @@ Backend Developer : Rudra Rajbanshi.
             </div>
         @endforeach
         <div class="pane" id="world-pane">
-                <div class="container-fluid">
-                    <div class="row">
-                       
-                            <div class="col-lg-2 pane-column">
-                                <a href=""
-                                    class="pane-heading">Our Excellence</a>
-                                <ul>
-                                  
-                                        <li>
-                                            <a href="{{ route('Typecashmere') }}"
-                                                class="pane-link">Vicuna</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('organicCashmere') }}"
-                                                class="pane-link">Organic Cashmere</a>
-                                        </li>
-                                 
-                                </ul>
-                            </div>
-                      
+            <div class="container-fluid">
+                <div class="row">
 
-                       
-                            <div class="col-lg-2 pane-image-column">
-                                <img src="{{ asset('frontend/assets/images/ourworld.jpg') }}" alt="" />
-                            </div>
-                     
-                       
-                           
-                      
+                    <div class="col-lg-2 pane-column">
+                        <a href="" class="pane-heading">Our Excellence</a>
+                        <ul>
 
+                            <li>
+                                <a href="{{ route('Typecashmere') }}" class="pane-link">Vicuna</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('organicCashmere') }}" class="pane-link">Organic Cashmere</a>
+                            </li>
+
+                        </ul>
                     </div>
+
+
+
+                    <div class="col-lg-2 pane-image-column">
+                        <img src="{{ asset('frontend/assets/images/ourworld.jpg') }}" alt="" />
+                    </div>
+
+
+
+
+
                 </div>
             </div>
+        </div>
 
         <div class="canvas__open"><i class="fa fa-bars"></i></div>
     </div>

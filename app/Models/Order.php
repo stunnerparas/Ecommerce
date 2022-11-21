@@ -42,4 +42,9 @@ class Order extends Model
     {
         return $this->belongsTo(Coupon::class, 'coupon_id');
     }
+
+    public function order_items()
+    {
+        return $this->hasMany(OrderItems::class, 'order_id');
+    }
 }

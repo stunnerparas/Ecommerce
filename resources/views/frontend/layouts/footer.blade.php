@@ -98,7 +98,7 @@
                 <div class="footer-list my-2">
                     <ul class="navbar-nav">
                         <li>
-                            <a href="{{ route('order-tracking') }}">Track My Order</a>
+                            <a href="{{ route('dhl.tracker') }}">Track My Order</a>
                         </li>
                         <li>
                             <a href="{{ route('my-orders') }}">Order History</a>
