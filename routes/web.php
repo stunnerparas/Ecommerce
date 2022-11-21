@@ -163,4 +163,26 @@ Route::get('/Request/private',[HomeController::class,'privateLabel'])->name('pri
 Route::get('/terms/term',[HomeController::class,'termCondition'])->name('termCondition');
 // term and condition
 Route::get('/cashmeretype/organic',[HomeController::class,'organicCashmere'])->name('organicCashmere');
+// Help Center
+Route::get('/Helpcenter/help',[HomeController::class,'helpCenter'])->name('helpCenter');
+
+// Help Center product
+Route::get('/HelpCenterSub/product',[HomeController::class,'helpProduct'])->name('helpProduct');
+// Help Center order
+Route::get('/HelpCenterSub/order',[HomeController::class,'helpOrder'])->name('helpOrder');
+// Help Center production
+Route::get('/HelpCenterSub/production',[HomeController::class,'helpProduction'])->name('helpProduction');
+// Help Center shipping
+Route::get('/HelpCenterSub/shipping',[HomeController::class,'helpShipping'])->name('helpShipping');
+// Help Center certification
+Route::get('/HelpCenterSub/certification',[HomeController::class,'helpCertification'])->name('helpCertification');
+
+// Help Center Return
+Route::get('/HelpCenterSub/return',[HomeController::class,'helpReturn'])->name('helpReturn');
+// Help Center Excellence
+Route::get('/HelpCenterSub/excellence',[HomeController::class,'helpExcellence'])->name('helpExcellence');
+// Help Center cashmere
+Route::get('/HelpCenterSub/cashmere',[HomeController::class,'helpCashmere'])->name('helpCashmere');
+
+
 

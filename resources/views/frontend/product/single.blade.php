@@ -61,7 +61,7 @@
                         <a href="javascript:void(0)" class="tritary-btn text-center" data-value="{{ $product->id }}"
                             id="btn-add-to-wishlist">
                             <i class="fas fa-heart"></i> Add to Wishlist</a>
-                        <p>Free Shipping & return all over Nepal</p>
+                        <p>Free Shipping & return all over World</p>
                     </div>
                     <div class="product-detail">
                         <h3>Details</h3>

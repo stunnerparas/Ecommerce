@@ -63,16 +63,11 @@
                                 <p class="text-black">{{ currencySymbol() }} {{ Cart::getTotal() }}</p>
                             </div>
                         </div>
-                        <div class="summay-container mt-3">
-                            <div class="summary-item d-flex justify-content-between">
-                                <p class="text-black">Shipping Cost:</p>
-                                <p class="text-black">{{ currencySymbol() }} {{ shippingCharge() }}</p>
-                            </div>
-                        </div>
+                      
                         <div class="summary-card-footer p-2">
                             <div class="total-price-container d-flex p-0 justify-content-between">
                                 <p class="text-black">Grand Total:</p>
-                                <p class="text-black">{{ currencySymbol() }} {{ Cart::getTotal() + shippingCharge() }}</p>
+                                <p class="text-black">{{ currencySymbol() }} {{ Cart::getTotal() }}</p>
                             </div>
 
                         </div>
