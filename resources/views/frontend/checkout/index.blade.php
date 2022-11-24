@@ -62,7 +62,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-6 mb-3">
-                                    <select name="Shipping Country" id="shippingCountry"  required>
+                                    <select name="shipping_country" id="shippingCountry"  required>
                                         <option value="" disabled selected>Shipping Country</option>
                                         <option value="Afghanistan">Afghanistan</option>
                                         <option value="Åland Islands">Åland Islands</option>
@@ -320,13 +320,13 @@
                                         <option value="">AUD</option>
                                         <option value="">NPR</option>
                                         <option value="">INR</option>
-                                        
+
 
                                     </select>
                                 </div>
                             </div>
                             <div class="row">
-                               
+
                             </div>
 
                         </div>
@@ -455,7 +455,7 @@
                                     <p class="">Total Cost:</p>
                                     <p class="totalCartItem">{{ currencySymbol() }} {{ Cart::getTotal() }}</p>
                                 </div>
-                                
+
                                 <div class="cart-total-container d-flex justify-content-between">
                                     <!-- Total of the cart -->
                                     <p class="">Grand Total:</p>

@@ -24,6 +24,7 @@ class Order extends Model
         'currency',
         'coupon_id',
         'shipping_charge',
+        'shipping_country',
     ];
 
     public const status = [

@@ -65,6 +65,7 @@ class CheckoutController extends Controller
             'currency' => Session::get('currency') ?? 'USD',
             'shipping_charge' => shippingCharge(),
             'coupon_id' => $coupon,
+            'shipping_country' => $request->shipping_country ?? '',
         ]);
 
         foreach ($cartItems as $item) {
