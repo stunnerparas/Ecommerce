@@ -37,7 +37,7 @@
                 <div class="color-content px-3">
                     <span class="service-heading">Alba</span>
                     <p class="pt-2"> 50% Cashmere 50% Silk NM 30.000</p>
-                    <a href="#" class="secondary-btn">Color card</a>
+                    
                 </div>
             </div>
 
