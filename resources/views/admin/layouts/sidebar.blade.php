@@ -165,6 +165,13 @@
             </li>
             {{-- @endcan --}}
 
+            {{-- @can('View Ticket') --}}
+            <li class="{{ Request::segment(2) == 'components' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.components.index') }}"><i class="fas fa-envelope"></i>
+                    <span>Components</span></a>
+            </li>
+            {{-- @endcan --}}
+
             @if (Auth::user()->hasAnyRole('super admin'))
                 <li
                     class="dropdown {{ Request::segment(2) == 'admins' || Request::segment(2) == 'roles' ? 'active' : '' }}">

@@ -3,12 +3,12 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Products</h1>
+            <h1>Components</h1>
             <div class="section-header-breadcrumb">
-                @can('Create Product')
-                    <a class="btn btn-primary" href="{{ route('admin.products.create') }}"><i class="fas fa-plus"></i>
+                {{-- @can('Create Component') --}}
+                    <a class="btn btn-primary" href="{{ route('admin.components.create') }}"><i class="fas fa-plus"></i>
                         Create</a>
-                @endcan
+                {{-- @endcan --}}
             </div>
         </div>
 
@@ -19,54 +19,46 @@
 
                         <div class="card-body">
                             @include('admin.includes.messages')
-                            @if ($products->count() > 0)
+                            @if ($components->count() > 0)
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Style Number</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">Business Price</th>
                                             <th scope="col">Image</th>
-                                            <th scope="col">Visibility Status</th>
+                                            <th scope="col">Title</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($products as $key => $product)
+                                        @foreach ($components as $component)
                                             <tr>
-                                                <td>{{ $product->style_number ?? '' }}</td>
-                                                <td>{{ $product->name }}</td>
-                                                <td>{{ $product->price }}</td>
-                                                <td>{{ $product->business_price ?? 0 }}</td>
                                                 <td>
-                                                    <a href="{{ asset('images/' . ($product->featured_image ?: 'no-image.png')) }}"
+                                                    <a href="{{ asset('images/' . ($component->image ?: 'no-image.png')) }}"
                                                         data-fancybox="demo" class="fancybox">
-                                                        <img src="{{ asset('images/' . ($product->featured_image ?: 'no-image.png')) }}"
-                                                            alt="{{ $product->name }}" style="height: 50px">
+                                                        <img src="{{ asset('images/' . ($component->image ?: 'no-image.png')) }}"
+                                                            alt="{{ $component->title }}" style="height: 50px">
                                                     </a>
                                                 </td>
-                                                <td>{{ $product->visibility_status }}</td>
+                                                <td>{{ $component->title }}</td>
 
                                                 <td>
                                                     <div class="row">
 
-                                                        @can('Edit Product')
+                                                        {{-- @can('Edit Component') --}}
                                                             <a class="btn btn-success mr-1"
-                                                                href="{{ route('admin.products.edit', $product->id) }}">Edit</a>
-                                                        @endcan
+                                                                href="{{ route('admin.components.edit', $component->id) }}">Edit</a>
+                                                        {{-- @endcan --}}
 
-                                                        @can('Delete Product')
+                                                        {{-- @can('Delete Page')
                                                             <form class=""
-                                                                action="{{ route('admin.products.destroy', $product->id) }}"
+                                                                action="{{ route('admin.pages.destroy', $page->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button class="btn btn-danger delete-product" type="submit">
+                                                                <button class="btn btn-danger delete-page" type="submit">
                                                                     Delete
                                                                 </button>
                                                             </form>
-                                                        @endcan
+                                                        @endcan --}}
 
                                                     </div>
                                                 </td>
@@ -75,9 +67,9 @@
                                     </tbody>
                                 </table>
 
-                                {{ $products->links() }}
+                                {{ $components->links() }}
                             @else
-                                <h5>No Products Found !!</h5>
+                                <h5>No Components Found !!</h5>
                             @endif
 
                         </div>
@@ -90,7 +82,7 @@
 
 @section('scripts')
     <script>
-        $('.delete-product').click(function(e) {
+        $('.delete-page').click(function(e) {
             e.preventDefault();
             Swal.fire({
                 title: 'Are you sure?',

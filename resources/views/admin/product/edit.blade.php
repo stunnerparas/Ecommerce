@@ -27,6 +27,20 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="form-group">
+                                                <label>Style Number</label>
+                                                <input type="text" value="{{ old('style_number', $product->style_number) }}" name="style_number"
+                                                    class="form-control" required="">
+                                                <div class="invalid-feedback">
+                                                    Style Number is required
+                                                </div>
+                                                @error('style_number')
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+
+                                            <div class="form-group">
                                                 <label>Name</label>
                                                 <input type="text" value="{{ old('name', $product->name) }}" name="name"
                                                     class="form-control" required="">

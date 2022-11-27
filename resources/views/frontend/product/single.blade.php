@@ -18,6 +18,7 @@
                 <div class="col-lg-4 product-desc px-5 my-4">
                     <div class="product-name">
                         <h2 class="section-heading">{{ $product->name ?? '' }}</h2>
+                        <p class="">#{{ $product->style_number ?? '' }}</p>
                     </div>
 
                     <div class="rate py-2">

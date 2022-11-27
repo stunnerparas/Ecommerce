@@ -23,7 +23,8 @@ class Product extends Model
         'tag',
         'rating',
         'business_price',
-        'min_quantity'
+        'min_quantity',
+        'style_number',
     ];
 
     public const visibility_status = [
