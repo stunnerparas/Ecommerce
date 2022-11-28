@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\CompareController;
+use App\Http\Controllers\Frontend\ComponentController;
 use App\Http\Controllers\Frontend\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ProductController;
@@ -138,17 +139,17 @@ Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showRese
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 // detail
-Route::get('/detail/yarn',[HomeController::class,'detailYarn'])->name('detailYarn');
+Route::get('/detail/yarn',[ComponentController::class,'detailYarn'])->name('detailYarn');
 // Knit detail
-Route::get('/detail/knit',[HomeController::class,'detailKnit'])->name('detailKnit');
+Route::get('/detail/knit',[ComponentController::class,'detailKnit'])->name('detailKnit');
 // Knit detail
-Route::get('/detail/color',[HomeController::class,'detailColor'])->name('detailColor');
+Route::get('/detail/color',[ComponentController::class,'detailColor'])->name('detailColor');
 
 //coupon discount
 Route::get('coupon-code/{coupon}', [CheckoutController::class, 'checkCouponCode'])->name('check.coupon.code');
 
 // cashmere type
-Route::get('/cashmeretype/vicuna',[HomeController::class,'Typecashmere'])->name('Typecashmere');
+Route::get('/yarn/{componenttype:slug}',[ComponentController::class,'yarnCategories'])->name('yarn.category');
 // Color card request
 Route::get('/Request/colorcard',[HomeController::class,'colorRequest'])->name('colorRequest');
 // catalogue request

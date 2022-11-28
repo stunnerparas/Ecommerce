@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\BusinessController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\ComponentController;
+use App\Http\Controllers\Admin\ComponentTypeController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\CurrencyController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -88,3 +89,11 @@ Route::get('/filter', [DashboardController::class, 'globalSearchPage'])->name('g
 
 // remove category images
 Route::get('/remove/{category}/{type}', [CategoryController::class, 'removeImage'])->name('remove.category.image');
+
+// component types
+Route::get('/componenttypes/{component}', [ComponentTypeController::class, 'index'])->name('componenttypes.index');
+Route::get('/componenttypes/{component}/create', [ComponentTypeController::class, 'create'])->name('componenttypes.create');
+Route::post('/componenttypes/{component}/store', [ComponentTypeController::class, 'store'])->name('componenttypes.store');
+Route::get('/componenttypes/{componenttype}/edit', [ComponentTypeController::class, 'edit'])->name('componenttypes.edit');
+Route::put('/componenttypes/{componenttype}/update', [ComponentTypeController::class, 'update'])->name('componenttypes.update');
+Route::delete('/componenttypes/{componenttype}', [ComponentTypeController::class, 'destroy'])->name('componenttypes.destroy');

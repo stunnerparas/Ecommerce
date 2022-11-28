@@ -235,10 +235,11 @@ Backend Developer : Rudra Rajbanshi.
                         <ul>
 
                             <li>
-                                <a href="{{ route('Typecashmere') }}" class="pane-link">Vicuna</a>
+                                <a href="{{ route('yarn.category', 'vicuna') }}" class="pane-link">Vicuna</a>
                             </li>
                             <li>
-                                <a href="{{ route('organicCashmere') }}" class="pane-link">Organic Cashmere</a>
+                                <a href="{{ route('yarn.category', 'organic-cashmere') }}" class="pane-link">Organic
+                                    Cashmere</a>
                             </li>
 
                         </ul>

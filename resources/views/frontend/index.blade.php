@@ -134,7 +134,7 @@
                     <span class="banner-p">
                         {!! $signatureBanner->description ?? '' !!}
                     </span>
-                  
+
                 </div>
             </div>
 
@@ -206,7 +206,7 @@
                 <div class="classic-collection-text px-4 py-2">
                     <h2></h2>
                     <p>
-                        
+
                     </p>
                     <a href="" class="primary-btn"> <i class="fas fa-arrow-right"></i></a>
                 </div>
@@ -258,7 +258,7 @@
                     <span class="banner-p">
                         {!! $accessoriesBanner->description ?? '' !!}
                     </span>
-                   
+
                 </div>
             </div>
 
@@ -275,7 +275,7 @@
                         <div class="accessories-collection-text px-4 py-2">
                             <h2></h2>
                             <p>
-                               
+
                             </p>
                             <a href="" class="primary-btn"> <i class="fas fa-arrow-right"></i></a>
                         </div>
@@ -329,14 +329,14 @@
                     <span class="banner-p">
                         {!! $menBanner->description ?? '' !!}
                     </span>
-                   
+
                 </div>
             </div>
 
         </div>
     </div>
   </a>
-    <!-- Men collection 
+    <!-- Men collection
     banner -->
     <!-- <div class="men-collection-banner banner">
         <img src="" alt="" />
@@ -345,7 +345,7 @@
                 <div class="men-collection-text px-4 py-2">
                     <h2></h2>
                     <p>
-                        
+
                     </p>
                     <a href="" class="primary-btn"> <i class="fas fa-arrow-right"></i></a>
                 </div>
@@ -397,7 +397,7 @@
                     <span class="banner-p">
                         {!! $womenBanner->description ?? '' !!}
                     </span>
-                   
+
                 </div>
             </div>
 
@@ -411,7 +411,7 @@
                 <div class="women-collection-text px-4 py-2">
                     <h2></h2>
                     <p>
-                        
+
                     </p>
                     <a href="" class="primary-btn"> <i class="fas fa-arrow-right"></i></a>
                 </div>
@@ -465,7 +465,7 @@
                     <span class="banner-p">
                         {!! $superfineBanner->description ?? '' !!}
                     </span>
-                  
+
                 </div>
             </div>
 
@@ -481,7 +481,7 @@
                         <div class="superfine-collection-text px-4 py-2">
                             <h2></h2>
                             <p>
-                               
+
                             </p>
                             <a href="" class="primary-btn"> <i class="fas fa-arrow-right"></i></a>
                         </div>
@@ -494,7 +494,7 @@
     <!-- end -->
     @endif
     <!-- super fine title -->
-   
+
 
     <div class="superfine-collection-product py-4">
         <!-- super fine collection product -->
@@ -512,7 +512,7 @@
         <!-- end -->
     </div>
 
-   
+
 
 </section>
 <!-- superfine Collection End -->

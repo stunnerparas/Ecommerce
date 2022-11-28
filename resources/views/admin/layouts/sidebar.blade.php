@@ -166,9 +166,9 @@
             {{-- @endcan --}}
 
             {{-- @can('View Ticket') --}}
-            <li class="{{ Request::segment(2) == 'components' ? 'active' : '' }}">
+            <li class="{{ Request::segment(2) == 'components' || Request::segment(2) == 'componenttypes' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.components.index') }}"><i class="fas fa-envelope"></i>
-                    <span>Components</span></a>
+                    <span>Cashmere Types</span></a>
             </li>
             {{-- @endcan --}}
 
