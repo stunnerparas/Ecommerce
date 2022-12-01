@@ -11,6 +11,15 @@ class Type extends Model
     protected $fillable = [
         'type',
         'slug',
+        'image',
+        'mobile_image',
+        'description',
+        'is_featured',
+    ];
+
+    public const is_featured = [
+        1 => 'YES',
+        0 => 'NO',
     ];
 
     public function products()

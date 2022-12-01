@@ -6,6 +6,7 @@ use App\Mail\SendMail;
 use App\Models\Attribute;
 use App\Models\Category;
 use App\Models\Company;
+use App\Models\Component;
 use App\Models\Currency;
 use App\Models\Log;
 use App\Models\Product;
@@ -190,4 +191,9 @@ function getPatentCategory($parent_id)
         }
     }
     return $category;
+}
+
+function getCashmereType($id)
+{
+    return Component::where('id', $id)->first();
 }

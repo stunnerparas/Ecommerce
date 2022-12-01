@@ -23,16 +23,24 @@
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
+                                            <th scope="col">Image</th>
                                             <th scope="col">Collections</th>
-                                            <th scope="col">Slug</th>
+                                            <th scope="col">Show In Homepage</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($types as $type)
                                             <tr>
+                                                <td>
+                                                    <a href="{{ asset('images/' . ($type->image ?: 'no-image.png')) }}"
+                                                        data-fancybox="demo" class="fancybox">
+                                                        <img src="{{ asset('images/' . ($type->image ?: 'no-image.png')) }}"
+                                                            alt="{{ $type->type }}" style="height: 50px">
+                                                    </a>
+                                                </td>
                                                 <td>{{ $type->type ?? '' }}</td>
-                                                <td>{{ $type->slug ?? '' }}</td>
+                                                <td>{{ $type->is_featured ? 'YES' : 'NO' }}</td>
 
                                                 <td>
                                                     <div class="row">

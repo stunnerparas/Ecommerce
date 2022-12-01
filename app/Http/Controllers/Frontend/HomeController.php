@@ -16,6 +16,7 @@ use App\Models\Product;
 use App\Models\ProductAttribute;
 use App\Models\ShippingAddress;
 use App\Models\Slider;
+use App\Models\Type;
 use App\Models\WeeklyDeal;
 use Attribute;
 use Illuminate\Http\Request;
@@ -26,30 +27,30 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $signatureCollections = getProductsFromType('signature', 3);
-        $classicCollections = getProductsFromType('classic', 3);
-        $accessoriesCollections = getProductsFromType('accessories', 3);
-        $superfineCollections = getProductsFromType('superfine', 3);
-        $luxuryCollections = getProductsFromType('luxury', 8);
+        // $signatureCollections = getProductsFromType('signature', 3);
+        // $classicCollections = getProductsFromType('classic', 3);
+        // $accessoriesCollections = getProductsFromType('accessories', 3);
+        // $superfineCollections = getProductsFromType('superfine', 3);
+        // $luxuryCollections = getProductsFromType('luxury', 8);
 
+        // $signatureBanner = $this->banner('signature');
+        // $classicBanner = $this->banner('classic');
+        // $accessoriesBanner = $this->banner('accessories');
+        // $superfineBanner = $this->banner('superfine');
 
-        $menCollections = getProductsFromCategory('men', 3);
-        $womenCollections = getProductsFromCategory('women', 3);
+        $collections = Type::where('is_featured', 1)->get();
 
-        // banners
         $mainBanner = $this->banner('main-banner');
-        $signatureBanner = $this->banner('signature');
-        $classicBanner = $this->banner('classic');
-        $accessoriesBanner = $this->banner('accessories');
         $menBanner = $this->banner('men');
+        $menCollections = getProductsFromCategory('men', 3);
         $womenBanner = $this->banner('women');
-        $superfineBanner = $this->banner('superfine');
+        $womenCollections = getProductsFromCategory('women', 3);
 
         // footer banners
         $footerTop = $this->banner('footer-top-image');
-        $footerLeft = $this->banner('footer-left-image');
-        $footerCenter = $this->banner('footer-center-image');
-        $footerRight = $this->banner('footer-right-image');
+        // $footerLeft = $this->banner('footer-left-image');
+        // $footerCenter = $this->banner('footer-center-image');
+        // $footerRight = $this->banner('footer-right-image');
 
         // top banners
         $topLeft = $this->banner('top-left-image');
@@ -63,7 +64,7 @@ class HomeController extends Controller
 
         $dealOfTheWeek = WeeklyDeal::latest()->first();
 
-        return view('frontend.index', compact('dealOfTheWeek', 'luxuryLeft', 'luxuryRight', 'topLeft', 'topAbove', 'topCenter', 'topBelow', 'luxuryCollections', 'mainBanner', 'footerTop', 'footerLeft', 'footerCenter', 'footerRight', 'signatureBanner', 'classicBanner', 'accessoriesBanner', 'menBanner', 'womenBanner', 'superfineBanner', 'signatureCollections', 'classicCollections', 'superfineCollections', 'accessoriesCollections', 'menCollections', 'womenCollections'));
+        return view('frontend.index', compact('collections', 'dealOfTheWeek', 'luxuryLeft', 'luxuryRight', 'topLeft', 'topAbove', 'topCenter', 'topBelow', 'mainBanner', 'footerTop', 'menBanner', 'womenBanner', 'menCollections', 'womenCollections'));
     }
 
     public function banner($category)

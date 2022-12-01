@@ -8,6 +8,7 @@ use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
+use File;
 
 class TypeController extends Controller
 {
@@ -53,7 +54,9 @@ class TypeController extends Controller
     {
         abort_unless(Gate::allows('Create Collection'), 403);
 
-        $input = $request->all();
+        $input = $request->except('image', 'mobile_image');
+        $input['image'] = $this->fileUpload($request, 'image');
+        $input['mobile_image'] = $this->fileUpload($request, 'mobile_image');
         $input['slug'] = Str::slug($request->type);
         Type::create($input);
         createLog('created a new type'); // activity log
@@ -96,7 +99,19 @@ class TypeController extends Controller
     {
         abort_unless(Gate::allows('Edit Collection'), 403);
 
-        $input = $request->all();
+        $input = $request->except('image', 'mobile_image');
+        $image = $this->fileUpload($request, 'image');
+        if ($image) {
+            $this->removeFile($type->image);
+            $input['image'] = $image;
+        }
+
+        $mobile_image = $this->fileUpload($request, 'mobile_image');
+        if ($mobile_image) {
+            $this->removeFile($type->mobile_image);
+            $input['mobile_image'] = $mobile_image;
+        }
+
         $input['slug'] = Str::slug($request->type);
         $type->update($input);
         createLog('edited a type'); // activity log
@@ -114,9 +129,31 @@ class TypeController extends Controller
     {
         abort_unless(Gate::allows('Delete Collection'), 403);
 
+        $this->removeFile($type->image);
+        $this->removeFile($type->mobile_image);
         $type->delete();
         createLog('deleted a type'); // activity log
 
         return redirect()->route('admin.types.index')->with('success', 'Type Deleted');
+    }
+
+    public function fileUpload(Request $request, $name)
+    {
+        $imageName = '';
+        if ($image = $request->file($name)) {
+            $destinationPath = public_path() . '/images/';
+            $imageName = date('YmdHis') . $name . "." . $image->getClientOriginalName();
+            $image->move($destinationPath, $imageName);
+            $image = $imageName;
+        }
+        return $imageName;
+    }
+
+    public function removeFile($file)
+    {
+        $path = public_path() . '/images/' . $file;
+        if (File::exists($path)) {
+            File::delete($path);
+        }
     }
 }
