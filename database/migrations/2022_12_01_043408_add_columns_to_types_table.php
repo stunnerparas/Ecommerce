@@ -14,6 +14,7 @@ class AddColumnsToTypesTable extends Migration
     public function up()
     {
         Schema::table('types', function (Blueprint $table) {
+            $table->integer('order_number')->nullable();
             $table->integer('is_featured')->nullable();
             $table->string('image')->nullable();
             $table->string('mobile_image')->nullable();

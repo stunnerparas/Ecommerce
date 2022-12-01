@@ -38,6 +38,20 @@
                                             </div>
 
                                             <div class="form-group">
+                                                <label>Order Number</label>
+                                                <input type="text" value="{{ old('order_number') }}" name="order_number"
+                                                    class="form-control" required="">
+                                                <div class="invalid-feedback">
+                                                    Order Number is required
+                                                </div>
+                                                @error('order_number')
+                                                    <div class="invalid-feedback" style="display: block;">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+
+                                            <div class="form-group">
                                                 <label>Show In Homepage</label>
                                                 <select name="is_featured" class="form-control" id="">
                                                     @foreach (\App\Models\Type::is_featured as $key => $value)

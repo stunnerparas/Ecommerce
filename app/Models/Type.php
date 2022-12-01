@@ -15,6 +15,7 @@ class Type extends Model
         'mobile_image',
         'description',
         'is_featured',
+        'order_number',
     ];
 
     public const is_featured = [

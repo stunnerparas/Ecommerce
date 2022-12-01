@@ -27,30 +27,14 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // $signatureCollections = getProductsFromType('signature', 3);
-        // $classicCollections = getProductsFromType('classic', 3);
-        // $accessoriesCollections = getProductsFromType('accessories', 3);
-        // $superfineCollections = getProductsFromType('superfine', 3);
-        // $luxuryCollections = getProductsFromType('luxury', 8);
-
-        // $signatureBanner = $this->banner('signature');
-        // $classicBanner = $this->banner('classic');
-        // $accessoriesBanner = $this->banner('accessories');
-        // $superfineBanner = $this->banner('superfine');
-
-        $collections = Type::where('is_featured', 1)->get();
+        $collections = Type::where('is_featured', 1)->orderBy('order_number', 'ASC')->get();
 
         $mainBanner = $this->banner('main-banner');
-        $menBanner = $this->banner('men');
-        $menCollections = getProductsFromCategory('men', 3);
-        $womenBanner = $this->banner('women');
-        $womenCollections = getProductsFromCategory('women', 3);
-
-        // footer banners
         $footerTop = $this->banner('footer-top-image');
-        // $footerLeft = $this->banner('footer-left-image');
-        // $footerCenter = $this->banner('footer-center-image');
-        // $footerRight = $this->banner('footer-right-image');
+
+        // luxury top
+        $luxuryLeft = $this->banner('luxury-cashmere-left-image');
+        $luxuryRight = $this->banner('luxury-cashmere-right-image');
 
         // top banners
         $topLeft = $this->banner('top-left-image');
@@ -58,13 +42,9 @@ class HomeController extends Controller
         $topCenter = $this->banner('top-center-image');
         $topBelow = $this->banner('top-below-image');
 
-        // luxury top
-        $luxuryLeft = $this->banner('luxury-cashmere-left-image');
-        $luxuryRight = $this->banner('luxury-cashmere-right-image');
-
         $dealOfTheWeek = WeeklyDeal::latest()->first();
 
-        return view('frontend.index', compact('collections', 'dealOfTheWeek', 'luxuryLeft', 'luxuryRight', 'topLeft', 'topAbove', 'topCenter', 'topBelow', 'mainBanner', 'footerTop', 'menBanner', 'womenBanner', 'menCollections', 'womenCollections'));
+        return view('frontend.index', compact('collections', 'dealOfTheWeek', 'luxuryLeft', 'luxuryRight', 'topLeft', 'topAbove', 'topCenter', 'topBelow', 'mainBanner', 'footerTop'));
     }
 
     public function banner($category)

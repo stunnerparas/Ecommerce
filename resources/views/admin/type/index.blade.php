@@ -26,6 +26,7 @@
                                             <th scope="col">Image</th>
                                             <th scope="col">Collections</th>
                                             <th scope="col">Show In Homepage</th>
+                                            <th scope="col">Order Number</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -41,6 +42,7 @@
                                                 </td>
                                                 <td>{{ $type->type ?? '' }}</td>
                                                 <td>{{ $type->is_featured ? 'YES' : 'NO' }}</td>
+                                                <td>{{ $type->order_number ?? '' }}</td>
 
                                                 <td>
                                                     <div class="row">

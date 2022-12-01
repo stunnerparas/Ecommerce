@@ -6,27 +6,27 @@
         <section class="hero">
             <!-- Hero main Banner -->
             <!-- <div class="hero-menu banner">
-                                                    <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="" />
-                                                    <div class="content">
-                                                        <div class="container">
-                                                            <div class="row">
-                                                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 hero-container">
-                                                                    <div class="hero__text">
-                                                                        <h2></h2>
-                                                                        <p>
-                                                                            {!! $mainBanner->description ?? '' !!}
-                                                                        </p>
-                                                                        <a href="{{ $mainBanner->btn_link ?? '' }}" class="primary-btn">{{ $mainBanner->btn_text ?? '' }} </i></a>
+                                                        <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="" />
+                                                        <div class="content">
+                                                            <div class="container">
+                                                                <div class="row">
+                                                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 hero-container">
+                                                                        <div class="hero__text">
+                                                                            <h2></h2>
+                                                                            <p>
+                                                                                {!! $mainBanner->description ?? '' !!}
+                                                                            </p>
+                                                                            <a href="{{ $mainBanner->btn_link ?? '' }}" class="primary-btn">{{ $mainBanner->btn_text ?? '' }} </i></a>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="hero-banner-sm">
-                                                        <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100" alt="">
-                                                    </div>
-                                                </div> -->
+                                                        <div class="hero-banner-sm">
+                                                            <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100" alt="">
+                                                        </div>
+                                                    </div> -->
             <a href="{{ $mainBanner->btn_link ?? '' }}">
                 <div class="page-banner-container">
                     <!-- Banner image -->
@@ -469,8 +469,7 @@
         </div>
     </section>
     <!-- superfine Collection End -->
-    <?php */
-    ?>
+
 
     <!-- Men Collection Started -->
     <section class="men-collection my-2">
@@ -594,6 +593,8 @@
         <!-- end -->
     </section>
     <!-- Women Collection End -->
+<?php */
+    ?>
 
     <!-- Detail Section Start -->
     <section class="detail">
