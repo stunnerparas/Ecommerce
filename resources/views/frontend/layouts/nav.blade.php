@@ -151,7 +151,7 @@ Backend Developer : Rudra Rajbanshi.
                                         href="{{ route('filter', ['type' => 'category', 'slug' => $category->slug]) }}">{{ $category->name }}</a>
                                 </li>
                             @endforeach
-                            <li id="sub-menu-world" class="sub-menu-click" data-category="{{ $category->slug }}">
+                            <li id="sub-menu-world" class="sub-menu-click" data-category="">
                                 <a href="">Our World</a>
                             </li>
                         </ul>
