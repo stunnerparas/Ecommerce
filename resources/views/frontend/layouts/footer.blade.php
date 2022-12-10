@@ -114,7 +114,7 @@
                     find all the info you need quickly
                 </p>
                 <div class="help-center my-4">
-                    <a href="{{ route('helpCenter') }}">Visit our Help Center</a>
+                    <a href="{{ route('frontend.helpcenters') }}">Visit our Help Center</a>
                 </div>
                 <div class="shipping-partner my-4">
                     <h4>Shipping Partner</h4>
