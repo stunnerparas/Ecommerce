@@ -26,7 +26,7 @@
                                             <div class="form-group">
                                                 <label>Collection</label>
                                                 <input type="text" value="{{ old('type') }}" name="type"
-                                                    class="form-control">
+                                                    class="form-control" required="">
                                                 <div class="invalid-feedback">
                                                     Collection is required
                                                 </div>
@@ -40,7 +40,7 @@
                                             <div class="form-group">
                                                 <label>Order Number</label>
                                                 <input type="text" value="{{ old('order_number') }}" name="order_number"
-                                                    class="form-control">
+                                                    class="form-control" required="">
                                                 <div class="invalid-feedback">
                                                     Order Number is required
                                                 </div>
@@ -62,7 +62,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Description</label>
+                                                <label>Banner Description</label>
                                                 <textarea name="description" class="summernote" style="display: none;">{{ old('description') }}</textarea>
                                             </div>
 

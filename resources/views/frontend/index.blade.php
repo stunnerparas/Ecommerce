@@ -133,7 +133,7 @@
                                 <div class="col-lg-5 col-md-10">
                                     <!-- Banner Heading -->
                                     <span class="banner-heading">
-                                        {{ $collection->type ?? '' }}
+                                        {{-- {{ $collection->type ?? '' }} --}}
 
                                     </span>
 
