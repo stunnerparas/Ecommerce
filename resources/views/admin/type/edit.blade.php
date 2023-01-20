@@ -26,7 +26,7 @@
                                             <div class="form-group">
                                                 <label>Collection</label>
                                                 <input type="text" value="{{ old('type', $type->type) }}" name="type"
-                                                    class="form-control" required="">
+                                                    class="form-control">
                                                 <div class="invalid-feedback">
                                                     Collection is required
                                                 </div>
@@ -40,7 +40,7 @@
                                             <div class="form-group">
                                                 <label>Order Number</label>
                                                 <input type="text" value="{{ old('order_number', $type->order_number) }}"
-                                                    name="order_number" class="form-control" required="">
+                                                    name="order_number" class="form-control">
                                                 <div class="invalid-feedback">
                                                     Order Number is required
                                                 </div>
