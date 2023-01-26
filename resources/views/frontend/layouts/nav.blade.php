@@ -154,6 +154,9 @@ Backend Developer : Rudra Rajbanshi.
                             <li id="sub-menu-world" class="sub-menu-click" data-category="">
                                 <a href="">Our World</a>
                             </li>
+                            <li id="sub-menu-world" class="sub-menu-click bold" data-category="">
+                                <a href="" class="heading_bold font-weight-bold "> <p class="h6 font-weight-bold px-4">B2B</p> </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
