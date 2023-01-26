@@ -63,7 +63,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Description</label>
+                                                <label>Banner Description</label>
                                                 <textarea name="description" class="summernote" style="display: none;">{{ old('description', $type->description) }}</textarea>
                                             </div>
                                         </div>

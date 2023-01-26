@@ -20,6 +20,7 @@ class DashboardController extends Controller
 
     public function index()
     {
+        // dashboard
         $orders = Order::where('is_seen', 0)->get()->count();
         $customers = User::where('user_type', 'customer')->get()->count();
         $business = User::where('user_type', 'business')->get()->count();
