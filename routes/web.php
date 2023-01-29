@@ -11,6 +11,7 @@ use App\Http\Controllers\Frontend\ForgotPasswordController;
 use App\Http\Controllers\Frontend\HelpCenterController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ProductController;
+use App\Http\Controllers\Frontend\RequestController;
 use App\Http\Controllers\Frontend\TicketController;
 use App\Http\Controllers\Frontend\UserController as FrontendUserController;
 use App\Http\Controllers\Frontend\WishlistController;
@@ -170,6 +171,9 @@ Route::get('/cashmeretype/organic',[HomeController::class,'organicCashmere'])->n
 Route::get('/help-center',[HelpCenterController::class,'index'])->name('frontend.helpcenters');
 Route::get('/help-center/{helpcenter:slug}',[HelpCenterController::class,'single'])->name('frontend.helpcenters.single');
 
+// color card request
+Route::post('/colorcard',[RequestController::class,'colorCard'])->name('colorcard.request');
+Route::post('/catalogue-request',[RequestController::class,'catalogueRequest'])->name('catalogue.request');
 
 
 
