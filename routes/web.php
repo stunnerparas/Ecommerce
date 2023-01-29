@@ -174,6 +174,8 @@ Route::get('/help-center/{helpcenter:slug}',[HelpCenterController::class,'single
 // color card request
 Route::post('/colorcard',[RequestController::class,'colorCard'])->name('colorcard.request');
 Route::post('/catalogue-request',[RequestController::class,'catalogueRequest'])->name('catalogue.request');
+Route::post('/custom-request',[RequestController::class,'customRequest'])->name('custom.request');
+Route::post('/madetoorder-request',[RequestController::class,'madeToOrderRequest'])->name('madetoorder.request');
 
 
 
