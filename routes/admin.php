@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ReportController;
+use App\Http\Controllers\Admin\RequestController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TicketController;
@@ -99,3 +100,20 @@ Route::post('/componenttypes/{component}/store', [ComponentTypeController::class
 Route::get('/componenttypes/{componenttype}/edit', [ComponentTypeController::class, 'edit'])->name('componenttypes.edit');
 Route::put('/componenttypes/{componenttype}/update', [ComponentTypeController::class, 'update'])->name('componenttypes.update');
 Route::delete('/componenttypes/{componenttype}', [ComponentTypeController::class, 'destroy'])->name('componenttypes.destroy');
+
+// requests
+Route::get('/color-cards', [RequestController::class, 'colorCards'])->name('colorcards');
+Route::get('/color-cards/{colorCard}', [RequestController::class, 'colorCardShow'])->name('colorcards.show');
+Route::get('/color-cards/complete/{colorCard}', [RequestController::class, 'completeColorCard'])->name('colorcards.complete');
+
+Route::get('/catalogue', [RequestController::class, 'catalogue'])->name('catalogue');
+Route::get('/catalogue/{catalogueRequest}', [RequestController::class, 'catalogueShow'])->name('catalogue.show');
+Route::get('/catalogue/complete/{catalogueRequest}', [RequestController::class, 'completeCatalogue'])->name('catalogue.complete');
+
+Route::get('/custom-made', [RequestController::class, 'custom'])->name('custom');
+Route::get('/custom-made/{customMade}', [RequestController::class, 'customShow'])->name('custom.show');
+Route::get('/custom-made/complete/{customMade}', [RequestController::class, 'customCatalogue'])->name('custom.complete');
+
+Route::get('/made-to-order', [RequestController::class, 'madeToOrder'])->name('madetoorder');
+Route::get('/made-to-order/{madeToOrder}', [RequestController::class, 'madeToOrderShow'])->name('madetoorder.show');
+Route::get('/made-to-order/complete/{madeToOrder}', [RequestController::class, 'madeToOrderComplete'])->name('madetoorder.complete');
