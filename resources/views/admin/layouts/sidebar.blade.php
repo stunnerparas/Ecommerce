@@ -194,6 +194,28 @@
             </li>
         @endif
 
+        <li
+            class="dropdown {{ Request::segment(2) == 'made-to-order' || Request::segment(2) == 'custom-made' || Request::segment(2) == 'color-cards' || Request::segment(2) == 'catalogue' ? 'active' : '' }}">
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-tags"></i>
+                <span>Customer Requests</span></a>
+            <ul class="dropdown-menu">
+                <li class="{{ Request::segment(2) == 'color-cards' ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('admin.colorcards') }}">Color Cards</a>
+                </li>
+                <li class="{{ Request::segment(2) == 'catalogue' ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('admin.catalogue') }}">Catalogue Requests</a>
+                </li>
+                <li class="{{ Request::segment(2) == 'custom-made' ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('admin.custom') }}">Custom Made</a>
+                </li>
+                <li class="{{ Request::segment(2) == 'made-to-order' ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('admin.madetoorder') }}">Made To Order</a>
+                </li>
+
+
+            </ul>
+        </li>
+
         </ul>
 
     </aside>
