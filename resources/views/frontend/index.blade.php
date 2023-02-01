@@ -31,11 +31,11 @@
         <div class="page-banner-container">
 
             <div class="hero-banner-mob">
-                <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100" alt="">
+                <img src="{{ asset('images/' . ($mainBanner->mobile_image ?? '')) }}" class="w-100 h-100" alt="">
             </div>
             <div class="banner-content">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 col-sm-12 banner_content">
+                <div class="banner-row">
+                    <div class="banner_content">
                         <!-- Banner Heading -->
                         <span class="banner-heading">
                             {{ $mainBanner->title ?? '' }}
@@ -43,13 +43,13 @@
                         </span>
 
                         <!-- Banner content -->
-                        <span class="banner-p">
+                        <span class="banner-p ">
                             {!! $mainBanner->description ?? '' !!}
                         </span>
 
 
                     </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 banner_container">
+                    <div class=" banner_container">
                         <!-- Banner image -->
                         <div class="hero-banner-desc">
                             <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="" />
@@ -115,19 +115,23 @@
 @if ($key % 2 == 0)
 <section class="signature-collection my-3">
     <a href="{{ route('filter', ['type' => 'collection', 'slug' => $collection->slug]) }}">
+
+
+
         <div class="page-banner-container">
 
             <div class="hero-banner-mob">
                 <img src="{{ asset('images/' . ($collection->mobile_image ?? '')) }}" class="w-100 h-100" alt="">
+
             </div>
             <div class="banner-content">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 col-sm-12 banner_content">
-                        <!-- Banner Heading -->
+                <div class="banner-row">
+                    <div class="banner_content">
                         <span class="banner-heading">
-                            <!-- {{-- {{ $collection->type ?? '' }} --}}
-                         -->
-                         Signature Collection 2023
+                            {!! $collection->type ?? '' !!}
+
+
+
 
                         </span>
 
@@ -138,8 +142,9 @@
                         </span>
 
 
+
                     </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 banner_container">
+                    <div class=" banner_container">
                         <!-- Banner image -->
                         <div class="hero-banner-desc">
                             <img src="{{ asset('images/' . ($collection->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="{{ $collection->type ?? '' }}" />
@@ -176,15 +181,16 @@
 
             <div class="hero-banner-mob">
                 <img src="{{ asset('images/' . ($collection->mobile_image ?? '')) }}" class="w-100 h-100" alt="">
+
             </div>
             <div class="banner-content">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 col-sm-12 banner_content">
-                        <!-- Banner Heading -->
+                <div class="banner-row">
+                    <div class="banner_content">
                         <span class="banner-heading">
-                            <!-- {{-- {{ $collection->type ?? '' }} --}}
-                         -->
-                         Signature Collection 2023
+                            {!! $collection->type ?? '' !!}
+
+
+
 
                         </span>
 
@@ -195,8 +201,9 @@
                         </span>
 
 
+
                     </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 banner_container">
+                    <div class=" banner_container">
                         <!-- Banner image -->
                         <div class="hero-banner-desc">
                             <img src="{{ asset('images/' . ($collection->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="{{ $collection->type ?? '' }}" />

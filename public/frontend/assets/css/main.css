@@ -508,19 +508,28 @@ img{
 }
 
 .page-banner-container .hero-banner-desc {
-    width: 400px;
-    height: 600px;
+    width: 100%;
+    height: auto;
 }
 
-.page-banner-container .row {
-    align-items: center;
+.page-banner-container .banner-row {
+   position: relative;
 }
 .banner_container{
     display: flex;
-    justify-content: end;
+   width: 100%;
+   height: 100%;
 }
 .banner_content{
     padding: 20px 60px;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    z-index: 1;
 
 }
 
@@ -537,6 +546,7 @@ img{
     font-family: "DM Sans", sans-serif;
     font-size: 20px;
     display: block;
+    padding-top: 15px;
 }
 
 .hero-banner-mob {
@@ -567,10 +577,11 @@ img{
         height: 100%;
         background: linear-gradient(rgba(255,255,255,0.8),rgba(255,255,255,0.8));
         justify-content: center;
-        align-items: center;
+        /* align-items: center; */
         flex-direction: column;
     }
     .banner_content{
+      
         width: 100%;
     }
 }
