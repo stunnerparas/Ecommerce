@@ -32,6 +32,7 @@ class BusinessController extends Controller
         $user->update([
             'status' => $request->status
         ]);
+        sendCustomerMail($user->email, 'Business Account Verification', 'Your business account has been ' . $request->status);
 
         createLog('updated business user account status'); // activity log
         return redirect()->back()->with('success', 'Account has been ' . $request->status);

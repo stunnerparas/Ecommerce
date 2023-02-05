@@ -16,6 +16,7 @@
                     <div class="card">
 
                         <div class="card-body">
+                            @include('admin.includes.messages')
                             <table class="table">
                                 <tr>
                                     <th>Name</th>
@@ -78,7 +79,6 @@
                                 <hr>
                                 <form action="{{ route('admin.business.users.update', $user->id) }}" method="POST">
                                     @csrf
-                                    @include('admin.includes.messages')
                                     <div class="row mb-3">
                                         <div class="col-md-6">
                                             <label for="">Status</label>

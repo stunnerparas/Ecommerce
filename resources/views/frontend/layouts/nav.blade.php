@@ -68,7 +68,7 @@ Backend Developer : Rudra Rajbanshi.
                 @endif
             </li>
 
-            
+
             @endforeach
             <li class="offcanvas-li" id="offcanvas-women-li">
                 <a href="#">Our World
@@ -78,7 +78,7 @@ Backend Developer : Rudra Rajbanshi.
             </li>
 
             <li class="offcanvas-li" id="offcanvas-women-li">
-                <a href="#">B2B
+                <a href="{{ route('business.login') }}">B2B
                 </a>
 
             </li>
@@ -164,9 +164,9 @@ Backend Developer : Rudra Rajbanshi.
                                 <a href="">Our World</a>
                             </li>
                             <li id="sub-menu-world" class="sub-menu-click bold" data-category="">
-                                <a href="" class="mx-4 font-weight-bold ">
+                                <a href="{{ route('business.login') }}" class="mx-4 font-weight-bold ">
                                     <span class="heading_bold">B2B</span>
-                                    
+
                                 </a>
                             </li>
                         </ul>

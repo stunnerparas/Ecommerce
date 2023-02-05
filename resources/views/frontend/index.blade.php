@@ -1,242 +1,254 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-<!-- Hero Section Started -->
-@if ($mainBanner)
-<section class="hero">
-    <!-- Hero main Banner -->
-    <!-- <div class="hero-menu banner">
-                                                        <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="" />
-                                                        <div class="content">
-                                                            <div class="container">
-                                                                <div class="row">
-                                                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 hero-container">
-                                                                        <div class="hero__text">
-                                                                            <h2></h2>
-                                                                            <p>
-                                                                                {!! $mainBanner->description ?? '' !!}
-                                                                            </p>
-                                                                            <a href="{{ $mainBanner->btn_link ?? '' }}" class="primary-btn">{{ $mainBanner->btn_text ?? '' }} </i></a>
+    <!-- Hero Section Started -->
+    @if ($mainBanner)
+        <section class="hero">
+            <!-- Hero main Banner -->
+            <!-- <div class="hero-menu banner">
+                                                            <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="" />
+                                                            <div class="content">
+                                                                <div class="container">
+                                                                    <div class="row">
+                                                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 hero-container">
+                                                                            <div class="hero__text">
+                                                                                <h2></h2>
+                                                                                <p>
+                                                                                    {!! $mainBanner->description ?? '' !!}
+                                                                                </p>
+                                                                                <a href="{{ $mainBanner->btn_link ?? '' }}" class="primary-btn">{{ $mainBanner->btn_text ?? '' }} </i></a>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
 
-                                                        <div class="hero-banner-sm">
-                                                            <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100" alt="">
-                                                        </div>
-                                                    </div> -->
-    <a href="{{ $mainBanner->btn_link ?? '' }}">
-        <div class="page-banner-container">
+                                                            <div class="hero-banner-sm">
+                                                                <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100" alt="">
+                                                            </div>
+                                                        </div> -->
+            <a href="{{ $mainBanner->btn_link ?? '' }}">
+                <div class="page-banner-container">
 
-            <div class="hero-banner-mob">
-                <img src="{{ asset('images/' . ($mainBanner->mobile_image ?? '')) }}" class="w-100 h-100" alt="">
-            </div>
-            <div class="banner-content">
-                <div class="banner-row">
-                    <div class="banner_content">
-                        <!-- Banner Heading -->
-                        <span class="banner-heading">
-                            {{ $mainBanner->title ?? '' }}
-
-                        </span>
-
-                        <!-- Banner content -->
-                        <span class="banner-p ">
-                            {!! $mainBanner->description ?? '' !!}
-                        </span>
-
-
+                    <div class="hero-banner-mob">
+                        <img src="{{ asset('images/' . ($mainBanner->mobile_image ?? '')) }}" class="w-100 h-100"
+                            alt="">
                     </div>
-                    <div class=" banner_container">
-                        <!-- Banner image -->
-                        <div class="hero-banner-desc">
-                            <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="" />
+                    <div class="banner-content">
+                        <div class="banner-row">
+                            <div class="banner_content">
+                                <!-- Banner Heading -->
+                                <span class="banner-heading">
+                                    {{ $mainBanner->title ?? '' }}
 
+                                </span>
+
+                                <!-- Banner content -->
+                                <span class="banner-p ">
+                                    {!! $mainBanner->description ?? '' !!}
+                                </span>
+
+
+                            </div>
+                            <div class=" banner_container">
+                                <!-- Banner image -->
+                                <div class="hero-banner-desc">
+                                    <img src="{{ asset('images/' . ($mainBanner->image ?? '')) }}"
+                                        class="w-100 h-100 hero-banner-image" alt="" />
+
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
+            </a>
 
-            </div>
-        </div>
-    </a>
+        </section>
+    @endif
 
-</section>
-@endif
-
-<!-- Hero Section End -->
-<!-- Product Section Started -->
-<section class="product spad my-2">
-    <div class="container">
-        <h2 class="section-heading text-center py-3">Luxury Cashmere</h2>
-
-
-        <div class="row" style="margin-top: 20px; display: flex; justify-content: center">
-            <!-- luxary cahmere left section -->
-            @if ($luxuryLeft)
-            <div class="col-lg-6 col-md-6 col-sm-12 px-2">
-                <div class="men-cart px-2 py-2">
-                    <div class="images">
-                        <img src="{{ asset('images/' . ($luxuryLeft->image ?? '')) }}" class="w-100 h-100" alt="" />
-                    </div>
-                    <div class="content">
-                        <a href="{{ $luxuryLeft->btn_link ?? '#' }}" class="secondary-btn">{{ $luxuryLeft->title ?? '' }}</a>
-                    </div>
-                </div>
-            </div>
-            @endif
-
-            @if ($luxuryRight)
-            <!-- Luxary cashmere right section -->
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <div class="women-cart py-2">
-                    <div class="images">
-                        <img src="{{ asset('images/' . ($luxuryRight->image ?? '')) }}" class="w-100 h-100" alt="" />
-                    </div>
-                    <div class="content">
-                        <a href="{{ $luxuryRight->btn_link ?? '#' }}" class="secondary-btn">{{ $luxuryRight->title ?? '' }}</a>
-                    </div>
-                </div>
-            </div>
-            @endif
-
-        </div>
-
-
-
-
-    </div>
-</section>
-<!-- Product Section End -->
-
-<!--   collection section -->
-@foreach ($collections as $key => $collection)
-@if ($key % 2 == 0)
-<section class="signature-collection my-3">
-    <a href="{{ route('filter', ['type' => 'collection', 'slug' => $collection->slug]) }}">
-
-
-
-        <div class="page-banner-container">
-
-            <div class="hero-banner-mob">
-                <img src="{{ asset('images/' . ($collection->mobile_image ?? '')) }}" class="w-100 h-100" alt="">
-
-            </div>
-            <div class="banner-content">
-                <div class="banner-row">
-                    <div class="banner_content">
-                        <span class="banner-heading">
-                            {!! $collection->type ?? '' !!}
-
-
-
-
-                        </span>
-
-                        <!-- Banner content -->
-                        <span class="banner-p">
-                            {!! $collection->description ?? '' !!}
-
-                        </span>
-
-
-
-                    </div>
-                    <div class=" banner_container">
-                        <!-- Banner image -->
-                        <div class="hero-banner-desc">
-                            <img src="{{ asset('images/' . ($collection->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="{{ $collection->type ?? '' }}" />
-
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </a>
-    <!-- end -->
-    <!-- Signature collection product -->
-    <div class="signature-collection-product py-3">
+    <!-- Hero Section End -->
+    <!-- Product Section Started -->
+    <section class="product spad my-2">
         <div class="container">
-            <div class="row product_filter">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 signature-link-container">
-                    <a href="{{ route('filter', ['type' => 'collection', 'slug' => $collection->slug]) }}" class="my-5 signature-link">{{ $collection->type ?? '' }} →</a>
-                </div>
-
-                @foreach (getProductsFromType($collection->slug, 3) as $signature)
-                @include('frontend.component.product', ['product' => $signature])
-                @endforeach
-            </div>
-        </div>
-    </div>
-    <!-- End -->
-</section>
-@else
-<section class="signature-collection my-3">
-    <a href="{{ route('filter', ['type' => 'collection', 'slug' => $collection->slug]) }}">
-        <div class="page-banner-container">
-
-            <div class="hero-banner-mob">
-                <img src="{{ asset('images/' . ($collection->mobile_image ?? '')) }}" class="w-100 h-100" alt="">
-
-            </div>
-            <div class="banner-content">
-                <div class="banner-row">
-                    <div class="banner_content">
-                        <span class="banner-heading">
-                            {!! $collection->type ?? '' !!}
+            <h2 class="section-heading text-center py-3">Luxury Cashmere</h2>
 
 
-
-
-                        </span>
-
-                        <!-- Banner content -->
-                        <span class="banner-p">
-                            {!! $collection->description ?? '' !!}
-
-                        </span>
-
-
-
+            <div class="row" style="margin-top: 20px; display: flex; justify-content: center">
+                <!-- luxary cahmere left section -->
+                @if ($luxuryLeft)
+                    <div class="col-lg-6 col-md-6 col-sm-12 px-2">
+                        <div class="men-cart px-2 py-2">
+                            <div class="images">
+                                <img src="{{ asset('images/' . ($luxuryLeft->image ?? '')) }}" class="w-100 h-100"
+                                    alt="" />
+                            </div>
+                            <div class="content">
+                                <a href="{{ $luxuryLeft->btn_link ?? '#' }}"
+                                    class="secondary-btn">{{ $luxuryLeft->title ?? '' }}</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class=" banner_container">
-                        <!-- Banner image -->
-                        <div class="hero-banner-desc">
-                            <img src="{{ asset('images/' . ($collection->image ?? '')) }}" class="w-100 h-100 hero-banner-image" alt="{{ $collection->type ?? '' }}" />
+                @endif
 
+                @if ($luxuryRight)
+                    <!-- Luxary cashmere right section -->
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="women-cart py-2">
+                            <div class="images">
+                                <img src="{{ asset('images/' . ($luxuryRight->image ?? '')) }}" class="w-100 h-100"
+                                    alt="" />
+                            </div>
+                            <div class="content">
+                                <a href="{{ $luxuryRight->btn_link ?? '#' }}"
+                                    class="secondary-btn">{{ $luxuryRight->title ?? '' }}</a>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
+            </div>
+
+
+
+
+        </div>
+    </section>
+    <!-- Product Section End -->
+
+    <!--   collection section -->
+    @foreach ($collections as $key => $collection)
+        @if ($key % 2 == 0)
+            <section class="signature-collection my-3">
+                <a href="{{ route('filter', ['type' => 'collection', 'slug' => $collection->slug]) }}">
+
+
+
+                    <div class="page-banner-container">
+
+                        <div class="hero-banner-mob">
+                            <img src="{{ asset('images/' . ($collection->mobile_image ?? '')) }}" class="w-100 h-100"
+                                alt="">
+
+                        </div>
+                        <div class="banner-content">
+                            <div class="banner-row">
+                                <div class="banner_content">
+                                    <span class="banner-heading">
+                                        {{-- {!! $collection->type ?? '' !!} --}}
+
+
+
+
+                                    </span>
+
+                                    <!-- Banner content -->
+                                    <span class="banner-p">
+                                        {!! $collection->description ?? '' !!}
+
+                                    </span>
+
+
+
+                                </div>
+                                <div class=" banner_container">
+                                    <!-- Banner image -->
+                                    <div class="hero-banner-desc">
+                                        <img src="{{ asset('images/' . ($collection->image ?? '')) }}"
+                                            class="w-100 h-100 hero-banner-image" alt="{{ $collection->type ?? '' }}" />
+
+
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
+                </a>
+                <!-- end -->
+                <!-- Signature collection product -->
+                <div class="signature-collection-product py-3">
+                    <div class="container">
+                        <div class="row product_filter">
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 signature-link-container">
+                                <a href="{{ route('filter', ['type' => 'collection', 'slug' => $collection->slug]) }}"
+                                    class="my-5 signature-link">{{ $collection->type ?? '' }} →</a>
+                            </div>
+
+                            @foreach (getProductsFromType($collection->slug, 3) as $signature)
+                                @include('frontend.component.product', ['product' => $signature])
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
+                <!-- End -->
+            </section>
+        @else
+            <section class="signature-collection my-3">
+                <a href="{{ route('filter', ['type' => 'collection', 'slug' => $collection->slug]) }}">
+                    <div class="page-banner-container">
 
-            </div>
-        </div>
-    </a>
-    <!-- end -->
-    <!-- Signature collection product -->
-    <div class="signature-collection-product py-3">
-        <div class="container">
-            <div class="row product_filter">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 signature-link-container">
-                    <a href="{{ route('filter', ['type' => 'collection', 'slug' => $collection->slug]) }}" class="my-5 signature-link">{{ $collection->type ?? '' }} →</a>
+                        <div class="hero-banner-mob">
+                            <img src="{{ asset('images/' . ($collection->mobile_image ?? '')) }}" class="w-100 h-100"
+                                alt="">
+
+                        </div>
+                        <div class="banner-content">
+                            <div class="banner-row">
+                                <div class="banner_content">
+                                    <span class="banner-heading">
+                                        {{-- {!! $collection->type ?? '' !!} --}}
+
+
+
+
+                                    </span>
+
+                                    <!-- Banner content -->
+                                    <span class="banner-p">
+                                        {!! $collection->description ?? '' !!}
+
+                                    </span>
+
+
+
+                                </div>
+                                <div class=" banner_container">
+                                    <!-- Banner image -->
+                                    <div class="hero-banner-desc">
+                                        <img src="{{ asset('images/' . ($collection->image ?? '')) }}"
+                                            class="w-100 h-100 hero-banner-image" alt="{{ $collection->type ?? '' }}" />
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </a>
+                <!-- end -->
+                <!-- Signature collection product -->
+                <div class="signature-collection-product py-3">
+                    <div class="container">
+                        <div class="row product_filter">
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 signature-link-container">
+                                <a href="{{ route('filter', ['type' => 'collection', 'slug' => $collection->slug]) }}"
+                                    class="my-5 signature-link">{{ $collection->type ?? '' }} →</a>
+                            </div>
+
+                            @foreach (getProductsFromType($collection->slug, 3) as $signature)
+                                @include('frontend.component.product', ['product' => $signature])
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
+                <!-- End -->
+            </section>
+        @endif
+    @endforeach
 
-                @foreach (getProductsFromType($collection->slug, 3) as $signature)
-                @include('frontend.component.product', ['product' => $signature])
-                @endforeach
-            </div>
-        </div>
-    </div>
-    <!-- End -->
-</section>
-@endif
-@endforeach
-
-<?php /*
+    <?php /*
 <!-- Catagories Section End -->
 <!-- Signature Collection Section -->
 <section class="signature-collection my-3">
@@ -611,210 +623,219 @@
     </section>
     <!-- Women Collection End -->
 <?php */
-?>
+    ?>
 
-<!-- Detail Section Start -->
-<section class="detail">
-    <div class="container-fluid">
-        @if ($footerTop)
-        <!-- Detail banner -->
-        <div class="detail-banner">
-            <img src="{{ asset('images/' . ($footerTop->image ?? '')) }}" class="w-100 h-100" alt="" />
-            <div class="detail-content text-center">
-                <h2 class="section-heading">{{ $footerTop->title ?? '' }}</h2>
-                <h3 class="section-heading">{!! strip_tags($footerTop->description ?? '') !!}</h3>
+    <!-- Detail Section Start -->
+    <section class="detail">
+        <div class="container-fluid">
+            @if ($footerTop)
+                <!-- Detail banner -->
+                <div class="detail-banner">
+                    <img src="{{ asset('images/' . ($footerTop->image ?? '')) }}" class="w-100 h-100" alt="" />
+                    <div class="detail-content text-center">
+                        <h2 class="section-heading">{{ $footerTop->title ?? '' }}</h2>
+                        <h3 class="section-heading">{!! strip_tags($footerTop->description ?? '') !!}</h3>
+                    </div>
+                </div>
+            @endif
+
+            <div class="detail-images">
+                <div class="container-fluid">
+                    <div class="row">
+                        <!-- detail image left -->
+                        @if (getCashmereType(1))
+                            <div class="col-lg-4 col-md-6 col-sm-12 px-2">
+                                <div class="image my-2">
+                                    <a href="{{ route('detailColor') }}"><img
+                                            src="{{ asset('images/' . getCashmereType(1)->image) }}" class="w-100 h-100"
+                                            alt="" /></a>
+
+                                </div>
+                                <div class="detail-links">
+                                    <a href="{{ route('detailColor') }}">{{ getCashmereType(1)->title ?? '' }}</a>
+                                </div>
+                            </div>
+                            <!-- end -->
+                        @endif
+                        <!-- detail image center -->
+                        @if (getCashmereType(2))
+                            <div class="col-lg-4 col-md-6 col-sm-12 px-2">
+                                <div class="image my-2">
+                                    <a href="{{ route('detailYarn') }}"> <img
+                                            src="{{ asset('images/' . (getCashmereType(2)->image ?? '')) }}"
+                                            class="w-100 h-100" alt="" /></a>
+
+                                </div>
+                                <div class="detail-links">
+                                    <a href="{{ route('detailYarn') }}">{{ getCashmereType(2)->title ?? '' }}</a>
+                                </div>
+                            </div>
+                            <!-- end -->
+                        @endif
+                        <!-- detail image right -->
+                        @if (getCashmereType(3))
+                            <div class="col-lg-4 col-md-6 col-sm-12 px-2">
+                                <div class="image my-2">
+                                    <a href="{{ route('detailKnit') }}"> <img
+                                            src="{{ asset('images/' . (getCashmereType(3)->image ?? '')) }}"
+                                            class="w-100 h-100" alt="" /></a>
+
+                                </div>
+                                <div class="detail-links">
+                                    <a href="{{ route('detailKnit') }}">{{ getCashmereType(3)->title ?? '' }}</a>
+
+                                </div>
+                            </div>
+                            <!-- end -->
+                        @endif
+
+                    </div>
+                </div>
             </div>
         </div>
-        @endif
+    </section>
+    <!-- Detail Section End -->
+    <!-- Catalogue section start -->
+    <div class="catalogue py-4">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="catalogue-content">
+                    <h2 class="section-heading">Product Catalogue </h2>
 
-        <div class="detail-images">
-            <div class="container-fluid">
-                <div class="row">
-                    <!-- detail image left -->
-                    @if (getCashmereType(1))
-                    <div class="col-lg-4 col-md-6 col-sm-12 px-2">
-                        <div class="image my-2">
-                            <a href="{{ route('detailColor') }}"><img src="{{ asset('images/' . getCashmereType(1)->image) }}" class="w-100 h-100" alt="" /></a>
 
-                        </div>
-                        <div class="detail-links">
-                            <a href="{{ route('detailColor') }}">{{ getCashmereType(1)->title ?? '' }}</a>
-                        </div>
+                    <div class="button">
+                        <a href="{{ asset('catalogue/kanchanmaggfinal.pdf') }}" download="catalogue"
+                            class="tritary-btn">Download <i class="fas fa-arrow-down"></i></a>
                     </div>
-                    <!-- end -->
-                    @endif
-                    <!-- detail image center -->
-                    @if (getCashmereType(2))
-                    <div class="col-lg-4 col-md-6 col-sm-12 px-2">
-                        <div class="image my-2">
-                            <a href="{{ route('detailYarn') }}"> <img src="{{ asset('images/' . (getCashmereType(2)->image ?? '')) }}" class="w-100 h-100" alt="" /></a>
 
-                        </div>
-                        <div class="detail-links">
-                            <a href="{{ route('detailYarn') }}">{{ getCashmereType(2)->title ?? '' }}</a>
-                        </div>
-                    </div>
-                    <!-- end -->
-                    @endif
-                    <!-- detail image right -->
-                    @if (getCashmereType(3))
-                    <div class="col-lg-4 col-md-6 col-sm-12 px-2">
-                        <div class="image my-2">
-                            <a href="{{ route('detailKnit') }}"> <img src="{{ asset('images/' . (getCashmereType(3)->image ?? '')) }}" class="w-100 h-100" alt="" /></a>
 
-                        </div>
-                        <div class="detail-links">
-                            <a href="{{ route('detailKnit') }}">{{ getCashmereType(3)->title ?? '' }}</a>
+                </div>
 
-                        </div>
-                    </div>
-                    <!-- end -->
-                    @endif
+            </div>
+            <div class="col-lg-6">
+                <div class="catalogue-image">
+                    <img src="{{ asset('frontend/assets/images/catalogue.jpeg') }}" class="w-100 h-100"
+                        alt="" />
 
                 </div>
             </div>
         </div>
     </div>
-</section>
-<!-- Detail Section End -->
-<!-- Catalogue section start -->
-<div class="catalogue py-4">
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="catalogue-content">
-                <h2 class="section-heading">Product Catalogue </h2>
+    <!-- Catalogue section end -->
 
 
-                <div class="button">
-                    <a href="{{ asset('catalogue/kanchanmaggfinal.pdf') }}" download="catalogue" class="tritary-btn">Download <i class="fas fa-arrow-down"></i></a>
-                </div>
-
-
-            </div>
-
-        </div>
-        <div class="col-lg-6">
-            <div class="catalogue-image">
-                <img src="{{ asset('frontend/assets/images/catalogue.jpeg') }}" class="w-100 h-100" alt="" />
-
+    <!-- Contact Section Start -->
+    <section class="contact">
+        <div class="container">
+            <!-- contact heading -->
+            <h2 class="text-center">Keep In Touch</h2>
+            <div class="form text-center my-3">
+                <!-- contact form -->
+                <form class="form d-flex justify-content-center" id="newsletter-form" method="POST">
+                    @csrf
+                    <input class="form_input w-50" style="padding:20px 30px ;" id="newsletter-email" name="email"
+                        type="email" placeholder="Your email" />
+                    <div class="submit-button ml-2">
+                        <button style="cursor: pointer" class="submit-btn " type="submit">Submit</button>
+                    </div>
+                </form>
+                <!-- end -->
             </div>
         </div>
-    </div>
-</div>
-<!-- Catalogue section end -->
-
-
-<!-- Contact Section Start -->
-<section class="contact">
-    <div class="container">
-        <!-- contact heading -->
-        <h2 class="text-center">Keep In Touch</h2>
-        <div class="form text-center my-3">
-            <!-- contact form -->
-            <form class="form d-flex justify-content-center" id="newsletter-form" method="POST">
-                @csrf
-                <input class="form_input w-50" style="padding:20px 30px ;" id="newsletter-email" name="email" type="email" placeholder="Your email" />
-                <div class="submit-button ml-2">
-                    <button style="cursor: pointer" class="submit-btn " type="submit">Submit</button>
-                </div>
-            </form>
-            <!-- end -->
-        </div>
-    </div>
-</section>
-<!-- contact section End -->
+    </section>
+    <!-- contact section End -->
 @endsection
 
 @section('scripts')
-<script>
-    var curday;
-    var secTime;
-    var ticker;
+    <script>
+        var curday;
+        var secTime;
+        var ticker;
 
-    function getSeconds() {
-        var nowDate = new Date();
-        var dy = "{{ $dealOfTheWeek->end_day ?? 0 }} "; //Monday through Sunday, 0 to 6
-        var countertime = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate(),
-            23, 59, 59); //24 out of 24 hours = 12pm
+        function getSeconds() {
+            var nowDate = new Date();
+            var dy = "{{ $dealOfTheWeek->end_day ?? 0 }} "; //Monday through Sunday, 0 to 6
+            var countertime = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate(),
+                23, 59, 59); //24 out of 24 hours = 12pm
 
-        var curtime = nowDate.getTime(); //current time
-        var atime = countertime.getTime(); //countdown time
-        var diff = parseInt((atime - curtime) / 1000);
-        if (diff > 0) {
-            curday = dy - nowDate.getDay()
-        } else {
-            curday = dy - nowDate.getDay() - 1
-        } //after countdown time
-        if (curday < 0) {
-            curday += 7;
-        } //already after countdown time, switch to next week
-        if (diff <= 0) {
-            diff += (86400 * 7)
-        }
-        startTimer(diff);
-    }
-
-    function startTimer(secs) {
-        secTime = parseInt(secs);
-        ticker = setInterval("tick()", 1000);
-        tick(); //initial count display
-    }
-
-    function tick() {
-        var secs = secTime;
-        if (secs > 0) {
-            secTime--;
-        } else {
-            clearInterval(ticker);
-            getSeconds(); //start over
+            var curtime = nowDate.getTime(); //current time
+            var atime = countertime.getTime(); //countdown time
+            var diff = parseInt((atime - curtime) / 1000);
+            if (diff > 0) {
+                curday = dy - nowDate.getDay()
+            } else {
+                curday = dy - nowDate.getDay() - 1
+            } //after countdown time
+            if (curday < 0) {
+                curday += 7;
+            } //already after countdown time, switch to next week
+            if (diff <= 0) {
+                diff += (86400 * 7)
+            }
+            startTimer(diff);
         }
 
-        var days = Math.floor(secs / 86400);
-        secs %= 86400;
-        var hours = Math.floor(secs / 3600);
-        secs %= 3600;
-        var mins = Math.floor(secs / 60);
-        secs %= 60;
-
-        //update the time display
-        document.getElementById("day").innerHTML = curday;
-        document.getElementById("hour").innerHTML = ((hours < 10) ? "0" : "") + hours;
-        document.getElementById("minute").innerHTML = ((mins < 10) ? "0" : "") + mins;
-        document.getElementById("second").innerHTML = ((secs < 10) ? "0" : "") + secs;
-    }
-</script>
-
-<script>
-    $(document).ready(function() {
-        getSeconds();
-    });
-
-    $(document).on('submit', '#newsletter-form', function(e) {
-        e.preventDefault();
-
-        var email = $('#newsletter-email').val();
-        if (!email) {
-            toastr.error("Please enter your email");
-            return false;
+        function startTimer(secs) {
+            secTime = parseInt(secs);
+            ticker = setInterval("tick()", 1000);
+            tick(); //initial count display
         }
 
-        nthis = $(this);
-        var newsletterData = new FormData(nthis[0]);
-        $.ajax({
-            url: "{{ route('newsletter') }}",
-            type: "POST",
-            data: newsletterData,
-            processData: false,
-            contentType: false,
-            cache: false,
-            success: function(data) {
-                toastr.success("Your email has been sent");
-                nthis[0].reset();
-            },
-            error: function(data) {
-                toastr.error("Some Problems Occured!");
-            },
+        function tick() {
+            var secs = secTime;
+            if (secs > 0) {
+                secTime--;
+            } else {
+                clearInterval(ticker);
+                getSeconds(); //start over
+            }
+
+            var days = Math.floor(secs / 86400);
+            secs %= 86400;
+            var hours = Math.floor(secs / 3600);
+            secs %= 3600;
+            var mins = Math.floor(secs / 60);
+            secs %= 60;
+
+            //update the time display
+            document.getElementById("day").innerHTML = curday;
+            document.getElementById("hour").innerHTML = ((hours < 10) ? "0" : "") + hours;
+            document.getElementById("minute").innerHTML = ((mins < 10) ? "0" : "") + mins;
+            document.getElementById("second").innerHTML = ((secs < 10) ? "0" : "") + secs;
+        }
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            getSeconds();
         });
-    })
-</script>
+
+        $(document).on('submit', '#newsletter-form', function(e) {
+            e.preventDefault();
+
+            var email = $('#newsletter-email').val();
+            if (!email) {
+                toastr.error("Please enter your email");
+                return false;
+            }
+
+            nthis = $(this);
+            var newsletterData = new FormData(nthis[0]);
+            $.ajax({
+                url: "{{ route('newsletter') }}",
+                type: "POST",
+                data: newsletterData,
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function(data) {
+                    toastr.success("Your email has been sent");
+                    nthis[0].reset();
+                },
+                error: function(data) {
+                    toastr.error("Some Problems Occured!");
+                },
+            });
+        })
+    </script>
 @endsection
