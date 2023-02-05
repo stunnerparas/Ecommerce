@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Products</h1>
+            <h1>Products ({{$products->total()}})</h1>
             <div class="section-header-breadcrumb">
                 @can('Create Product')
                     <a class="btn btn-primary" href="{{ route('admin.products.create') }}"><i class="fas fa-plus"></i>

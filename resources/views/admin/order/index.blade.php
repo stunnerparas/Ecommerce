@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Orders</h1>
+            <h1>Orders ({{$orders->total()}})</h1>
             {{-- <div class="section-header-breadcrumb">
                 <a class="btn btn-primary" href=""><i class="fas fa-plus"></i>
                     Create</a>
@@ -47,7 +47,7 @@
                                                 <td>
                                                     <div class="row">
                                                         @can('View Order Details')
-                                                            <a class="btn btn-success mr-1"
+                                                            <a class="btn btn-success btn-sm mr-1"
                                                                 href="{{ route('admin.orders.items', $order->id) }}">View</a>
                                                         @endcan
 
@@ -57,7 +57,7 @@
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button class="btn btn-danger delete-order" type="submit">
+                                                                <button class="btn btn-danger btn-sm delete-order" type="submit">
                                                                     Delete
                                                                 </button>
                                                             </form>

@@ -88,7 +88,7 @@ class AuthController extends Controller
         sendAdminMail('Registration Successful', 'New business account with email ' . $request->email . ' has been registered');
         sendCustomerMail($request->email, 'Registration Successful', 'Your business account has been registered. You will be notified once your account is approved. ');
 
-        return redirect()->route('business.login')->with('success', 'Registered Successfully.');
+        return redirect()->route('business.login')->with('success', 'Registered Successfully. You will be notified once your account is verified');
     }
 
     public function businessLoginCheck(Request $request)

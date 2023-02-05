@@ -24,10 +24,11 @@ class DashboardController extends Controller
         $orders = Order::where('is_seen', 0)->get()->count();
         $customers = User::where('user_type', 'customer')->get()->count();
         $business = User::where('user_type', 'business')->get()->count();
+        $businessPending = User::where('user_type', 'business')->where('status', 'PENDING')->get()->count();
         $tickets = Ticket::where('status', 'Pending')->get()->count();
         $products = Product::all()->count();
 
-        return view('admin.dashboard.index', compact('orders', 'customers', 'business', 'tickets', 'products'));
+        return view('admin.dashboard.index', compact('orders', 'businessPending', 'customers', 'business', 'tickets', 'products'));
     }
 
     public function globalSearch()
