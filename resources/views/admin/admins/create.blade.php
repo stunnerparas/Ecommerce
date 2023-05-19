@@ -1,5 +1,6 @@
 @extends('admin.layouts.master')
 
+
 @section('content')
     <section class="section">
         <div class="section-header">
@@ -127,6 +128,8 @@
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
+
+
 
                         </div>
                     </div>
