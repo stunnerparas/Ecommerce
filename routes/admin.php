@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\Admin\AuthController;
@@ -9,7 +9,6 @@ use App\Http\Controllers\Admin\ComponentTypeController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\CurrencyController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\HelpCenterController;
 use App\Http\Controllers\Admin\LogController;
 use App\Http\Controllers\Admin\ManageShippingController;
