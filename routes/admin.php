@@ -3,9 +3,6 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AttributeController;
 use App\Http\Controllers\Admin\AuthController;
-use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\BusinessController;
-use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\ComponentController;
 use App\Http\Controllers\Admin\ComponentTypeController;
@@ -29,6 +26,9 @@ use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WeeklyDealsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\BusinessController;
+use App\Http\Controllers\Admin\CategoryController;
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/checklogin', [AuthController::class, 'checkLogin'])->name('checklogin');
